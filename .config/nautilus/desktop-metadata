@@ -1,0 +1,38 @@
+[directory]
+nautilus-icon-view-keep-aligned=true
+nautilus-icon-view-layout-timestamp=1389047834
+
+[trash]
+nautilus-icon-position=64,322
+icon-scale=1
+nautilus-icon-position-timestamp=1388311183
+
+[home]
+nautilus-icon-position=64,122
+icon-scale=1
+nautilus-icon-position-timestamp=1389047834
+
+[computer]
+nautilus-icon-position=64,22
+icon-scale=1
+nautilus-icon-position-timestamp=1389047834
+
+[1.0 TB Filesystem.volume]
+nautilus-icon-position=64,602
+icon-scale=1
+nautilus-icon-position-timestamp=1388830970
+
+[1.0 TB Filesystem.volume.2]
+nautilus-icon-position=64,702
+icon-scale=1
+nautilus-icon-position-timestamp=1388831296
+
+[usb0.volume]
+nautilus-icon-position=64,222
+icon-scale=1
+nautilus-icon-position-timestamp=1388611198
+
+[Debian 7.3.0 amd64 1.volume]
+nautilus-icon-position=64,702
+icon-scale=1
+nautilus-icon-position-timestamp=1388857409

@@ -1,0 +1,21 @@
+VirtualBox GUI VM Selector Window 4.3.10_Debian r93012 linux.amd64 (Apr  6 2014 13:40:56) release log
+00:00:00.554912 Log opened 2014-06-03T19:17:58.690075000Z
+00:00:00.554913 Build Type: release
+00:00:00.554915 OS Product: Linux
+00:00:00.554916 OS Release: 3.2.0-4-amd64
+00:00:00.554917 OS Version: #1 SMP Debian 3.2.57-3
+00:00:00.554931 DMI Product Name: 2438CTO
+00:00:00.554936 DMI Product Version: ThinkPad W530
+00:00:00.554986 Host RAM: 7603MB total, 7430MB available
+00:00:00.554988 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.554989 Process ID: 3018
+00:00:00.554989 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.571384 UIMediumEnumerator: Medium-enumeration started...
+00:00:00.712933 UIMediumEnumerator: Medium-enumeration finished!
+00:08:26.146716 2D support test succeeded
+00:08:26.155836 UIMediumEnumerator: Medium-enumeration started...
+00:08:26.263309 UIMediumEnumerator: Medium-enumeration finished!
+00:08:55.438160 UIMediumEnumerator: Machine (or snapshot) event received, ID = 296cf572-888e-48ff-8bb8-50d71bbb7f97
+00:08:55.438237 UIMediumEnumerator:  Old usage: 76df4646-a530-4c02-b42e-ae65650b1495, c46f1c17-1d2f-44c6-b597-2f0bede4d080
+00:08:55.440511 UIMediumEnumerator:  New usage: 76df4646-a530-4c02-b42e-ae65650b1495, c46f1c17-1d2f-44c6-b597-2f0bede4d080
+00:08:55.440552 UIMediumEnumerator: Machine (or snapshot) event processed, ID = 296cf572-888e-48ff-8bb8-50d71bbb7f97

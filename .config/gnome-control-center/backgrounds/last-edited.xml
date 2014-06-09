@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper>
+    <name>Debian</name>
+    <filename>/usr/share/images/desktop-base/joy.xml</filename>
+    <options>zoom</options>
+    <shade_type>horizontal</shade_type>
+    <pcolor>#0099cc</pcolor>
+    <scolor>#006699</scolor>
+  </wallpaper>
+</wallpapers>

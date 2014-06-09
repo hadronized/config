@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/skypers/dev/photon'
+let g:netrw_dirhist_2='/home/skypers/dev/photon/Photon'
+let g:netrw_dirhist_3='/home/skypers/dev/photon/Photon/Control'
+let g:netrw_dirhist_4='/home/skypers/dev/photon'
+let g:netrw_dirhist_5='/home/skypers/dev/photon/Photon/Core'

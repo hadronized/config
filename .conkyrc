@@ -1,0 +1,100 @@
+total_run_times 0
+out_to_console 0
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+update_interval 1
+cpu_avg_samples 4
+net_avg_samples 2
+
+alignment top_right
+minimum_size 320 5
+maximum_width 600
+gap_x 10 
+gap_y 100
+
+draw_shades yes
+draw_outline no
+draw_borders no
+border_width 1
+
+background yes
+
+own_window yes
+own_window_type override # normal / override / desktop
+own_window_transparent yes
+
+use_xft yes
+xftalpha .1
+override_utf8_locale yes
+
+xftfont Dejavu Sans Mono:size=10
+uppercase no
+
+use_spacer right
+
+default_color FFFFFF #blanc
+default_shade_color 333333
+default_outline_color black
+
+color1 00A67C # cyan
+color2 5BC31D # green
+color3 AAD420 # golden green
+color4 DF7B22 # orange
+color5 DF3722 # red
+color6 EE3B80 # magenta
+color7 A96CD4 # purple
+
+TEXT
+
+$alignc $color2 $nodename $color3 $machine $color0
+
+$alignr $uptime
+${utime %c}
+
+$color3 $alignc MPD
+${color0}Repeat $color3 $alignr $mpd_repeat
+${color0}Status $color3 $alignr $mpd_status
+${color0}Title $color4 $alignr $mpd_title
+${color0}Album $color5 $alignr $mpd_album
+${color0}Artist $color6 $alignr $mpd_artist
+$color3 $alignc $mpd_elapsed / $mpd_length
+${color3}$mpd_bar
+
+$color4 $alignc Battery
+${color0}State $color4 $alignr ${battery_percent}%
+${color0}Time $color4 $alignr $battery_time
+${color4}$battery_bar $color0
+
+$color5 $alignc Network
+${color0}IP address $color5 $alignr ${addr wlan0}
+${color0}Upload speed $color5 $alignr $upspeed
+${color0}Download $color5 $alignr $downspeed
+
+$color6 $alignc CPU
+${color0}Frequency $color6 $alignr ${freq}MHz${color7}
+${color6}$cpubar
+
+$color7 $alignc Memory
+${color0}In use $color7 $alignr $mem
+${color0}Free $color7 $alignr $memfree
+${color0}Buffered $color7 $alignr $buffers
+${color0}Cached $color7 $alignr $cached
+${color0}Total $color7 $alignr $memmax
+${color7}$membar
+
+$color1 $alignc Disk
+${color0}Swap $color1 $alignr $swap
+${color1}$swapbar
+
+$color2 $alignc Processes
+${color0}1 $color2 $alignr ${top name 1}
+${color0}2 $color2 $alignr ${top name 2}
+${color0}3 $color2 $alignr ${top name 3}
+${color0}4 $color2 $alignr ${top name 4}
+${color0}5 $color2 $alignr ${top name 5}
+${color0}6 $color2 $alignr ${top name 6}
+${color0}7 $color2 $alignr ${top name 7}
+${color0}8 $color2 $alignr ${top name 8}
+${color0}9 $color2 $alignr ${top name 9}
+${color0}10 $color2 $alignr ${top name 10}
