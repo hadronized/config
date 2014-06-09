@@ -73,7 +73,14 @@ ${color0}Download $color5 $alignr $downspeed
 
 $color6 $alignc CPU
 ${color0}Frequency $color6 $alignr ${freq}MHz${color7}
-${color6}$cpubar
+${color6}${cpubar cpu1}
+${color6}${cpubar cpu2}
+${color6}${cpubar cpu3}
+${color6}${cpubar cpu4}
+${color6}${cpubar cpu5}
+${color6}${cpubar cpu6}
+${color6}${cpubar cpu7}
+${color6}${cpubar cpu8}
 
 $color7 $alignc Memory
 ${color0}In use $color7 $alignr $mem
