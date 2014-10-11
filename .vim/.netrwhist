@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/skypers/dev/photon'
-let g:netrw_dirhist_2='/home/skypers/dev/photon/Photon'
-let g:netrw_dirhist_3='/home/skypers/dev/photon/Photon/Control'
-let g:netrw_dirhist_4='/home/skypers/dev/photon'
-let g:netrw_dirhist_5='/home/skypers/dev/photon/Photon/Core'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/phaazon/dev/photon/Photon/Resource'
+let g:netrw_dirhist_2='/home/phaazon'
+let g:netrw_dirhist_3='/home/phaazon/dev'
+let g:netrw_dirhist_4='/home/phaazon/dev/photon-opengl'
+let g:netrw_dirhist_5='/home/phaazon/dev/photon-opengl/Photon'
+let g:netrw_dirhist_6='/home/phaazon/dev/photon-opengl/Photon/Render'
+let g:netrw_dirhist_7='/home/phaazon/dev/photon-opengl/Photon/Render/OpenGL'
+let g:netrw_dirhist_8='/home/phaazon/dev/photon-opengl/Photon/Render/OpenGL/Forward'

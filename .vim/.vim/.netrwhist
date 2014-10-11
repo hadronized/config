@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/skp/dev/phraskell/src'
-let g:netrw_dirhist_2='/home/skp/dev/efrei/sdd/history'
-let g:netrw_dirhist_3='/home/skp/dev/efrei/sdd/TP2'

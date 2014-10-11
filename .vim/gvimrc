@@ -1,7 +1,3 @@
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -14,11 +10,6 @@ set incsearch		" do incremental searching
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -52,8 +43,7 @@ if has("autocmd")
 
 endif " has("autocmd")
 "
-" skypers lines
-set number
+set nu
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 set tabstop=2
 set shiftwidth=2
@@ -63,7 +53,7 @@ set autoindent	" always set autoindenting on
 set backupdir=/var/tmp
 set dir=/var/tmp
 
-source ~/.vimrc.bepo
+source ~/.vim/vimrc.bepo
 
 let mapleader="è"
 noremap <C-d> :sh<CR>
@@ -73,7 +63,7 @@ lmap <S-Space> <ESC>
 let g:netrw_liststyle=3
 set cul
 set cuc
-colorscheme delroth-molokai
+colorscheme railscasts 
 set laststatus=2
 
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -83,3 +73,7 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
