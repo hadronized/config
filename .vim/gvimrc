@@ -1,3 +1,6 @@
+source ~/.vim/vimrc.bepo
+source ~/.vim/plugin/fugitive.vim
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -44,7 +47,8 @@ if has("autocmd")
 endif " has("autocmd")
 "
 set nu
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\  
+set statusline+=%{fugitive#statusline()}
 set tabstop=2
 set shiftwidth=2
 set smartindent " sure about it ? :(
@@ -53,17 +57,14 @@ set autoindent	" always set autoindenting on
 set backupdir=/var/tmp
 set dir=/var/tmp
 
-source ~/.vim/vimrc.bepo
-
 let mapleader="è"
-noremap <C-d> :sh<CR>
 lmap <S-Space> <ESC>
  
 " Change the style of the netrw's output
 let g:netrw_liststyle=3
 set cul
 set cuc
-colorscheme railscasts 
+colorscheme molokai 
 set laststatus=2
 
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -77,3 +78,4 @@ endfunc
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
+set guioptions-=L
