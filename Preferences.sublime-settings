@@ -1,25 +1,20 @@
 {
-	"tab_size": 2,
-
-	"translate_tabs_to_spaces": true,
-
+	"always_prompt_for_file_reload": false,
+	"auto_close_tags": false,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Theme - Asphalt/Asphalt.tmTheme",
+	"draw_minimap_border": true,
+	"enable_telemetry": false,
 	"highlight_line": true,
-
-  "wrap_width": 80,
-
-  "draw_minimap_border": true,
-
-  "caret_style": "phase",
-
-  "trim_trailing_white_space_on_save": true,
-
-  "highlight_modified_tabs": true,
-
-  "enable_telemetry": false,
-
-
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
-	]
+	],
+	"margin": 0,
+	"tab_size": 2,
+	"theme": "Asphalt-green.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"wrap_width": 80
 }
