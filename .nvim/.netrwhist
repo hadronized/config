@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/phaazon/dev/quaazar/src'
+let g:netrw_dirhist_2='/home/phaazon/dev/quaazar/src/Quaazar'
+let g:netrw_dirhist_3='/home/phaazon/dev/quaazar/src/Quaazar/Core'
+let g:netrw_dirhist_4='/home/phaazon/dev/quaazar'
+let g:netrw_dirhist_5='/home/phaazon/dev/quaazar/src/Quaazar/Render'
+let g:netrw_dirhist_6='/home/phaazon/dev/quaazar/src/Quaazar/Render/Forward'
+let g:netrw_dirhist_7='/home/phaazon'
+let g:netrw_dirhist_8='/home/phaazon/dev/initialrevision'
+let g:netrw_dirhist_9='/home/phaazon/dev/initialrevision/src'
