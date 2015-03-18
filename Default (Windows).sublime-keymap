@@ -1,9 +1,0 @@
-[
-  {"keys": ["ctrl+alt+p"], "command": "insert", "args": { "characters": "&" }},
-  {"keys": ["ctrl+k"], "command": "toggle_side_bar"},
-  {"keys": ["c"], "command": "press_key", "args": {"key": "h"}, "context": [{"key": "vi_command_mode_aware"}]},
-  {"keys": ["t"], "command": "press_key", "args": {"key": "j"}, "context": [{"key": "vi_command_mode_aware"}]},
-  {"keys": ["s"], "command": "press_key", "args": {"key": "k"}, "context": [{"key": "vi_command_mode_aware"}]},
-  {"keys": ["r"], "command": "press_key", "args": {"key": "l"}, "context": [{"key": "vi_command_mode_aware"}]},
-  {"keys": ["h"], "command": "press_key", "args": {"key": "r"}, "context": [{"key": "vi_command_mode_aware"}]}
-]
