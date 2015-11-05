@@ -3,6 +3,9 @@ execute pathogen#infect()
 source ~/.nvim/nvimrc.bepo
 source ~/.nvim/plugin/fugitive.vim
 
+set encoding=utf-8
+scriptencoding utf-8
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -12,13 +15,16 @@ set ruler           " show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set noswapfile
+set hidden
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" Fuzzy search on ,/
-noremap ,/ :CtrlP<CR>
+" Fuzzy search on ,f
+" Fuzzy tag searc on ,t
+noremap ,f :CtrlP<CR>
+noremap ,t :CtrlPTag<CR>
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -36,7 +42,7 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-set nu
+set colorcolumn=100
 set statusline=%F%m%r%h%w\ ·\ %{&ff}\ ·\ %Y\ ·\ %04l:%03v\ (%03p%%)\ ·\ %L\ lines
 set statusline+=\ ·\ %{fugitive#statusline()}
 set tabstop=2
@@ -69,3 +75,25 @@ if has("gui")
   set guioptions-=r
   set guioptions-=L
 endif
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"×":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+set noshowmode

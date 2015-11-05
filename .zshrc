@@ -8,27 +8,29 @@ export EDITOR="nvim"
 export TERM=xterm-256color
 
 alias ls='ls -G --color'
+alias glog='git log --abbrev-commit --graph --decorate --all'
 
 autoload -U colors
 colors
 
 setopt promptsubst
 
-ic="%{$reset_color%}" # Input color
-uc="%{$fg[green]%}" # User name color
-sc="%{$fg[red]%}" # Symbol color
-hc="%{$terminfo[sgr0]$fg[cyan]%}" # Hostname color
-pc="%{$terminfo[sgr0]$fg[magenta]%}" # Path color
-
 function gitPrompt() {
   # git current branch
   currentBranch=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
   if (($? == 0))
   then
-    echo "%F{green} $currentBranch %f"
-  else
-    echo ""
+    echo -n "%F{green}$currentBranch%f"
   fi
+
+  # git stash
+  stashNb=`git stash list 2> /dev/null | wc -l`
+  if [ "$stashNb" != "0" ]
+  then
+    echo -n " %F{blue}($stashNb)%f"
+  fi
+
+  echo ''
 }
 
 PS1="%F{red}%n%F{cyan}@%F{magenta}%M %F{cyan}%~ %F{yellow}%% %f"
@@ -55,4 +57,3 @@ zstyle ':completion:*' verbose true
 
 autoload -Uz compinit
 compinit
-
