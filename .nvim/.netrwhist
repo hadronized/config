@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/phaazon/dev/luminance/src/Graphics/Luminance'
-let g:netrw_dirhist_2='/home/phaazon/dev/www/mysite'
-let g:netrw_dirhist_3='/home/phaazon/dev/www/mysite/mysite'
