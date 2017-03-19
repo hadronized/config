@@ -1,0 +1,7 @@
+[user]
+	email = dimitri.sabadie@gmail.com
+	name = Dimitri Sabadie
+[alias]
+	slog = log --graph --all --pretty=format:\"%C(yellow)%h%Cblue%d %Creset%s %C(green)%cr%Creset (%C(magenta)%an%Creset)\"
+[core]
+	pager = less -F -X
