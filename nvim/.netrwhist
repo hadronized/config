@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/phaazon/dev/demo/ion'
-let g:netrw_dirhist_2='/home/phaazon/dev/demo/celeri-remoulade'
-let g:netrw_dirhist_3='/home/phaazon/dev/demo/celeri-remoulade/src'
-let g:netrw_dirhist_4='/home/phaazon/dev/demo/celeri-remoulade/src/shaders'
-let g:netrw_dirhist_5='/home/phaazon/.config/i3'
