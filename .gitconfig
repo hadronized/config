@@ -1,7 +1,8 @@
 [user]
-	email = dimitri.sabadie@gmail.com
+	email = dsabadie@vente-privee.com
 	name = Dimitri Sabadie
 [alias]
 	slog = log --graph --all --pretty=format:\"%C(yellow)%h%Cblue%d %Creset%s %C(green)%cr%Creset (%C(magenta)%an%Creset)\"
+  fetch-prune = fetch --all --prune
 [core]
 	pager = less -F -X
