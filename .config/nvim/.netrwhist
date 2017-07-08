@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/phaazon/dev/glfw-rs'
-let g:netrw_dirhist_2='/home/phaazon/dev/glfw-sys'
-let g:netrw_dirhist_3='/home/phaazon/dev/glfw-sys/src'
-let g:netrw_dirhist_4='/home/phaazon/dev/glfw-rs'
-let g:netrw_dirhist_5='/home/phaazon/dev/glfw-rs/src'
-let g:netrw_dirhist_6='/home/phaazon/dev/glfw-rs/src/ffi'
-let g:netrw_dirhist_7='/home/phaazon/dev/glfw-rs'
-let g:netrw_dirhist_8='/home/phaazon/dev/glfw-rs/src'
-let g:netrw_dirhist_9='/home/phaazon/dev/glfw-sys'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/dimitrisabadie/work/vpn3/LOG ImportN3/Development'
+let g:netrw_dirhist_2='/Users/dimitrisabadie'
+let g:netrw_dirhist_3='/Users/dimitrisabadie/work/monorepo/vp/code'
+let g:netrw_dirhist_4='/Users/dimitrisabadie'
+let g:netrw_dirhist_5='/Users/dimitrisabadie/work/monorepo/vp/code/vp-boulette'
