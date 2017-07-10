@@ -24,6 +24,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'mhinz/vim-startify'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tpope/vim-fugitive'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -143,3 +144,6 @@ let g:NERDTreeMapOpenVSplit = 'k'
 let g:NERDTreeMapRefresh = 'l'
 let g:NERDTreeMapRefreshRoot = 'L'
 
+noremap ,gt :GitGutterNextHunk<CR>
+noremap ,gs :GitGutterPrevHunk<CR>
+noremap ,gb :Gblame<CR>
