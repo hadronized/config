@@ -2,33 +2,33 @@ set nocompatible
 filetype off
 
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.config/nvim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'gruvbox'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'jacoborus/tender.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'cespare/vim-toml'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'ElmCast/elm-vim'
-Plugin 'raichoo/purescript-vim'
-Plugin 'easymotion'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'mhinz/vim-startify'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
+Plug 'VundleVim/Vundle.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'morhetz/gruvbox'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'jacoborus/tender.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tikhomirov/vim-glsl'
+Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'ElmCast/elm-vim'
+Plug 'raichoo/purescript-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'mhinz/vim-startify'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
 
 source ~/.config/nvim/nvimrc.bepo
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 scriptencoding utf-8
