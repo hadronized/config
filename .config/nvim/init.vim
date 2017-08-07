@@ -25,6 +25,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'luochen1990/rainbow'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -147,3 +149,15 @@ let g:NERDTreeMapRefreshRoot = 'L'
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 noremap ,gb :Gblame<CR>
+
+let g:bookmark_sign = ''
+let g:bookmark_highlight_lines = 1
+let g:bookmark_save_per_working_dir = 1
+
+let g:rainbow_active = 0
+let g:rainbow_conf = {
+	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'], 
+	\}
+
+au BufWritePost *.hs            silent !init-tags %
+au BufWritePost *.hsc           silent !init-tags %
