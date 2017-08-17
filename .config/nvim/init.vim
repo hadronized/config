@@ -1,16 +1,18 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'morhetz/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ajmwagar/vim-deus'
+Plug 'ltlollo/diokai'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'jacoborus/tender.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
 Plug 'plasticboy/vim-markdown'
@@ -58,11 +60,10 @@ set laststatus=2
 set nu
 set autoread
 set inccommand=split
-let g:netrw_liststyle=3
 
 set termguicolors
-set background=dark
 let g:gruvbox_italic=1
+set background=dark
 colorscheme gruvbox 
 
 let mapleader=","
@@ -74,9 +75,8 @@ noremap U :redo<CR>
 
 filetype plugin indent on
 
-let g:tender_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'tender',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -128,6 +128,7 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 let g:haskell_indent_disable = 1          " disable Haskell source indentation
+let g:haskell_classic_highlighting = 1
 
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
 
@@ -161,3 +162,7 @@ let g:rainbow_conf = {
 
 au BufWritePost *.hs            silent !init-tags %
 au BufWritePost *.hsc           silent !init-tags %
+
+let g:neodark#terminal_transparent=1
+let g:neodark#solid_vertsplit = 1
+let g:neodark#use_custom_terminal_theme = 1
