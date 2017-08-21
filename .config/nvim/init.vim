@@ -15,6 +15,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
+Plug 'phaazon/vim-spsl'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'mzlogin/vim-markdown-toc'
@@ -60,9 +61,11 @@ set laststatus=2
 set nu
 set autoread
 set inccommand=split
+set wildignore+=*/target/*
 
 set termguicolors
-let g:gruvbox_italic=1
+let g:gruvbox_italic = 1
+let g:gruvbox_hls_cursor = 'purple'
 set background=dark
 colorscheme gruvbox 
 
