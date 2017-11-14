@@ -4,7 +4,7 @@ filetype off
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'morhetz/gruvbox'
+Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ajmwagar/vim-deus'
@@ -15,7 +15,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
-Plug 'phaazon/vim-spsl'
+Plug 'phaazon/vim-cheddar'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'mzlogin/vim-markdown-toc'

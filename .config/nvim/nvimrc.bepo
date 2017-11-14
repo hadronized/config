@@ -80,3 +80,5 @@ noremap wr <C-w>l
 noremap wd <C-w>c
 noremap wo <C-w>s
 noremap wp <C-w>o
+
+inoremap   <Space>
