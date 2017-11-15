@@ -30,23 +30,23 @@ font pango:FontAwesome 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+Shift+B kill
 
 # start dmenu (a program launcher)
-bindsym $mod+i exec dmenu_run
+bindsym $mod+i exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+u exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+t focus left
-bindsym $mod+s focus down
-bindsym $mod+r focus up
-bindsym $mod+n focus right
+bindsym $mod+c focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+T move left
-bindsym $mod+Shift+S move down
-bindsym $mod+Shift+R move up
-bindsym $mod+Shift+N move right
+bindsym $mod+Shift+C move left
+bindsym $mod+Shift+T move down
+bindsym $mod+Shift+S move up
+bindsym $mod+Shift+R move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -67,10 +67,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+period split v
+bindsym $mod+o split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+e fullscreen toggle
@@ -116,23 +116,23 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%; pactl set-sink-volume 1 +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%; pactl set-sink-volume 1 -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle; pactl set-sink-mute 1 toggle"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86Sleep exec "systemctl suspend"
-bindsym Print exec "scrot /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym Shift+Print exec "scrot -s /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym $mod+Print exec "scrot -u /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym $mod+F1 exec "i3lock -i ~/pictures/wallpapers/colorful_street.png"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 1 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 1 -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl set-sink-mute 1 toggle"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
+bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
+bindsym Print exec --no-startup-id "scrot /tmp/img_`date +%m%d%y_%H%M%S`.png"
+bindsym Shift+Print exec --no-startup-id "scrot -s /tmp/img_`date +%m%d%y_%H%M%S`.png"
+bindsym $mod+Print exec --no-startup-id "scrot -u /tmp/img_`date +%m%d%y_%H%M%S`.png"
+bindsym $mod+F1 exec --no-startup-id "i3lock -i ~/pictures/wallpapers/colorful_street.png"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+P exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -158,7 +158,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+o mode "resize"
+# bindsym $mod+o mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -185,5 +185,5 @@ client.unfocused #32302f #32302f #928374 #282828
 client.urgent #cc241d #cc241d #ebdbb2 #282828
 
 for_window [class="^.*$"] border pixel 1
-exec compton -bcCGfz
-exec sh ~/.fehbg
+exec --no-startup-id compton -bcCGfz
+exec --no-startup-id sh ~/.fehbg
