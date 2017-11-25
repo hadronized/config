@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FontAwesome 10
+font pango:Deja Vu Sans Mono Nerd Font 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,13 +30,13 @@ font pango:FontAwesome 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+B kill
 
 # start dmenu (a program launcher)
-bindsym $mod+i exec --no-startup-id dmenu_run
+bindsym $mod+i exec "dmenu_run -fn 'Deja Vu Sans Mono Nerd Font-10'"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -48,11 +48,11 @@ bindsym $mod+t focus down
 bindsym $mod+s focus up
 bindsym $mod+r focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# # alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+C move left
@@ -125,14 +125,15 @@ bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
 bindsym Print exec --no-startup-id "scrot /tmp/img_`date +%m%d%y_%H%M%S`.png"
 bindsym Shift+Print exec --no-startup-id "scrot -s /tmp/img_`date +%m%d%y_%H%M%S`.png"
 bindsym $mod+Print exec --no-startup-id "scrot -u /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym $mod+F1 exec --no-startup-id "i3lock -i ~/pictures/wallpapers/colorful_street.png"
+bindsym $mod+F1 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/colorful_street.png"
+bindsym $mod+F12 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/colorful_street.png && systemctl suspend"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+P exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -142,10 +143,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym t resize shrink width 10 px or 10 ppt
-        bindsym s resize grow height 10 px or 10 ppt
-        bindsym r resize shrink height 10 px or 10 ppt
-        bindsym n resize grow width 10 px or 10 ppt
+        bindsym c resize shrink width 10 px or 10 ppt
+        bindsym t resize grow height 10 px or 10 ppt
+        bindsym s resize shrink height 10 px or 10 ppt
+        bindsym r resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -158,7 +159,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# bindsym $mod+o mode "resize"
+bindsym $mod+y mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -167,6 +168,8 @@ bar {
   status_command ~/.config/i3/babar
 
   position top
+
+  tray_output primary
 
   colors {
     separator #928374
@@ -179,11 +182,19 @@ bar {
   }
 }
 
+
 client.focused #689d6a #689d6a #282828 #282828
 client.focused_inactive #1d2021 #1d2021 #928374 #282828
 client.unfocused #32302f #32302f #928374 #282828
 client.urgent #cc241d #cc241d #ebdbb2 #282828
 
 for_window [class="^.*$"] border pixel 1
+
 exec --no-startup-id compton -bcCGfz
 exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id nm-applet
+exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
+exec --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id xset r rate 200 30
+exec --no-startup-id xset -dpms
+
