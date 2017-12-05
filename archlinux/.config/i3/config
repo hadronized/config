@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Deja Vu Sans Mono Nerd Font 10
+#font pango:Font Awesome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,7 +30,7 @@ font pango:Deja Vu Sans Mono Nerd Font 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+B kill
@@ -93,9 +93,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+quotedbl workspace number 1
-bindsym $mod+guillemotleft workspace number 2
-bindsym $mod+guillemotright workspace number 3
+bindsym $mod+quotedbl workspace number "1: "
+bindsym $mod+guillemotleft workspace number "2: "
+bindsym $mod+guillemotright workspace number "3: "
 bindsym $mod+parenleft workspace number 4
 bindsym $mod+parenright workspace number 5
 bindsym $mod+at workspace number 6
@@ -125,8 +125,9 @@ bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
 bindsym Print exec --no-startup-id "scrot /tmp/img_`date +%m%d%y_%H%M%S`.png"
 bindsym Shift+Print exec --no-startup-id "scrot -s /tmp/img_`date +%m%d%y_%H%M%S`.png"
 bindsym $mod+Print exec --no-startup-id "scrot -u /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym $mod+F1 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/colorful_street.png"
-bindsym $mod+F12 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/colorful_street.png && systemctl suspend"
+bindsym $mod+F1 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png"
+bindsym $mod+F12 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png && systemctl suspend"
+
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
@@ -164,8 +165,11 @@ bindsym $mod+y mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  #status_command i3status -c ~/.config/i3/i3status.conf
-  status_command ~/.config/i3/babar
+  font pango:Font Awesome 10
+
+  status_command i3status -c ~/.config/i3/i3status.conf
+  #status_command ~/.config/i3/babar
+  #status_command i3blocks
 
   position top
 
@@ -197,4 +201,3 @@ exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
-
