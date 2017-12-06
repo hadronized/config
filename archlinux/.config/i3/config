@@ -167,9 +167,7 @@ bindsym $mod+y mode "resize"
 bar {
   font pango:Font Awesome 10
 
-  status_command i3status -c ~/.config/i3/i3status.conf
-  #status_command ~/.config/i3/babar
-  #status_command i3blocks
+  status_command i3blocks
 
   position top
 
