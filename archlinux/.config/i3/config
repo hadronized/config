@@ -30,7 +30,7 @@ set $mod Mod1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+B kill
@@ -164,28 +164,28 @@ bindsym $mod+y mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  font pango:Font Awesome 10
+#bar {
+#  font pango:Font Awesome 10
+#
+#  status_command "polybar bar"
+#
+#  position top
+#
+#  #tray_output primary
+#
+#  colors {
+#    separator #928374
+#    background #282828
+#    statusline #ebdbb2
+#    focused_workspace #689d6a #689d6a #282828
+#    active_workspace #1d2021 #1d2021 #928374
+#    inactive_workspace #32302f #32302f #928374
+#    urgent_workspace #cc241d #cc241d #ebdbb2
+#  }
+#}
 
-  status_command i3blocks
 
-  position top
-
-  tray_output primary
-
-  colors {
-    separator #928374
-    background #282828
-    statusline #ebdbb2
-    focused_workspace #689d6a #689d6a #282828
-    active_workspace #1d2021 #1d2021 #928374
-    inactive_workspace #32302f #32302f #928374
-    urgent_workspace #cc241d #cc241d #ebdbb2
-  }
-}
-
-
-client.focused #689d6a #689d6a #282828 #282828
+client.focused #ff5964 #ff5964 #282828 #282828
 client.focused_inactive #1d2021 #1d2021 #928374 #282828
 client.unfocused #32302f #32302f #928374 #282828
 client.urgent #cc241d #cc241d #ebdbb2 #282828
@@ -199,3 +199,4 @@ exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
+exec_always --no-startup-id polybar bar &

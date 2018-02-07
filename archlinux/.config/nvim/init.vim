@@ -68,6 +68,7 @@ let g:gruvbox_italic = 1
 let g:gruvbox_hls_cursor = 'purple'
 set background=dark
 colorscheme gruvbox 
+"hi Normal ctermbg=NONE guibg=NONE
 
 let mapleader=","
 lmap <S-Space> <ESC>
@@ -169,3 +170,6 @@ au BufWritePost *.hsc           silent !init-tags %
 let g:neodark#terminal_transparent=1
 let g:neodark#solid_vertsplit = 1
 let g:neodark#use_custom_terminal_theme = 1
+
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
