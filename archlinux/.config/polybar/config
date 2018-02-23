@@ -1,6 +1,6 @@
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #00000
+background = #333
 background-alt = #44444455
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -10,7 +10,7 @@ secondary = #e60053
 alert = #bd2c40
 active = #ff5964
 
-[bar/bar]
+[bar/default]
 monitor = HDMI2
 monitor-fallback = eDP1
 width = 100%
@@ -39,7 +39,7 @@ font-0 = fixed:pixelsize=10;2
 font-1 = unifont:fontformat=truetype:size=10;2
 font-2 = "Wuncon Siji:pixelsize=10;2"
 
-modules-left =
+;modules-left =
 modules-center = i3
 modules-right = wlan eth xbacklight volume memory cpu battery temperature date
 
@@ -58,6 +58,41 @@ tray-padding = 2
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/eDP1]
+monitor = eDP1 
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;2
+font-1 = unifont:fontformat=truetype:size=10;2
+font-2 = "Wuncon Siji:pixelsize=10;2"
+
+;modules-left =
+modules-center = i3
+modules-right = date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -96,7 +131,12 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
+fuzzy-match = true
+
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
@@ -118,9 +158,11 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
+enable-scroll = false
+fuzzy-match = true
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode = %mode%
 label-mode-padding = 2
@@ -286,7 +328,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 98
+full-at = 97
 
 format-charging = <animation-charging> <label-charging>
 ;format-charging-underline = #ffb52a

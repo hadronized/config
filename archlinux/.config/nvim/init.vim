@@ -9,7 +9,6 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ajmwagar/vim-deus'
 Plug 'ltlollo/diokai'
-Plug 'KeitaNakamura/neodark.vim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
@@ -30,6 +29,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
+Plug 'w0rp/ale'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -62,23 +62,26 @@ set nu
 set autoread
 set inccommand=split
 set wildignore+=*/target/*
-
 set termguicolors
-let g:gruvbox_italic = 1
-let g:gruvbox_hls_cursor = 'purple'
 set background=dark
 colorscheme gruvbox 
-"hi Normal ctermbg=NONE guibg=NONE
 
 let mapleader=","
-lmap <S-Space> <ESC>
 
+" key bindings
 noremap ,f :CtrlP<CR>
 noremap ,t :CtrlPTag<CR>
+noremap ,n :NERDTreeToggle<CR>
+noremap ,gt :GitGutterNextHunk<CR>
+noremap ,gs :GitGutterPrevHunk<CR>
+noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
 
-filetype plugin indent on
+" gruvbox
+let g:gruvbox_italic = 1
+let g:gruvbox_hls_cursor = 'purple'
 
+" lightline
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -111,19 +114,11 @@ function! MyFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
-let g:racer_cmd = "~/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let $RUST_SRC_PATH="~/dev/rust/src"
-
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+" Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
@@ -134,14 +129,13 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
+" Rust
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
 
+" NERDTree
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
-
-noremap ,n :NERDTreeToggle<CR>
-"let NERDTreeMapJumpFirstChild='s'
 let g:NERDTreeMapChdir = 'H'
 let g:NERDTreeMapChdir = 'hd'
 let g:NERDTreeMapCWD = 'HD'
@@ -150,26 +144,20 @@ let g:NERDTreeMapJumpLastChild = 'J'
 let g:NERDTreeMapOpenVSplit = 'k'
 let g:NERDTreeMapRefresh = 'l'
 let g:NERDTreeMapRefreshRoot = 'L'
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
 
-noremap ,gt :GitGutterNextHunk<CR>
-noremap ,gs :GitGutterPrevHunk<CR>
-noremap ,gb :Gblame<CR>
-
+" Bookmark
 let g:bookmark_sign = ''
 let g:bookmark_highlight_lines = 1
 let g:bookmark_save_per_working_dir = 1
 
+" Rainbow
 let g:rainbow_active = 0
 let g:rainbow_conf = {
 	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'], 
 	\}
 
+" tags
 au BufWritePost *.hs            silent !init-tags %
 au BufWritePost *.hsc           silent !init-tags %
-
-let g:neodark#terminal_transparent=1
-let g:neodark#solid_vertsplit = 1
-let g:neodark#use_custom_terminal_theme = 1
-
-let g:NERDTreeDirArrowExpandable = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'

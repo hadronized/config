@@ -30,7 +30,7 @@ set $mod Mod1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+B kill
@@ -93,9 +93,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+quotedbl workspace number "1: "
-bindsym $mod+guillemotleft workspace number "2: "
-bindsym $mod+guillemotright workspace number "3: "
+bindsym $mod+quotedbl workspace number "1:"
+bindsym $mod+guillemotleft workspace number "2:"
+bindsym $mod+guillemotright workspace number "3:"
 bindsym $mod+parenleft workspace number 4
 bindsym $mod+parenright workspace number 5
 bindsym $mod+at workspace number 6
@@ -105,9 +105,9 @@ bindsym $mod+slash workspace number 9
 bindsym $mod+asterisk workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+guillemotleft move container to workspace 2
-bindsym $mod+Shift+guillemotright move container to workspace 3
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+guillemotleft move container to workspace number 2
+bindsym $mod+Shift+guillemotright move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -116,8 +116,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 1 +5%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 1 -5%"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%"
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl set-sink-mute 1 toggle"
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
@@ -184,13 +184,15 @@ bindsym $mod+y mode "resize"
 #  }
 #}
 
-
 client.focused #ff5964 #ff5964 #282828 #282828
 client.focused_inactive #1d2021 #1d2021 #928374 #282828
 client.unfocused #32302f #32302f #928374 #282828
 client.urgent #cc241d #cc241d #ebdbb2 #282828
 
 for_window [class="^.*$"] border pixel 1
+
+gaps inner 25
+gaps outer 0
 
 exec --no-startup-id compton -bcCGfz
 exec --no-startup-id sh ~/.fehbg
@@ -199,4 +201,6 @@ exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
-exec_always --no-startup-id polybar bar &
+#exec --no-startup-id pasystray -a &
+exec --no-startup-id dual-monitor
+exec_always --no-startup-id restart-polybar
