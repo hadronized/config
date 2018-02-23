@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
 Plug 'w0rp/ale'
+Plug 'racer-rust/vim-racer'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -175,3 +176,13 @@ let g:ale_sign_warning = ''
 let g:ale_echo_msg_error_str = ''
 let g:ale_echo_msg_warning_str = ''
 let g:ale_echo_msg_format = '%severity% %linter% %s'
+
+" racer
+let $RUST_SRC_PATH = '/usr/src/rust/src/'
+let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
