@@ -31,6 +31,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
 Plug 'w0rp/ale'
 Plug 'racer-rust/vim-racer'
+Plug 'Shougo/deoplete.nvim'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -166,8 +167,8 @@ au BufWritePost *.hsc           silent !init-tags %
 " gitgutter
 let g:gitgutter_sign_added = ''
 let g:gitgutter_sign_modified = ''
-let g:gitgutter_sign_removed = ''
-let g:gitgutter_sign_removed_first_line = ''
+let g:gitgutter_sign_removed = '_'
+let g:gitgutter_sign_removed_first_line = '_'
 let g:gitgutter_sign_modified_removed = '≃'
 
 " ale
@@ -177,8 +178,11 @@ let g:ale_echo_msg_error_str = ''
 let g:ale_echo_msg_warning_str = ''
 let g:ale_echo_msg_format = '%severity% %linter% %s'
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " racer
-let $RUST_SRC_PATH = '/usr/src/rust/src/'
+let $RUST_SRC_PATH = "/usr/local/src/rust/"
 let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
