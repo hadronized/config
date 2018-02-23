@@ -132,6 +132,7 @@ let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
 " Rust
+let $RUST_SRC_PATH = "/usr/local/src/rust/src"
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
 
 " NERDTree
@@ -180,13 +181,11 @@ let g:ale_echo_msg_format = '%severity% %linter% %s'
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#rust#racer_binary = "/home/phaazon/.cargo/bin/racer"
+let g:deoplete#sources#rust#rust_source_path = $RUST_SRC_PATH
+let g:deoplete#sources#rust#show_duplicates = 1
+"let g:deoplete#sources#rust#disable_keymap = 1
 
 " racer
-let $RUST_SRC_PATH = "/usr/local/src/rust/"
 let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
-
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
