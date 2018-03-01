@@ -42,6 +42,7 @@ scriptencoding utf-8
 set encoding=utf8
 
 syntax on
+set showmode!
 set hlsearch
 set backspace=indent,eol,start
 set nobackup
