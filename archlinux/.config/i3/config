@@ -36,7 +36,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+B kill
 
 # start dmenu (a program launcher)
-bindsym $mod+i exec "dmenu_run -fn 'Deja Vu Sans Mono Nerd Font-10' -l 5 -nb \#333 -sb \#ff5964"
+#bindsym $mod+i exec "dmenu_run -fn 'Deja Vu Sans Mono Nerd Font-10' -l 5 -nb \#333 -sb \#ff5964"
+bindsym $mod+i exec "rofi -show run"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
