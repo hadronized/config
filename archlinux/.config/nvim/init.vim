@@ -79,6 +79,7 @@ noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
+tnoremap <Esc> <C-\><C-n>
 
 " gruvbox
 let g:gruvbox_italic = 1
