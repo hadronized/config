@@ -3,7 +3,7 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NLKNguyen/papercolor-theme'
@@ -29,9 +29,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
-Plug 'w0rp/ale'
-Plug 'racer-rust/vim-racer'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'w0rp/ale'
+"Plug 'racer-rust/vim-racer'
+"Plug 'Shougo/deoplete.nvim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -43,6 +47,7 @@ set encoding=utf8
 
 syntax on
 set showmode!
+set mouse=a
 set hlsearch
 set backspace=indent,eol,start
 set nobackup
@@ -80,6 +85,19 @@ noremap ,gs :GitGutterPrevHunk<CR>
 noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
 tnoremap <Esc> <C-\><C-n>
+
+if exists('g:gui_oni')
+  set smartcase
+
+  " Turn off statusbar, because it is externalized
+  set noruler
+  set laststatus=0
+  set noshowcmd
+
+  unmap ,f
+  unmap ,t
+  unmap ,n
+endif
 
 " gruvbox
 let g:gruvbox_italic = 1
