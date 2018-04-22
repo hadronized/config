@@ -3,7 +3,7 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
-"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NLKNguyen/papercolor-theme'
@@ -31,7 +31,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
 "Plug 'w0rp/ale'
 "Plug 'racer-rust/vim-racer'
-"Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -85,6 +85,9 @@ noremap ,gs :GitGutterPrevHunk<CR>
 noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
 tnoremap <Esc> <C-\><C-n>
+noremap k :call LanguageClient_textDocument_hover()<CR>
+noremap gd :call LanguageClient_textDocument_definition()<CR>
+noremap <F2> :call LanguageClient_textDocument_rename()<CR>
 
 if exists('g:gui_oni')
   set smartcase
@@ -209,3 +212,8 @@ let g:deoplete#sources#rust#show_duplicates = 1
 " racer
 let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }

@@ -42,7 +42,7 @@ export const configuration = {
   "sidebar.plugins.enabled": true,
   "sidebar.enabled": true,
 
-  "tabs.mode": "hidden",
+  "tabs.mode": "tabs",
   "tabs.highlight": true,
   "tabs.maxWidth": "30em",
 
