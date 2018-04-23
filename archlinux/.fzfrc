@@ -1,4 +1,6 @@
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-export FZF_DEFAULT_OPTS='-m --preview-window=right --preview="highlight -O ansi -l --force {}"'
+export FZF_DEFAULT_OPTS='--no-height -m --preview-window=right --preview="highlight -O ansi -l --force {}"'
+export FZF_CTRL_T_OPTS='--border --height 40'
+export FZF_CTRL_R_OPTS='--border --height 20 --preview='
