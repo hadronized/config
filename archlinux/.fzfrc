@@ -1,0 +1,4 @@
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+export FZF_DEFAULT_OPTS='-m --preview-window=right --preview="highlight -O ansi -l --force {}"'

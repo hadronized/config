@@ -59,3 +59,10 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
+export TERM=xterm-256color-italic
+export TERMINAL='termite'
+
+alias crate=cargo
+#alias ls=exa
+
+source ~/.fzfrc

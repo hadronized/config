@@ -77,7 +77,7 @@ colorscheme gruvbox
 let mapleader=","
 
 " key bindings
-noremap ,f :CtrlP<CR>
+noremap ,f :FZF<CR>
 noremap ,t :CtrlPTag<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gt :GitGutterNextHunk<CR>
