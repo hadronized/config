@@ -1,6 +1,3 @@
-" Espace insécable
-inoremap <S-Space> <Esc>
-
 " On remappe W sur É :
 noremap é w
 noremap É W
