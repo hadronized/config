@@ -78,14 +78,18 @@ colorscheme gruvbox
 let mapleader=","
 
 " key bindings
-noremap ,f :FZF<CR>
+tnoremap <Esc> <C-\><C-n>
+noremap ,b :Buffers<CR>
+noremap ,f :Files<CR>
 noremap ,t :call LanguageClient_textDocument_documentSymbol()<CR>
 noremap ,n :NERDTreeToggle<CR>
+noremap ,g :GFiles<CR>
+noremap ,gf :GFiles<CR>
+noremap ,gc :Commits<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
-tnoremap <Esc> <C-\><C-n>
 noremap k :call LanguageClient_textDocument_hover()<CR>
 noremap gd :call LanguageClient_textDocument_definition()<CR>
 noremap <F2> :call LanguageClient_textDocument_rename()<CR>
