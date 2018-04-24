@@ -78,7 +78,7 @@ colorscheme gruvbox
 let mapleader=","
 
 " key bindings
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
 noremap ,t :Tags<CR>
