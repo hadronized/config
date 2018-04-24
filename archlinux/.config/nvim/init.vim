@@ -81,7 +81,7 @@ let mapleader=","
 tnoremap <Esc> <C-\><C-n>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
-noremap ,t :call LanguageClient_textDocument_documentSymbol()<CR>
+noremap ,t :Tags<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gb :Gblame<CR>
 noremap ,gc :Commits<CR>
