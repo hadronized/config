@@ -83,12 +83,12 @@ noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
 noremap ,t :call LanguageClient_textDocument_documentSymbol()<CR>
 noremap ,n :NERDTreeToggle<CR>
-noremap ,g :GFiles<CR>
-noremap ,gf :GFiles<CR>
+noremap ,gb :Gblame<CR>
 noremap ,gc :Commits<CR>
+noremap ,gd :GFiles?<CR>
+noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
-noremap ,gb :Gblame<CR>
 noremap U :redo<CR>
 noremap k :call LanguageClient_textDocument_hover()<CR>
 noremap gd :call LanguageClient_textDocument_definition()<CR>
