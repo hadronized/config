@@ -36,6 +36,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'junegunn/fzf.vim'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -78,7 +79,7 @@ let mapleader=","
 
 " key bindings
 noremap ,f :FZF<CR>
-noremap ,t :CtrlPTag<CR>
+noremap ,t :call LanguageClient_textDocument_documentSymbol()<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
@@ -217,3 +218,9 @@ let g:gitgutter_sign_modified_removed = '≃'
 " " racer
 " let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
 " let g:racer_experimental_completer = 1
+
+" Language Client
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
