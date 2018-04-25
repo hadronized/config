@@ -72,6 +72,7 @@ set autoread
 set inccommand=split
 set wildignore+=*/target/*
 set termguicolors
+set fillchars=vert:│
 set background=dark
 colorscheme gruvbox 
 
