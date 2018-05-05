@@ -15,8 +15,8 @@ setxkbmap -option caps:escape
 xset r rate 200 30
 xset -dpms
 
-# plank dock
-plank &
+# dock
+cairo-dock -o &
 
 # communication softwares
 slack

@@ -37,6 +37,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 source ~/.config/nvim/nvimrc.bepo
 
