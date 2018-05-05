@@ -1,0 +1,24 @@
+# start a compositor
+compton -bcCGfz
+
+# display the wallpaper
+#sh ~/.fehbg
+
+# applet / systray for NetworkManager
+nm-applet &
+
+# rebind key for special keyboards and set escape on capslock
+xmodmap -e \"keycode 94 = ISO_Level3_Shift\"
+setxkbmap -option caps:escape
+
+# various settings for Xorg
+xset r rate 200 30
+xset -dpms
+
+# plank dock
+plank &
+
+# communication softwares
+slack
+gitter
+discord

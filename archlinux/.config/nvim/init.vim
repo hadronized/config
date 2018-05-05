@@ -48,7 +48,6 @@ set encoding=utf8
 
 syntax on
 set showmode!
-set mouse=a
 set hlsearch
 set backspace=indent,eol,start
 set nobackup
