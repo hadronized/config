@@ -2,7 +2,7 @@
 compton -bcCGfz
 
 # display the wallpaper
-#sh ~/.fehbg
+sh ~/.fehbg
 
 # applet / systray for NetworkManager
 nm-applet &
@@ -17,6 +17,9 @@ xset -dpms
 
 # dock
 cairo-dock -o &
+
+# panels
+restart-polybar
 
 # communication softwares
 slack

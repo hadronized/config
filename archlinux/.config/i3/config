@@ -202,7 +202,9 @@ exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
-#exec --no-startup-id pasystray -a &
 exec --no-startup-id dual-monitor
+
 exec_always --no-startup-id restart-polybar
+exec_always --no-startup-id "cairo-dock -o"
 exec_always --no-startup-id polychromatic-tray-applet
+
