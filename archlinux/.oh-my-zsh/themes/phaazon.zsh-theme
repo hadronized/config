@@ -27,7 +27,7 @@ function git_info_plus() {
   fi
 }
 
-PROMPT=' %B%F{cyan}%~ $(git_prompt_info)$(git_info_plus)%f%b '
+PROMPT='%B%F{cyan}%~ $(git_prompt_info)$(git_info_plus)%f%b '
 
 # Must use Powerline font, for \uE0A0 to render.
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}\ue0a0 "
