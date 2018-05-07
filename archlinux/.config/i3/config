@@ -29,12 +29,15 @@ set $mod Mod1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# keybindings
+ 
 # start a terminal
 bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+B kill
 
+# rofi
 bindsym $mod+i exec "rofi -show run"
 bindsym $mod+k exec "rofi -show window"
 
@@ -123,9 +126,9 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl 
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
-bindsym Print exec --no-startup-id "scrot /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym Shift+Print exec --no-startup-id "scrot -s /tmp/img_`date +%m%d%y_%H%M%S`.png"
-bindsym $mod+Print exec --no-startup-id "scrot -u /tmp/img_`date +%m%d%y_%H%M%S`.png"
+bindsym Print exec "scrot /tmp/img_$(date +%m%d%y_%H%M%S).png"
+bindsym --release Shift+Print exec "scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png"
+bindsym $mod+Print exec "scrot -u /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym $mod+F1 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png"
 bindsym $mod+F12 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png && systemctl suspend"
 
@@ -205,6 +208,6 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id dual-monitor
 
 exec_always --no-startup-id restart-polybar
-exec_always --no-startup-id "cairo-dock -o"
+#exec_always --no-startup-id tint2
 exec_always --no-startup-id polychromatic-tray-applet
 

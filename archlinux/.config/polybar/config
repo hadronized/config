@@ -284,17 +284,14 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = " %F"
-date-alt = " %c"
-
-time = %H:%M:%S
-time-alt =
+date = " %a %b%e %Y %H:%M:%S"
+date-alt =
 
 format-prefix = "%{F#e60053} "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date%
 
 [module/volume-root]
 type = internal/volume
