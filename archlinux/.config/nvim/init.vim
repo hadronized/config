@@ -214,11 +214,9 @@ let g:gitgutter_sign_modified_removed = '≃'
 " let g:ale_echo_msg_warning_str = ''
 " let g:ale_echo_msg_format = '%severity% %linter% %s'
 " 
-" " deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#rust#racer_binary = "/home/phaazon/.cargo/bin/racer"
-" let g:deoplete#sources#rust#rust_source_path = $RUST_SRC_PATH
-" let g:deoplete#sources#rust#show_duplicates = 1
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#rust#show_duplicates = 1
 " "let g:deoplete#sources#rust#disable_keymap = 1
 " 
 " " racer
