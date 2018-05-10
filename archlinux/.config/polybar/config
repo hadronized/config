@@ -284,7 +284,7 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = " %a %b%e %Y %H:%M:%S"
+date = " %a %b %e %Y %H:%M:%S"
 date-alt =
 
 format-prefix = "%{F#e60053} "
