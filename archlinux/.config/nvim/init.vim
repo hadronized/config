@@ -38,6 +38,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'idris-hackers/idris-vim'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -68,6 +69,7 @@ set expandtab
 set autoindent
 set laststatus=2
 set nu
+set wrap!
 set autoread
 set inccommand=split
 set wildignore+=*/target/*
