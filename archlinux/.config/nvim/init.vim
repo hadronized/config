@@ -39,6 +39,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'idris-hackers/idris-vim'
+Plug 'rakr/vim-one'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -76,7 +77,7 @@ set wildignore+=*/target/*
 set termguicolors
 set fillchars=vert:│
 set background=dark
-colorscheme gruvbox 
+colorscheme one 
 
 let mapleader=","
 
@@ -114,9 +115,12 @@ endif
 let g:gruvbox_italic = 1
 let g:gruvbox_hls_cursor = 'purple'
 
+" one
+let g:one_allow_italics = 1
+
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified', 'lsp' ] ]
