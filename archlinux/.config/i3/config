@@ -97,9 +97,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+quotedbl workspace number "1:"
-bindsym $mod+guillemotleft workspace number "2:"
-bindsym $mod+guillemotright workspace number "3:"
+bindsym $mod+quotedbl workspace number 1
+bindsym $mod+guillemotleft workspace number 2
+bindsym $mod+guillemotright workspace number 3
 bindsym $mod+parenleft workspace number 4
 bindsym $mod+parenright workspace number 5
 bindsym $mod+at workspace number 6
@@ -207,7 +207,9 @@ exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
 exec --no-startup-id dual-monitor
 
-exec_always --no-startup-id restart-polybar
+#exec_always --no-startup-id restart-polybar
 #exec_always --no-startup-id tint2
+exec_always --no-startup-id xfce4-panel
+exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec_always --no-startup-id polychromatic-tray-applet
 
