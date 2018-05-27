@@ -96,12 +96,12 @@ label-unmounted-foreground = ${colors.grey}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.grey}
+label-focused-background = ${colors.red}
 label-focused-underline = ${colors.blue}
 label-focused-padding = 2
 
 label-occupied = %index%
-label-occupied-background = ${colors.grey}
+label-occupied-background = ${colors.red}
 label-occupied-padding = 2
 
 label-urgent = %index%!
@@ -123,8 +123,8 @@ wrapping-scroll = false
 ;pin-workspaces = true
 
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.background}
+label-mode-foreground = ${colors.grey}
+label-mode-background = ${colors.cyan}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
