@@ -268,7 +268,7 @@ format-volume = <ramp-volume> <label-volume>
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 96
+full-at = 92
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.cyan}
