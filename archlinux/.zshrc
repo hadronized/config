@@ -63,6 +63,6 @@ export TERM=xterm-256color-italic
 export TERMINAL='termite'
 
 alias crate=cargo
-#alias ls=exa
+alias ls='exa -lah'
 
 source ~/.fzfrc
