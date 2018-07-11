@@ -63,6 +63,6 @@ export TERM=xterm-256color-italic
 export TERMINAL='termite'
 
 alias crate=cargo
-alias ls='exa -lah'
+alias ls='~/github/exa-fork/target/release/exa'
 
 source ~/.fzfrc
