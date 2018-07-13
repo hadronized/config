@@ -21,6 +21,7 @@ red          = #be5046
 green        = #98c379
 yellow       = #d19a66
 blue         = #61afef
+light-blue   = #638fb3
 magenta      = #c678dd
 cyan         = #56b6c2
 grey    = #4b5263
@@ -37,15 +38,15 @@ width = 100%
 height = 22
 offset-x = 0
 offset-y = 0
-background = ${colors.transparent}
+background = ${colors.black}
 foreground = ${colors.white}
 radius = 0.0
-line-size = 1
+line-size = 0
 line-color = #f00
 border-size = 0
 border-color = #00000000
 padding = 0
-padding-right = 1
+padding-right = 2
 ;module-margin = 0
 module-margin-left = 2
 module-margin-right = 2
@@ -62,7 +63,7 @@ tray-position = right
 tray-detached = false
 tray-maxsize = 20
 tray-transparent = false
-tray-background = ${colors.transparent}
+tray-background = ${colors.black}
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 0
@@ -122,36 +123,35 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
 label-mode-foreground = ${colors.grey}
 label-mode-background = ${colors.cyan}
+label-mode-padding = 2
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = ${colors.grey}
-label-focused-background = ${colors.yellow}
-label-focused-underline = ${colors.grey}
+label-focused-background = ${colors.blue}
+label-focused-underline =
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-background = ${colors.transparent}
+label-unfocused-background = ${colors.black}
 label-unfocused-underline =
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-foreground = ${self.label-focused-foreground}
-label-visible-background = ${self.label-focused-background}
+label-visible-background = ${colors.light-blue}
 label-visible-underline =
-label-visible-padding = ${self.label-focused-padding}
+label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-foreground = ${colors.white}
 label-urgent-background = ${colors.red}
-label-urgent-underline = ${colors.yellow}
-label-urgent-padding = ${self.label-focused-padding}
+label-urgent-padding = 2
 
 [module/mpd]
 type = internal/mpd
