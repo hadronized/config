@@ -1,6 +1,6 @@
 rofi.modi:                           window,run
 rofi.opacity:                        30
-rofi.theme: gruvbox-dark
+rofi.theme: Pop-Dark
 rofi.font: DejaVu Sans Mono 12
 rofi.lines: 15
 rofi.columns:                        3
