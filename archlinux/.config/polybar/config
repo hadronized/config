@@ -15,16 +15,17 @@ foreground = #dfdfdf
 foreground-alt = #555
 
 ; one-dark colorscheme
-black        = #282c34
-white        = #abb2bf
-red          = #be5046
-green        = #98c379
-yellow       = #d19a66
-blue         = #61afef
-light-blue   = #638fb3
-magenta      = #c678dd
-cyan         = #56b6c2
-grey    = #4b5263
+black         = #282c34
+white         = #abb2bf
+red           = #be5046
+green         = #98c379
+yellow        = #d19a66
+blue          = #61afef
+light-blue    = #638fb3
+magenta       = #eb468c
+light-magenta = #d80e63
+cyan          = #56b6c2
+grey          = #4b5263
 
 [bar/default]
 
@@ -130,7 +131,7 @@ label-mode-padding = 2
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = ${colors.grey}
-label-focused-background = ${colors.blue}
+label-focused-background = ${colors.magenta}
 label-focused-underline =
 label-focused-padding = 2
 
@@ -143,7 +144,7 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-foreground = ${self.label-focused-foreground}
-label-visible-background = ${colors.light-blue}
+label-visible-background = ${colors.light-magenta}
 label-visible-underline =
 label-visible-padding = 2
 

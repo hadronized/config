@@ -62,7 +62,6 @@ set incsearch
 set noswapfile
 set hidden
 set colorcolumn=100
-set cursorline
 set tabstop=2
 set shiftwidth=2
 set smartindent
@@ -78,6 +77,7 @@ set termguicolors
 set fillchars=vert:│
 set background=dark
 colorscheme one 
+hi! Normal ctermbg=NONE guibg=NONE
 
 let mapleader=","
 
