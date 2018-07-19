@@ -48,6 +48,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Ctrl+c resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+t resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+s resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+r resize shrink width 10 px or 10 ppt
+
 # split in horizontal orientation
 bindsym $mod+v split h
 
@@ -116,32 +121,6 @@ bindsym $mod+Shift+X reload
 bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym c resize shrink width 10 px or 10 ppt
-        bindsym t resize grow height 10 px or 10 ppt
-        bindsym s resize shrink height 10 px or 10 ppt
-        bindsym r resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+y mode "resize"
 
 client.focused #eb468c #eb468c #FFFFFF #d80e63
 client.focused_inactive #333333 #333333 #CCCCCC #333333
