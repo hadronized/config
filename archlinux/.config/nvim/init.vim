@@ -33,6 +33,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'idris-hackers/idris-vim'
 Plug 'rakr/vim-one'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
 
 source ~/.config/nvim/nvimrc.bepo
 
@@ -184,10 +186,6 @@ let g:rainbow_conf = {
 	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'], 
 	\}
 
-" tags
-au BufWritePost *.hs            silent !init-tags %
-au BufWritePost *.hsc           silent !init-tags %
-
 " gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
@@ -203,3 +201,8 @@ let g:LanguageClient_serverCommands = {
 
 " FZF
 set rtp+=/usr/local/opt/fzf
+
+" ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+set shortmess+=c
