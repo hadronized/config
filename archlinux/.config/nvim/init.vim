@@ -3,12 +3,9 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'ajmwagar/vim-deus'
-Plug 'ltlollo/diokai'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
@@ -27,11 +24,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'luochen1990/rainbow'
-"Plug 'w0rp/ale'
-"Plug 'racer-rust/vim-racer'
-Plug 'Shougo/deoplete.nvim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -153,7 +146,6 @@ function! MyFileformat()
 endfunction
 
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Haskell
@@ -186,11 +178,6 @@ let g:NERDTreeMapRefreshRoot = 'L'
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
 
-" Bookmark
-let g:bookmark_sign = ''
-let g:bookmark_highlight_lines = 1
-let g:bookmark_save_per_working_dir = 1
-
 " Rainbow
 let g:rainbow_active = 0
 let g:rainbow_conf = {
@@ -202,32 +189,11 @@ au BufWritePost *.hs            silent !init-tags %
 au BufWritePost *.hsc           silent !init-tags %
 
 " gitgutter
-"let g:gitgutter_sign_added = ''
-"let g:gitgutter_sign_modified = ''
-"let g:gitgutter_sign_removed = '_'
-"let g:gitgutter_sign_removed_first_line = '_'
-"let g:gitgutter_sign_modified_removed = '≃'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '_'
 let g:gitgutter_sign_removed_first_line = '_'
 let g:gitgutter_sign_modified_removed = '≃'
-
-" " ale
-" let g:ale_sign_error = ''
-" let g:ale_sign_warning = ''
-" let g:ale_echo_msg_error_str = ''
-" let g:ale_echo_msg_warning_str = ''
-" let g:ale_echo_msg_format = '%severity% %linter% %s'
-" 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#rust#show_duplicates = 1
-" "let g:deoplete#sources#rust#disable_keymap = 1
-" 
-" " racer
-" let g:racer_cmd = "/home/phaazon/.cargo/bin/racer"
-" let g:racer_experimental_completer = 1
 
 " Language Client
 let g:LanguageClient_serverCommands = {
@@ -235,4 +201,5 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ }
 
+" FZF
 set rtp+=/usr/local/opt/fzf
