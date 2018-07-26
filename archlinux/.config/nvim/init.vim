@@ -234,3 +234,5 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'haskell': ['hie', '--lsp'],
     \ }
+
+set rtp+=/usr/local/opt/fzf
