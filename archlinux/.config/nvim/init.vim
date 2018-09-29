@@ -5,7 +5,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
@@ -35,6 +34,11 @@ Plug 'idris-hackers/idris-vim'
 Plug 'rakr/vim-one'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-tmux'
 
 source ~/.config/nvim/nvimrc.bepo
 

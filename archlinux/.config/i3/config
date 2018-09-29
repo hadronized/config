@@ -147,4 +147,5 @@ exec_always --no-startup-id restart-polybar
 #exec_always --no-startup-id xfce4-panel
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec_always --no-startup-id polychromatic-tray-applet
+exec_always --no-startup-id nm-applet
 
