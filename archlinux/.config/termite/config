@@ -7,10 +7,10 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = DejaVu Sans Mono 10
+font = DejaVu Sans Mono 12
 scrollback_lines = 10000
 search_wrap = true
-#icon_name = terminal
+icon_name = terminal
 #geometry = 640x480
 
 # "system", "on" or "off"
@@ -20,10 +20,10 @@ cursor_blink = on
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = chromium
+#browser = 
 
 # set size hints for the window
-#size_hints = true
+size_hints = true
 
 # Hide links that are no longer valid in url select overlay mode
 filter_unmatched_urls = true

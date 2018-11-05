@@ -10,7 +10,7 @@ floating_modifier $mod
 # keybindings
  
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+B kill

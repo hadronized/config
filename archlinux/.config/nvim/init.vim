@@ -67,14 +67,13 @@ set expandtab
 set autoindent
 set laststatus=2
 set nu
-set wrap!
 set autoread
 set inccommand=split
 set wildignore+=*/target/*
 set termguicolors
 set fillchars=vert:│
 set background=dark
-colorscheme one 
+colorscheme gruvbox
 hi! Normal ctermbg=NONE guibg=NONE
 
 let mapleader=","
@@ -118,7 +117,7 @@ let g:one_allow_italics = 1
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified', 'lsp' ] ]
