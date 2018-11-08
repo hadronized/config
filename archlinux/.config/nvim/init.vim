@@ -38,6 +38,7 @@ Plug 'ncm2/ncm2-github'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-tmux'
+Plug 'posva/vim-vue'
 
 source ~/.config/nvim/nvimrc.bepo
 
