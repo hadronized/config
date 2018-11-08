@@ -200,6 +200,7 @@ let g:gitgutter_sign_modified_removed = '≃'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'haskell': ['hie-wrapper'],
+    \ 'python': ['pyls'],
     \ }
 
 " FZF

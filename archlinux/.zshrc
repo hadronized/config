@@ -66,3 +66,6 @@ alias crate=cargo
 alias ls='~/github/exa-fork/target/release/exa --icons'
 
 source ~/.fzfrc
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
