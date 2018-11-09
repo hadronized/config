@@ -33,7 +33,7 @@ filter_unmatched_urls = true
 
 [colors]
 # hard contrast: background = #1d2021
-background = rgba(40, 40, 40, 1)
+background = rgba(40, 40, 40, 0.8)
 
 # soft contrast: background = #32302f
 foreground = #ebdbb2
