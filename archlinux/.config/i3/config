@@ -79,29 +79,35 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws10 "10:"
+
 # switch to workspace
-bindsym $mod+quotedbl workspace number 1
-bindsym $mod+guillemotleft workspace number 2
-bindsym $mod+guillemotright workspace number 3
-bindsym $mod+parenleft workspace number 4
+bindsym $mod+quotedbl workspace $ws1
+bindsym $mod+guillemotleft workspace $ws2
+bindsym $mod+guillemotright workspace $ws3
+bindsym $mod+parenleft workspace $ws4
 bindsym $mod+parenright workspace number 5
 bindsym $mod+at workspace number 6
 bindsym $mod+plus workspace number 7
 bindsym $mod+minus workspace number 8
 bindsym $mod+slash workspace number 9
-bindsym $mod+asterisk workspace number 10
+bindsym $mod+asterisk workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+guillemotleft move container to workspace number 2
-bindsym $mod+Shift+guillemotright move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+guillemotleft move container to workspace $ws2
+bindsym $mod+Shift+guillemotright move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%"
@@ -112,8 +118,8 @@ bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
 bindsym Print exec "scrot /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym --release Shift+Print exec "scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym $mod+Print exec "scrot -u /tmp/img_$(date +%m%d%y_%H%M%S).png"
-bindsym $mod+F1 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png"
-bindsym $mod+F12 exec --no-startup-id "i3lock -fi ~/pictures/wallpapers/ws_Simple_pink_1920x1080.png && systemctl suspend"
+bindsym Mod4+l exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png"
+bindsym Mod4+s exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png && systemctl suspend"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
@@ -134,7 +140,7 @@ default_floating_border none
 gaps inner 8
 gaps outer 0
 
-exec --no-startup-id compton -bcCGfz
+exec --no-startup-id compton -bcCGfz --backend glx --blur-background --blur-background-frame --blur-method kawase
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id nm-applet
 exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""

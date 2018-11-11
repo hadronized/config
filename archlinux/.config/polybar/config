@@ -120,36 +120,38 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-foreground = ${colors.grey}
-label-mode-background = ${colors.cyan}
+label-mode-foreground = ${colors.cyan}
+label-mode-background = ${colors.black}
 label-mode-padding = 2
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-foreground = ${colors.grey}
-label-focused-background = ${colors.magenta}
+label-focused = %name%
+label-focused-foreground = ${colors.magenta}
+label-focused-background = ${colors.black}
 label-focused-underline =
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.grey}
 label-unfocused-background = ${colors.black}
 label-unfocused-underline =
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-foreground = ${self.label-focused-foreground}
-label-visible-background = ${colors.light-magenta}
+label-visible = %name%
+label-visible-foreground = ${colors.white}
+label-visible-background = ${colors.black}
 label-visible-underline =
 label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-foreground = ${colors.white}
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
