@@ -39,6 +39,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-tmux'
 Plug 'posva/vim-vue'
+Plug 'pest-parser/pest.vim'
 
 source ~/.config/nvim/nvimrc.bepo
 
