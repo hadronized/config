@@ -1,0 +1,20 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  "easy-motion-redux": {}
+  editor:
+    autoIndent: false
+    fontFamily: "Fira Code"
+    invisibles: {}
+  "exception-reporting":
+    userId: "245ddc53-a2c8-4afc-8678-a85797afc467"
+  notifications: {}
+  "one-dark-ui":
+    tabCloseButton: "Left"
+  "seti-ui":
+    compactView: true
+    themeColor: "Purple"
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+  welcome:
+    showOnStartup: false

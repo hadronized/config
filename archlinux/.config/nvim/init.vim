@@ -93,6 +93,7 @@ noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 noremap U :redo<CR>
+noremap gm :call LanguageClient_contextMenu()<CR>
 noremap k :call LanguageClient_textDocument_hover()<CR>
 noremap gd :call LanguageClient_textDocument_definition()<CR>
 noremap <F2> :call LanguageClient_textDocument_rename()<CR>
@@ -202,6 +203,8 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
+    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/Users/dsabadie/.cache/cquery/", "completion": {"filterAndSort": false }}'],
+    \ 'c': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/Users/dsabadie/.cache/cquery/", "completion": {"filterAndSort": false }}'],
     \ }
 
 " FZF
