@@ -1,13 +1,25 @@
 "*":
+  "advanced-open-file":
+    defaultInputValue: "Project root"
+    fuzzyMatch: true
   core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "language-gfm"
+    ]
     telemetryConsent: "no"
   "easy-motion-redux": {}
   editor:
     autoIndent: false
-    fontFamily: "Fira Code"
     invisibles: {}
+    preferredLineLength: 1109
+    showIndentGuide: true
   "exception-reporting":
     userId: "245ddc53-a2c8-4afc-8678-a85797afc467"
+  "linter-ui-default":
+    showPanel: true
+  "markdown-preview":
+    useGitHubStyle: true
   notifications: {}
   "one-dark-ui":
     tabCloseButton: "Left"
