@@ -12,7 +12,7 @@
   editor:
     autoIndent: false
     invisibles: {}
-    preferredLineLength: 1109
+    preferredLineLength: 110
     showIndentGuide: true
   "exception-reporting":
     userId: "245ddc53-a2c8-4afc-8678-a85797afc467"
