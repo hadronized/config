@@ -2,20 +2,40 @@
   "advanced-open-file":
     defaultInputValue: "Project root"
     fuzzyMatch: true
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      showDirectoryColumn: true
+  "better-git-blame":
+    searchInLayerEnabled: false
   core:
     autoHideMenuBar: true
     disabledPackages: [
       "language-gfm"
+      "tabs"
     ]
     telemetryConsent: "no"
   "easy-motion-redux": {}
   editor:
-    autoIndent: false
     invisibles: {}
     preferredLineLength: 110
     showIndentGuide: true
+    tabType: "soft"
   "exception-reporting":
     userId: "245ddc53-a2c8-4afc-8678-a85797afc467"
+  "git-plus":
+    commits:
+      verboseCommits: true
+    diffs:
+      wordDiff: true
+    remoteInteractions:
+      pullAutostash: true
+      pullRebase: true
+    tags:
+      signTags: true
+  "ide-clangd":
+    clangdCommand: "/usr/local/opt/llvm/bin/clangd"
+  "ide-cpp":
+    clangdPath: "/usr/local/opt/llvm/bin/clangd"
   "linter-ui-default":
     showPanel: true
   "markdown-preview":
@@ -23,9 +43,23 @@
   notifications: {}
   "one-dark-ui":
     tabCloseButton: "Left"
+  "platformio-ide-terminal":
+    core: {}
+    customTexts: {}
+    style:
+      fontFamily: "DejaVuSansMono Nerd Font"
+      theme: "one-dark"
+    toggles:
+      autoClose: true
   "seti-ui":
     compactView: true
     themeColor: "Purple"
+  tabs:
+    addNewTabsAtEnd: true
+    enableVcsColoring: true
+  "terminal-plus":
+    core:
+      autoRunCommand: "echo \"Hello, world!\""
   "vim-mode-plus":
     automaticallyEscapeInsertModeOnActivePaneItemChange: true
   welcome:

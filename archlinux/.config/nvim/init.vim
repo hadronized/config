@@ -42,6 +42,7 @@ Plug 'posva/vim-vue'
 Plug 'pest-parser/pest.vim'
 
 source ~/.config/nvim/nvimrc.bepo
+source ~/.config/nvim/platform-specific.vim
 
 call plug#end()
 filetype plugin indent on
@@ -62,8 +63,8 @@ set incsearch
 set noswapfile
 set hidden
 set colorcolumn=100
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set expandtab
 set autoindent
@@ -74,9 +75,6 @@ set inccommand=split
 set wildignore+=*/target/*
 set termguicolors
 set fillchars=vert:│
-set background=dark
-colorscheme gruvbox
-hi! Normal ctermbg=NONE guibg=NONE
 
 let mapleader=","
 
@@ -118,9 +116,12 @@ let g:gruvbox_hls_cursor = 'purple'
 " one
 let g:one_allow_italics = 1
 
+colorscheme one
+set background=dark
+
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified', 'lsp' ] ]

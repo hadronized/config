@@ -18,6 +18,7 @@
   'w q': 'core:close'
   ', n': 'tree-view:toggle'
   ', f': 'fuzzy-finder:toggle-file-finder'
+  ', b': 'fuzzy-finder:toggle-buffer-finder'
   ', w': 'easy-motion-redux:words'
   ', W': 'easy-motion-redux:words-select'
   ', l': 'easy-motion-redux:lines'
@@ -26,6 +27,8 @@
   ', C': 'easy-motion-redux:letter-select'
   # this is so ugly, but I haven’t found a way to make altgr-space works on archlinux…
   'space': 'vim-mode-plus:move-to-first-character-of-line-and-down'
+  'g f': 'open-this:here'
+  ', g b': 'git-blame:toggle'
 
 'body':
   # These should ease navigating panes when not in a text buffer :)
@@ -40,3 +43,8 @@
   'alt-g shift-t': 'vim-mode-plus:previous-tab'
   'ctrl-o': 'advanced-open-file:toggle'
   'ctrl-n': 'unset!'
+  'shift-cmd-N': 'platformio-ide-terminal:new'
+  'shift-cmd-T': 'platformio-ide-terminal:toggle'
+
+'.platform-darwin atom-workspace':
+  'shift-cmd-T': 'unset!'
