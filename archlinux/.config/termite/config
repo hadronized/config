@@ -14,7 +14,7 @@ icon_name = terminal
 #geometry = 640x480
 
 # "system", "on" or "off"
-cursor_blink = on
+cursor_blink = system
 
 # "block", "underline" or "ibeam"
 cursor_shape = block
@@ -36,7 +36,7 @@ filter_unmatched_urls = true
 # special
 foreground      = #abb2bf
 foreground_bold = #abb2bf
-cursor          = #9a52af
+cursor          = #3b84c0
 background      = #282c34
 
 # black
