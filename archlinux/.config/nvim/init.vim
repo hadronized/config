@@ -40,6 +40,7 @@ Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-tmux'
 Plug 'posva/vim-vue'
 Plug 'pest-parser/pest.vim'
+Plug 'kchmck/vim-coffee-script'
 
 source ~/.config/nvim/nvimrc.bepo
 source ~/.config/nvim/platform-specific.vim
