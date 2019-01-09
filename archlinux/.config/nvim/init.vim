@@ -110,6 +110,17 @@ if exists('g:gui_oni')
   unmap ,n
 endif
 
+" easymotion
+let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
+
+nmap ,w <Plug>(easymotion-bd-w)
+nmap ,W <Plug>(easymotion-overwin-w)
+nmap ,c <Plug>(easymotion-bd-f)
+nmap ,C <Plug>(easymotion-overwin-f)
+nmap ,l <Plug>(easymotion-bd-jk)
+nmap ,L <Plug>(easymotion-overwin-line)
+nmap ,/ <Plug>(easymotion-sn)
+
 " gruvbox
 let g:gruvbox_italic = 1
 let g:gruvbox_hls_cursor = 'purple'
