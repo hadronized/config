@@ -79,6 +79,8 @@ set fillchars=vert:│
 
 let mapleader=","
 
+autocmd BufWritePre * %s/\s\+$//e
+
 " key bindings
 "tnoremap <Esc> <C-\><C-n>
 noremap ,b :Buffers<CR>
