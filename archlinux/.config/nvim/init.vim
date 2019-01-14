@@ -24,23 +24,23 @@ Plug 'mhinz/vim-startify'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'idris-hackers/idris-vim'
 Plug 'rakr/vim-one'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-github'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-racer'
-Plug 'ncm2/ncm2-tmux'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'posva/vim-vue'
 Plug 'pest-parser/pest.vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'Shougo/echodoc.vim'
+Plug 'w0rp/ale'
+
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'virtual'
 
 source ~/.config/nvim/nvimrc.bepo
 source ~/.config/nvim/platform-specific.vim
@@ -64,8 +64,8 @@ set incsearch
 set noswapfile
 set hidden
 set colorcolumn=100
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smartindent
 set expandtab
 set autoindent
@@ -82,7 +82,6 @@ let mapleader=","
 autocmd BufWritePre * %s/\s\+$//e
 
 " key bindings
-"tnoremap <Esc> <C-\><C-n>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
 noremap ,t :Tags<CR>
@@ -94,10 +93,10 @@ noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 noremap U :redo<CR>
-noremap gm :call LanguageClient_contextMenu()<CR>
-noremap k :call LanguageClient_textDocument_hover()<CR>
-noremap gd :call LanguageClient_textDocument_definition()<CR>
-noremap <F2> :call LanguageClient_textDocument_rename()<CR>
+"noremap gm :call LanguageClient_contextMenu()<CR>
+"noremap k :call LanguageClient_textDocument_hover()<CR>
+"noremap gd :call LanguageClient_textDocument_definition()<CR>
+"noremap <F2> :call LanguageClient_textDocument_rename()<CR>
 
 if exists('g:gui_oni')
   set smartcase
@@ -143,8 +142,7 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"×":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \   'lsp': '%{LanguageClient_serverStatus()==1?"LS ◐":"LS ●"}'
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -203,7 +201,7 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 " Rainbow
 let g:rainbow_active = 0
 let g:rainbow_conf = {
-	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'], 
+	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'],
 	\}
 
 " gitgutter
@@ -224,8 +222,22 @@ let g:LanguageClient_serverCommands = {
 
 " FZF
 set rtp+=/usr/local/opt/fzf
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-set shortmess+=c
+" Deoplete
+"let g:deoplete#enable_at_startup = 1
+
+" ALE
+let g:ale_completion_enabled = 1
+let g:ale_virtualtext_cursor = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {
+  \ 'rust': ['rls'],
+  \ 'vue': ['eslint', 'vls']
+  \ }
