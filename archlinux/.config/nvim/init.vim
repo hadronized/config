@@ -82,8 +82,10 @@ let mapleader=","
 autocmd BufWritePre * %s/\s\+$//e
 
 " key bindings
+noremap U :redo<CR>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
+noremap ,r :ALEFindReferences<CR>
 noremap ,t :Tags<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gb :Gblame<CR>
@@ -92,11 +94,11 @@ noremap ,gd :GFiles?<CR>
 noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
-noremap U :redo<CR>
-"noremap gm :call LanguageClient_contextMenu()<CR>
-"noremap k :call LanguageClient_textDocument_hover()<CR>
-"noremap gd :call LanguageClient_textDocument_definition()<CR>
-"noremap <F2> :call LanguageClient_textDocument_rename()<CR>
+noremap k :ALEHover<CR>
+noremap gdo :ALEGoToDefinitionInSplit<CR>
+noremap gdv :ALEGoToDefinitionInVSplit<CR>
+noremap gdt :ALEGoToDefinitionInTab<CR>
+noremap gd :ALEGoToDefinition<CR>
 
 if exists('g:gui_oni')
   set smartcase
@@ -238,6 +240,10 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {
+  \ 'cpp': ['cquery'],
   \ 'rust': ['rls'],
   \ 'vue': ['eslint', 'vls']
   \ }
+
+highlight link ALEError Error
+highlight link ALEWarning Warning
