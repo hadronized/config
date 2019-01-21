@@ -38,6 +38,7 @@ Plug 'pest-parser/pest.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Shougo/echodoc.vim'
 Plug 'w0rp/ale'
+Plug 'Yggdroot/indentLine'
 
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
@@ -207,11 +208,11 @@ let g:rainbow_conf = {
 	\}
 
 " gitgutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_added = '│'
+let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '_'
 let g:gitgutter_sign_removed_first_line = '_'
-let g:gitgutter_sign_modified_removed = '≃'
+let g:gitgutter_sign_modified_removed = '│'
 
 " Language Client
 let g:LanguageClient_serverCommands = {
@@ -247,3 +248,17 @@ let g:ale_linters = {
 
 highlight link ALEError Error
 highlight link ALEWarning Warning
+
+" nvim-gdb
+let g:nvimgdb_config_override = {
+  \ 'key_next': 'n',
+  \ 'key_step': 's',
+  \ 'key_finish': 'f',
+  \ 'key_continue': 'c',
+  \ 'key_until': 'u',
+  \ 'key_breakpoint': 'b',
+  \ }
+
+" indentLine
+let g:indentLine_setColors = 0
+let g:indentLine_char = '│'
