@@ -24,10 +24,10 @@ Plug 'mhinz/vim-startify'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
-"Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'idris-hackers/idris-vim'
@@ -37,7 +37,7 @@ Plug 'posva/vim-vue'
 Plug 'pest-parser/pest.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'Shougo/echodoc.vim'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 
 let g:echodoc#enable_at_startup = 1
@@ -86,8 +86,14 @@ autocmd BufWritePre * %s/\s\+$//e
 noremap U :redo<CR>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
-noremap ,r :ALEFindReferences<CR>
-noremap ,t :Tags<CR>
+noremap ,r :call LanguageClient_textDocument_references()<CR>
+noremap gm :call LanguageClient_contextMenu()<CR>
+noremap ,td :call LanguageClient_textDocument_documentSymbol()<CR>
+noremap ,tw :call LanguageClient_workspace_symbol()<CR>
+noremap ,qe :cc!<CR>
+noremap ,qn :cn!<CR>
+noremap ,qp :cp!<CR>
+noremap ,qo :cope<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gb :Gblame<CR>
 noremap ,gc :Commits<CR>
@@ -95,11 +101,10 @@ noremap ,gd :GFiles?<CR>
 noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
-noremap k :ALEHover<CR>
-noremap gdo :ALEGoToDefinitionInSplit<CR>
-noremap gdv :ALEGoToDefinitionInVSplit<CR>
-noremap gdt :ALEGoToDefinitionInTab<CR>
-noremap gd :ALEGoToDefinition<CR>
+noremap k :call LanguageClient_textDocument_hover()<CR>
+noremap gdd :call LanguageClient_textDocument_definition({'gotoCmd': 'split'})<CR>
+noremap gdt :call LanguageClient_textDocument_typeDefinition()<CR>
+noremap gdi :call LanguageClient_textDocument_implementation()<CR>
 
 if exists('g:gui_oni')
   set smartcase
@@ -145,12 +150,13 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"×":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \   'fugitive': '%{fugitive#head()}',
+      \   'lsp':      '%{LanguageClient_serverStatus()==1?"LS ◐":"LS ●"}'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
       \ },
       \ 'component_function': {
       \   'filetype': 'MyFiletype',
@@ -210,8 +216,8 @@ let g:rainbow_conf = {
 " gitgutter
 let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
-let g:gitgutter_sign_removed = '_'
-let g:gitgutter_sign_removed_first_line = '_'
+let g:gitgutter_sign_removed = '│'
+let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_modified_removed = '│'
 
 " Language Client
@@ -231,20 +237,21 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " Deoplete
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " ALE
-let g:ale_completion_enabled = 1
-let g:ale_virtualtext_cursor = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {
-  \ 'cpp': ['cquery'],
-  \ 'rust': ['rls'],
-  \ 'vue': ['eslint', 'vls']
-  \ }
+" set completeopt=menu,menuone,preview,noselect,noinsert
+" let g:ale_completion_enabled = 0
+" let g:ale_virtualtext_cursor = 1
+" let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '✖'
+" let g:ale_sign_warning = '⚠'
+" let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+" let g:ale_linters = {
+"   \ 'cpp': ['cquery'],
+"   \ 'rust': ['rls'],
+"   \ 'vue': ['eslint', 'vls']
+"   \ }
 
 highlight link ALEError Error
 highlight link ALEWarning Warning
@@ -262,3 +269,4 @@ let g:nvimgdb_config_override = {
 " indentLine
 let g:indentLine_setColors = 0
 let g:indentLine_char = '│'
+let g:indentLine_fileTypeExclude = ['markdown']
