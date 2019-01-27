@@ -239,6 +239,8 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+autocmd CompleteDone * silent! pclose!
+
 " ALE
 " set completeopt=menu,menuone,preview,noselect,noinsert
 " let g:ale_completion_enabled = 0
@@ -269,4 +271,4 @@ let g:nvimgdb_config_override = {
 " indentLine
 let g:indentLine_setColors = 0
 let g:indentLine_char = '│'
-let g:indentLine_fileTypeExclude = ['markdown']
+let g:indentLine_fileTypeExclude = ['markdown', 'startify']
