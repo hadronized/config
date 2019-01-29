@@ -234,7 +234,7 @@ set rtp+=/usr/local/opt/fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
