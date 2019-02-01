@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/phaazon/.oh-my-zsh
+export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,19 +53,22 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/phaazon/bin:/home/phaazon/.cabal/bin:/home/phaazon/.local/bin:/home/phaazon/.cargo/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/$/bin:/home/$USER/.cabal/bin:/home/$USER/.local/bin:/home/$USER/.cargo/bin"
 
-source $ZSH/oh-my-zsh.sh
+[ -e $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export TERM=xterm-256color-italic
 export TERMINAL='termite'
 
-alias crate=cargo
 alias ls='~/github/exa-fork/target/release/exa --icons'
 
-source ~/.fzfrc
+[ -e ~/.fzfrc ] && source ~/.fzfrc
 
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
+[ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
+
+# Custom bindings
+# git checkout <branch>
+bindkey -s '^g^b' '^Ugit branch | fzf --height 20% --reverse | cut -c 3- | xargs git checkout^M'
