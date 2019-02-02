@@ -39,6 +39,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'Shougo/echodoc.vim'
 "Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
@@ -88,8 +89,8 @@ noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
 noremap ,r :call LanguageClient_textDocument_references()<CR>
 noremap gm :call LanguageClient_contextMenu()<CR>
-noremap ,td :call LanguageClient_textDocument_documentSymbol()<CR>
-noremap ,tw :call LanguageClient_workspace_symbol()<CR>
+noremap ,t :Tags<CR>
+noremap ,T :TagbarToggle<CR>
 noremap ,qe :cc!<CR>
 noremap ,qn :cn!<CR>
 noremap ,qp :cp!<CR>
@@ -225,13 +226,18 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'haskell': ['hie-wrapper'],
     \ 'python': ['pyls'],
-    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/Users/dsabadie/.cache/cquery/", "completion": {"filterAndSort": false }}'],
-    \ 'c': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/Users/dsabadie/.cache/cquery/", "completion": {"filterAndSort": false }}'],
+    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/var/cquery", "completion": {"filterAndSort": false }}'],
+    \ 'c': ['cquery', '--log-file=/tmp/cq.log', '--init={ "cacheDirectory": "/var/cquery", "completion": {"filterAndSort": false }}'],
     \ }
 
 " FZF
 set rtp+=/usr/local/opt/fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-o': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
@@ -272,3 +278,7 @@ let g:nvimgdb_config_override = {
 let g:indentLine_setColors = 0
 let g:indentLine_char = '│'
 let g:indentLine_fileTypeExclude = ['markdown', 'startify']
+
+" Tagbar
+let g:tagbar_map_zoomwin = 'a'
+let g:tagbar_map_togglesort = 'u'
