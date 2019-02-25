@@ -59,7 +59,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/u
 
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
-export TERM=xterm-256color-italic
+export TERM=xterm-256color
 export TERMINAL='termite'
 
 alias ls='~/github/exa-fork/target/release/exa --icons'
