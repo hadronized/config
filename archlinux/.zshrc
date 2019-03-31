@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/$/bin:/home/$USER/.cabal/bin:/home/$USER/.local/bin:/home/$USER/.cargo/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/$USER/.cabal/bin:/home/$USER/.local/bin:/home/$USER/.cargo/bin"
 
 [ -e $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
