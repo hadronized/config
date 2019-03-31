@@ -32,6 +32,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 filetype plugin indent on
