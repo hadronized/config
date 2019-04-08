@@ -33,6 +33,7 @@ Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
+Plug 'baskerville/vim-sxhkdrc'
 
 call plug#end()
 filetype plugin indent on

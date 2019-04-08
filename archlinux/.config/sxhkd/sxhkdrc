@@ -6,6 +6,12 @@ alt + Return
 alt + d
 	rofi -show run
 
+Print
+  scrot /tmp/img_$(date +%m%d%y_%H%M%S).png
+
+@shift + Print
+  scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png
+
 # reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -15,7 +21,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-alt + {_,shift + }m
+alt + {_,shift + } m
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
