@@ -71,4 +71,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Custom bindings
 # git checkout <branch>
-bindkey -s '^g^b' '^Ugit branch | fzf --height 20% --reverse | cut -c 3-^M'
+bindkey -s '^gb' '^Ugit branch | fzf --height 20% --reverse | cut -c 3- | xargs git checkout^M'
+
+# git push <remote>
+bindkey -s '^gp' '^Ugit remote | fzf --height 20% --reverse | xargs git push^M'
