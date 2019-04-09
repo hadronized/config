@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'phaazon/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'neovimhaskell/haskell-vim'
@@ -34,6 +35,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
 Plug 'baskerville/vim-sxhkdrc'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 filetype plugin indent on

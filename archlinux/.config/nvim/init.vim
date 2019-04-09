@@ -24,8 +24,8 @@ set incsearch
 set noswapfile
 set hidden
 set colorcolumn=100
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set smartindent
 set expandtab
 set autoindent
@@ -164,3 +164,11 @@ let g:tagbar_map_togglesort = 'u'
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
 
+" LSP
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'cpp': ['cquery', '--init={"cacheDirectory":"/tmp/cquery/"}']
+    \ }
