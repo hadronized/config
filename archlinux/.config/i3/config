@@ -8,7 +8,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # keybindings
- 
+
 # start a terminal
 bindsym $mod+Return exec $TERMINAL
 
