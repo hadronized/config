@@ -24,8 +24,8 @@ set incsearch
 set noswapfile
 set hidden
 set colorcolumn=100
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smartindent
 set expandtab
 set autoindent
