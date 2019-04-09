@@ -172,3 +172,6 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'cpp': ['cquery', '--init={"cacheDirectory":"/tmp/cquery/"}']
     \ }
+
+" orgguide-agenda
+let g:org_agenda_files=['~/org/*.org']

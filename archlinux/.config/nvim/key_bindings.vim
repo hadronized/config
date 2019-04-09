@@ -1,4 +1,5 @@
 let mapleader=","
+let maplocalleader = "è"
 
 noremap U :redo<CR>
 noremap ,b :Buffers<CR>
