@@ -2,7 +2,7 @@
 export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
+# Look in $HOME/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="phaazon"
@@ -45,29 +45,28 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# User configuration
-
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/$USER/.cabal/bin:/home/$USER/.local/bin:/home/$USER/.cargo/bin"
-
 [ -e $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
+# User configuration
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin"
+export XDG_CONFIG_HOME="$HOME/.config"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export TERM=xterm-256color
 export TERMINAL='termite'
 
-alias ls='~/github/exa-fork/target/release/exa --icons'
+alias ls='$HOME/github/exa-fork/target/release/exa --icons'
 
-[ -e ~/.fzfrc ] && source ~/.fzfrc
+# Custom colors for unifying theming
+source ~/.Xcolors
 
-export WORKON_HOME=~/.virtualenvs
-[ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
+[ -e $HOME/.fzfrc ] && source $HOME/.fzfrc
 
 # Custom bindings
 # git checkout <branch>

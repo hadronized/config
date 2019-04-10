@@ -2,7 +2,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -79,23 +79,28 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws10 "10:"
+set $ws1 "1:·"
+set $ws2 "2::"
+set $ws3 "3:·:"
+set $ws4 "4:::"
+set $ws5 "5::·:"
+set $ws6 "6::::"
+set $ws7 "7:·:::"
+set $ws8 "8:::::"
+set $ws9 "9:::·::"
+set $ws0 "0::::::"
 
 # switch to workspace
 bindsym $mod+quotedbl workspace $ws1
 bindsym $mod+guillemotleft workspace $ws2
 bindsym $mod+guillemotright workspace $ws3
 bindsym $mod+parenleft workspace $ws4
-bindsym $mod+parenright workspace number 5
-bindsym $mod+at workspace number 6
-bindsym $mod+plus workspace number 7
-bindsym $mod+minus workspace number 8
-bindsym $mod+slash workspace number 9
-bindsym $mod+asterisk workspace $ws10
+bindsym $mod+parenright workspace $ws5
+bindsym $mod+at workspace $ws6
+bindsym $mod+plus workspace $ws7
+bindsym $mod+minus workspace $ws8
+bindsym $mod+slash workspace $ws9
+bindsym $mod+asterisk workspace $ws0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -140,18 +145,13 @@ default_floating_border none
 gaps inner 8
 gaps outer 0
 
-exec --no-startup-id compton -bcCGfz --backend glx --blur-background --blur-background-frame --blur-method kawase
+exec --no-startup-id compton -bcCGfz
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id nm-applet
-exec --no-startup-id "xmodmap -e \"keycode 94 = ISO_Level3_Shift\""
-exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
-exec --no-startup-id dual-monitor
 
 exec_always --no-startup-id restart-polybar
-#exec_always --no-startup-id xfce4-panel
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
-exec_always --no-startup-id polychromatic-tray-applet
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id redshift-gtk

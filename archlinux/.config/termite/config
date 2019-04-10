@@ -14,10 +14,10 @@ icon_name = terminal
 #geometry = 640x480
 
 # "system", "on" or "off"
-cursor_blink = system
+cursor_blink = on
 
 # "block", "underline" or "ibeam"
-cursor_shape = block
+cursor_shape = ibeam
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser =

@@ -1,0 +1,31 @@
+# black
+export X_COLOR0='#282c34'
+export X_COLOR8='#5c6370'
+
+# red
+export X_COLOR1='#e06c75'
+export X_COLOR9='#be5046'
+
+# green
+export X_COLOR2='#98c379'
+export X_COLOR10='#7a9f60'
+
+# yellow
+export X_COLOR3='#e5c07b'
+export X_COLOR11='#d19a66'
+
+# blue
+export X_COLOR4='#61afef'
+export X_COLOR12='#3b84c0'
+
+# magenta
+export X_COLOR5='#c678dd'
+export X_COLOR13='#9a52af'
+
+# cyan
+export X_COLOR6='#56b6c2'
+export X_COLOR14='#3c909b'
+
+# white
+export X_COLOR7='#abb2bf'
+export X_COLOR15='#828997'

@@ -1,119 +1,98 @@
-;=====================================================
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
 ;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 ;
 ;   The README contains alot of information
 ;
-;=====================================================
+;==========================================================
 
 [colors]
+# black
+color0  = ${env:X_COLOR0}
+color8  = ${env:X_COLOR8}
+# red
+color1  = ${env:X_COLOR1}
+color9  = ${env:X_COLOR9}
+# green
+color2  = ${env:X_COLOR2}
+color10 = ${env:X_COLOR10}
+# yellow
+color3  = ${env:X_COLOR3}
+color11 = ${env:X_COLOR11}
+# blue
+color4  = ${env:X_COLOR4}
+color12 = ${env:X_COLOR12}
+# magenta
+color5  = ${env:X_COLOR5}
+color13 = ${env:X_COLOR13}
+# cyan
+color6  = ${env:X_COLOR6}
+color14 = ${env:X_COLOR14}
+# white
+color7  = ${env:X_COLOR7}
+color15 = ${env:X_COLOR15}
 
-transparent = #0000
-background = ${self.black}
-foreground = #dfdfdf
-foreground-alt = #555
-
-; one-dark colorscheme
-black         = #282c34
-white         = #abb2bf
-red           = #be5046
-green         = #98c379
-yellow        = #d19a66
-blue          = #61afef
-light-blue    = #638fb3
-magenta       = #eb468c
-light-magenta = #d80e63
-cyan          = #56b6c2
-grey          = #4b5263
+background     = ${colors.color0}
+background-alt = ${colors.color8}
+foreground     = ${colors.color7}
+foreground-alt = ${colors.color13}
+secondary      = ${colors.color6}
 
 [bar/default]
-
-monitor = HDMI2
-monitor-fallback = eDP1
-monitor-strict = false
-override-redirect = false
-bottom = false
-fixed-center = true
 width = 100%
-height = 22
-offset-x = 0
-offset-y = 0
-background = ${colors.black}
-foreground = ${colors.white}
+height = 27
 radius = 0.0
-line-size = 0
-line-color = #f00
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #000
+
 border-size = 0
-border-color = #00000000
-padding = 0
+;border-color = ${colors.background-alt}
+
+padding-left = 2
 padding-right = 2
-;module-margin = 0
+
 module-margin-left = 2
 module-margin-right = 2
-font-0 = DejaVuSans:style=bold:size=10;2
-font-1 = fontawesome:style=bold;3
-modules-left = i3
-modules-center =
-modules-right = filesystem pulseaudio wlan eth cpu memory temperature battery date notification user powermenu
-separator =
-dim-value = 0.8
-wm-name =
-locale = en_US.UTF-8
+
+font-0 = Cantarell:style=Bold:pixelsize=12;2
+font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=14;3
+
+modules-left = powermenu xwindow
+modules-center = i3
+modules-right = pulseaudio date
+
 tray-position = right
-tray-detached = false
-tray-maxsize = 20
-tray-transparent = false
-tray-background = ${colors.black}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 0
-tray-scale = 1.0
-wm-restack =
-enable-ipc = false
-click-left =
-click-middle =
-click-right =
-double-click-left =
-double-click-middle =
-double-click-right =
-scroll-up =
-scroll-down =
+tray-padding = 2
+;tray-background = ${colors.color8}
+
+;wm-restack = i3
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-
-label-mounted = %{F#98c379}%mountpoint%%{F-} %percentage_used%% (%used%/%total%)
-label-mounted-underline = ${colors.green}
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.grey}
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.red}
-label-focused-underline = ${colors.blue}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-background = ${colors.red}
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.red}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.blue}
-label-empty-padding = 2
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 200
 
 [module/i3]
 type = internal/i3
@@ -122,39 +101,37 @@ index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+ws-icon-default = ♟
+ws-icon0 = 1:·
+ws-icon1 = 2::
+ws-icon2 = 3:·:
+ws-icon3 = 4:::
+ws-icon4 = 5::·:
+ws-icon5 = 6::::
+ws-icon6 = 7:·:::
+ws-icon7 = 8:::::
+ws-icon8 = 9:::·::
+ws-icon9 = 0::::::
 
-label-mode-foreground = ${colors.cyan}
-label-mode-background = ${colors.black}
-label-mode-padding = 2
-
-; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-foreground = ${colors.magenta}
-label-focused-background = ${colors.black}
-label-focused-underline =
-label-focused-padding = 2
+label-focused-foreground = ${colors.color4}
+label-focused-background = ${colors.color8}
+label-focused-underline = ${colors.color12}
+label-focused-padding = 5
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-foreground = ${colors.grey}
-label-unfocused-background = ${colors.black}
-label-unfocused-underline =
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-foreground = ${colors.white}
-label-visible-background = ${colors.black}
-label-visible-underline =
-label-visible-padding = 2
+label-unfocused-foreground = ${colors.color12}
+;label-unfocused-background = ${colors.color2}
+;label-unfocused-underline = ${colors.color7}
+label-unfocused-padding = 5
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-foreground = ${colors.white}
-label-urgent-background = ${colors.red}
-label-urgent-padding = 2
+label-urgent-foreground = ${colors.color7}
+label-urgent-background = ${colors.color1}
+label-urgent-underline = ${colors.color9}
+label-urgent-padding = 5
 
 [module/mpd]
 type = internal/mpd
@@ -169,142 +146,29 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-fill = ─
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-interval = 1
-
-format-prefix = " "
-format-prefix-foreground = ${colors.magenta}
-format-underline = ${colors.magenta}
-label = %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 1
-
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.green}
-format-underline = ${colors.green}
-label = %percentage_used%% (%gb_used%/%gb_total%)
-
-[module/wlan]
-type = internal/network
-interface = wlp5s0
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = enp4s0
-interval = 3.0
-
-format-connected-underline = ${colors.blue}
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.blue}
-label-connected = %local_ip%
-
-format-disconnected =
-format-disconnected-prefix = 
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
 [module/date]
 type = internal/date
 interval = 5
 
-date = %a, %d of %b
+date = %a %b %d
 
 time = %H:%M
 
-format-prefix = " "
-format-prefix-font = 1
-format-prefix-foreground = ${colors.magenta}
-format-underline = ${colors.magenta}
-format-foreground = ${colors.white}
+format-prefix = 
+format-prefix-foreground = ${colors.color6}
 
-label = %date% %time%
+label = " %date%, %time%"
+label-foreground = ${colors.color6}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.color4}
 
-[module/battery]
-type = internal/battery
-battery = BAT1
-adapter = ADP1
-full-at = 92
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.cyan}
-
-format-full = 
-format-full-foreground = ${colors.green}
-format-full-underline = ${colors.green}
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${colors.grey}
-
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.red}
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2 = 
-ramp-capacity-2-foreground = ${colors.yellow}
-ramp-capacity-3 = 
-ramp-capacity-3-foreground = ${colors.yellow}
-ramp-capacity-4 = 
-ramp-capacity-4-foreground = ${colors.green}
-
-animation-charging-0 = 
-animation-charging-0-foreground = ${colors.red}
-animation-charging-1 = 
-animation-charging-1-foreground = ${colors.red}
-animation-charging-2 = 
-animation-charging-2-foreground = ${colors.yellow}
-animation-charging-3 = 
-animation-charging-3-foreground = ${colors.yellow}
-animation-charging-4 = 
-animation-charging-4-foreground = ${colors.green}
-animation-charging-framerate = 750
+label-muted = 
+label-muted-foreground = ${colors.color15}
 
 [module/temperature]
 type = internal/temperature
@@ -312,84 +176,71 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = ${colors.yellow}
+format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-format-prefix = " "
-format-prefix-foreground = ${colors.yellow}
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.red}
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.cyan}
+ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
 
-expand-right = false
+expand-right = true
 
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.white}
-label-close = 
-label-close-foreground = ${colors.grey}
-label-separator = " "
-label-separator-foreground = ${colors.grey}
+label-open-foreground = ${colors.color2}
+label-close = 
+label-close-foreground = ${colors.color8}
+label-separator = |
+label-separator-foreground = ${colors.color8}
 
-menu-0-0 = 
-menu-0-0-foreground = ${colors.cyan}
-menu-0-0-underline = ${colors.cyan}
+menu-0-0 = 
+menu-0-0-foreground = ${colors.color2}
 menu-0-0-exec = menu-open-1
-menu-0-1 =  
-menu-0-1-foreground = ${colors.red}
-menu-0-1-underline = ${colors.red}
+menu-0-1 = 
+menu-0-1-foreground = ${colors.color1}
 menu-0-1-exec = menu-open-2
+menu-0-2 = 
+menu-0-2-foreground = ${colors.color5}
+menu-0-2-exec = menu-open-3
 
-menu-1-0 = cancel
+menu-1-0 = 
 menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
+menu-1-1 = 
+menu-1-1-foreground = ${colors.color2}
 menu-1-1-exec = systemctl reboot
 
-menu-2-0 = power off
+menu-2-0 = 
+menu-2-0-foreground = ${colors.color1}
 menu-2-0-exec = systemctl poweroff
-menu-2-1 = cancel
+menu-2-1 = 
 menu-2-1-exec = menu-open-0
 
-[module/notification]
-type = custom/text
-content = %{A1:xfce4-notifyd-config:}%{A}
-content-foreground = ${colors.yellow}
-
-[module/user]
-type = custom/text
-content = phaazon
+menu-3-0 = 
+menu-3-0-exec = menu-open-0
+menu-3-1 = 
+menu-3-1-foreground = ${colors.color5}
+menu-3-1-exec = systemctl suspend
 
 [settings]
-throttle-output = 5
-throttle-output-for = 10
-throttle-input-for = 30
 screenchange-reload = true
-compositing-background = over
-compositing-foreground = over
-compositing-overline = over 
-compositing-underline = over
-compositing-border = over
-format-foreground = 
-format-background = 
-format-underline =
-format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 5
+margin-bottom = 5
 
 ; vim:ft=dosini
