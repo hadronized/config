@@ -133,10 +133,45 @@ bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-client.focused #eb468c #eb468c #FFFFFF #d80e63
-client.focused_inactive #333333 #333333 #CCCCCC #333333
-client.unfocused #333333 #333333 #CCCCCC #333333
-client.urgent #be5046 #be5046 #98c379 #98c379
+# black
+set $color0 #282c34
+set $color8 #5c6370
+
+# red
+set $color1 #e06c75
+set $color9 #be5046
+
+# green
+set $color2 #98c379
+set $color10 #7a9f60
+
+# yellow
+set $color3 #e5c07b
+set $color11 #d19a66
+
+# blue
+set $color4 #61afef
+set $color12 #3b84c0
+
+# magenta
+set $color5 #c678dd
+set $color13 #9a52af
+
+# cyan
+set $color6 #56b6c2
+set $color14 #3c909b
+
+# white
+set $color7 #abb2bf
+set $color15 #828997
+
+# class                 border   backgr. text    indicator child_border
+client.focused          $color8  $color8 $color4 $color12  $color7
+client.focused_inactive $color8  $color8 $color4 $color12  $color0
+client.unfocused        $color0  $color0 $color4 $color12  $color0
+client.urgent           $color0  $color8 $color4 $color12  $color1
+client.placeholder      #000000  #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 for_window [class="^.*$"] border pixel 2
 default_border normal
