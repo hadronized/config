@@ -74,7 +74,7 @@ font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=14;3
 
 modules-left = powermenu xwindow
 modules-center = i3
-modules-right = pulseaudio date
+modules-right = hostname pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -230,6 +230,11 @@ menu-3-0-exec = menu-open-0
 menu-3-1 = 
 menu-3-1-foreground = ${colors.color5}
 menu-3-1-exec = systemctl suspend
+
+[module/hostname]
+type = custom/text
+content = phaazon @ orchid
+content-foreground = ${colors.color8}
 
 [settings]
 screenchange-reload = true

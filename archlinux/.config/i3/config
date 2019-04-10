@@ -171,7 +171,6 @@ client.focused_inactive $color8  $color8 $color4 $color12  $color0
 client.unfocused        $color0  $color0 $color4 $color12  $color0
 client.urgent           $color0  $color8 $color4 $color12  $color1
 client.placeholder      #000000  #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
 
 for_window [class="^.*$"] border pixel 2
 default_border normal
