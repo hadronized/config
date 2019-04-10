@@ -155,17 +155,17 @@ date = %a %b %d
 time = %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.color6}
+format-prefix-foreground = ${colors.color12}
 
 label = " %date%, %time%"
-label-foreground = ${colors.color6}
+label-foreground = ${colors.color4}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <label-volume>
 label-volume =  %percentage%%
-label-volume-foreground = ${colors.color4}
+label-volume-foreground = ${colors.color14}
 
 label-muted = 
 label-muted-foreground = ${colors.color15}
