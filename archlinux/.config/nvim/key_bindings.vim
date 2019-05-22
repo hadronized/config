@@ -27,3 +27,11 @@ nmap ,C <Plug>(easymotion-overwin-f)
 nmap ,l <Plug>(easymotion-bd-jk)
 nmap ,L <Plug>(easymotion-overwin-line)
 nmap ,/ <Plug>(easymotion-sn)
+
+nnoremap ,d :Find<space><C-r><C-w><cr>
+command! -bang -nargs=* Find call fzf#vim#grep(
+  \ 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color "always" '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview(),
+  \ <bang>0
+\ )

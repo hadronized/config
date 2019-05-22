@@ -9,6 +9,7 @@
     searchInLayerEnabled: false
   core:
     autoHideMenuBar: true
+    closeEmptyWindows: false
     disabledPackages: [
       "language-gfm"
       "tabs"

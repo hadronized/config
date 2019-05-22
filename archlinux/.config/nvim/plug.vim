@@ -40,6 +40,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'jceb/vim-orgmode'
+Plug 'r0mai/vim-djinni'
 
 call plug#end()
 filetype plugin indent on
