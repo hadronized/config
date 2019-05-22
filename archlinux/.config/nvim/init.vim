@@ -118,13 +118,12 @@ let g:org_agenda_files=['~/org/*.org']
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
-" deoplete-rust
-let g:deoplete#sources#rust#racer_binary='racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/dsabadie/github/rust/src'
-let g:deoplete#sources#rust#show_duplicates=1
-
-" autocomplete-flow
-let g:autocomplete_flow#insert_paren_after_function = 0
+" ncm2-pyclang
+let g:ncm2_pyclang#library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:ncm2_pyclang#database_path = [
+  \ 'compile_commands.json',
+  \ 'build/compile_commands.json'
+  \ ]
