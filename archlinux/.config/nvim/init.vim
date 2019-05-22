@@ -41,25 +41,8 @@ autocmd BufWritePre * %s/\s\+$//e
 
 set completeopt=menu,menuone,preview,noselect,noinsert
 
-"if exists('g:gui_oni')
-"  set smartcase
-"
-"  " Turn off statusbar, because it is externalized
-"  set noruler
-"  set laststatus=0
-"  set noshowcmd
-"
-"  unmap ,f
-"  unmap ,t
-"  unmap ,n
-"endif
-
 " easymotion
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
-
-" gruvbox
-let g:gruvbox_italic = 1
-let g:gruvbox_hls_cursor = 'purple'
 
 " one
 let g:one_allow_italics = 1
@@ -98,12 +81,6 @@ let g:NERDTreeMapRefresh = 'l'
 let g:NERDTreeMapRefreshRoot = 'L'
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-
-" Rainbow
-let g:rainbow_active = 0
-let g:rainbow_conf = {
-	\	'guifgs': ['#d3869b', '#83a598', '#fabd2f', '#b8bb26', '#fb4934'],
-	\}
 
 " gitgutter
 let g:gitgutter_sign_added = '│'
@@ -153,10 +130,6 @@ let g:nvimgdb_config_override = {
   \ 'key_breakpoint': 'b',
   \ }
 
-" indentLine
-let g:indentLine_char = '│'
-let g:indentLine_fileTypeExclude = ['markdown', 'startify']
-
 " Tagbar
 let g:tagbar_map_zoomwin = 'a'
 let g:tagbar_map_togglesort = 'u'
@@ -164,14 +137,9 @@ let g:tagbar_map_togglesort = 'u'
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
 
-" LSP
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'cpp': ['cquery', '--init={"cacheDirectory":"/tmp/cquery/"}']
-    \ }
-
 " orgguide-agenda
 let g:org_agenda_files=['~/org/*.org']
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
