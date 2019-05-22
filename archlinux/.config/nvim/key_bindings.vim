@@ -4,7 +4,7 @@ let maplocalleader = "è"
 noremap U :redo<CR>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
-noremap ,r :ALEFindReferences<CR>
+"noremap ,r :ALEFindReferences<CR>
 noremap ,t :Tags<CR>
 noremap ,T :TagbarToggle<CR>
 noremap ,qe :cc!<CR>
@@ -18,8 +18,8 @@ noremap ,gd :GFiles?<CR>
 noremap ,gf :GFiles<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
-noremap k :ALEHover<CR>
-noremap gd :ALEGoToDefinition<CR>
+"noremap k :ALEHover<CR>
+"noremap gd :ALEGoToDefinition<CR>
 nmap ,w <Plug>(easymotion-bd-w)
 nmap ,W <Plug>(easymotion-overwin-w)
 nmap ,c <Plug>(easymotion-bd-f)

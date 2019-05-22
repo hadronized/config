@@ -30,6 +30,13 @@ Plug 'majutsushi/tagbar'
 Plug 'machakann/vim-highlightedyank'
 Plug 'jceb/vim-orgmode'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/neoinclude.vim'
+Plug 'wokalski/autocomplete-flow'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-zsh'
+Plug 'sebastianmarkow/deoplete-rust'
 
 " Visual
 Plug 'itchyny/lightline.vim'

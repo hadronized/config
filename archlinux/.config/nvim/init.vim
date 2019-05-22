@@ -103,37 +103,11 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 autocmd CompleteDone * silent! pclose!
 
-" ALE
-let g:ale_set_baloons = 1
-let g:ale_virtualtext_cursor = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {
-  \ 'cpp': ['cquery'],
-  \ 'rust': ['rls'],
-  \ 'vue': ['eslint', 'vls']
-  \ }
-let g:ale_rust_rls_toolchain = 'stable'
-
-highlight link ALEError Error
-highlight link ALEWarning Warning
-
-" nvim-gdb
-let g:nvimgdb_config_override = {
-  \ 'key_next': 'n',
-  \ 'key_step': 's',
-  \ 'key_finish': 'f',
-  \ 'key_continue': 'c',
-  \ 'key_until': 'u',
-  \ 'key_breakpoint': 'b',
-  \ }
-
 " Tagbar
 let g:tagbar_map_zoomwin = 'a'
 let g:tagbar_map_togglesort = 'u'
 
+" Echodoc
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
 
@@ -143,3 +117,14 @@ let g:org_agenda_files=['~/org/*.org']
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" deoplete-rust
+let g:deoplete#sources#rust#racer_binary='racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/dsabadie/github/rust/src'
+let g:deoplete#sources#rust#show_duplicates=1
+
+" autocomplete-flow
+let g:autocomplete_flow#insert_paren_after_function = 0
