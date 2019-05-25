@@ -9,3 +9,5 @@
 	pager = less -F -X
 [commit]
 	gpgsign = true
+[push]
+	default = current
