@@ -117,13 +117,3 @@ let g:org_agenda_files=['~/org/*.org']
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
-
-" ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" ncm2-pyclang
-let g:ncm2_pyclang#library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-let g:ncm2_pyclang#database_path = [
-  \ 'compile_commands.json',
-  \ 'build/compile_commands.json'
-  \ ]
