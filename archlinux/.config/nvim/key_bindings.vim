@@ -1,6 +1,9 @@
 let mapleader=","
 let maplocalleader = "è"
 
+noremap <C-c> :tabp<CR>
+noremap <C-r> :tabn<CR>
+noremap <C-n> :tabnew<CR>
 noremap U :redo<CR>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
