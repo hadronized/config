@@ -37,6 +37,7 @@ Plug 'neoclide/coc-sources'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rakr/vim-one'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

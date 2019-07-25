@@ -7,8 +7,7 @@ noremap <C-n> :tabnew<CR>
 noremap U :redo<CR>
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
-"noremap ,r :ALEFindReferences<CR>
-noremap ,t :Tags<CR>
+"noremap ,t :Tags<CR>
 noremap ,T :TagbarToggle<CR>
 noremap ,qe :cc!<CR>
 noremap ,qn :cn!<CR>
@@ -31,10 +30,21 @@ nmap ,l <Plug>(easymotion-bd-jk)
 nmap ,L <Plug>(easymotion-overwin-line)
 nmap ,/ <Plug>(easymotion-sn)
 
-nnoremap ,d :Find<space><C-r><C-w><cr>
-command! -bang -nargs=* Find call fzf#vim#grep(
-  \ 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --color "always" '.shellescape(<q-args>),
-  \ 1,
-  \ fzf#vim#with_preview(),
-  \ <bang>0
-\ )
+" coc.vim
+nmap <silent> ,d <Plug>(coc-definition)
+nmap <silent> ,t <Plug>(coc-type-definition)
+nmap <silent> ,i <Plug>(coc-implementation)
+nmap <silent> ,r <Plug>(coc-references)
+nmap <silent> ,s :CocList outline<CR>
+nmap <silent> ,S :CocList symbols<CR>
+nmap <silent> ,x :CocList diagnostics<CR>
+inoremap <silent><expr> <c-tab> coc#refresh()
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction

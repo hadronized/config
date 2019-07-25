@@ -47,8 +47,8 @@ let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 " one
 let g:one_allow_italics = 1
 
-colorscheme one
 set background=dark
+colorscheme palenight
 
 source ~/.config/nvim/lightline.vim
 
