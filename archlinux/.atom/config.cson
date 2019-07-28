@@ -23,6 +23,9 @@
     tabType: "soft"
   "exception-reporting":
     userId: "245ddc53-a2c8-4afc-8678-a85797afc467"
+  "fuzzy-finder":
+    scoringSystem: "fast"
+    useRipGrep: true
   "git-plus":
     commits:
       verboseCommits: true
