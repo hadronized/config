@@ -26,10 +26,10 @@ function git_info_plus() {
 
 function show_path() {
   cwd=$1
-  git_root=$(git rev-parse --show-toplevel 2> /dev/null)
 
+  # change cwd to only show the current relative path to the git root
+  git_root=$(git rev-parse --show-toplevel 2> /dev/null)
   if [ "$?" == "0" ]; then
-    # change cwd to only show the current relative path to the git root
     git_root=${git_root%/*}
     cwd="%F{magenta}${${PWD#$git_root}#/}"
   fi
@@ -37,7 +37,22 @@ function show_path() {
   echo $cwd
 }
 
+function reverse_prompt() {
+  # check if we are in a Rust project
+  cargo_project_version=$(cargo pkgid 2> /dev/null)
+  if [ "$?" == "0" ]; then
+    rprompt="📦 %F{green}${cargo_project_version#*#}"
+
+    # add rustc version
+    rustc_version=$(rustc --version | cut -d' ' -f2)
+    rprompt="🦀 %F{red}$rustc_version $rprompt"
+  fi
+
+  echo $rprompt
+}
+
 PROMPT='%B%F{green}$(show_path %~) $(git_prompt_info)$(git_info_plus)%f%b '
+RPROMPT='$(reverse_prompt)'
 
 # Must use Powerline font, for \uE0A0 to render.
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}\ue0a0 "
