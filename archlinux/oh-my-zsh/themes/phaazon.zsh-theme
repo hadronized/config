@@ -29,7 +29,7 @@ function show_path() {
 
   # change cwd to only show the current relative path to the git root
   git_root=$(git rev-parse --show-toplevel 2> /dev/null)
-  if [ "$?" == "0" ]; then
+  if [ "$?" = "0" ]; then
     git_root=${git_root%/*}
     cwd="%F{red}…%F{green}/${${PWD#$git_root}#/}"
   fi
@@ -40,7 +40,7 @@ function show_path() {
 function reverse_prompt() {
   # check if we are in a Rust project
   cargo_project_version=$(cargo pkgid 2> /dev/null)
-  if [ "$?" == "0" ]; then
+  if [ "$?" = "0" ]; then
     rprompt="📦 %F{green}${cargo_project_version#*#}"
 
     # add rustc version
@@ -49,7 +49,7 @@ function reverse_prompt() {
   else
     # node
     node_project_version=$(npm view . version 2> /dev/null)
-    if [ "$?" == "0" ]; then
+    if [ "$?" = "0" ]; then
       npm_version=$(npm --version)
       nvm_version=$(nvm current)
       echo "%F{yellow} $nvm_version %F{red} $npm_version %F{green}⬢ $node_project_version"
