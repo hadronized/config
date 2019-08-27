@@ -41,11 +41,11 @@ function reverse_prompt() {
   # check if we are in a Rust project
   cargo_project_version=$(cargo pkgid 2> /dev/null)
   if [ "$?" = "0" ]; then
-    rprompt="📦 %F{green}${cargo_project_version#*#}"
+    rprompt="%F{green}📦 ${cargo_project_version#*#}"
 
     # add rustc version
     rustc_version=$(rustc --version | cut -d' ' -f2)
-    rprompt="🦀 %F{red}$rustc_version $rprompt"
+    rprompt="%F{red} $rustc_version $rprompt"
   else
     # node
     node_project_version=$(npm view . version 2> /dev/null)
