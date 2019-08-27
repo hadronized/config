@@ -11,3 +11,5 @@
 	gpgsign = true
 [push]
 	default = current
+[checkout]
+	defaultRemote = origin
