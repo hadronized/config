@@ -46,6 +46,12 @@ function reverse_prompt() {
     # add rustc version
     rustc_version=$(rustc --version | cut -d' ' -f2)
     rprompt="🦀 %F{red}$rustc_version $rprompt"
+  else
+    # node
+    node_project_version=$(npm view . version 2> /dev/null)
+    if [ "$?" == "0" ]; then
+      echo "%F{green}⬢ $node_project_version"
+    fi
   fi
 
   echo $rprompt
