@@ -31,10 +31,10 @@ function show_path() {
   git_root=$(git rev-parse --show-toplevel 2> /dev/null)
   if [ "$?" == "0" ]; then
     git_root=${git_root%/*}
-    cwd="%F{magenta}${${PWD#$git_root}#/}"
+    cwd="%F{red}…%F{green}/${${PWD#$git_root}#/}"
   fi
 
-  echo $cwd
+  echo "%F{green}$cwd"
 }
 
 function reverse_prompt() {
@@ -51,7 +51,7 @@ function reverse_prompt() {
   echo $rprompt
 }
 
-PROMPT='%B%F{green}$(show_path %~) $(git_prompt_info)$(git_info_plus)%f%b '
+PROMPT='%B$(show_path %~) $(git_prompt_info)$(git_info_plus)%f%b '
 RPROMPT='$(reverse_prompt)'
 
 # Must use Powerline font, for \uE0A0 to render.
