@@ -4,14 +4,12 @@ RETVAL=$?
 
 function mark() {
   echo -n '%B%F{magenta}\u2192'
-  #echo -n '%B%F{magenta}>'
 }
 
 function git_info_plus() {
-  stashNb=`git stash list 2> /dev/null | wc -l | tr -d ' '`
-  if [ "$stashNb" != "0" ]
-  then
-    echo -n " %F{blue}"
+  stashNb=$(git stash list 2> /dev/null | wc -l | tr -d ' ')
+  if [ "$stashNb" != "0" ]; then
+    echo -n " %F{red}"
     for i in $(seq 1 $stashNb); do
       echo -n "·"
     done
@@ -19,15 +17,27 @@ function git_info_plus() {
   fi
 
   git status &> /dev/null
-  if [ "$?" = "0" ]
-  then
+  if [ "$?" = "0" ]; then
     echo -n " $(mark)"
   else
     echo -n "$(mark)"
   fi
 }
 
-PROMPT='%B%F{cyan}%~ $(git_prompt_info)$(git_info_plus)%f%b '
+function show_path() {
+  cwd=$1
+  git_root=$(git rev-parse --show-toplevel 2> /dev/null)
+
+  if [ "$?" == "0" ]; then
+    # change cwd to only show the current relative path to the git root
+    git_root=${git_root%/*}
+    cwd="%F{magenta}${${PWD#$git_root}#/}"
+  fi
+
+  echo $cwd
+}
+
+PROMPT='%B%F{green}$(show_path %~) $(git_prompt_info)$(git_info_plus)%f%b '
 
 # Must use Powerline font, for \uE0A0 to render.
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}\ue0a0 "
@@ -36,4 +46,4 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}\u00b1"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%F{cyan}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-export LS_COLORS=$LS_COLORS:'ln=1;92:di=1;31' 
+export LS_COLORS=$LS_COLORS:'ln=1;92:di=1;31'
