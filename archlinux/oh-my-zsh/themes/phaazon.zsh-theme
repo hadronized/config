@@ -31,7 +31,7 @@ function show_path() {
   git_root=$(git rev-parse --show-toplevel 2> /dev/null)
   if [ "$?" = "0" ]; then
     git_root=${git_root%/*}
-    cwd="%F{red}…%F{green}/${${PWD#$git_root}#/}"
+    cwd="${${PWD#$git_root}#/}"
   fi
 
   echo "%F{green}$cwd"
