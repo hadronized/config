@@ -115,7 +115,7 @@ let g:echodoc#type = 'virtual'
 let g:org_agenda_files = ['~/org/*.org']
 let g:org_aggressive_conceal = 1
 let g:org_todo_keywords = ['TODO', 'WIP', 'DONE']
-let g:org_indent = 1
+let g:org_heading_highlight_colors = ['Title', 'Special', 'Statement', 'Identifier', 'PreProc', 'Type']
 let g:org_todo_keyword_faces = [
   \ ['TODO', [':foreground #f07178', ':weight bold']],
   \ ['WIP', [':foreground #c792ea', ':weight bold']],
