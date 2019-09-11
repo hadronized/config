@@ -112,7 +112,15 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'virtual'
 
 " orgguide-agenda
-let g:org_agenda_files=['~/org/*.org']
+let g:org_agenda_files = ['~/org/*.org']
+let g:org_aggressive_conceal = 1
+let g:org_todo_keywords = ['TODO', 'WIP', 'DONE']
+let g:org_indent = 1
+let g:org_todo_keyword_faces = [
+  \ ['TODO', [':foreground #f07178', ':weight bold']],
+  \ ['WIP', [':foreground #c792ea', ':weight bold']],
+  \ ['DONE', [':foreground #c3e88d']]
+  \ ]
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 0
