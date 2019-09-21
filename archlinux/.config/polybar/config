@@ -18,31 +18,31 @@
 
 [colors]
 # black
-color0  = ${env:X_COLOR0}
-color8  = ${env:X_COLOR8}
+color0  = ${xrdb:color0}
+color8  = ${xrdb:color8}
 # red
-color1  = ${env:X_COLOR1}
-color9  = ${env:X_COLOR9}
+color1  = ${xrdb:color1}
+color9  = ${xrdb:color9}
 # green
-color2  = ${env:X_COLOR2}
-color10 = ${env:X_COLOR10}
+color2  = ${xrdb:color2}
+color10 = ${xrdb:color10}
 # yellow
-color3  = ${env:X_COLOR3}
-color11 = ${env:X_COLOR11}
+color3  = ${xrdb:color3}
+color11 = ${xrdb:color11}
 # blue
-color4  = ${env:X_COLOR4}
-color12 = ${env:X_COLOR12}
+color4  = ${xrdb:color4}
+color12 = ${xrdb:color12}
 # magenta
-color5  = ${env:X_COLOR5}
-color13 = ${env:X_COLOR13}
+color5  = ${xrdb:color5}
+color13 = ${xrdb:color13}
 # cyan
-color6  = ${env:X_COLOR6}
-color14 = ${env:X_COLOR14}
+color6  = ${xrdb:color6}
+color14 = ${xrdb:color14}
 # white
-color7  = ${env:X_COLOR7}
-color15 = ${env:X_COLOR15}
+color7  = ${xrdb:color7}
+color15 = ${xrdb:color15}
 
-background     = ${colors.color0}
+background     = #33333333
 background-alt = ${colors.color8}
 foreground     = ${colors.color7}
 foreground-alt = ${colors.color13}

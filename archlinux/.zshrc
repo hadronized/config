@@ -74,9 +74,10 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export TERM=xterm-256color
+export TERMINAL=termite
 
 alias ls='~/github/exa-fork/target/release/exa --icons'
-alias make='make -j8'
+alias make='make -j16'
 
 source ~/.fzfrc
 
@@ -89,7 +90,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.cargo/bin:~/bin
 
 # Custom bindings
 # git checkout <branch>

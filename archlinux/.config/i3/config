@@ -134,36 +134,36 @@ bindsym $mod+Shift+O restart
 bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # black
-set $color0 #282c34
-set $color8 #5c6370
+set_from_resource $color0 color0
+set_from_resource $color8 color8
 
 # red
-set $color1 #e06c75
-set $color9 #be5046
+set_from_resource $color1 color1
+set_from_resource $color9 color9
 
 # green
-set $color2 #98c379
-set $color10 #7a9f60
+set_from_resource $color2 color2
+set_from_resource $color10 color10
 
 # yellow
-set $color3 #e5c07b
-set $color11 #d19a66
+set_from_resource $color3 color3
+set_from_resource $color11 color11
 
 # blue
-set $color4 #61afef
-set $color12 #3b84c0
+set_from_resource $color4 color4
+set_from_resource $color12 color12
 
 # magenta
-set $color5 #c678dd
-set $color13 #9a52af
+set_from_resource $color5 color5
+set_from_resource $color13 color13
 
 # cyan
-set $color6 #56b6c2
-set $color14 #3c909b
+set_from_resource $color6 color6
+set_from_resource $color14 color14
 
 # white
-set $color7 #abb2bf
-set $color15 #828997
+set_from_resource $color7 color7
+set_from_resource $color15 color15
 
 # class                 border   backgr. text    indicator child_border
 client.focused          $color8  $color8 $color4 $color12  $color7
@@ -181,11 +181,9 @@ gaps outer 0
 
 exec --no-startup-id compton
 exec --no-startup-id sh ~/.fehbg
-exec --no-startup-id nm-applet
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
 
 exec_always --no-startup-id restart-polybar
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
-exec_always --no-startup-id nm-applet
 exec_always --no-startup-id redshift-gtk

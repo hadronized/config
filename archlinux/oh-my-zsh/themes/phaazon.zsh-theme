@@ -51,7 +51,7 @@ function reverse_prompt() {
     node_project_version=$(npm view . version 2> /dev/null)
     if [ "$?" = "0" ]; then
       npm_version=$(npm --version)
-      nvm_version=$(nvm current)
+      nvm_version=$(nvm current 2> /dev/null)
       echo "%F{yellow} $nvm_version %F{red} $npm_version %F{green}⬢ $node_project_version"
     fi
   fi
