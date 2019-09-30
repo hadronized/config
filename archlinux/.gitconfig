@@ -1,7 +1,7 @@
 [user]
 	email = dimitri.sabadie@gmail.com
 	name = Dimitri Sabadie
-	signingkey = 287B587E3CD8378211C98BCBDE58C386A8DB2883
+  signingkey = 23CDFD7CAFBA2EDC
 [alias]
 	slog = log --graph --all --pretty=format:\"%C(yellow)%h%Cblue%d %Creset%s %C(green)%cr%Creset (%C(magenta)%an%Creset)\"
   fp = fetch --all --prune

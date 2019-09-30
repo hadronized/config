@@ -81,9 +81,10 @@ alias make='make -j16'
 
 source ~/.fzfrc
 
-if [ -n "$(pgrep gpg-agent)" ]; then
-else
-    gpg-agent --daemon
+export GPG_TTY=$(tty)
+
+if ! [ -n "$(pgrep gpg-agent)" ]; then
+  gpg-agent --daemon
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -100,5 +101,7 @@ bindkey -s '^gb' 'git branch | fzf --height 20% --reverse | cut -c 3- | xargs gi
 bindkey -s '^gp' 'git remote | fzf --height 20% --reverse | xargs git push^M'
 
 # git commit preview
-a=lol
 bindkey -s '^gc' 'git log --oneline | fzf --reverse --preview "cut -f 1 -d \u27 \u27 <<< {} | xargs git show --color=always --pretty=format:%b"^M'
+
+# git rebase <remote>
+bindkey -s '^gr' 'git remote | fzf --height 20% --reverse | xargs git rebase^M'

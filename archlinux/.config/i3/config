@@ -12,6 +12,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec $TERMINAL
 
+# show the scratchpad
+bindsym $mod+d scratchpad show
+bindsym $mod+Shift+d move scratchpad
+
 # kill focused window
 bindsym $mod+Shift+B kill
 
@@ -70,9 +74,6 @@ bindsym $mod+p layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -125,6 +126,7 @@ bindsym --release Shift+Print exec "scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png
 bindsym $mod+Print exec "scrot -u /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym Mod4+l exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png"
 bindsym Mod4+s exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png && systemctl suspend"
+bindsym Mod4+h exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png && systemctl hibernate"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
