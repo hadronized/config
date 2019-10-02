@@ -95,10 +95,10 @@ export PATH=$PATH:~/.cargo/bin:~/bin
 
 # Custom bindings
 # git checkout <branch>
-bindkey -s '^gb' 'git branch | fzf --height 20% --reverse | cut -c 3- | xargs git checkout^M'
+bindkey -s '^gb' 'git branch | fzf --height 40% --reverse | cut -c 3- | xargs git checkout^M'
 
 # git push <remote>
-bindkey -s '^gp' 'git remote | fzf --height 20% --reverse | xargs git push^M'
+bindkey -s '^gp' 'git remote | fzf --height 40% --reverse | xargs git push^M'
 
 # git commit preview
 bindkey -s '^gc' 'git log --oneline | fzf --reverse --preview "cut -f 1 -d \u27 \u27 <<< {} | xargs git show --color=always --pretty=format:%b"^M'
