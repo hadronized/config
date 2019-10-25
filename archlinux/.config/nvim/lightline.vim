@@ -1,6 +1,6 @@
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'material',
       \ 'active': {
       \   'left': [ [ 'filename', 'paste' ],
       \             [ 'fugitive', 'readonly', 'modified' ],

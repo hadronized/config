@@ -47,8 +47,9 @@ let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 " one
 let g:one_allow_italics = 1
 
-set background=dark
-colorscheme palenight
+" material
+let g:material_terminal_italics = 1
+colorscheme material
 
 source ~/.config/nvim/lightline.vim
 
@@ -126,9 +127,6 @@ let g:org_todo_keyword_faces = [
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_guide_size = 1
-
-" palenight
-let g:palenight_terminal_italics=1
 
 " nvim-blame-line
 let g:blameLineGitFormat = '   %an | %ar | %s'
