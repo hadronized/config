@@ -33,6 +33,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'neoclide/coc-sources'
+Plug 'tveskag/nvim-blame-line'
 
 " Visual
 Plug 'itchyny/lightline.vim'
@@ -42,7 +43,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'mhinz/vim-startify'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
