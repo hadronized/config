@@ -95,7 +95,7 @@ export PATH=$PATH:~/.cargo/bin:~/bin
 
 # Custom bindings
 # git checkout <branch>
-bindkey -s '^gb' 'git branch | fzf --height 40% --reverse | cut -c 3- | xargs git checkout^M'
+bindkey -s '^gb' 'git branch | fzf --height 40% --reverse | cut -c 3- | xargs git switch^M'
 
 # git push <remote>
 bindkey -s '^gp' 'git remote | fzf --height 40% --reverse | xargs git push^M'
