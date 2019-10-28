@@ -34,41 +34,41 @@ filter_unmatched_urls = true
 [colors]
 
 # special
-foreground      = #abb2bf
-foreground_bold = #abb2bf
-cursor          = #3b84c0
-background      = rgb(40, 44, 52)
+foreground      = #E1EFFF
+foreground_bold = #E1EFFF
+cursor          = #FAD000
+background      = #1E1E3F
 
 # black
-color0  = #282c34
-color8  = #5c6370
+color0  = #000000
+color8  = #5C5C61
 
 # red
-color1  = #e06c75
-color9  = #be5046
+color1  = #EC3A37
+color9  = #EC3A37F5
 
 # green
-color2  = #98c379
-color10 = #7a9f60
+color2  = #75E44C
+color10 = #3AD900
 
 # yellow
-color3  = #e5c07b
-color11 = #d19a66
+color3  = #FAD000
+color11 = #FAD000
 
 # blue
-color4  = #61afef
-color12 = #3b84c0
+color4  = #6943FF
+color12 = #6943FF
 
 # magenta
-color5  = #c678dd
-color13 = #9a52af
+color5  = #FF2C70
+color13 = #FB94FF
 
 # cyan
-color6  = #56b6c2
-color14 = #3c909b
+color6  = #80FCFF
+color14 = #80FCFF
 
 # white
-color7  = #abb2bf
-color15 = #828997
+color7  = #FFFFFF
+color15 = #2D2B55
 
 vim: ft=dosini cms=#%s
