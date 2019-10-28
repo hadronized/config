@@ -53,7 +53,7 @@ let g:material_terminal_italics = 1
 let ayucolor="mirage"
 
 set background=dark
-colorscheme palenight
+colorscheme shades_of_purple
 
 source ~/.config/nvim/lightline.vim
 

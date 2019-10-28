@@ -15,6 +15,7 @@ noremap ,qp :cp!<CR>
 noremap ,qo :cope<CR>
 noremap ,n :NERDTreeToggle<CR>
 noremap ,gb :Gblame<CR>
+noremap ,gl :ToggleBlameLine<CR>
 noremap ,gc :Commits<CR>
 noremap ,gd :GFiles?<CR>
 noremap ,gf :GFiles<CR>
