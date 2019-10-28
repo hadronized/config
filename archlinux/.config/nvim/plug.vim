@@ -39,7 +39,9 @@ Plug 'tveskag/nvim-blame-line'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rakr/vim-one'
-Plug 'kaicataldo/material.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'Rigellute/shades-of-purple.vim'
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

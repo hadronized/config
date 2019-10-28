@@ -23,7 +23,6 @@ set showcmd
 set incsearch
 set noswapfile
 set hidden
-set colorcolumn=100
 set tabstop=2
 set shiftwidth=2
 set smartindent
@@ -49,7 +48,12 @@ let g:one_allow_italics = 1
 
 " material
 let g:material_terminal_italics = 1
-colorscheme material
+
+" ayu
+let ayucolor="mirage"
+
+set background=dark
+colorscheme palenight
 
 source ~/.config/nvim/lightline.vim
 
@@ -98,6 +102,20 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-o': 'split',
   \ 'ctrl-v': 'vsplit' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
