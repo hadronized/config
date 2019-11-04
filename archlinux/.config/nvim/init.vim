@@ -52,6 +52,10 @@ let g:material_terminal_italics = 1
 " ayu
 let ayucolor="mirage"
 
+" shades-of-purple
+let g:shades_of_purple_italic = 1
+let g:shades_of_purple_bold = 1
+
 set background=dark
 colorscheme shades_of_purple
 
@@ -70,8 +74,11 @@ let g:haskell_classic_highlighting = 1
 
 " Rust
 let $RUST_SRC_PATH = "/usr/local/src/rust/src"
+let g:rust_conceal = 1
+let g:rust_conceal_mod_path = 1
+let g:rust_conceal_pub = 1
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-let g:rustfmt_autosave = 1
+"let g:rustfmt_autosave = 1
 
 " NERDTree
 let g:NERDTreeFileExtensionHighlightFullName = 1

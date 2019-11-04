@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Syntax support
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'rust-lang/rust.vim'
+Plug 'phaazon/rust.vim', { 'branch': 'fix/doc-comments' }
 Plug 'tikhomirov/vim-glsl'
 Plug 'phaazon/vim-cheddar'
 Plug 'plasticboy/vim-markdown'
