@@ -34,6 +34,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'neoclide/coc-sources'
 Plug 'tveskag/nvim-blame-line'
+Plug 'troydm/zoomwintab.vim'
 
 " Visual
 Plug 'itchyny/lightline.vim'

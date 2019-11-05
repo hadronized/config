@@ -31,6 +31,9 @@ nmap ,l <Plug>(easymotion-bd-jk)
 nmap ,L <Plug>(easymotion-overwin-line)
 nmap ,/ <Plug>(easymotion-sn)
 
+" zoomin
+noremap wz :ZoomWinTabToggle<CR>
+
 " coc.vim
 nmap <silent> ,d <Plug>(coc-definition)
 nmap <silent> ,t <Plug>(coc-type-definition)
