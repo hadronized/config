@@ -75,7 +75,7 @@ let g:haskell_classic_highlighting = 1
 " Rust
 let $RUST_SRC_PATH = "/usr/local/src/rust/src"
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-"let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 1
 
 " NERDTree
 let g:NERDTreeFileExtensionHighlightFullName = 1
