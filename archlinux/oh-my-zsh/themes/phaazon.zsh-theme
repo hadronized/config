@@ -37,30 +37,7 @@ function show_path() {
   echo "%F{green}$cwd"
 }
 
-function reverse_prompt() {
-  # check if we are in a Rust project
-  cargo_project_version=$(cargo pkgid 2> /dev/null)
-  if [ "$?" = "0" ]; then
-    rprompt="%F{green}📦 ${cargo_project_version#*#}"
-
-    # add rustc version
-    rustc_version=$(rustc --version | cut -d' ' -f2)
-    rprompt="%F{red} $rustc_version $rprompt"
-  else
-    # node
-    node_project_version=$(npm view . version 2> /dev/null)
-    if [ "$?" = "0" ]; then
-      npm_version=$(npm --version)
-      nvm_version=$(nvm current 2> /dev/null)
-      echo "%F{yellow} $nvm_version %F{red} $npm_version %F{green}⬢ $node_project_version"
-    fi
-  fi
-
-  echo $rprompt
-}
-
 PROMPT='%B$(show_path %~) $(git_prompt_info)$(git_info_plus)%f%b '
-RPROMPT='$(reverse_prompt)'
 
 # Must use Powerline font, for \uE0A0 to render.
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}\ue0a0 "

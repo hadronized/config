@@ -65,7 +65,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(copyfile gpg-agent git gitfast git-extras git-flow git-prompt cargo rust)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,12 +80,6 @@ alias ls='~/github/exa-fork/target/release/exa --icons'
 alias make='make -j16'
 
 source ~/.fzfrc
-
-export GPG_TTY=$(tty)
-
-if ! [ -n "$(pgrep gpg-agent)" ]; then
-  gpg-agent --daemon
-fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
