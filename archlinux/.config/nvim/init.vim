@@ -23,8 +23,6 @@ set showcmd
 set incsearch
 set noswapfile
 set hidden
-set tabstop=2
-set shiftwidth=2
 set smartindent
 set expandtab
 set autoindent
