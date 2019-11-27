@@ -1,0 +1,4 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+Tarrasch/zsh-bd
+hschne/fzf-git
