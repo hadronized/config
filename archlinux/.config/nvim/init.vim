@@ -129,10 +129,6 @@ autocmd CompleteDone * silent! pclose!
 let g:tagbar_map_zoomwin = 'a'
 let g:tagbar_map_togglesort = 'u'
 
-" Echodoc
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'virtual'
-
 " orgguide-agenda
 let g:org_agenda_files = ['~/org/*.org']
 let g:org_aggressive_conceal = 1
