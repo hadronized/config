@@ -36,7 +36,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$PATH:~/.cargo/bin:~/bin:~/.local/bin:/Users/dsabadie/Library/Python/2.7/bin/
+export PATH=$PATH:~/.cargo/bin:~/bin:~/.local/bin:/Users/dsabadie/Library/Python/2.7/bin/:/usr/local/opt/llvm/bin
 
 # Custom bindings
 # git checkout <branch>

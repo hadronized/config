@@ -33,6 +33,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'neoclide/coc-sources'
 Plug 'tveskag/nvim-blame-line'
+Plug 'liuchengxu/vim-clap'
+Plug 'mhinz/vim-startify'
 
 " Visual
 Plug 'itchyny/lightline.vim'
