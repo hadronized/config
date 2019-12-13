@@ -13,18 +13,16 @@ noremap <C-n> :tabnew<CR>
 noremap ,n :NERDTreeToggle<CR>
 
 " fuzzy finders
-noremap ,b :Clap buffers<CR>
-noremap ,f :Clap files<CR>
-"noremap ,t :Tags<CR>
-noremap ,T :TagbarToggle<CR>
+noremap ,b :Buffers<CR>
+noremap ,f :Files<CR>
 noremap ,r :Clap grep<CR>
 
 " fuzzy git
 noremap ,gb :Gblame<CR>
 noremap ,gl :ToggleBlameLine<CR>
-noremap ,gc :Clap commits<CR>
-noremap ,gf :Clap gfiles<CR>
-noremap ,gd :Clap git_diff_files<CR>
+noremap ,gc :Commits<CR>
+noremap ,gf :GFiles<CR>
+noremap ,gd :GFiles?<CR>
 noremap ,gt :GitGutterNextHunk<CR>
 noremap ,gs :GitGutterPrevHunk<CR>
 

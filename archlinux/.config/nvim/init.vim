@@ -155,6 +155,8 @@ let g:startify_lists = [
   \ ]
 let g:startify_bookmarks = [
   \ '~/.config/nvim/init.vim',
+  \ '~/.config/nvim/plug.vim',
+  \ '~/.config/nvim/key_bindings.vim',
   \ '~/.zshrc',
   \ ]
 let g:startify_session_persistence = 1
