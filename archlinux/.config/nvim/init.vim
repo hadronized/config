@@ -79,6 +79,8 @@ let g:rustfmt_autosave = 1
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
 let g:NERDTreeMapChdir = 'H'
 let g:NERDTreeMapChdir = 'hd'
 let g:NERDTreeMapCWD = 'HD'
@@ -139,10 +141,6 @@ let g:org_todo_keyword_faces = [
   \ ['WIP', [':foreground #c792ea', ':weight bold']],
   \ ['DONE', [':foreground #c3e88d']]
   \ ]
-
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_guide_size = 1
 
 " nvim-blame-line
 let g:blameLineGitFormat = '   %an | %ar | %s'

@@ -28,7 +28,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'machakann/vim-highlightedyank'
 Plug 'jceb/vim-orgmode'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'neoclide/coc-sources'
 Plug 'tveskag/nvim-blame-line'
