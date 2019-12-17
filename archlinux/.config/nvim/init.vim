@@ -57,6 +57,11 @@ let g:shades_of_purple_bold = 1
 set background=dark
 colorscheme shades_of_purple
 
+" transparent text and line numbers
+highlight Normal  guibg=none
+highlight NonText guibg=none
+highlight LineNr   guibg=none
+
 source ~/.config/nvim/lightline.vim
 
 " Haskell

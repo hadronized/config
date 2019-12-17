@@ -34,9 +34,9 @@ filter_unmatched_urls = true
 [colors]
 
 # special
-background = #1e1d40
+background = rgba(30, 29, 64, 0.8)
 foreground = #ffffff
-cursor = #fad000
+cursor = #ff2c70
 color0 = #000000
 color1 = #d90429
 color2 = #3ad900
