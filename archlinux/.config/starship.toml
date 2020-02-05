@@ -22,7 +22,7 @@ show_swap = false
 threshold = -1
 symbol = " "
 separator = ", "
-style = "blue"
+style = "bold green"
 
 [git_commit]
 disabled = false
