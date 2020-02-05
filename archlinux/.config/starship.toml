@@ -6,19 +6,23 @@ charging_symbol = "⚡️"
 
 [directory]
 truncation_length = 8
+style = "purple"
 
 [character]
 symbol = "λ"
 vicmd_symbol = ""
+style_success = "blue"
+style_failure = "magenta"
+use_symbol_for_status = false
 
 [memory_usage]
 disabled = false
 show_percentage = true
 show_swap = false
-threshold = 60
+threshold = -1
 symbol = " "
 separator = ", "
-style = "bold dimmed green"
+style = "blue"
 
 [git_commit]
 disabled = false
