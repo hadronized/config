@@ -41,6 +41,7 @@ Plug 'rakr/vim-one'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'Rigellute/shades-of-purple.vim'
+Plug 'sainnhe/edge'
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

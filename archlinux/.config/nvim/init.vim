@@ -54,13 +54,12 @@ let ayucolor="mirage"
 let g:shades_of_purple_italic = 1
 let g:shades_of_purple_bold = 1
 
-set background=dark
-colorscheme shades_of_purple
+" edge
+let g:edge_style = 'neon'
+let g:edge_enable_italic = 1
 
-" transparent text and line numbers
-"highlight Normal  guibg=none
-"highlight NonText guibg=none
-"highlight LineNr  guibg=none
+set background=dark
+colorscheme edge
 
 source ~/.config/nvim/lightline.vim
 
@@ -159,6 +158,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
   \ '~/.config/nvim/init.vim',
   \ '~/.config/nvim/plug.vim',
+  \ '~/.config/nvim/lightline.vim',
   \ '~/.config/nvim/key_bindings.vim',
   \ '~/.zshrc',
   \ ]
