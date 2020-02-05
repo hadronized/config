@@ -1,4 +1,38 @@
 add_newline = false
 
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+
 [directory]
 truncation_length = 8
+
+[character]
+symbol = "λ"
+vicmd_symbol = ""
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = 60
+symbol = " "
+separator = ", "
+style = "bold dimmed green"
+
+[git_commit]
+disabled = false
+commit_hash_length = 4
+
+[git_state]
+cherry_pick = "🍒"
+rebase = "⏚"
+merge = ""
+
+[git_status]
+deleted = " "
+untracked = " "
+stashed = " "
+modified = " "
+prefix = ""
+suffix = ""

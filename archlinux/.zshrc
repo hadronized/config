@@ -51,3 +51,6 @@ bindkey -s '^gc' 'git log --oneline | fzf --reverse --preview "cut -f 1 -d \u27 
 bindkey -s '^gr' 'git remote | fzf --height 20% --reverse | xargs git rebase^M'
 
 eval "$(starship init zsh)"
+
+# Platform dependent configuration
+test -e ~/.zsh_profile && source ~/.zsh_profile
