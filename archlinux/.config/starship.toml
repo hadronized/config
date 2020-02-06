@@ -6,7 +6,7 @@ charging_symbol = "⚡️"
 
 [directory]
 truncation_length = 8
-style = "purple"
+style = "bold magenta"
 
 [character]
 symbol = "λ"
@@ -23,6 +23,9 @@ threshold = -1
 symbol = " "
 separator = ", "
 style = "bold green"
+
+[git_branch]
+style = "bold red"
 
 [git_commit]
 disabled = false
