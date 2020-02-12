@@ -26,7 +26,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory
+setopt inc_append_history
+setopt share_history
 
 # Plugins
 source ~/.config/zsh/plugins.sh

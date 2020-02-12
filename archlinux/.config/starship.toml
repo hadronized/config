@@ -33,8 +33,8 @@ commit_hash_length = 4
 
 [git_state]
 cherry_pick = "🍒"
-rebase = "⏚"
-merge = ""
+rebase = "⏚ "
+merge = " "
 
 [git_status]
 deleted = " "

@@ -161,6 +161,7 @@ let g:startify_bookmarks = [
   \ '~/.config/nvim/lightline.vim',
   \ '~/.config/nvim/key_bindings.vim',
   \ '~/.zshrc',
+  \ '~/.config/starship.toml',
   \ ]
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 1
