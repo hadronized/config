@@ -31,12 +31,12 @@ set inccommand=nosplit
 set wildignore+=*/target/*
 set termguicolors
 set fillchars=vert:│
+set updatetime=300
+"set completeopt=menu,menuone,preview,noselect,noinsert
+set shortmess+=c
 
 " remove leading whitespaces
 autocmd BufWritePre * %s/\s\+$//e
-
-" nvim-lsp
-lua require'nvim_lsp'.rust_analyzer.setup{}
 
 " easymotion
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
@@ -151,5 +151,8 @@ let g:startify_session_delete_buffers = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
+
+" coc.vim
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 source ~/.config/nvim/lightline.vim

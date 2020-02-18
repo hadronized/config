@@ -32,8 +32,6 @@ noremap ,qn :cn!<CR>
 noremap ,qp :cp!<CR>
 noremap ,qo :cope<CR>
 
-"noremap k :ALEHover<CR>
-
 nmap ,w <Plug>(easymotion-bd-w)
 nmap ,W <Plug>(easymotion-overwin-w)
 nmap ,c <Plug>(easymotion-bd-f)
@@ -46,14 +44,14 @@ nmap ,/ <Plug>(easymotion-sn)
 noremap wz :ZoomWinTabToggle<CR>
 
 " coc.vim
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gs :CocList outline<CR>
-nmap <silent> gS :CocList symbols<CR>
+nmap <silent> ,gd <Plug>(coc-definition)
+nmap <silent> ,gt <Plug>(coc-type-definition)
+nmap <silent> ,gi <Plug>(coc-implementation)
+nmap <silent> ,gr <Plug>(coc-references)
+nmap <silent> ,gs :CocList outline<CR>
+nmap <silent> ,gS :CocList symbols<CR>
 nmap <silent> ,x :CocList diagnostics<CR>
-inoremap <silent><expr> <c-tab> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()

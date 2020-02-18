@@ -28,7 +28,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tveskag/nvim-blame-line'
 Plug 'mhinz/vim-startify'
-Plug 'neovim/nvim-lsp'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Visual
 Plug 'itchyny/lightline.vim'
