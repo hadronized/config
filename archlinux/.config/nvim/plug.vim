@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Syntax support
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neovimhaskell/haskell-vim'
-Plug 'phaazon/rust.vim', { 'branch': 'fix/doc-comments' }
+Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'phaazon/vim-cheddar'
 Plug 'plasticboy/vim-markdown'
@@ -24,15 +24,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'machakann/vim-highlightedyank'
-Plug 'jceb/vim-orgmode'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
-Plug 'neoclide/coc-sources'
 Plug 'tveskag/nvim-blame-line'
-Plug 'liuchengxu/vim-clap'
 Plug 'mhinz/vim-startify'
+Plug 'neovim/nvim-lsp'
 
 " Visual
 Plug 'itchyny/lightline.vim'

@@ -1,15 +1,13 @@
 set nocompatible
 filetype off
 
-let g:ale_completion_enabled = 1
+scriptencoding utf-8
+set encoding=utf8
 
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/nvimrc.bepo
 source ~/.config/nvim/platform-specific.vim
 source ~/.config/nvim/key_bindings.vim
-
-scriptencoding utf-8
-set encoding=utf8
 
 syntax on
 set showmode!
@@ -29,14 +27,16 @@ set autoindent
 set laststatus=2
 set nu
 set autoread
-set inccommand=split
+set inccommand=nosplit
 set wildignore+=*/target/*
 set termguicolors
 set fillchars=vert:│
 
+" remove leading whitespaces
 autocmd BufWritePre * %s/\s\+$//e
 
-set completeopt=menu,menuone,preview,noselect,noinsert
+" nvim-lsp
+lua require'nvim_lsp'.rust_analyzer.setup{}
 
 " easymotion
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
@@ -58,10 +58,9 @@ let g:shades_of_purple_bold = 1
 let g:edge_style = 'neon'
 let g:edge_enable_italic = 1
 
+" colorscheme
 set background=dark
 colorscheme edge
-
-source ~/.config/nvim/lightline.vim
 
 " Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -75,7 +74,6 @@ let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
 " Rust
-let $RUST_SRC_PATH = "/usr/local/src/rust/src"
 let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
 let g:rustfmt_autosave = 1
 
@@ -131,21 +129,6 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 autocmd CompleteDone * silent! pclose!
 
-" Tagbar
-let g:tagbar_map_zoomwin = 'a'
-let g:tagbar_map_togglesort = 'u'
-
-" orgguide-agenda
-let g:org_agenda_files = ['~/org/*.org']
-let g:org_aggressive_conceal = 1
-let g:org_todo_keywords = ['TODO', 'WIP', 'DONE']
-let g:org_heading_highlight_colors = ['Title', 'Special', 'Statement', 'Identifier', 'PreProc', 'Type']
-let g:org_todo_keyword_faces = [
-  \ ['TODO', [':foreground #f07178', ':weight bold']],
-  \ ['WIP', [':foreground #c792ea', ':weight bold']],
-  \ ['DONE', [':foreground #c3e88d']]
-  \ ]
-
 " nvim-blame-line
 let g:blameLineGitFormat = '   %an | %ar | %s'
 
@@ -168,3 +151,5 @@ let g:startify_session_delete_buffers = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
+
+source ~/.config/nvim/lightline.vim

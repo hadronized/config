@@ -3,14 +3,12 @@ let g:lightline = {
       \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'filename', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'modified' ],
-      \             [ 'coc' ] ]
+      \             [ 'fugitive', 'readonly', 'modified' ] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
-      \   'fugitive': '%{fugitive#head()}',
-      \   'coc': '%{coc#status()}'
+      \   'fugitive': '%{fugitive#head()}'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
