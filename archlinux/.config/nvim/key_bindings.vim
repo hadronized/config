@@ -15,7 +15,6 @@ noremap ,n :NERDTreeToggle<CR>
 " fuzzy finders
 noremap ,b :Buffers<CR>
 noremap ,f :Files<CR>
-noremap ,r :Clap grep<CR>
 
 " fuzzy git
 noremap ,gb :Gblame<CR>
@@ -44,12 +43,12 @@ nmap ,/ <Plug>(easymotion-sn)
 noremap wz :ZoomWinTabToggle<CR>
 
 " coc.vim
-nmap <silent> ,gd <Plug>(coc-definition)
-nmap <silent> ,gt <Plug>(coc-type-definition)
-nmap <silent> ,gi <Plug>(coc-implementation)
-nmap <silent> ,gr <Plug>(coc-references)
-nmap <silent> ,gs :CocList outline<CR>
-nmap <silent> ,gS :CocList symbols<CR>
+nmap <silent> ,d <Plug>(coc-definition)
+nmap <silent> ,t <Plug>(coc-type-definition)
+nmap <silent> ,i <Plug>(coc-implementation)
+nmap <silent> ,r <Plug>(coc-references)
+nmap <silent> ,s :CocList outline<CR>
+nmap <silent> ,S :CocList symbols<CR>
 nmap <silent> ,x :CocList diagnostics<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
