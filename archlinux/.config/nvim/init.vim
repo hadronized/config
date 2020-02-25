@@ -10,6 +10,7 @@ source ~/.config/nvim/platform-specific.vim
 source ~/.config/nvim/key_bindings.vim
 
 syntax on
+set wrap!
 set showmode!
 set hlsearch
 set backspace=indent,eol,start

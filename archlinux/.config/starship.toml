@@ -9,7 +9,7 @@ truncation_length = 8
 style = "bold magenta"
 
 [character]
-symbol = "λ"
+symbol = ""
 vicmd_symbol = ""
 style_success = "blue"
 style_failure = "magenta"
