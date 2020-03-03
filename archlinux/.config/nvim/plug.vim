@@ -16,6 +16,7 @@ Plug 'pest-parser/pest.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'r0mai/vim-djinni'
+Plug 'kelan/gyp.vim'
 
 " Productivity
 Plug 'easymotion/vim-easymotion'

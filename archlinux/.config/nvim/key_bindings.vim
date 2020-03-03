@@ -52,6 +52,7 @@ nmap <silent> ,S :CocList symbols<CR>
 nmap <silent> ,x :CocList diagnostics<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> ,<space> <Plug>(coc-codelens-action)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
