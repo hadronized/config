@@ -32,7 +32,8 @@ setopt share_history
 # Plugins
 source ~/.config/zsh/plugins.sh
 
-export PATH=~/bin:$PATH:~/.cargo/bin:~/.local/bin:/Users/dsabadie/Library/Python/2.7/bin/:/usr/local/opt/llvm/bin
+export PATH=$PATH:~/bin:~/.cargo/bin:~/.local/bin:/Users/dsabadie/Library/Python/2.7/bin/:/usr/local/opt/llvm/bin
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 # Custom bindings
 # git checkout <branch>

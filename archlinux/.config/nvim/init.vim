@@ -35,6 +35,7 @@ set fillchars=vert:│
 set updatetime=300
 "set completeopt=menu,menuone,preview,noselect,noinsert
 set shortmess+=c
+set foldmethod=manual
 
 " remove leading whitespaces
 autocmd BufWritePre * %s/\s\+$//e
