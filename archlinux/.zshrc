@@ -3,7 +3,6 @@ export EDITOR='nvim'
 export TERM=xterm-256color
 export TERMINAL=termite
 
-alias ls='~/github/exa-fork/target/release/exa --icons'
 alias make='make -j16'
 
 source ~/.fzfrc
@@ -32,25 +31,15 @@ setopt share_history
 # Plugins
 source ~/.config/zsh/plugins.sh
 
-export PATH=$PATH:~/bin:~/.cargo/bin:~/.local/bin:/Users/dsabadie/Library/Python/2.7/bin/:/usr/local/opt/llvm/bin
+# Keybindings
+source ~/.config/zsh/keybindings.sh
+
+export PATH=$PATH:~/bin:~/.cargo/bin:~/.local/bin:/usr/local/opt/llvm/bin
+
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-# Custom bindings
-# git checkout <branch>
-bindkey -s '^gb' 'git branch | fzf --height 40% --reverse | cut -c 3- | xargs git switch^M'
-
-# git push <remote>
-bindkey -s '^gp' 'git remote | fzf --height 40% --reverse | xargs git push^M'
-
-# git commit preview
-bindkey -s '^gc' 'git log --oneline | fzf --reverse --preview "cut -f 1 -d \u27 \u27 <<< {} | xargs git show --color=always --pretty=format:%b"^M'
-
-# git rebase <remote>
-bindkey -s '^gr' 'git remote | fzf --height 20% --reverse | xargs git rebase^M'
 
 eval "$(starship init zsh)"
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

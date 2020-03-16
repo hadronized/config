@@ -10,7 +10,7 @@ floating_modifier $mod
 # keybindings
 
 # start a terminal
-bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Return exec termite
 
 # show the scratchpad
 bindsym $mod+d scratchpad show

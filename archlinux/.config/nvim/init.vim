@@ -132,6 +132,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 autocmd CompleteDone * silent! pclose!
 
 let g:fzf_preview_window = ''
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
 
 " nvim-blame-line
 let g:blameLineGitFormat = '   %an | %ar | %s'
