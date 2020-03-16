@@ -33,12 +33,13 @@
     "default": "\uf29c"
   },
   "diagnostic.virtualText": true,
-  "diagnostic.errorSign": "▶",
-  "diagnostic.infoSign": "▶",
-  "diagnostic.hintign": "▶",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintign": "﫠",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.refreshAfterSave": true,
   "codeLens.enable": true,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnInsertLeave": true
+  "coc.preferences.formatOnInsertLeave": true,
+  "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow"
 }

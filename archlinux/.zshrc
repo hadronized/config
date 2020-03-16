@@ -49,3 +49,9 @@ bindkey -s '^gc' 'git log --oneline | fzf --reverse --preview "cut -f 1 -d \u27 
 bindkey -s '^gr' 'git remote | fzf --height 20% --reverse | xargs git rebase^M'
 
 eval "$(starship init zsh)"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
