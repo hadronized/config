@@ -1,8 +1,10 @@
+# i3 config file (v4)
+
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 5
+font pango:DejaVu Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -80,40 +82,29 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1:·"
-set $ws2 "2::"
-set $ws3 "3:·:"
-set $ws4 "4:::"
-set $ws5 "5::·:"
-set $ws6 "6::::"
-set $ws7 "7:·:::"
-set $ws8 "8:::::"
-set $ws9 "9:::·::"
-set $ws0 "0::::::"
-
 # switch to workspace
-bindsym $mod+quotedbl workspace $ws1
-bindsym $mod+guillemotleft workspace $ws2
-bindsym $mod+guillemotright workspace $ws3
-bindsym $mod+parenleft workspace $ws4
-bindsym $mod+parenright workspace $ws5
-bindsym $mod+at workspace $ws6
-bindsym $mod+plus workspace $ws7
-bindsym $mod+minus workspace $ws8
-bindsym $mod+slash workspace $ws9
-bindsym $mod+asterisk workspace $ws0
+bindsym $mod+quotedbl workspace 1
+bindsym $mod+guillemotleft workspace 2
+bindsym $mod+guillemotright workspace 3
+bindsym $mod+parenleft workspace 4
+bindsym $mod+parenright workspace 5
+bindsym $mod+at workspace 6
+bindsym $mod+plus workspace 7
+bindsym $mod+minus workspace 8
+bindsym $mod+slash workspace 9
+bindsym $mod+asterisk workspace 0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+guillemotleft move container to workspace $ws2
-bindsym $mod+Shift+guillemotright move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws0
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+guillemotleft move container to workspace 2
+bindsym $mod+Shift+guillemotright move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 0
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%"
@@ -174,18 +165,20 @@ client.unfocused        $color0  $color0 $color4 $color12  $color0
 client.urgent           $color0  $color8 $color4 $color12  $color1
 client.placeholder      #000000  #0c0c0c #ffffff #000000   #0c0c0c
 
-for_window [class="^.*$"] border pixel 1
-default_border normal
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 5
 
-gaps inner 4
-gaps outer 0
+title_align center
+
+hide_edge_borders both
+
+workspace_auto_back_and_forth yes
 
 exec --no-startup-id compton
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
 
-exec_always --no-startup-id restart-polybar
-exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
-exec_always --no-startup-id redshift-gtk
+exec --no-startup-id restart-polybar
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec --no-startup-id redshift-gtk
