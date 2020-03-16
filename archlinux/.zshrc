@@ -1,3 +1,4 @@
+# Some default mandatory settings for terminals and editors.
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export TERM=xterm-256color
@@ -37,7 +38,6 @@ source ~/.config/zsh/keybindings.sh
 export PATH=$PATH:~/bin:~/.cargo/bin:~/.local/bin:/usr/local/opt/llvm/bin
 
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-
 
 eval "$(starship init zsh)"
 
