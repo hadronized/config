@@ -1,0 +1,63 @@
+#!/bin/zsh
+
+COLOR_BG0="#2b2d3a"
+COLOR_BG1="#2f3242"
+COLOR_BG2="#2f3242"
+COLOR_BG3="#363a4e"
+COLOR_BG4="#393e53"
+COLOR_BG5="#3f445b"
+COLOR_BG_GREY="#7a819d"
+COLOR_BG_RED="#ec7279"
+COLOR_BG_RED1="#473536"
+COLOR_BG_RED2="#573c3d"
+COLOR_BG_GREEN="#a0c980"
+COLOR_BG_GREEN1="#384034"
+COLOR_BG_GREEN2="#424c3b"
+COLOR_BG_BLUE="#6cb6eb"
+COLOR_BG_BLUE1="#323e47"
+COLOR_BG_BLUE2="#394957"
+COLOR_BG_PURPLE="#d38aea"
+COLOR_BG_PURPLE1="#433948"
+COLOR_BG_PURPLE2="#514359"
+COLOR_FG="#c5cdd9"
+COLOR_RED="#ec7279"
+COLOR_YELLOW="#deb974"
+COLOR_GREEN="#a0c980"
+COLOR_CYAN="#5dbbc1"
+COLOR_BLUE="#6cb6eb"
+COLOR_PURPLE="#d38aea"
+COLOR_GREY="#7e8294"
+
+function color_polybar() {
+  sed -i s/"foreground = #.*"/"foreground = $COLOR_FG"/g ~/.config/polybar/config
+  sed -i s/"background = #.*"/"background = $COLOR_BG0"/g ~/.config/polybar/config
+  sed -i s/"color0 = #.*"/"color0 = $COLOR_BG3"/g ~/.config/polybar/config
+  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG5"/g ~/.config/polybar/config
+  sed -i s/"color1 = #.*"/"color1 = $COLOR_RED"/g ~/.config/polybar/config
+  sed -i s/"color9 = #.*"/"color9 = $COLOR_BG_RED2"/g ~/.config/polybar/config
+  sed -i s/"color2 = #.*"/"color2 = $COLOR_GREEN"/g ~/.config/polybar/config
+  sed -i s/"color10 = #.*"/"color10 = $COLOR_BG_GREEN2"/g ~/.config/polybar/config
+  sed -i s/"color3 = #.*"/"color3 = $COLOR_YELLOW"/g ~/.config/polybar/config
+  sed -i s/"color11 = #.*"/"color11 = $COLOR_YELLOW"/g ~/.config/polybar/config
+  sed -i s/"color3 = #.*"/"color3 = $COLOR_BLUE"/g ~/.config/polybar/config
+  sed -i s/"color12 = #.*"/"color12 = $COLOR_BG_BLUE2"/g ~/.config/polybar/config
+  sed -i s/"color5 = #.*"/"color5 = $COLOR_PURPLE"/g ~/.config/polybar/config
+  sed -i s/"color13 = #.*"/"color13 = $COLOR_BG_PURPLE2"/g ~/.config/polybar/config
+  sed -i s/"color6 = #.*"/"color6 = $COLOR_CYAN"/g ~/.config/polybar/config
+  sed -i s/"color14 = #.*"/"color14 = $COLOR_BG_BLUE2"/g ~/.config/polybar/config
+  sed -i s/"color7 = #.*"/"color7 = $COLOR_FG"/g ~/.config/polybar/config
+  sed -i s/"color15 = #.*"/"color15 = $COLOR_BG5"/g ~/.config/polybar/config
+}
+
+function color_i3wm() {
+  sed -i s/"client.focused .*$"/"client.focused          $COLOR_CYAN $COLOR_CYAN $COLOR_GREY $COLOR_GREEN $COLOR_CYAN"/g ~/.config/i3/config
+  sed -i s/"client.focused_inactive .*$"/"client.focused_inactive $COLOR_BG5 $COLOR_BG5 $COLOR_GREY $COLOR_BG5 $COLOR_BG5"/g ~/.config/i3/config
+  sed -i s/"client.unfocused .*$"/"client.unfocused $COLOR_BG5 $COLOR_BG5 $COLOR_GREY $COLOR_BG5 $COLOR_BG5"/g ~/.config/i3/config
+  sed -i s/"client.urgent .*$"/"client.urgent $COLOR_RED $COLOR_RED $COLOR_GREY $COLOR_RED $COLOR_RED"/g ~/.config/i3/config
+  sed -i s/"client.placeholder .*$"/"client.placeholder $COLOR_PURPLE $COLOR_PURPLE $COLOR_GREY $COLOR_PURPLE $COLOR_PURPLE"/g ~/.config/i3/config
+}
+
+function color_neovim() {
+  sed -i s/"^set background=.*"/"set background=dark"/g ~/.config/nvim/init.vim
+  sed -i s/"^colorscheme.*$"/"colorscheme edge"/g ~/.config/nvim/init.vim
+}
