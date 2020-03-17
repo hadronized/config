@@ -147,7 +147,7 @@ set_from_resource $color_purple color_purple
 set_from_resource $color_grey color_grey
 
 # class                 border   backgr. text    indicator child_border
-client.focused          #5dbbc1 #5dbbc1 #7e8294 #d38aea #5dbbc1
+client.focused          #5dbbc1 #5dbbc1 #7e8294 #a0c980 #5dbbc1
 client.focused_inactive #3f445b #3f445b #7e8294 #3f445b #3f445b
 client.unfocused #3f445b #3f445b #7e8294 #3f445b #3f445b
 client.urgent #ec7279 #ec7279 #7e8294 #ec7279 #ec7279
@@ -158,7 +158,7 @@ default_floating_border pixel 1
 
 title_align center
 
-#hide_edge_borders both
+hide_edge_borders both
 
 workspace_auto_back_and_forth yes
 

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+THEMES_DIR=${THEMES_DIR:-~/.config/colorscheme/themes}
+
+# Create the themes directory if it doesn’t already exist
+test -d $THEMES_DIR || (echo "- Creating themes directory." && mkdir -p $THEMES_DIR)
+
+if [ "$#" != "1" ]; then
+  echo "Expecting a colorscheme."
+  exit 1
+fi
+
+COLORSCHEME=$1
+COLORSCHEME_SCRIPT=$THEMES_DIR/$COLORSCHEME
+
+if [ ! -f "$COLORSCHEME_SCRIPT" ]; then
+  echo "$COLORSCHEME is not a colorscheme currently registered."
+  exit 1
+fi
+
+source $COLORSCHEME_SCRIPT
+
+color_polybar && echo "- Applied $COLORSCHEME to polybar."
+color_i3wm && echo "- Applied $COLORSCHEME to i3wm."
+color_neovim && echo "- Applied $COLORSCHEME to neovim."
