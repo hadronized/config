@@ -66,7 +66,7 @@ function color_termite() {
   sed -i s/"foreground = #.*"/"foreground = $COLOR_FG"/g ~/.config/termite/config
   sed -i s/"background = #.*"/"background = $COLOR_BG0"/g ~/.config/termite/config
   sed -i s/"color0 = #.*"/"color0 = $COLOR_BG3"/g ~/.config/termite/config
-  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG3"/g ~/.config/termite/config
+  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG5"/g ~/.config/termite/config
   sed -i s/"color1 = #.*"/"color1 = $COLOR_RED"/g ~/.config/termite/config
   sed -i s/"color9 = #.*"/"color9 = $COLOR_RED"/g ~/.config/termite/config
   sed -i s/"color2 = #.*"/"color2 = $COLOR_GREEN"/g ~/.config/termite/config
