@@ -148,7 +148,7 @@ set_from_resource $color_grey color_grey
 
 # class                 border   backgr. text    indicator child_border
 client.focused          #5dbbc1 #5dbbc1 #7e8294 #a0c980 #5dbbc1
-client.focused_inactive #3f445b #3f445b #7e8294 #3f445b #3f445b
+client.focused_inactive #394957 #394957 #7e8294 #a0c980 #394957
 client.unfocused #3f445b #3f445b #7e8294 #3f445b #3f445b
 client.urgent #ec7279 #ec7279 #7e8294 #ec7279 #ec7279
 client.placeholder #d38aea #d38aea #7e8294 #d38aea #d38aea

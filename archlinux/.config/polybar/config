@@ -142,7 +142,7 @@ label-focused-padding = 4
 
 label-visible = %name%
 label-visible-foreground = ${colors.color12}
-label-visible-background = ${colors.background}
+label-visible-background = ${colors.color8}
 label-visible-padding = 4
 
 ; unfocused = Inactive workspace on any monitor

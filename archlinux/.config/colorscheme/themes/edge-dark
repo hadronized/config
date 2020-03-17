@@ -51,7 +51,7 @@ function color_polybar() {
 
 function color_i3wm() {
   sed -i s/"client.focused .*$"/"client.focused          $COLOR_CYAN $COLOR_CYAN $COLOR_GREY $COLOR_GREEN $COLOR_CYAN"/g ~/.config/i3/config
-  sed -i s/"client.focused_inactive .*$"/"client.focused_inactive $COLOR_BG5 $COLOR_BG5 $COLOR_GREY $COLOR_BG5 $COLOR_BG5"/g ~/.config/i3/config
+  sed -i s/"client.focused_inactive .*$"/"client.focused_inactive $COLOR_BG_BLUE2 $COLOR_BG_BLUE2 $COLOR_GREY $COLOR_GREEN $COLOR_BG_BLUE2"/g ~/.config/i3/config
   sed -i s/"client.unfocused .*$"/"client.unfocused $COLOR_BG5 $COLOR_BG5 $COLOR_GREY $COLOR_BG5 $COLOR_BG5"/g ~/.config/i3/config
   sed -i s/"client.urgent .*$"/"client.urgent $COLOR_RED $COLOR_RED $COLOR_GREY $COLOR_RED $COLOR_RED"/g ~/.config/i3/config
   sed -i s/"client.placeholder .*$"/"client.placeholder $COLOR_PURPLE $COLOR_PURPLE $COLOR_GREY $COLOR_PURPLE $COLOR_PURPLE"/g ~/.config/i3/config
