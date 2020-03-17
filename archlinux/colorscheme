@@ -25,3 +25,4 @@ source $COLORSCHEME_SCRIPT
 color_polybar && echo "- Applied $COLORSCHEME to polybar."
 color_i3wm && echo "- Applied $COLORSCHEME to i3wm."
 color_neovim && echo "- Applied $COLORSCHEME to neovim."
+color_termite && echo "- Applied $COLORSCHEME to termite."
