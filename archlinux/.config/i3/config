@@ -12,7 +12,7 @@ floating_modifier $mod
 # keybindings
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec i3-sensible-terminal
 
 # show the scratchpad
 bindsym $mod+d scratchpad show
@@ -126,51 +126,39 @@ bindsym $mod+Shift+O restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+P exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# black
-set_from_resource $color0 color0
-set_from_resource $color8 color8
-
-# red
-set_from_resource $color1 color1
-set_from_resource $color9 color9
-
-# green
-set_from_resource $color2 color2
-set_from_resource $color10 color10
-
-# yellow
-set_from_resource $color3 color3
-set_from_resource $color11 color11
-
-# blue
-set_from_resource $color4 color4
-set_from_resource $color12 color12
-
-# magenta
-set_from_resource $color5 color5
-set_from_resource $color13 color13
-
-# cyan
-set_from_resource $color6 color6
-set_from_resource $color14 color14
-
-# white
-set_from_resource $color7 color7
-set_from_resource $color15 color15
+# colors
+set_from_resource $color_fg color_fg
+set_from_resource $color_bg0 color_bg0
+set_from_resource $color_bg1 color_bg1
+set_from_resource $color_bg2 color_bg2
+set_from_resource $color_bg3 color_bg3
+set_from_resource $color_bg4 color_bg4
+set_from_resource $color_bg5 color_bg5
+set_from_resource $color_bg_red color_bg_red
+set_from_resource $color_bg_green color_bg_green
+set_from_resource $color_bg_blue color_bg_blue
+set_from_resource $color_bg_purple color_bg_purple
+set_from_resource $color_red color_red
+set_from_resource $color_yellow color_yellow
+set_from_resource $color_green color_green
+set_from_resource $color_cyan color_cyan
+set_from_resource $color_blue color_blue
+set_from_resource $color_purple color_purple
+set_from_resource $color_grey color_grey
 
 # class                 border   backgr. text    indicator child_border
-client.focused          $color8  $color8 $color4 $color12  $color7
-client.focused_inactive $color8  $color8 $color4 $color12  $color0
-client.unfocused        $color0  $color0 $color4 $color12  $color0
-client.urgent           $color0  $color8 $color4 $color12  $color1
+client.focused          $color2  $background $color2 $color10   $color2
+client.focused_inactive $color8  $color8 $foreground $color12  $color0
+client.unfocused        $color0  $color0 $foreground $background  $background
+client.urgent           $color0  $color8 $foreground $color12  $color1
 client.placeholder      #000000  #0c0c0c #ffffff #000000   #0c0c0c
 
-default_border pixel 2
-default_floating_border pixel 5
+default_border pixel 1
+default_floating_border pixel 1
 
 title_align center
 
-hide_edge_borders both
+#hide_edge_borders both
 
 workspace_auto_back_and_forth yes
 
@@ -179,6 +167,6 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
 
-exec --no-startup-id restart-polybar
+exec --no-startup-id ~/bin/restart-polybar
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id redshift-gtk

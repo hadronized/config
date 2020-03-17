@@ -17,68 +17,62 @@
 ;==========================================================
 
 [colors]
-# black
-color0  = ${xrdb:color0}
-color8  = ${xrdb:color8}
-# red
-color1  = ${xrdb:color1}
-color9  = ${xrdb:color9}
-# green
-color2  = ${xrdb:color2}
-color10 = ${xrdb:color10}
-# yellow
-color3  = ${xrdb:color3}
-color11 = ${xrdb:color11}
-# blue
-color4  = ${xrdb:color4}
-color12 = ${xrdb:color12}
-# magenta
-color5  = ${xrdb:color5}
-color13 = ${xrdb:color13}
-# cyan
-color6  = ${xrdb:color6}
-color14 = ${xrdb:color14}
-# white
-color7  = ${xrdb:color7}
-color15 = ${xrdb:color15}
+foreground = #c5cdd9
+background = #2b2d3a
 
-background     = #33333333
-background-alt = ${colors.color8}
-foreground     = ${colors.color7}
-foreground-alt = ${colors.color13}
-secondary      = ${colors.color6}
+# black
+color0  = #363a4e
+color8  = #3f445b
+# red
+color1  = #ec7279
+color9  = #573c3d
+# green
+color2  = #a0c980
+color10 = #424c3b
+# yellow
+color3  = #deb974
+color11 = #deb974
+# blue
+color4  = #6cb6eb
+color12 = #394957
+# magenta
+color5  = #d38aea
+color13 = #514359
+# cyan
+color6  = #5dbbc1
+color14 = #394957
+# white
+color7  = #c5cdd9
+color15 = #3f445b
 
 [bar/default]
 width = 100%
-height = 27
+height = 26
 radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 0
 line-color = #000
 
 border-size = 0
-;border-color = ${colors.background-alt}
+border-color = ${colors.color0}
 
-padding-left = 2
-padding-right = 2
+padding = 0
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin = 2
 
 font-0 = Cantarell:style=Bold:pixelsize=12;2
 font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=14;3
 
-modules-left = powermenu xwindow
-modules-center = i3
+modules-left = i3
+modules-center = xwindow
 modules-right = hostname pulseaudio date
 
 tray-position = right
 tray-padding = 2
-;tray-background = ${colors.color8}
 
 ;wm-restack = i3
 ;override-redirect = true
@@ -101,37 +95,27 @@ index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
 
-ws-icon-default = ♟
-ws-icon0 = 1:·
-ws-icon1 = 2::
-ws-icon2 = 3:·:
-ws-icon3 = 4:::
-ws-icon4 = 5::·:
-ws-icon5 = 6::::
-ws-icon6 = 7:·:::
-ws-icon7 = 8:::::
-ws-icon8 = 9:::·::
-ws-icon9 = 0::::::
-
 label-focused = %name%
-label-focused-foreground = ${colors.color4}
-label-focused-background = ${colors.color8}
-label-focused-underline = ${colors.color12}
-label-focused-padding = 5
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.color6}
+label-focused-padding = 4
+
+label-visible = %name%
+label-visible-foreground = ${colors.color12}
+label-visible-background = ${colors.background}
+label-visible-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.color12}
-;label-unfocused-background = ${colors.color2}
-;label-unfocused-underline = ${colors.color7}
-label-unfocused-padding = 5
+label-unfocused-background = ${colors.background}
+label-unfocused-padding = 4
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
 label-urgent-foreground = ${colors.color7}
 label-urgent-background = ${colors.color1}
-label-urgent-underline = ${colors.color9}
-label-urgent-padding = 5
+label-urgent-padding = 4
 
 [module/mpd]
 type = internal/mpd
@@ -155,7 +139,7 @@ date = %a %b %d
 time = %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.color12}
+format-prefix-foreground = ${colors.color4}
 
 label = " %date%, %time%"
 label-foreground = ${colors.color4}
@@ -165,10 +149,10 @@ type = internal/pulseaudio
 
 format-volume = <label-volume>
 label-volume =  %percentage%%
-label-volume-foreground = ${colors.color14}
+label-volume-foreground = ${colors.color5}
 
 label-muted = 
-label-muted-foreground = ${colors.color15}
+label-muted-foreground = ${colors.color5}
 
 [module/temperature]
 type = internal/temperature
@@ -182,12 +166,12 @@ format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.red}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
@@ -234,7 +218,7 @@ menu-3-1-exec = systemctl suspend
 [module/hostname]
 type = custom/text
 content = phaazon @ orchid
-content-foreground = ${colors.color8}
+content-foreground = ${colors.color14}
 
 [settings]
 screenchange-reload = true
