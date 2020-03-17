@@ -32,21 +32,21 @@ function color_polybar() {
   sed -i s/"foreground = #.*"/"foreground = $COLOR_FG"/g ~/.config/polybar/config
   sed -i s/"background = #.*"/"background = $COLOR_BG0"/g ~/.config/polybar/config
   sed -i s/"color0 = #.*"/"color0 = $COLOR_BG3"/g ~/.config/polybar/config
-  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG5"/g ~/.config/polybar/config
+  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG3"/g ~/.config/polybar/config
   sed -i s/"color1 = #.*"/"color1 = $COLOR_RED"/g ~/.config/polybar/config
-  sed -i s/"color9 = #.*"/"color9 = $COLOR_BG_RED2"/g ~/.config/polybar/config
+  sed -i s/"color9 = #.*"/"color9 = $COLOR_RED"/g ~/.config/polybar/config
   sed -i s/"color2 = #.*"/"color2 = $COLOR_GREEN"/g ~/.config/polybar/config
-  sed -i s/"color10 = #.*"/"color10 = $COLOR_BG_GREEN2"/g ~/.config/polybar/config
+  sed -i s/"color10 = #.*"/"color10 = $COLOR_GREEN"/g ~/.config/polybar/config
   sed -i s/"color3 = #.*"/"color3 = $COLOR_YELLOW"/g ~/.config/polybar/config
   sed -i s/"color11 = #.*"/"color11 = $COLOR_YELLOW"/g ~/.config/polybar/config
   sed -i s/"color3 = #.*"/"color3 = $COLOR_BLUE"/g ~/.config/polybar/config
-  sed -i s/"color12 = #.*"/"color12 = $COLOR_BG_BLUE2"/g ~/.config/polybar/config
+  sed -i s/"color12 = #.*"/"color12 = $COLOR_BLUE"/g ~/.config/polybar/config
   sed -i s/"color5 = #.*"/"color5 = $COLOR_PURPLE"/g ~/.config/polybar/config
-  sed -i s/"color13 = #.*"/"color13 = $COLOR_BG_PURPLE2"/g ~/.config/polybar/config
+  sed -i s/"color13 = #.*"/"color13 = $COLOR_PURPLE"/g ~/.config/polybar/config
   sed -i s/"color6 = #.*"/"color6 = $COLOR_CYAN"/g ~/.config/polybar/config
-  sed -i s/"color14 = #.*"/"color14 = $COLOR_BG_BLUE2"/g ~/.config/polybar/config
+  sed -i s/"color14 = #.*"/"color14 = $COLOR_CYAN"/g ~/.config/polybar/config
   sed -i s/"color7 = #.*"/"color7 = $COLOR_FG"/g ~/.config/polybar/config
-  sed -i s/"color15 = #.*"/"color15 = $COLOR_BG5"/g ~/.config/polybar/config
+  sed -i s/"color15 = #.*"/"color15 = $COLOR_FG"/g ~/.config/polybar/config
 }
 
 function color_i3wm() {
@@ -66,19 +66,19 @@ function color_termite() {
   sed -i s/"foreground = #.*"/"foreground = $COLOR_FG"/g ~/.config/termite/config
   sed -i s/"background = #.*"/"background = $COLOR_BG0"/g ~/.config/termite/config
   sed -i s/"color0 = #.*"/"color0 = $COLOR_BG3"/g ~/.config/termite/config
-  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG5"/g ~/.config/termite/config
+  sed -i s/"color8 = #.*"/"color8 = $COLOR_BG3"/g ~/.config/termite/config
   sed -i s/"color1 = #.*"/"color1 = $COLOR_RED"/g ~/.config/termite/config
-  sed -i s/"color9 = #.*"/"color9 = $COLOR_BG_RED2"/g ~/.config/termite/config
+  sed -i s/"color9 = #.*"/"color9 = $COLOR_RED"/g ~/.config/termite/config
   sed -i s/"color2 = #.*"/"color2 = $COLOR_GREEN"/g ~/.config/termite/config
-  sed -i s/"color10 = #.*"/"color10 = $COLOR_BG_GREEN2"/g ~/.config/termite/config
+  sed -i s/"color10 = #.*"/"color10 = $COLOR_GREEN"/g ~/.config/termite/config
   sed -i s/"color3 = #.*"/"color3 = $COLOR_YELLOW"/g ~/.config/termite/config
   sed -i s/"color11 = #.*"/"color11 = $COLOR_YELLOW"/g ~/.config/termite/config
   sed -i s/"color3 = #.*"/"color3 = $COLOR_BLUE"/g ~/.config/termite/config
-  sed -i s/"color12 = #.*"/"color12 = $COLOR_BG_BLUE2"/g ~/.config/termite/config
+  sed -i s/"color12 = #.*"/"color12 = $COLOR_BLUE"/g ~/.config/termite/config
   sed -i s/"color5 = #.*"/"color5 = $COLOR_PURPLE"/g ~/.config/termite/config
-  sed -i s/"color13 = #.*"/"color13 = $COLOR_BG_PURPLE2"/g ~/.config/termite/config
+  sed -i s/"color13 = #.*"/"color13 = $COLOR_PURPLE"/g ~/.config/termite/config
   sed -i s/"color6 = #.*"/"color6 = $COLOR_CYAN"/g ~/.config/termite/config
-  sed -i s/"color14 = #.*"/"color14 = $COLOR_BG_BLUE2"/g ~/.config/termite/config
+  sed -i s/"color14 = #.*"/"color14 = $COLOR_CYAN"/g ~/.config/termite/config
   sed -i s/"color7 = #.*"/"color7 = $COLOR_FG"/g ~/.config/termite/config
-  sed -i s/"color15 = #.*"/"color15 = $COLOR_BG5"/g ~/.config/termite/config
+  sed -i s/"color15 = #.*"/"color15 = $COLOR_FG"/g ~/.config/termite/config
 }

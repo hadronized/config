@@ -28,22 +28,22 @@ color1  = #ec7279
 color9  = #573c3d
 # green
 color2  = #a0c980
-color10 = #424c3b
+color10 = #a0c980
 # yellow
 color3  = #deb974
 color11 = #deb974
 # blue
 color4  = #6cb6eb
-color12 = #394957
+color12 = #6cb6eb
 # magenta
 color5  = #d38aea
-color13 = #514359
+color13 = #d38aea
 # cyan
 color6  = #5dbbc1
-color14 = #394957
+color14 = #5dbbc1
 # white
 color7  = #c5cdd9
-color15 = #3f445b
+color15 = #c5cdd9
 
 [bar/default]
 width = 100%
