@@ -147,11 +147,11 @@ set_from_resource $color_purple color_purple
 set_from_resource $color_grey color_grey
 
 # class                 border   backgr. text    indicator child_border
-client.focused          $color2  $background $color2 $color10   $color2
-client.focused_inactive $color8  $color8 $foreground $color12  $color0
-client.unfocused        $color0  $color0 $foreground $background  $background
-client.urgent           $color0  $color8 $foreground $color12  $color1
-client.placeholder      #000000  #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #5dbbc1 #5dbbc1 #7e8294 #d38aea #5dbbc1
+client.focused_inactive #3f445b #3f445b #7e8294 #3f445b #3f445b
+client.unfocused #3f445b #3f445b #7e8294 #3f445b #3f445b
+client.urgent #ec7279 #ec7279 #7e8294 #ec7279 #ec7279
+client.placeholder #d38aea #d38aea #7e8294 #d38aea #d38aea
 
 default_border pixel 1
 default_floating_border pixel 1
