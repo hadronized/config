@@ -41,5 +41,12 @@
   "codeLens.enable": true,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnInsertLeave": true,
-  "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow"
+  "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow",
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"]
+    }
+  }
 }

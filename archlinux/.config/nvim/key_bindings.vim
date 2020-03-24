@@ -47,13 +47,12 @@ nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> <leader>t <Plug>(coc-type-definition)
 nmap <silent> <leader>i <Plug>(coc-implementation)
 nmap <silent> <leader>rr <Plug>(coc-references)
-nmap <silent> <leader>s :CocList outline<CR>
-nmap <silent> <leader>S :CocList symbols<CR>
+nmap <silent> <leader>sl :CocList symbols<CR>
 inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <leader><space> <Plug>(coc-codelens-action)
-nmap <silent> <leader>rn <Plug>(coc-rename)
-nmap <silent> <leader>xx :CocList diagnostics<CR>
+nmap <silent> <leader>sr <Plug>(coc-rename)
+nmap <silent> <leader>xl :CocList diagnostics<CR>
 nmap <silent> <leader>xp <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>xn <Plug>(coc-diagnostic-next)
 nmap <leader>va <Plug>(coc-codeaction-selected>

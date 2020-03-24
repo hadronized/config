@@ -22,13 +22,12 @@ bindsym $mod+Shift+d move scratchpad
 bindsym $mod+Shift+B kill
 
 # rofi
-bindsym $mod+i exec "rofi -show run"
-bindsym $mod+k exec "rofi -show window"
+bindsym $mod+i exec "rofi -show drun -show-icons"
+bindsym $mod+w exec "rofi -show window -show-icons"
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+u exec --no-startup-id i3-dmenu-desktop
+# marks
+bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark: '
+bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -P 'Goto: '
 
 # change focus
 bindsym $mod+c focus left
@@ -83,28 +82,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+quotedbl workspace 1
-bindsym $mod+guillemotleft workspace 2
-bindsym $mod+guillemotright workspace 3
-bindsym $mod+parenleft workspace 4
-bindsym $mod+parenright workspace 5
-bindsym $mod+at workspace 6
-bindsym $mod+plus workspace 7
-bindsym $mod+minus workspace 8
-bindsym $mod+slash workspace 9
-bindsym $mod+asterisk workspace 0
+bindsym $mod+quotedbl workspace number 1
+bindsym $mod+guillemotleft workspace number 2
+bindsym $mod+guillemotright workspace number 3
+bindsym $mod+parenleft workspace number 4
+bindsym $mod+parenright workspace number 5
+bindsym $mod+at workspace number 6
+bindsym $mod+plus workspace number 7
+bindsym $mod+minus workspace number 8
+bindsym $mod+slash workspace number 9
+bindsym $mod+asterisk workspace number 0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+guillemotleft move container to workspace 2
-bindsym $mod+Shift+guillemotright move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 0
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+guillemotleft move container to workspace number 2
+bindsym $mod+Shift+guillemotright move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 0
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%"
@@ -147,22 +146,23 @@ set_from_resource $color_purple color_purple
 set_from_resource $color_grey color_grey
 
 # class                 border   backgr. text    indicator child_border
-client.focused          #5dbbc1 #5dbbc1 #7e8294 #a0c980 #5dbbc1
-client.focused_inactive #394957 #394957 #7e8294 #a0c980 #394957
-client.unfocused #3f445b #3f445b #7e8294 #3f445b #3f445b
-client.urgent #ec7279 #ec7279 #7e8294 #ec7279 #ec7279
-client.placeholder #d38aea #d38aea #7e8294 #d38aea #d38aea
+client.focused          #5dbbc1 #5dbbc1 #FFFFFF #a0c980 #5dbbc1
+client.focused_inactive #394957 #394957 #FFFFFF #a0c980 #394957
+client.unfocused        #666666 #666666 #FFFFFF #ec7279 #666666
+client.urgent           #ec7279 #ec7279 #FFFFFF #ec7279 #ec7279
+client.placeholder      #d38aea #d38aea #FFFFFF #d38aea #d38aea
 
 default_border pixel 1
-default_floating_border pixel 1
+default_floating_border normal
 
 title_align center
 
 #hide_edge_borders both
 
 workspace_auto_back_and_forth false
+show_marks yes
 
-exec --no-startup-id compton
+exec compton
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms

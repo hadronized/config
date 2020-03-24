@@ -30,6 +30,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tveskag/nvim-blame-line'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Visual
 Plug 'itchyny/lightline.vim'

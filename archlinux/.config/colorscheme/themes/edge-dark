@@ -5,7 +5,7 @@ COLOR_BG1="#2f3242"
 COLOR_BG2="#2f3242"
 COLOR_BG3="#363a4e"
 COLOR_BG4="#393e53"
-COLOR_BG5="#3f445b"
+COLOR_BG5="#666666"
 COLOR_BG_GREY="#7a819d"
 COLOR_BG_RED="#ec7279"
 COLOR_BG_RED1="#473536"
@@ -50,11 +50,11 @@ function color_polybar() {
 }
 
 function color_i3wm() {
-  sed -i s/"client.focused .*$"/"client.focused          $COLOR_CYAN $COLOR_CYAN $COLOR_GREY $COLOR_GREEN $COLOR_CYAN"/g ~/.config/i3/config
-  sed -i s/"client.focused_inactive .*$"/"client.focused_inactive $COLOR_BG_BLUE2 $COLOR_BG_BLUE2 $COLOR_GREY $COLOR_GREEN $COLOR_BG_BLUE2"/g ~/.config/i3/config
-  sed -i s/"client.unfocused .*$"/"client.unfocused $COLOR_BG5 $COLOR_BG5 $COLOR_GREY $COLOR_BG5 $COLOR_BG5"/g ~/.config/i3/config
-  sed -i s/"client.urgent .*$"/"client.urgent $COLOR_RED $COLOR_RED $COLOR_GREY $COLOR_RED $COLOR_RED"/g ~/.config/i3/config
-  sed -i s/"client.placeholder .*$"/"client.placeholder $COLOR_PURPLE $COLOR_PURPLE $COLOR_GREY $COLOR_PURPLE $COLOR_PURPLE"/g ~/.config/i3/config
+  sed -i s/"client.focused .*$"/"client.focused          $COLOR_CYAN $COLOR_CYAN #FFFFFF $COLOR_GREEN $COLOR_CYAN"/g ~/.config/i3/config
+  sed -i s/"client.focused_inactive .*$"/"client.focused_inactive $COLOR_BG_BLUE2 $COLOR_BG_BLUE2 #FFFFFF $COLOR_GREEN $COLOR_BG_BLUE2"/g ~/.config/i3/config
+  sed -i s/"client.unfocused .*$"/"client.unfocused        $COLOR_BG5 $COLOR_BG5 #FFFFFF $COLOR_RED $COLOR_BG5"/g ~/.config/i3/config
+  sed -i s/"client.urgent .*$"/"client.urgent           $COLOR_RED $COLOR_RED #FFFFFF $COLOR_RED $COLOR_RED"/g ~/.config/i3/config
+  sed -i s/"client.placeholder .*$"/"client.placeholder      $COLOR_PURPLE $COLOR_PURPLE #FFFFFF $COLOR_PURPLE $COLOR_PURPLE"/g ~/.config/i3/config
 }
 
 function color_neovim() {
