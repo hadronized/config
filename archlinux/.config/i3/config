@@ -27,7 +27,7 @@ bindsym $mod+w exec "rofi -show window -show-icons"
 
 # marks
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark: '
-bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -P 'Goto: '
+bindsym $mod+g exec "rofi -modi rofi-i3-marks:~/bin/rofi-i3-marks -show rofi-i3-marks -show-icons
 
 # change focus
 bindsym $mod+c focus left
