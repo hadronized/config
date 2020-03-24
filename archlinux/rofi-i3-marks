@@ -4,6 +4,7 @@ case $# in
   0)
     # write the marks to stdout
     marks=$(i3-msg -t get_marks | tr -d "[]\"" | tr ',' '\n')
+    echo -e "\x00prompt\x1fJump to mark"
     for mark in $marks; do
       echo -e "$mark\0"
     done
