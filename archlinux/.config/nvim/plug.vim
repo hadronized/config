@@ -17,6 +17,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'r0mai/vim-djinni'
 Plug 'kelan/gyp.vim'
+Plug 'ap/vim-css-color'
 
 " Productivity
 Plug 'easymotion/vim-easymotion'
@@ -31,6 +32,7 @@ Plug 'tveskag/nvim-blame-line'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vimwiki/vimwiki'
 
 " Visual
 Plug 'itchyny/lightline.vim'
