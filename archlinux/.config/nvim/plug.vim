@@ -33,6 +33,7 @@ Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-commentary'
 
 " Visual
 Plug 'itchyny/lightline.vim'
