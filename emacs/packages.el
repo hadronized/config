@@ -346,3 +346,7 @@
                                   (?B . "↑")
                                   (?C . "↓")
                                   (?D . "↓")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Evil Multi Edit. ;;;;;;;;;;;;;
+(straight-use-package 'evil-multiedit)

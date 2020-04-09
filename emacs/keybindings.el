@@ -28,9 +28,16 @@
 ; Redo
 (define-key evil-normal-state-map "U" 'redo)
 
+; Delete last word.
+(global-set-key (kbd "C-w") 'evil-delete-backward-word)
+
+; Smarter return (it will handle comments section and indentation automatically).
+(define-key evil-insert-state-map (kbd "RET") 'indent-new-comment-line)
+
 ; Space map bindings.
 (define-prefix-command 'space-map)
 (define-key evil-normal-state-map (kbd "SPC") 'space-map)
+(define-key evil-visual-state-map (kbd "C-SPC") 'space-map)
 
 ; Magit
 (define-key space-map "g" '("magit" . magit-status))
@@ -54,9 +61,6 @@
 ; Projectile
 (define-key space-map "p" 'projectile-command-map)
 
-; Neotree
-(define-key space-map "n" 'neotree-toggle)
-
 ; Avy
 (define-key space-map "a" '("avy"))
 (define-key space-map "ac" 'avy-goto-char)
@@ -78,7 +82,8 @@
 (define-key space-map "/" 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map "/" 'evilnc-comment-or-uncomment-lines)
 
-; Neotree keybindings.
+; Neotree
+(define-key space-map "n" 'neotree-toggle)
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'space-map)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
@@ -113,3 +118,19 @@
 
 ; Dashboard.
 (evil-define-key 'normal dashboard-mode-map (kbd "RET") 'dashboard-return)
+
+; Evil Multi Edit
+(require 'evil-multiedit)
+(define-key space-map "z" '("multi edit"))
+(define-key space-map "zp" 'evil-multiedit-match-symbol-and-prev)
+(define-key space-map "zn" 'evil-multiedit-match-symbol-and-next)
+(define-key space-map "zz" 'evil-multiedit-match-all)
+(define-key evil-multiedit-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+(define-key evil-motion-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
+(define-key evil-multiedit-state-map (kbd "C-p") 'evil-multiedit-prev)
+(define-key evil-multiedit-state-map (kbd "C-n") 'evil-multiedit-next)
+(define-key evil-multiedit-insert-state-map (kbd "C-p") 'evil-multiedit-prev)
+(define-key evil-multiedit-insert-state-map (kbd "C-n") 'evil-multiedit-next)
+(define-key evil-multiedit-state-map "p" 'evil-multiedit-match-symbol-and-prev)
+(define-key evil-multiedit-state-map "n" 'evil-multiedit-match-symbol-and-next)
+(define-key evil-multiedit-state-map "a" 'evil-multiedit-match-all)
