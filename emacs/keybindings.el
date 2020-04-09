@@ -33,8 +33,23 @@
 (define-key evil-normal-state-map (kbd "SPC") 'space-map)
 
 ; Magit
-(define-key space-map "g" '("magit"))
-(define-key space-map "gs" 'magit-status)
+(define-key space-map "g" '("magit" . magit-status))
+(evil-define-key 'emacs magit-status-mode-map (kbd "C-s") 'previous-line)
+(evil-define-key 'emacs magit-status-mode-map (kbd "C-t") 'forward-line)
+(evil-define-key 'emacs magit-status-mode-map (kbd "C-c") 'left-word)
+(evil-define-key 'emacs magit-status-mode-map (kbd "C-r") 'right-word)
+(evil-define-key 'emacs magit-revision-mode-map (kbd "C-s") 'previous-line)
+(evil-define-key 'emacs magit-revision-mode-map (kbd "C-t") 'forward-line)
+(evil-define-key 'emacs magit-revision-mode-map (kbd "C-c") 'left-word)
+(evil-define-key 'emacs magit-revision-mode-map (kbd "C-r") 'right-word)
+(evil-define-key 'emacs magit-log-mode-map (kbd "C-s") 'previous-line)
+(evil-define-key 'emacs magit-log-mode-map (kbd "C-t") 'forward-line)
+(evil-define-key 'emacs magit-log-mode-map (kbd "C-c") 'left-word)
+(evil-define-key 'emacs magit-log-mode-map (kbd "C-r") 'right-word)
+(evil-define-key 'emacs git-rebase-mode-map (kbd "C-s") 'previous-line)
+(evil-define-key 'emacs git-rebase-mode-map (kbd "C-t") 'forward-line)
+(evil-define-key 'emacs git-rebase-mode-map (kbd "C-S-s") 'git-rebase-move-line-up)
+(evil-define-key 'emacs git-rebase-mode-map (kbd "C-S-t") 'git-rebase-move-line-down)
 
 ; Projectile
 (define-key space-map "p" 'projectile-command-map)
@@ -94,3 +109,7 @@
 (evil-define-key 'normal org-mode-map (kbd "C-r") 'org-metaright)
 (evil-define-key 'normal org-mode-map (kbd "C-S-s") 'org-shiftup)
 (evil-define-key 'normal org-mode-map (kbd "C-S-t") 'org-shiftdown)
+(evil-define-key 'normal org-mode-map (kbd "RET") 'org-return)
+
+; Dashboard.
+(evil-define-key 'normal dashboard-mode-map (kbd "RET") 'dashboard-return)

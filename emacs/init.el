@@ -48,6 +48,8 @@
 (setq mouse-wheel-progressive-speed nil) ; no acceleration
 (setq mouse-wheel-follow-mouse 't)
 (setq scroll-step 1)
+(setq fast-but-imprecise-scrolling t)
+(setq jit-lock-defer-time 0)
 
 ; Show match parenthesis
 (show-paren-mode 1)
@@ -81,11 +83,14 @@
 (global-hl-line-mode 0)
 
 ; Display line numbers.
-(setq column-number-mode t)
-(setq line-number-mode t)
+(column-number-mode t)
+(line-number-mode t)
 
 ; Prettify symbols.
-(global-prettify-symbols-mode 1)
+(global-prettify-symbols-mode t)
+
+; Follow symlinks in version control systems.
+(setq vc-follow-symlinks t)
 
 ; Enable straight.el
 (defvar bootstrap-version)

@@ -11,7 +11,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Magit. ;;;;;;;;;;;;;;;;;;;;;;;
 (straight-use-package 'magit)
-(straight-use-package 'evil-magit)
+(straight-use-package 'forge)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Projectile. ;;;;;;;;;;;;;;;;;;
@@ -98,13 +98,14 @@
 ;; Doom Line. ;;;;;;;;;;;;;;;;;;;
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
+(add-hook 'doom-modeline-mode-hook #'line-number-mode)
 
 ;; How tall the mode-line should be. It's only respected in GUI.
 ;; If the actual char height is larger, it respects the actual height.
 (setq doom-modeline-height 25)
 
 ;; How wide the mode-line bar should be. It's only respected in GUI.
-(setq doom-modeline-bar-width 3)
+(setq doom-modeline-bar-width 20)
 
 ;; The limit of the window width.
 ;; If `window-width' is smaller than the limit, some information won't be displayed.
@@ -164,10 +165,7 @@
 (setq doom-modeline-minor-modes nil)
 
 ;; If non-nil, a word count will be added to the selection-info modeline segment.
-(setq doom-modeline-enable-word-count t)
-
-;; Display colmuns.
-(setq doom-modeline-column-zero-based t)
+(setq doom-modeline-enable-word-count nil)
 
 ;; Major modes in which to display word count continuously.
 ;; Also applies to any derived modes. Respects `doom-modeline-enable-word-count'.
@@ -182,13 +180,13 @@
 (setq doom-modeline-indent-info t)
 
 ;; If non-nil, only display one number for checker information if applicable.
-(setq doom-modeline-checker-simple-format nil)
+(setq doom-modeline-checker-simple-format t)
 
 ;; The maximum number displayed for notifications.
 (setq doom-modeline-number-limit 99)
 
 ;; The maximum displayed length of the branch name of version control.
-(setq doom-modeline-vcs-max-length 12)
+(setq doom-modeline-vcs-max-length 100)
 
 ;; Whether display the perspective name. Non-nil to display in the mode-line.
 (setq doom-modeline-persp-name t)
@@ -267,6 +265,7 @@
 
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d)")
+(setq ivy-on-del-error-function #'ignore)
 (setq enable-recursive-minibuffers t)
 (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
 
@@ -288,6 +287,7 @@
 (add-hook 'prog-mode-hook #'lsp)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+(setq lsp-auto-guess-root t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GHub. ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -308,8 +308,10 @@
 (straight-use-package 'evil-nerd-commenter)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Git Gutter. ;;;;;;;;;;;;;;;;;;
-(straight-use-package 'git-gutter)
+;; Git Gutter Fringe. ;;;;;;;;;;;
+(straight-use-package 'fringe-helper)
+(straight-use-package 'git-gutter-fringe)
+(global-git-gutter-mode t)
 (setq git-gutter:added-sign "│")
 (setq git-gutter:modified-sign "│")
 (setq git-gutter:deleted-sign "│")
@@ -335,7 +337,10 @@
        ("WIP" :foreground "#fc2d7d" :weight normal :underline t)
        ("FROZEN" :foreground "#2db4fc" :weight normal :underline t)
        ("DONE" :foreground "#2dfcb4" :weight normal :underline t)
-       ("CANCELLED" :foreground "#ff8f2e" :weight normal :underline t)))
+       ("CANCELLED" :foreground "#ff8f2e" :weight normal :underline t))
+
+   org-return-follows-link t
+   )
 
 (setq org-fancy-priorities-list '((?A . "↑")
                                   (?B . "↑")

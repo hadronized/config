@@ -13,3 +13,5 @@
 	default = current
 [checkout]
 	defaultRemote = origin
+[github]
+	user = phaazon
