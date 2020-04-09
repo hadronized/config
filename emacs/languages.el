@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Rust. ;;;;;;;;;;;;;;;;;;;;;;;;
-(straight-use-package 'rustic)
-(setq rustic-lsp-format t)
+(straight-use-package 'rust-mode)
+(setq rust-format-on-save t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CMake. ;;;;;;;;;;;;;;;;;;;;;;;

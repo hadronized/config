@@ -37,6 +37,7 @@
 ; Space map bindings.
 (define-prefix-command 'space-map)
 (define-key evil-normal-state-map (kbd "SPC") 'space-map)
+(define-key evil-insert-state-map (kbd "C-SPC") 'space-map)
 (define-key evil-visual-state-map (kbd "C-SPC") 'space-map)
 
 ; Magit
@@ -119,7 +120,7 @@
 ; Dashboard.
 (evil-define-key 'normal dashboard-mode-map (kbd "RET") 'dashboard-return)
 
-; Evil Multi Edit
+; Evil Multi Edit.
 (require 'evil-multiedit)
 (define-key space-map "z" '("multi edit"))
 (define-key space-map "zp" 'evil-multiedit-match-symbol-and-prev)
@@ -134,3 +135,26 @@
 (define-key evil-multiedit-state-map "p" 'evil-multiedit-match-symbol-and-prev)
 (define-key evil-multiedit-state-map "n" 'evil-multiedit-match-symbol-and-next)
 (define-key evil-multiedit-state-map "a" 'evil-multiedit-match-all)
+
+; LSP.
+(define-key space-map "L" lsp-command-map)
+(define-key space-map "l" '("language server"))
+(define-key space-map "lf" '("find"))
+(define-key space-map "lfd" 'lsp-find-definition)
+(define-key space-map "lfi" 'lsp-find-implementation)
+(define-key space-map "lfr" 'lsp-find-references)
+(define-key space-map "lt" '("toggle"))
+(define-key space-map "lth" 'lsp-toggle-symbol-highlight)
+(define-key space-map "ltd" 'lsp-ui-doc-mode)
+(define-key space-map "ltl" 'lsp-lens-mode)
+(define-key space-map "lts" 'lsp-ui-sideline-mode)
+(define-key space-map "lh" 'lsp-describe-thing-at-point)
+(define-key space-map "la" 'lsp-execute-code-action)
+(define-key space-map "ls" 'xref-find-apropos)
+(define-key space-map "ld" 'lsp-ui-doc-glance)
+(define-key space-map "lr" 'lsp-rename)
+(define-key space-map "ll" '("lsp"))
+(define-key space-map "llq" 'lsp-disconnect)
+(define-key space-map "llr" 'lsp-restart)
+(define-key space-map "llw" 'lsp-restart-workspace)
+(define-key space-map "lld" 'lsp-describe-session)

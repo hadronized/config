@@ -287,7 +287,7 @@
 (add-hook 'prog-mode-hook #'lsp)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
-(setq lsp-auto-guess-root t)
+;(setq lsp-auto-guess-root t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GHub. ;;;;;;;;;;;;;;;;;;;;;;;;
