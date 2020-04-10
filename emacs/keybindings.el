@@ -60,7 +60,7 @@
 (evil-define-key 'emacs git-rebase-mode-map (kbd "C-S-t") 'git-rebase-move-line-down)
 
 ; Projectile
-(define-key space-map "p" 'projectile-command-map)
+(define-key space-map "p" '("projectile" . projectile-command-map))
 
 ; Avy
 (define-key space-map "a" '("avy"))
@@ -71,20 +71,20 @@
 (define-key space-map "aW" 'avy-goto-word-1)
 
 ; Expand
-(define-key space-map "e" 'er/expand-region)
+(define-key space-map "e" '("expand" . er/expand-region))
 
 ; Ivy
 (define-key space-map "s" 'swiper)
-(define-key space-map "b" 'ivy-switch-buffer)
-(define-key space-map (kbd "SPC") 'counsel-fzf)
+(define-key space-map "b" '("find buffer" . ivy-switch-buffer))
+(define-key space-map "f" '("find file" . counsel-fzf))
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 ; Evil Nerd Commenter
-(define-key space-map "/" 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map "/" 'evilnc-comment-or-uncomment-lines)
+(define-key space-map "/" '("(un)comment" . evilnc-comment-or-uncomment-lines))
+(define-key evil-visual-state-map "/" '("(un)comment" . evilnc-comment-or-uncomment-lines))
 
 ; Neotree
-(define-key space-map "n" 'neotree-toggle)
+(define-key space-map "n" '("neotree" . neotree-toggle))
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'space-map)
 (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
@@ -106,9 +106,6 @@
 (define-key space-map "o" '("org"))
 (define-key space-map "oa" 'org-agenda)
 (define-key space-map "os" 'org-store-link)
-(define-key space-map "oc" 'org-capture)
-(define-key space-map "of" 'org-capture-finalize)
-(define-key space-map "or" 'org-capture-refile)
 (evil-define-key 'normal org-mode-map (kbd "C-SPC") 'org-todo)
 (evil-define-key 'normal org-mode-map (kbd "C-s") 'org-metaup)
 (evil-define-key 'normal org-mode-map (kbd "C-t") 'org-metadown)
@@ -118,6 +115,8 @@
 (evil-define-key 'normal org-mode-map (kbd "C-S-t") 'org-shiftdown)
 (evil-define-key 'normal org-mode-map (kbd "RET") 'org-return)
 (evil-define-key 'normal org-mode-map (kbd "l") 'org-insert-link)
+(evil-define-key 'normal org-mode-map (kbd "q") 'org-agenda-quit)
+(evil-define-key '(normal insert) org-mode-map (kbd "C-b") 'org-insert-structure-template)
 (evil-define-key 'normal org-capture-mode-map (kbd "C-a") 'org-capture-kill)
 (evil-define-key 'normal org-capture-mode-map (kbd "C-f") 'org-capture-finalize)
 (evil-define-key 'normal org-capture-mode-map (kbd "C-q") 'org-capture-refile)
@@ -146,7 +145,6 @@
 (define-key evil-multiedit-state-map "a" 'evil-multiedit-match-all)
 
 ; LSP.
-(define-key space-map "L" lsp-command-map)
 (define-key space-map "l" '("language server"))
 (define-key space-map "d" '("go to definition" . lsp-find-definition))
 (define-key space-map "i" '("go to implementation" . lsp-find-implementation))

@@ -92,7 +92,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Rainbow Delimiters. ;;;;;;;;;;
 (straight-use-package 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Doom Line. ;;;;;;;;;;;;;;;;;;;
@@ -292,13 +291,15 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Which Key. ;;;;;;;;;;;;;;;;;;;
-(setq which-key-enable-extended-define-key t)
 (straight-use-package 'which-key)
+(setq which-key-enable-extended-define-key t)
+(setq which-key-idle-delay 0.2)
 (which-key-mode 1)
 (setq which-key-side-window-location 'bottom)
-;(setq which-key-side-window-max-height 0.5)
-;(setq which-key-add-column-padding 10)
-(setq which-key-prefix-prefix "◯" )
+(setq which-key-prefix-prefix "·")
+(setq which-key-show-docstrings t)
+(setq which-key-max-description-length 50)
+(setq which-key-popup-type 'minibuffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil Nerd Commenter. ;;;;;;;;;
@@ -339,7 +340,8 @@
    org-return-follows-link t
    org-directory "~/org"
    org-agenda-files (list (concat org-directory "/notes.org"))
-   org-default-notes-file (concat org-directory "/notes.org"))
+   org-default-notes-file (concat org-directory "/notes.org")
+   org-log-done 'time)
 
 (setq org-fancy-priorities-list '((?A . "↑")
                                   (?B . "↑")

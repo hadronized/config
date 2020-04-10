@@ -24,10 +24,14 @@
 (setq make-backup-files nil)
 (setq backup-inhibited t)
 
+; No auto scroll shitty stuff.
+(setq auto-window-vscroll nil)
+
 ; Do not automatically save files.
 (setq auto-save-default nil)
 
 ; Get rid of temporary files ending in ~.
+(setq create-lockfiles nil)
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory))
 )
