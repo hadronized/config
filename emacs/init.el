@@ -109,8 +109,5 @@
 ; Package management.
 (load-file "~/.emacs.d/packages.el")
 
-; Colorscheme.
-(load-theme 'dracula)
-
 ; Keybindings.
 (load-file "~/.emacs.d/keybindings.el")

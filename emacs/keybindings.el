@@ -76,7 +76,7 @@
 ; Ivy
 (define-key space-map "s" 'swiper)
 (define-key space-map "b" 'ivy-switch-buffer)
-(define-key space-map "f" 'counsel-fzf)
+(define-key space-map (kbd "SPC") 'counsel-fzf)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 ; Evil Nerd Commenter
@@ -107,8 +107,9 @@
 (define-key space-map "oa" 'org-agenda)
 (define-key space-map "os" 'org-store-link)
 (define-key space-map "oc" 'org-capture)
-(define-key space-map "ol" 'org-insert-link)
-(define-key space-map "ot" 'org-todo)
+(define-key space-map "of" 'org-capture-finalize)
+(define-key space-map "or" 'org-capture-refile)
+(evil-define-key 'normal org-mode-map (kbd "C-SPC") 'org-todo)
 (evil-define-key 'normal org-mode-map (kbd "C-s") 'org-metaup)
 (evil-define-key 'normal org-mode-map (kbd "C-t") 'org-metadown)
 (evil-define-key 'normal org-mode-map (kbd "C-c") 'org-metaleft)
@@ -116,6 +117,14 @@
 (evil-define-key 'normal org-mode-map (kbd "C-S-s") 'org-shiftup)
 (evil-define-key 'normal org-mode-map (kbd "C-S-t") 'org-shiftdown)
 (evil-define-key 'normal org-mode-map (kbd "RET") 'org-return)
+(evil-define-key 'normal org-mode-map (kbd "l") 'org-insert-link)
+(evil-define-key 'normal org-capture-mode-map (kbd "C-a") 'org-capture-kill)
+(evil-define-key 'normal org-capture-mode-map (kbd "C-f") 'org-capture-finalize)
+(evil-define-key 'normal org-capture-mode-map (kbd "C-q") 'org-capture-refile)
+(evil-define-key 'emacs org-agenda-mode-map "c" 'left-char)
+(evil-define-key 'emacs org-agenda-mode-map "r" 'right-char)
+(evil-define-key 'emacs org-agenda-mode-map "s" 'previous-line)
+(evil-define-key 'emacs org-agenda-mode-map "t" 'next-line)
 
 ; Dashboard.
 (evil-define-key 'normal dashboard-mode-map (kbd "RET") 'dashboard-return)
@@ -139,6 +148,9 @@
 ; LSP.
 (define-key space-map "L" lsp-command-map)
 (define-key space-map "l" '("language server"))
+(define-key space-map "d" '("go to definition" . lsp-find-definition))
+(define-key space-map "i" '("go to implementation" . lsp-find-implementation))
+(define-key space-map "r" '("find references" . lsp-treemacs-references))
 (define-key space-map "lf" '("find"))
 (define-key space-map "lfd" 'lsp-find-definition)
 (define-key space-map "lfi" 'lsp-find-implementation)
@@ -150,7 +162,7 @@
 (define-key space-map "lts" 'lsp-ui-sideline-mode)
 (define-key space-map "lh" 'lsp-describe-thing-at-point)
 (define-key space-map "la" 'lsp-execute-code-action)
-(define-key space-map "ls" 'xref-find-apropos)
+(define-key space-map "ls" 'lsp-treemacs-symbols)
 (define-key space-map "ld" 'lsp-ui-doc-glance)
 (define-key space-map "lr" 'lsp-rename)
 (define-key space-map "ll" '("lsp"))

@@ -1,6 +1,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Themes. ;;;;;;;;;;;;;;;;;;;;;;
 (straight-use-package 'dracula-theme)
+(straight-use-package 'spacemacs-theme)
+(straight-use-package 'doom-themes)
+(straight-use-package 'one-themes)
+(load-theme 'one-dark)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil. ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -17,10 +21,6 @@
 ;; Projectile. ;;;;;;;;;;;;;;;;;;
 (straight-use-package 'projectile)
 (projectile-mode 1)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Company. ;;;;;;;;;;;;;;;;;;;;;
-(straight-use-package 'company)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hydra. ;;;;;;;;;;;;;;;;;;;;;;;
@@ -280,14 +280,11 @@
 (straight-use-package 'lsp-ui)
 (straight-use-package 'lsp-ivy)
 (straight-use-package 'lsp-clangd)
-(straight-use-package 'company-lsp)
+(straight-use-package 'lsp-treemacs)
 (require 'lsp-mode)
-(setq company-minimum-prefix-length 1
-      company-idle-delay 0.0) ; default is 0.2
 (add-hook 'prog-mode-hook #'lsp)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
-;(setq lsp-auto-guess-root t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GHub. ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -340,7 +337,9 @@
        ("CANCELLED" :foreground "#ff8f2e" :weight normal :underline t))
 
    org-return-follows-link t
-   )
+   org-directory "~/org"
+   org-agenda-files (list (concat org-directory "/notes.org"))
+   org-default-notes-file (concat org-directory "/notes.org"))
 
 (setq org-fancy-priorities-list '((?A . "↑")
                                   (?B . "↑")
