@@ -1,64 +1,81 @@
-let mapleader=","
-let maplocalleader = "è"
+let mapleader=' '
+let maplocalleader = 'è'
+
+let g:which_key_map = { 'name': 'top level' }
+
+" disable some keybindings from other packages
+"nmap <leader>ww <Nope>
 
 " misc
 noremap U :redo<CR>
 
 " tab key bindings
-noremap <C-c> :tabp<CR>
-noremap <C-r> :tabn<CR>
-noremap <C-n> :tabnew<CR>
+noremap <silent> <C-c> :tabp<CR>
+noremap <silent> <C-r> :tabn<CR>
+noremap <silent> <C-n> :tabnew<CR>
+
+" commentary
+map <silent> <leader>/ :Commentary<CR>
+let g:which_key_map['/'] = '(un)comment line'
 
 " file tree
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <silent> <leader>n :NERDTreeToggle<CR>
+let g:which_key_map.n = 'file browser'
 
 " fuzzy finders
-noremap <leader>b :Buffers<CR>
-noremap <leader>f :Files<CR>
+noremap <silent> <leader>b :Buffers<CR>
+let g:which_key_map.b = 'find buffer'
+noremap <silent> <leader>f :Files<CR>
+let g:which_key_map.f = 'find file'
 
 " fuzzy git
-noremap <leader>gb :Gblame<CR>
-noremap <leader>gl :ToggleBlameLine<CR>
-noremap <leader>gc :Commits<CR>
-noremap <leader>gf :GFiles<CR>
-noremap <leader>gd :GFiles?<CR>
-noremap <leader>gt :GitGutterNextHunk<CR>
-noremap <leader>gs :GitGutterPrevHunk<CR>
+let g:which_key_map.g = { 'name': '+git' }
+noremap <silent> <leader>gb :Gblame<CR>
+let g:which_key_map.g.b = 'blame'
+noremap <silent> <leader>gB :GitMessenger<CR>
+let g:which_key_map.g.B = 'commit under cursor'
+noremap <silent> <leader>gl :ToggleBlameLine<CR>
+let g:which_key_map.g.l = 'toggle lens'
+noremap <silent> <leader>gc :Commits<CR>
+let g:which_key_map.g.c = 'find commit'
+noremap <silent> <leader>gf :GFiles<CR>
+let g:which_key_map.g.f = 'find file'
+noremap <silent> <leader>gs :GFiles?<CR>
+let g:which_key_map.g.s = 'status'
+noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
+let g:which_key_map.g.p = 'previous hunk'
+noremap <silent> <leader>gt :GitGutterNextHunk<CR>
+let g:which_key_map.g.n = 'next hunk'
 
-" error / warning reporting
-noremap <leader>qe :cc!<CR>
-noremap <leader>qn :cn!<CR>
-noremap <leader>qp :cp!<CR>
-noremap <leader>qo :cope<CR>
-
-nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>W <Plug>(easymotion-overwin-w)
-nmap <leader>c <Plug>(easymotion-bd-f)
-nmap <leader>C <Plug>(easymotion-overwin-f)
-nmap <leader>l <Plug>(easymotion-bd-jk)
-nmap <leader>L <Plug>(easymotion-overwin-line)
-nmap <leader>/ <Plug>(easymotion-sn)
-
-" zoomin
-noremap wz :ZoomWinTabToggle<CR>
+nmap <silent> <leader>w <Plug>(easymotion-bd-w)
+nmap <silent> <leader>W <Plug>(easymotion-overwin-w)
+nmap <silent> <leader>c <Plug>(easymotion-bd-f)
+nmap <silent> <leader>C <Plug>(easymotion-overwin-f)
+nmap <silent> <leader>l <Plug>(easymotion-bd-jk)
+nmap <silent> <leader>L <Plug>(easymotion-overwin-line)
 
 " coc.vim
-nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>t <Plug>(coc-type-definition)
-nmap <silent> <leader>i <Plug>(coc-implementation)
-nmap <silent> <leader>rr <Plug>(coc-references)
-nmap <silent> <leader>sl :CocList symbols<CR>
-inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> <leader><space> <Plug>(coc-codelens-action)
-nmap <silent> <leader>sr <Plug>(coc-rename)
-nmap <silent> <leader>xl :CocList diagnostics<CR>
-nmap <silent> <leader>xp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>xn <Plug>(coc-diagnostic-next)
-nmap <leader>va <Plug>(coc-codeaction-selected>
-xmap <leader>va <Plug>(coc-codeaction-selected>
-nmap <leader>a <Plug>(coc-codeaction>
-nmap <leader>qf <Plug>(coc-fix-current>
+nmap <silent>       <leader>d   <Plug>(coc-definition)
+nmap <silent>       <leader>t   <Plug>(coc-type-definition)
+nmap <silent>       <leader>i   <Plug>(coc-implementation)
+nmap <silent>       <leader>r   <Plug>(coc-references)
+nmap <silent>       <leader>ps  :CocList symbols<CR>
+nmap <silent><expr> <leader>pz  coc#refresh()
+nmap <silent>       <leader>pd  :call <SID>show_documentation()<CR>
+nmap <silent>       <leader>pl  <Plug>(coc-codelens-action)
+nmap <silent>       <leader>pr  <Plug>(coc-rename)
+nmap <silent>       <leader>pe  :CocList diagnostics<CR>
+nmap <silent>       <leader>xp  <Plug>(coc-diagnostic-prev)
+nmap <silent>       <leader>xn  <Plug>(coc-diagnostic-next)
+nmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
+xmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
+nmap <silent>       <leader>pa  <Plug>(coc-codeaction>
+nmap <silent>       <leader>pf  <Plug>(coc-fix-current>
+
+noremap <silent> <leader>qe :cc!<CR>
+noremap <silent> <leader>qn :cn!<CR>
+noremap <silent> <leader>qp :cp!<CR>
+noremap <silent> <leader>qo :cope<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -76,3 +93,7 @@ if has('patch8.1.1068')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" WhichKey
+nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :WhichKey 'è'<CR>

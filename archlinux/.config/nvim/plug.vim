@@ -24,7 +24,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+
+" git-messenger
 Plug 'rhysd/git-messenger.vim'
+let g:git_messenger_no_default_mappings = v:true
+
 Plug 'junegunn/fzf.vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'machakann/vim-highlightedyank'
@@ -33,6 +37,8 @@ Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vimwiki/vimwiki'
+
+" commantary
 Plug 'tpope/vim-commentary'
 
 " Visual
@@ -47,6 +53,10 @@ Plug 'sainnhe/edge'
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" which-key
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 call plug#end()
 filetype plugin indent on
