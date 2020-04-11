@@ -94,17 +94,24 @@
 (straight-use-package 'rainbow-delimiters)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GHub. ;;;;;;;;;;;;;;;;;;;;;;;;
+(straight-use-package 'ghub)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Async. ;;;;;;;;;;;;;;;;;;;;;;;
+(straight-use-package 'async)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Doom Line. ;;;;;;;;;;;;;;;;;;;
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
-(add-hook 'doom-modeline-mode-hook #'line-number-mode)
 
 ;; How tall the mode-line should be. It's only respected in GUI.
 ;; If the actual char height is larger, it respects the actual height.
 (setq doom-modeline-height 25)
 
 ;; How wide the mode-line bar should be. It's only respected in GUI.
-(setq doom-modeline-bar-width 20)
+(setq doom-modeline-bar-width 3)
 
 ;; The limit of the window width.
 ;; If `window-width' is smaller than the limit, some information won't be displayed.
@@ -158,13 +165,13 @@
 (setq doom-modeline-buffer-modification-icon t)
 
 ;; Whether to use unicode as a fallback (instead of ASCII) when not using icons.
-(setq doom-modeline-unicode-fallback t)
+(setq doom-modeline-unicode-fallback nil)
 
 ;; Whether display the minor modes in the mode-line.
 (setq doom-modeline-minor-modes nil)
 
 ;; If non-nil, a word count will be added to the selection-info modeline segment.
-(setq doom-modeline-enable-word-count nil)
+(setq doom-modeline-enable-word-count t)
 
 ;; Major modes in which to display word count continuously.
 ;; Also applies to any derived modes. Respects `doom-modeline-enable-word-count'.
@@ -284,10 +291,22 @@
 (add-hook 'prog-mode-hook #'lsp)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+(setq lsp-rust-show-hover-context nil
+      lsp-lens-auto-enable t
+      lsp-eldoc-enable-hover nil
+      lsp-signature-auto-activate nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; GHub. ;;;;;;;;;;;;;;;;;;;;;;;;
-(straight-use-package 'ghub)
+;; Company. ;;;;;;;;;;;;;;;;;;;;;
+(straight-use-package 'company)
+(straight-use-package 'company-lsp)
+(company-mode)
+(push 'company-lsp company-backends)
+(setq company-capf t)
+(setq company-lsp-cache-candidates 'auto
+      company-lsp-async t
+      company-lsp-enable-snippet t
+      company-lsp-enable-recompletion t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Which Key. ;;;;;;;;;;;;;;;;;;;
@@ -299,7 +318,6 @@
 (setq which-key-prefix-prefix "·")
 (setq which-key-show-docstrings t)
 (setq which-key-max-description-length 50)
-(setq which-key-popup-type 'minibuffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil Nerd Commenter. ;;;;;;;;;
@@ -338,9 +356,12 @@
        ("CANCELLED" :foreground "#ff8f2e" :weight normal :underline t))
 
    org-return-follows-link t
-   org-directory "~/org"
-   org-agenda-files (list (concat org-directory "/notes.org"))
+   org-directory "~/org/"
+   org-agenda-files (list org-directory)
    org-default-notes-file (concat org-directory "/notes.org")
+   org-agenda-diary-file (concat org-directory "/diary.org")
+   org-agenda-span 'day
+   org-agenda-include-diary t
    org-log-done 'time)
 
 (setq org-fancy-priorities-list '((?A . "↑")
@@ -351,3 +372,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil Multi Edit. ;;;;;;;;;;;;;
 (straight-use-package 'evil-multiedit)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; YAML ;;;;;;;;;;;;;;;;;;;;;;;;;
+(straight-use-package 'yaml-mode)
