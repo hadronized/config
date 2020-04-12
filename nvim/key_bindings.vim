@@ -3,8 +3,8 @@ let maplocalleader = 'è'
 
 let g:which_key_map = { 'name': 'top level' }
 
-" disable some keybindings from other packages
-"nmap <leader>ww <Nope>
+" for better navigation in help pages
+nnoremap <Return> <C-]>
 
 " misc
 noremap U :redo<CR>
@@ -13,6 +13,7 @@ noremap U :redo<CR>
 noremap <silent> <C-c> :tabp<CR>
 noremap <silent> <C-r> :tabn<CR>
 noremap <silent> <C-n> :tabnew<CR>
+noremap <silent> <C-q> :tabclose<CR>
 
 " commentary
 map <silent> <leader>/ :Commentary<CR>
@@ -25,27 +26,60 @@ let g:which_key_map.n = 'file browser'
 " fuzzy finders
 noremap <silent> <leader>b :Buffers<CR>
 let g:which_key_map.b = 'find buffer'
-noremap <silent> <leader>f :Files<CR>
-let g:which_key_map.f = 'find file'
+
+noremap <silent> <leader>f :GFiles<CR>
+let g:which_key_map.f = 'find git file'
+
+noremap <silent> <leader>F :Files<CR>
+let g:which_key_map.F = 'find file'
+
+noremap <silent> <leader>z :Rg<CR>
+let g:which_key_map.z = 'ripgrep'
 
 " fuzzy git
 let g:which_key_map.g = { 'name': '+git' }
+
 noremap <silent> <leader>gb :Gblame<CR>
 let g:which_key_map.g.b = 'blame'
+
 noremap <silent> <leader>gB :GitMessenger<CR>
 let g:which_key_map.g.B = 'commit under cursor'
+
 noremap <silent> <leader>gl :ToggleBlameLine<CR>
 let g:which_key_map.g.l = 'toggle lens'
+
 noremap <silent> <leader>gc :Commits<CR>
 let g:which_key_map.g.c = 'find commit'
+
 noremap <silent> <leader>gf :GFiles<CR>
 let g:which_key_map.g.f = 'find file'
-noremap <silent> <leader>gs :GFiles?<CR>
-let g:which_key_map.g.s = 'status'
+
+noremap <silent> <leader>gs :GitGutterStageHunk<CR>
+let g:which_key_map.g.s = 'stage hunk'
+
+noremap <silent> <leader>gu :GitGutterUndoHunk<CR>
+let g:which_key_map.g.u = 'undo hunk'
+
+noremap <silent> <leader>gh :GitGutterPreviewHunk<CR>
+let g:which_key_map.g.h = 'preview hunk'
+
 noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
 let g:which_key_map.g.p = 'previous hunk'
-noremap <silent> <leader>gt :GitGutterNextHunk<CR>
+
+noremap <silent> <leader>gn :GitGutterNextHunk<CR>
 let g:which_key_map.g.n = 'next hunk'
+
+noremap <silent> <leader>gg :Git<CR>
+let g:which_key_map.g.g = 'git status'
+
+noremap <silent> <leader>gG :GitGutterLineHighlightsToggle<CR>
+let g:which_key_map.g.G = 'toggle line highlighting'
+
+" Convenient text objects
+omap ic <Plug>(GitGutterTextObjectInnerPending)
+omap ac <Plug>(GitGutterTextObjectOuterPending)
+xmap ic <Plug>(GitGutterTextObjectInnerVisual)
+xmap ac <Plug>(GitGutterTextObjectOuterVisual)
 
 nmap <silent> <leader>w <Plug>(easymotion-bd-w)
 let g:which_key_map.w = 'go to word'
@@ -116,3 +150,21 @@ endif
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :WhichKey 'è'<CR>
+
+" startify
+let g:which_key_map.s = { 'name': 'session' }
+
+nnoremap <silent> <leader>ss :SSave<CR>
+let g:which_key_map.s.s = 'save'
+
+nnoremap <silent> <leader>sl :SLoad<CR>
+let g:which_key_map.s.l = 'load'
+
+nnoremap <silent> <leader>sd :SDelete<CR>
+let g:which_key_map.s.d = 'delete'
+
+nnoremap <silent> <leader>sm :Startify<CR>
+let g:which_key_map.s.m = 'startify'
+
+nnoremap <silent> <leader>sc :SClose<CR>
+let g:which_key_map.s.c = 'close'

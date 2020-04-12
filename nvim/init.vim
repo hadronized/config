@@ -30,6 +30,7 @@ set updatetime=300
 set shortmess+=c
 set foldmethod=manual
 set timeoutlen=500
+set updatetime=50
 
 " remove trailing whitespaces
 autocmd BufWritePre * %s/\s\+$//e
@@ -47,3 +48,8 @@ endif
 " colorscheme
 set background=dark
 colorscheme edge
+
+hi GitGutterAdd guibg=none
+hi GitGutterChange guibg=none
+hi GitGutterChangeDelete guibg=none
+hi GitGutterDelete guibg=none

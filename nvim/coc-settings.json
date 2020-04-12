@@ -1,7 +1,7 @@
 {
   "list.insertMappings": {
     "<C-n>": "normal:t",
-    "<C-p>": "normal:s",
+    "<C-p>": "normal:s"
   },
   "suggest.enablePreview": true,
   "suggest.echodocSupport": true,
@@ -32,10 +32,11 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  "diagnostic.virtualText": true,
-  "diagnostic.errorSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintign": "﫠",
+  "diagnostic.virtualText": false,
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.hintign": "",
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.refreshAfterSave": true,
   "codeLens.enable": true,

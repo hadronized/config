@@ -59,11 +59,19 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 
 " gitgutter
 Plug 'airblade/vim-gitgutter'
+let g:gitgutter_map_keys = 0
+let g:gitgutter_max_signs = 1000
 let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '│'
 let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_modified_removed = '│'
+
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
 
 Plug 'tpope/vim-fugitive'
 
@@ -72,6 +80,7 @@ Plug 'rhysd/git-messenger.vim'
 let g:git_messenger_no_default_mappings = v:true
 
 " FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -101,9 +110,10 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 autocmd CompleteDone * silent! pclose!
 
 let g:fzf_preview_window = ''
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
 
 Plug 'mzlogin/vim-markdown-toc'
+
 Plug 'machakann/vim-highlightedyank'
 
 " nvim-blame-line
@@ -113,9 +123,10 @@ let g:blameLineGitFormat = '   %an | %ar | %s'
 " startify
 Plug 'mhinz/vim-startify'
 let g:startify_lists = [
-  \ { 'type': 'sessions',  'header': ['   Sessions']       },
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ { 'type': 'commands',  'header': ['   Commands']       },
+  \ { 'type': 'sessions',  'header': ['   Sessions'] },
+  \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
+  \ { 'type': 'files',     'header': ['   Recent files'] },
+  \ { 'type': 'commands',  'header': ['   Commands'] },
   \ ]
 let g:startify_bookmarks = [
   \ '~/.config/nvim/init.vim',
@@ -123,12 +134,16 @@ let g:startify_bookmarks = [
   \ '~/.config/nvim/plug.vim',
   \ '~/.zshrc',
   \ '~/.config/starship.toml',
+  \ '~/.config/termite/config',
+  \ '~/.config/i3/config',
   \ ]
 let g:startify_session_persistence = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
+let g:startify_relative_path = 1
+let g:startify_custom_footer=['   We don’t deserve dogs!']
 
 " coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -140,11 +155,6 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
-
-" vimwiki
-Plug 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 
 " commantary
 Plug 'tpope/vim-commentary'
@@ -160,7 +170,7 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
-      \   'fugitive': '%{fugitive#head()}'
+      \   'fugitive': '%{fugitive#head()} %{GitStatus()}'
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -185,7 +195,6 @@ endfunction
 
 set statusline+=%#warningmsg#
 set statusline+=%*
-
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -218,5 +227,11 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 let g:which_key_use_floating_win = 1
 let g:which_key_disable_default_offset = 1
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
+" Universal Text Linking
+Plug 'vim-scripts/utl.vim'
+
+" org-mode
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
