@@ -108,6 +108,10 @@
 
 ; Org.
 (define-key space-map "o" '("org"))
+(defun open-notes () "Open the main Org Mode note file." (interactive)
+                     (find-file org-default-notes-file))
+
+(define-key space-map "on" '("open notes" . open-notes))
 (define-key space-map "oa" 'org-agenda)
 (define-key space-map "oc" 'org-capture)
 (define-key space-map "ol" 'org-agenda-list)
@@ -128,8 +132,10 @@
 (evil-define-key '(normal insert) org-mode-map (kbd "C-S-s") 'org-shiftup)
 (evil-define-key '(normal insert) org-mode-map (kbd "C-S-t") 'org-shiftdown)
 (evil-define-key 'normal org-mode-map (kbd "RET") 'org-return)
-(evil-define-key 'normal org-mode-map (kbd "l") 'org-insert-link)
-(evil-define-key 'normal org-mode-map (kbd "q") 'org-agenda-quit)
+(evil-define-key '(normal insert) org-mode-map (kbd "C-l") 'org-insert-link)
+(evil-define-key 'normal org-mode-map "f" 'org-schedule)
+(evil-define-key 'normal org-mode-map "F" 'org-deadline)
+(evil-define-key 'normal org-mode-map "q" 'org-agenda-quit)
 (evil-define-key 'emacs org-mode-map (kbd "C-b") 'org-insert-structure-template)
 (evil-define-key '(normal insert) org-capture-mode-map (kbd "C-SPC") 'space-map)
 (evil-define-key '(normal insert) org-capture-mode-map (kbd "C-d") 'org-todo)
@@ -139,10 +145,12 @@
 (evil-define-key '(normal insert) org-capture-mode-map (kbd "C-r") 'org-metaright)
 (evil-define-key '(normal insert) org-capture-mode-map (kbd "C-S-s") 'org-shiftup)
 (evil-define-key '(normal insert) org-capture-mode-map (kbd "C-S-t") 'org-shiftdown)
+(evil-define-key '(normal insert) org-capture-mode-map (kbd "C-l") 'org-insert-link)
 (evil-define-key 'emacs org-agenda-mode-map "c" 'left-char)
 (evil-define-key 'emacs org-agenda-mode-map "r" 'right-char)
 (evil-define-key 'emacs org-agenda-mode-map "s" 'previous-line)
 (evil-define-key 'emacs org-agenda-mode-map "t" 'next-line)
+(evil-define-key 'emacs org-agenda-mode-map (kbd "C-l") 'org-insert-link)
 
 ; Dashboard.
 (evil-define-key 'normal dashboard-mode-map (kbd "RET") 'dashboard-return)

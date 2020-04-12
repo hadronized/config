@@ -362,6 +362,7 @@
    org-agenda-diary-file (concat org-directory "/diary.org")
    org-agenda-span 'day
    org-agenda-include-diary t
+   org-refile-targets '((org-agenda-files :maxlevel . 2))
    org-log-done 'time)
 
 (setq org-fancy-priorities-list '((?A . "↑")
