@@ -58,7 +58,7 @@ noremap <silent> <leader>gs :GitGutterStageHunk<CR>
 let g:which_key_map.g.s = 'stage hunk'
 
 noremap <silent> <leader>gu :GitGutterUndoHunk<CR>
-let g:which_key_map.g.u = 'undo hunk'
+let g:which_key_map.g.u = 'unstage hunk'
 
 noremap <silent> <leader>gh :GitGutterPreviewHunk<CR>
 let g:which_key_map.g.h = 'preview hunk'
