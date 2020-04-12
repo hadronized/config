@@ -51,9 +51,11 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil) ; no acceleration
 (setq mouse-wheel-follow-mouse 't)
-(setq scroll-step 1)
+(setq scroll-step 0)
+(setq scroll-conservatively 1000000)
 (setq fast-but-imprecise-scrolling t)
 (setq jit-lock-defer-time 0)
+(setq scroll-preserve-screen-position t)
 
 ; Show match parenthesis
 (show-paren-mode 1)

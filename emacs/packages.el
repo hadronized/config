@@ -294,6 +294,7 @@
 (setq lsp-rust-show-hover-context nil
       lsp-lens-auto-enable t
       lsp-eldoc-enable-hover nil
+      lsp-ui-doc-enable nil
       lsp-signature-auto-activate nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
