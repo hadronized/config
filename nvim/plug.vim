@@ -180,6 +180,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'filetype': 'MyFiletype',
       \   'fileformat': 'MyFileformat',
+      \   'filename': 'MyFilename',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
@@ -191,6 +192,12 @@ endfunction
 
 function! MyFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! MyFilename()
+  return &filetype ==# 'startify' ? 'Welcome back!' :
+       \ expand('%:f') !=# '' ? expand('%:f') :
+       \ 'scratch'
 endfunction
 
 set statusline+=%#warningmsg#
