@@ -226,8 +226,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 let g:which_key_use_floating_win = 1
 let g:which_key_disable_default_offset = 1
-autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
-autocmd! User vim-which-key call which_key#register('è', 'g:which_key_local_map')
+
+function! RegisterWhichKey()
+  call which_key#register('<Space>', 'g:which_key_map')
+  call which_key#register('è', 'g:which_key_local_map')
+endfunction
+
+autocmd! User vim-which-key call RegisterWhichKey()
 
 " org-mode
 Plug 'jceb/vim-orgmode'
