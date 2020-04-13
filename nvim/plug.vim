@@ -149,13 +149,6 @@ let g:startify_custom_footer=['   We don’t deserve dogs!']
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_enabled = 0
-
 " commantary
 Plug 'tpope/vim-commentary'
 
@@ -242,7 +235,8 @@ Plug 'jceb/vim-orgmode'
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 let g:vimwiki_list = [{
-  \ 'path': '~/vimwiki/'
+  \ 'path': '~/vimwiki/',
+  \ 'syntax': 'markdown', 'ext': '.md'
   \ }]
 let g:vimwiki_key_mappings = {
   \ 'all_maps': 0,
