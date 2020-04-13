@@ -227,11 +227,27 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 let g:which_key_use_floating_win = 1
 let g:which_key_disable_default_offset = 1
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
-
-" Universal Text Linking
-Plug 'vim-scripts/utl.vim'
+autocmd! User vim-which-key call which_key#register('è', 'g:which_key_local_map')
 
 " org-mode
 Plug 'jceb/vim-orgmode'
+
+" vimwiki
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+let g:vimwiki_list = [{
+  \ 'path': '~/vimwiki/'
+  \ }]
+let g:vimwiki_key_mappings = {
+  \ 'all_maps': 0,
+  \ 'global': 0,
+  \ 'headers': 1,
+  \ 'text_objs': 1,
+  \ 'table_format': 1,
+  \ 'table_mappings': 1,
+  \ 'lists': 1,
+  \ 'links': 1,
+  \ 'html': 1,
+  \ 'mouse': 0,
+  \ }
 
 call plug#end()

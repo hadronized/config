@@ -2,9 +2,7 @@ let mapleader=' '
 let maplocalleader = 'è'
 
 let g:which_key_map = { 'name': 'top level' }
-
-" for better navigation in help pages
-nnoremap <Return> <C-]>
+let g:which_key_local_map = { 'name': 'local' }
 
 " misc
 noremap U :redo<CR>
@@ -51,8 +49,11 @@ let g:which_key_map.g.l = 'toggle lens'
 noremap <silent> <leader>gc :Commits<CR>
 let g:which_key_map.g.c = 'find commit'
 
-noremap <silent> <leader>gf :GFiles<CR>
-let g:which_key_map.g.f = 'find file'
+noremap <silent> <leader>gf :Git fetch --prune --all<CR>
+let g:which_key_map.g.f = 'fetch'
+
+noremap <leader>gP :Git push<Space>
+let g:which_key_map.g.P = 'push'
 
 noremap <silent> <leader>gs :GitGutterStageHunk<CR>
 let g:which_key_map.g.s = 'stage hunk'
@@ -168,3 +169,29 @@ let g:which_key_map.s.m = 'startify'
 
 nnoremap <silent> <leader>sc :SClose<CR>
 let g:which_key_map.s.c = 'close'
+
+" vimwiki
+let g:which_key_map.o = { 'name': 'organize' }
+
+nnoremap <silent> <leader>oi :VimwikiIndex<CR>
+let g:which_key_map.o.i = 'index'
+
+nnoremap <silent> <leader>oI :VimwikiTabIndex<CR>
+let g:which_key_map.o.I = 'index (tab)'
+
+let g:which_key_map.o.d = { 'name': 'diary' }
+
+nnoremap <silent> <leader>odd :VimwikiDiaryIndex<CR>
+let g:which_key_map.o.d.d = 'diary'
+
+nnoremap <silent> <leader>ot :VimwikiMakeDiaryNote<CR>
+let g:which_key_map.o.t = 'today diary'
+
+nnoremap <silent> <leader>oT :VimwikiMakeTabDiaryNote<CR>
+let g:which_key_map.o.T = 'today diary (tab)'
+
+nnoremap <silent> <leader>oy :VimwikiMakeYesterdayDiaryNote<CR>
+let g:which_key_map.o.y = 'yesterday diary'
+
+nnoremap <silent> <leader>ow :VimwikiMakeTomorrowDiaryNote<CR>
+let g:which_key_map.o.w = 'torrow diary'
