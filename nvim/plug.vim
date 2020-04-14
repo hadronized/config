@@ -57,6 +57,11 @@ let g:NERDTreeMapRefreshRoot = 'L'
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
 
+" edge
+Plug 'sainnhe/edge'
+let g:edge_style = 'neon'
+let g:edge_enable_italic = 1
+
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
@@ -66,10 +71,12 @@ let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '│'
 let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_modified_removed = '│'
+let g:gitgutter_highlight_linenrs = 1
+let g:gitgutter_override_sign_column_highlight = 0
 
 function! GitStatus()
   let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
+  return printf('+%d ±%d -%d', a, m, r)
 endfunction
 set statusline+=%{GitStatus()}
 
@@ -157,13 +164,14 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'edge',
       \ 'active': {
-      \   'left': [ [ 'filename', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'modified' ] ]
+      \   'left': [ [ 'relativepath', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'modified' ],
+      \             [ 'session' ] ],
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
-      \   'fugitive': '%{fugitive#head()} %{GitStatus()}'
+      \   'fugitive': '%{fugitive#head()} %{GitStatus()}',
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -173,7 +181,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'filetype': 'MyFiletype',
       \   'fileformat': 'MyFileformat',
-      \   'filename': 'MyFilename',
+      \   'session': 'MySession',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
@@ -187,10 +195,8 @@ function! MyFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
-function! MyFilename()
-  return &filetype ==# 'startify' ? 'Welcome back!' :
-       \ expand('%:f') !=# '' ? expand('%:f') :
-       \ 'scratch'
+function! MySession()
+  return fnamemodify(v:this_session, ':t')
 endfunction
 
 set statusline+=%#warningmsg#
@@ -212,11 +218,6 @@ let ayucolor="mirage"
 Plug 'Rigellute/shades-of-purple.vim'
 let g:shades_of_purple_italic = 1
 let g:shades_of_purple_bold = 1
-
-" edge
-Plug 'sainnhe/edge'
-let g:edge_style = 'neon'
-let g:edge_enable_italic = 1
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -255,5 +256,8 @@ let g:vimwiki_key_mappings = {
   \ 'html': 1,
   \ 'mouse': 0,
   \ }
+
+" denite
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()

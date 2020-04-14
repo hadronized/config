@@ -46,6 +46,9 @@ let g:which_key_map.g.B = 'commit under cursor'
 noremap <silent> <leader>gl :ToggleBlameLine<CR>
 let g:which_key_map.g.l = 'toggle lens'
 
+noremap <silent> <leader>gL :GitGutterLineHighlightsToggle<CR>
+let g:which_key_map.g.L = 'toggle line highlighting'
+
 noremap <silent> <leader>gc :Commits<CR>
 let g:which_key_map.g.c = 'find commit'
 
@@ -73,8 +76,8 @@ let g:which_key_map.g.n = 'next hunk'
 noremap <silent> <leader>gg :Git<CR>
 let g:which_key_map.g.g = 'git status'
 
-noremap <silent> <leader>gG :GitGutterLineHighlightsToggle<CR>
-let g:which_key_map.g.G = 'toggle line highlighting'
+noremap <silent> <leader>gx :GitGutterLineNrHighlightsToggle<CR>
+let g:which_key_map.g.x = 'toggle line number highlighting'
 
 " Convenient text objects
 omap ic <Plug>(GitGutterTextObjectInnerPending)
@@ -179,10 +182,8 @@ let g:which_key_map.o.i = 'index'
 nnoremap <silent> <leader>oI :VimwikiTabIndex<CR>
 let g:which_key_map.o.I = 'index (tab)'
 
-let g:which_key_map.o.d = { 'name': 'diary' }
-
-nnoremap <silent> <leader>odd :VimwikiDiaryIndex<CR>
-let g:which_key_map.o.d.d = 'diary'
+nnoremap <silent> <leader>od :VimwikiDiaryIndex<CR>
+let g:which_key_map.o.d = 'diary'
 
 nnoremap <silent> <leader>ot :VimwikiMakeDiaryNote<CR>
 let g:which_key_map.o.t = 'today diary'
@@ -195,3 +196,11 @@ let g:which_key_map.o.y = 'yesterday diary'
 
 nnoremap <silent> <leader>ow :VimwikiMakeTomorrowDiaryNote<CR>
 let g:which_key_map.o.w = 'torrow diary'
+
+let g:which_key_map.o.g = { 'name': 'generate' }
+
+nnoremap <silent> <leader>ogd :VimwikiDiaryGenerateLinks<CR>
+let g:which_key_map.o.g.d = 'diary'
+
+nnoremap <silent> <leader>ogi :VimwikiGenerateLinks<CR>
+let g:which_key_map.o.g.i = 'index'

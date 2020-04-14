@@ -49,7 +49,13 @@ endif
 set background=dark
 colorscheme edge
 
+" sign/linenr column
+hi SignColumn guibg=none
 hi GitGutterAdd guibg=none
 hi GitGutterChange guibg=none
 hi GitGutterChangeDelete guibg=none
 hi GitGutterDelete guibg=none
+hi link GitGutterAddLineNr GitGutterAdd
+hi link GitGutterChangeLineNr GitGutterChange
+hi link GitGutterDeleteLineNr GitGutterDelete
+hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
