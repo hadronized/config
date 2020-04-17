@@ -62,6 +62,22 @@ Plug 'sainnhe/edge'
 let g:edge_style = 'neon'
 let g:edge_enable_italic = 1
 
+Plug 'ryanoasis/vim-devicons'
+
+" vim-one
+Plug 'rakr/vim-one'
+let g:one_allow_italics = 1
+
+Plug 'drewtempelmeyer/palenight.vim'
+
+" ayu-theme
+Plug 'ayu-theme/ayu-vim'
+
+" shades-of-purple
+Plug 'Rigellute/shades-of-purple.vim'
+let g:shades_of_purple_italic = 1
+let g:shades_of_purple_bold = 1
+
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
@@ -164,7 +180,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'edge',
       \ 'active': {
-      \   'left': [ [ 'relativepath', 'paste' ],
+      \   'left': [ [ 'filename', 'paste' ],
       \             [ 'fugitive', 'readonly', 'modified' ],
       \             [ 'session' ] ],
       \ },
@@ -180,6 +196,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'filetype': 'MyFiletype',
+      \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
       \   'session': 'MySession',
       \ },
@@ -189,6 +206,12 @@ let g:lightline = {
 
 function! MyFiletype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFilename()
+  return &filetype ==# 'startify' ? 'Welcome back!' :
+       \ expand('%:f') !=# '' ? expand('%:f') :
+       \ 'scratch'
 endfunction
 
 function! MyFileformat()
@@ -201,23 +224,6 @@ endfunction
 
 set statusline+=%#warningmsg#
 set statusline+=%*
-
-Plug 'ryanoasis/vim-devicons'
-
-" vim-one
-Plug 'rakr/vim-one'
-let g:one_allow_italics = 1
-
-Plug 'drewtempelmeyer/palenight.vim'
-
-" ayu-theme
-Plug 'ayu-theme/ayu-vim'
-let ayucolor="mirage"
-
-" shades-of-purple
-Plug 'Rigellute/shades-of-purple.vim'
-let g:shades_of_purple_italic = 1
-let g:shades_of_purple_bold = 1
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

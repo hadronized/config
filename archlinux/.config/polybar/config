@@ -17,61 +17,49 @@
 ;==========================================================
 
 [colors]
-foreground = #c5cdd9
-background = #2b2d3a
+foreground  = #A0A0A0
+background  = #2b2d3a
+transparent = #00000000
 
-# black
-color0  = #363a4e
-color8  = #3f445b
-# red
-color1  = #ec7279
-color9  = #573c3d
-# green
-color2  = #a0c980
-color10 = #a0c980
-# yellow
-color3  = #deb974
-color11 = #deb974
-# blue
-color4  = #6cb6eb
-color12 = #6cb6eb
-# magenta
-color5  = #d38aea
-color13 = #d38aea
-# cyan
-color6  = #5dbbc1
-color14 = #5dbbc1
-# white
-color7  = #c5cdd9
-color15 = #c5cdd9
+violet0 = #F3E5F5
+violet1 = #E1BEE7
+violet2 = #CE93D8
+violet3 = #BA68C8
+violet4 = #AB47BC
+violet5 = #9C27B0
+violet6 = #8E24AA
+violet7 = #7B1FA2
+violet8 = #6A1B9A
+violet9 = #4A148C
 
 [bar/default]
+monitor = DP-2
 width = 100%
-height = 26
+height = 30
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #000
+line-size = 3
+line-color = ${colors.violet2}
 
 border-size = 0
-border-color = ${colors.color0}
+border-color = ${colors.violet9}
 
-padding = 0
+padding = 2
 
 module-margin = 2
 
 font-0 = Cantarell:style=Bold:pixelsize=13;2
-font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=13;3
+font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=16;3
 
-modules-left = i3
-modules-center = xwindow
-modules-right = hostname pulseaudio date
+modules-left =
+modules-center = i3
+modules-right = github pulseaudio date
 
-tray-position = right
+tray-position = left
 tray-padding = 2
 
 ;wm-restack = i3
@@ -90,34 +78,25 @@ height = 26
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #000
+line-size = 3
+line-color = ${colors.violet2}
 
 border-size = 0
-border-color = ${colors.color0}
+border-color = ${colors.violet9}
 
-padding = 0
+padding = 2
 
 module-margin = 2
 
-font-0 = Cantarell:style=Bold:pixelsize=12;2
-font-1 = Font Awesome 5 Free Solid:style=Solid:pixelsize=14;3
+font-0 = Cantarell:style=Bold:pixelsize=13;2
+font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=16;3
 
 modules-left = i3
-modules-center = xwindow
-modules-right = hostname pulseaudio date
-
-tray-position = right
-tray-padding = 2
-
-;wm-restack = i3
-;override-redirect = true
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+modules-center =
+modules-right = network network-up network-down info-kernel date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -136,26 +115,28 @@ strip-wsnumbers = false
 pin-workspaces = true
 
 label-focused = %name%
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.color6}
-label-focused-padding = 4
+label-focused-foreground = ${colors.violet2}
+label-focused-background = ${colors.transparent}
+label-focused-underline = ${colors.violet5}
+label-focused-padding = 5
 
 label-visible = %name%
-label-visible-foreground = ${colors.color12}
-label-visible-background = ${colors.color8}
-label-visible-padding = 4
+label-visible-foreground = ${colors.violet5}
+label-visible-background = ${colors.transparent}
+label-visible-underline = ${colors.violet9}
+label-visible-padding = 5
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-foreground = ${colors.color12}
-label-unfocused-background = ${colors.background}
-label-unfocused-padding = 4
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.transparent}
+label-unfocused-padding = 5
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-foreground = ${colors.color7}
-label-urgent-background = ${colors.color1}
-label-urgent-padding = 4
+label-urgent-foreground = ${colors.violet1}
+label-urgent-background = ${colors.violet4}
+label-urgent-padding = 5
 
 [module/date]
 type = internal/date
@@ -166,44 +147,125 @@ date = %a %b %d
 time = %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.color4}
+format-prefix-foreground = ${colors.violet4}
 
 label = " %date%, %time%"
-label-foreground = ${colors.color4}
+label-foreground = ${colors.foreground}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume>
+format-volume = <label-volume> <bar-volume>
 label-volume =  %percentage%%
-label-volume-foreground = ${colors.color5}
+label-volume-foreground = ${colors.violet4}
 
-label-muted = 
-label-muted-foreground = ${colors.color5}
+label-muted = 
+label-muted-foreground = ${colors.violet4}
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+bar-volume-width = 15
+bar-volume-foreground-0 = #4A148C
+bar-volume-foreground-1 = #6A1B9A
+bar-volume-foreground-2 = #7B1FA2
+bar-volume-foreground-3 = #8E24AA
+bar-volume-foreground-4 = #9C27B0
+bar-volume-foreground-5 = #AB47BC
+bar-volume-foreground-6 = #BA68C8
+bar-volume-gradient = true
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ·
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.violet4}
 
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+[module/network]
+type = internal/network
+interface = enp7s0
+interval = 3.0
 
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.red}
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.violet4}
+label-connected = %local_ip%
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground}
+format-disconnected = <label-disconnected>
 
-[module/hostname]
-type = custom/text
-content = phaazon @ orchid
-content-foreground = ${colors.color14}
+[module/network-up]
+type = internal/network
+interface = enp7s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.violet4}
+label-connected = %upspeed%
+
+format-disconnected = <label-disconnected>
+
+[module/network-down]
+type = internal/network
+interface = enp7s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.violet4}
+label-connected = %downspeed%
+
+format-disconnected = <label-disconnected>
+
+[module/github]
+type = internal/github
+
+; Accessing an access token stored in file
+token = ${file:/home/phaazon/.config/polybar/github_token}
+
+; The github user for the token (unreleased)
+; If not specified, this module uses the deprecated method of accessing your
+; notifications, which may stop working at some point.
+user = phaazon
+
+; Whether empty notifications should be displayed or not
+empty-notifications = true
+
+; Number of seconds in between requests
+; 2 minutes
+interval = 120
+
+; Github API URL (unreleased)
+; Default: https://api.github.com/
+api-url = https://hub.example.org/api/v3/
+;
+; Available tags:
+;   <label> (default)
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.violet4}
+
+; Available tokens:
+;   %notifications% (default)
+; Default: Notifications: %notifications%
+label = %notifications%
+
+; Used when GitHub can't be reached (unreleased)
+; Available tags:
+;   <label-offline> (default)
+format-offline =   <label-offline>
+
+; (unreleased)
+; Available tokens:
+;   None
+; Default: Offline
+label-offline = N/A
+
+[module/info-kernel]
+type = custom/script
+exec = uname -r
+interval = 1024
+
+format-prefix = " "
+format-prefix-foreground = ${colors.violet4}
 
 [settings]
 screenchange-reload = true

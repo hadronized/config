@@ -118,7 +118,7 @@ let g:which_key_map.p.d = 'show documentation'
 nmap <silent>       <leader>pl  <Plug>(coc-codelens-action)
 let g:which_key_map.p.l = 'lens action'
 nmap <silent>       <leader>pr  <Plug>(coc-rename)
-let g:which_key_map.p.r = 'lens action'
+let g:which_key_map.p.r = 'rename'
 nmap <silent>       <leader>pe  :CocList diagnostics<CR>
 let g:which_key_map.p.e = 'show diagnostics'
 nmap <silent>       <leader>xp  <Plug>(coc-diagnostic-prev)
@@ -204,3 +204,6 @@ let g:which_key_map.o.g.d = 'diary'
 
 nnoremap <silent> <leader>ogi :VimwikiGenerateLinks<CR>
 let g:which_key_map.o.g.i = 'index'
+
+nnoremap <silent> <leader>$ :call SwitchDarkLightColorscheme()<CR>
+let g:which_key_map['$'] = 'switch dark/light theme'
