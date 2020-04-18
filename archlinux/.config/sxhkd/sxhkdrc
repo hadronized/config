@@ -4,7 +4,7 @@ alt + Return
 
 # program launcher
 alt + d
-	rofi -show run
+	rofi -show drun -show-icons
 
 Print
   scrot /tmp/img_$(date +%m%d%y_%H%M%S).png
@@ -21,7 +21,7 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-alt + {_,shift + } m
+alt + {_,shift + } q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -71,10 +71,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + } "
-	bspc {desktop -f,node -d} '^1'
-alt + {_,shift + } «
-	bspc {desktop -f,node -d} '^2'
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # preselect the direction
 super + shift + {h,j,k,l}

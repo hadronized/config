@@ -85,6 +85,6 @@ function SwitchDarkLightColorscheme(...)
   hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
 endfunction
 
-call SwitchDarkLightColorscheme("light")
+call SwitchDarkLightColorscheme("dark")
 
 source ~/.config/nvim/key_bindings.vim

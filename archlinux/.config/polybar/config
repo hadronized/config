@@ -50,10 +50,10 @@ border-color = ${colors.violet9}
 
 padding = 2
 
-module-margin = 2
+module-margin = 5
 
 font-0 = Cantarell:style=Bold:pixelsize=13;2
-font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=16;3
+font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=20;3
 
 modules-left =
 modules-center = i3
@@ -114,29 +114,41 @@ wrapping-scroll = false
 strip-wsnumbers = false
 pin-workspaces = true
 
-label-focused = %name%
+ws-icon-0 = 1;%{F#ff5d00}%{F-}
+ws-icon-1 = 2;%{F#20e77e}%{F-}
+ws-icon-2 = 3;%{F#e679c7}%{F-}
+ws-icon-3 = 4;%{F#f6e922}%{F-}
+ws-icon-4 = 5;%{F#c5eaff}%{F-}
+ws-icon-5 = 6;%{F#ff5500}%{F-}
+ws-icon-6 = 7;%{F#fca089}%{F-}
+ws-icon-7 = 8;%{F#89fcf9}%{F-}
+ws-icon-8 = 9;%{F#cb7930}%{F-}
+ws-icon-9 = 0;%{F#00fbff}%{F-}
+ws-icon-default = 
+
+label-focused = %icon%
 label-focused-foreground = ${colors.violet2}
 label-focused-background = ${colors.transparent}
-label-focused-underline = ${colors.violet3}
-label-focused-padding = 5
+label-focused-underline = ${colors.violet2}
+label-focused-padding = 10
 
-label-visible = %name%
+label-visible = %icon%
 label-visible-foreground = ${colors.violet5}
-label-visible-background = ${colors.transparent}
+label-visible-background = ${colors.violet9}
 label-visible-underline = ${colors.violet9}
-label-visible-padding = 5
+label-visible-padding = 10
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
+label-unfocused = %icon%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.transparent}
-label-unfocused-padding = 5
+label-unfocused-padding = 10
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %name%
+label-urgent = %icon%
 label-urgent-foreground = ${colors.violet1}
 label-urgent-background = ${colors.violet4}
-label-urgent-padding = 5
+label-urgent-padding = 10
 
 [module/date]
 type = internal/date
