@@ -46,20 +46,19 @@ line-size = 3
 line-color = ${colors.violet2}
 
 border-size = 0
-border-color = ${colors.violet9}
 
-padding = 2
+padding = 0
 
 module-margin = 5
 
 font-0 = Cantarell:style=Bold:pixelsize=13;2
 font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=20;3
 
-modules-left =
-modules-center = i3
+modules-left = i3
+modules-center = xwindow
 modules-right = github pulseaudio date
 
-tray-position = left
+tray-position = right
 tray-padding = 2
 
 ;wm-restack = i3
@@ -87,7 +86,7 @@ line-color = ${colors.violet2}
 border-size = 0
 border-color = ${colors.violet9}
 
-padding = 2
+padding = 0
 
 module-margin = 2
 
@@ -104,7 +103,9 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 200
+label-maxlen = 50
+
+format-foreground = ${colors.violet2}
 
 [module/i3]
 type = internal/i3
@@ -114,41 +115,41 @@ wrapping-scroll = false
 strip-wsnumbers = false
 pin-workspaces = true
 
-ws-icon-0 = 1;%{F#ff5d00}%{F-}
-ws-icon-1 = 2;%{F#20e77e}%{F-}
-ws-icon-2 = 3;%{F#e679c7}%{F-}
-ws-icon-3 = 4;%{F#f6e922}%{F-}
-ws-icon-4 = 5;%{F#c5eaff}%{F-}
-ws-icon-5 = 6;%{F#ff5500}%{F-}
-ws-icon-6 = 7;%{F#fca089}%{F-}
-ws-icon-7 = 8;%{F#89fcf9}%{F-}
-ws-icon-8 = 9;%{F#cb7930}%{F-}
-ws-icon-9 = 0;%{F#00fbff}%{F-}
-ws-icon-default = 
+; ws-icon-0 = 1;%{F#ff5d00}%{F-}
+; ws-icon-1 = 2;%{F#20e77e}%{F-}
+; ws-icon-2 = 3;%{F#e679c7}%{F-}
+; ws-icon-3 = 4;%{F#f6e922}%{F-}
+; ws-icon-4 = 5;%{F#c5eaff}%{F-}
+; ws-icon-5 = 6;%{F#ff5500}%{F-}
+; ws-icon-6 = 7;%{F#fca089}%{F-}
+; ws-icon-7 = 8;%{F#89fcf9}%{F-}
+; ws-icon-8 = 9;%{F#cb7930}%{F-}
+; ws-icon-9 = 0;%{F#00fbff}%{F-}
+; ws-icon-default = 
 
-label-focused = %icon%
+label-focused = %name%
 label-focused-foreground = ${colors.violet2}
 label-focused-background = ${colors.transparent}
-label-focused-underline = ${colors.violet2}
-label-focused-padding = 10
+label-focused-underline = ${colors.violet4}
+label-focused-padding = 4
 
-label-visible = %icon%
+label-visible = %name%
 label-visible-foreground = ${colors.violet5}
 label-visible-background = ${colors.violet9}
 label-visible-underline = ${colors.violet9}
-label-visible-padding = 10
+label-visible-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
+label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.transparent}
-label-unfocused-padding = 10
+label-unfocused-padding = 4
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = %name%
 label-urgent-foreground = ${colors.violet1}
 label-urgent-background = ${colors.violet4}
-label-urgent-padding = 10
+label-urgent-padding = 4
 
 [module/date]
 type = internal/date
