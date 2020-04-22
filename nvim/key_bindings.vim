@@ -13,6 +13,10 @@ noremap <silent> <C-r> :tabn<CR>
 noremap <silent> <C-n> :tabnew<CR>
 noremap <silent> <C-q> :tabclose<CR>
 
+" next / prev vim like
+inoremap <silent> <C-s> <C-p>
+inoremap <silent> <C-t> <C-n>
+
 " commentary
 map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
@@ -111,6 +115,10 @@ let g:which_key_map.r = 'show references'
 let g:which_key_map.p = { 'name': 'project' }
 nmap <silent>       <leader>ps  :CocList symbols<CR>
 let g:which_key_map.p.s = 'show symbols'
+nmap <silent>       <leader>po  :Vista finder coc<CR>
+let g:which_key_map.p.o = 'outline'
+nmap <silent>       <leader>pt  :Vista coc<CR>
+let g:which_key_map.p.t = 'outline tree'
 nmap <silent><expr> <leader>pz  coc#refresh()
 let g:which_key_map.p.z = 'refresh'
 nmap <silent>       <leader>pd  :call <SID>show_documentation()<CR>
@@ -151,6 +159,8 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+inoremap <silent><expr> <c-space> coc#refresh()
+
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :WhichKey 'è'<CR>
@@ -188,7 +198,7 @@ let g:which_key_map.o.d = 'diary'
 nnoremap <silent> <leader>ot :VimwikiMakeDiaryNote<CR>
 let g:which_key_map.o.t = 'today diary'
 
-nnoremap <silent> <leader>oT :VimwikiMakeTabDiaryNote<CR>
+nnoremap <silent> <leader>oT :VimwikiTabMakeDiaryNote<CR>
 let g:which_key_map.o.T = 'today diary (tab)'
 
 nnoremap <silent> <leader>oy :VimwikiMakeYesterdayDiaryNote<CR>

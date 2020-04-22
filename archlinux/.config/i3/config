@@ -23,11 +23,10 @@ bindsym $mod+Shift+B kill
 
 # rofi
 bindsym $mod+i exec "rofi -show drun -show-icons"
-bindsym $mod+w exec "rofi -show window -show-icons"
-
+bindsym $mod+w exec "rofi -lines 0 -modi workspace:workspace -show workspace"
 # marks
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark: '
-bindsym $mod+g exec "rofi -modi rofi-i3-marks:~/bin/rofi-i3-marks -show rofi-i3-marks -show-icons
+bindsym $mod+g exec "rofi -modi rofi-i3-marks:rofi-i3-marks -show rofi-i3-marks -show-icons
 
 # change focus
 bindsym $mod+c focus left

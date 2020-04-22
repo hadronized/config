@@ -21,7 +21,6 @@ let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 s
 let g:rustfmt_autosave = 1
 
 Plug 'tikhomirov/vim-glsl'
-Plug 'phaazon/vim-cheddar'
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'ElmCast/elm-vim'
@@ -89,12 +88,6 @@ let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_highlight_linenrs = 1
 let g:gitgutter_override_sign_column_highlight = 0
-
-function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ±%d -%d', a, m, r)
-endfunction
-set statusline+=%{GitStatus()}
 
 Plug 'tpope/vim-fugitive'
 
@@ -172,58 +165,12 @@ let g:startify_custom_footer=['   We don’t deserve dogs!']
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" commantary
+function! CocCurrentFunction()
+  return get(b:, 'coc_current_function', '')
+endfunction
+
+" commentary
 Plug 'tpope/vim-commentary'
-
-" lightline
-Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'edge',
-      \ 'active': {
-      \   'left': [ [ 'filename', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'modified' ],
-      \             [ 'session' ] ],
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
-      \   'fugitive': '%{fugitive#head()} %{GitStatus()}',
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
-      \ },
-      \ 'component_function': {
-      \   'filetype': 'MyFiletype',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'session': 'MySession',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
-      \ }
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFilename()
-  return &filetype ==# 'startify' ? 'Welcome back!' :
-       \ expand('%:f') !=# '' ? expand('%:f') :
-       \ 'scratch'
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
-function! MySession()
-  return fnamemodify(v:this_session, ':t')
-endfunction
-
-set statusline+=%#warningmsg#
-set statusline+=%*
 
 " Other
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -263,7 +210,60 @@ let g:vimwiki_key_mappings = {
   \ 'mouse': 0,
   \ }
 
-" denite
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" vista
+Plug 'liuchengxu/vista.vim'
+
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista_echo_cursor_strategy = 'floating_win'
+let g:vista_no_mappings = 0
+
+" lightline
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'edge',
+      \ 'active': {
+      \   'left': [ [ 'filename', 'paste', 'modified', 'readonly' ],
+      \             [ 'fugitive' ],
+      \             [ 'cocstatus', 'current_function' ] ],
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
+      \   'fugitive': '%{fugitive#head()}',
+      \   'cocstatus': '%{coc#status()}',
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
+      \ },
+      \ 'component_function': {
+      \   'filetype': 'MyFiletype',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'current_function': 'CocCurrentFunction',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFilename()
+  return &filetype ==# 'startify' ? 'Welcome back!' :
+       \ expand('%:f') !=# '' ? expand('%:f') :
+       \ 'scratch'
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+set statusline+=%#warningmsg#
+set statusline+=%*
 
 call plug#end()
