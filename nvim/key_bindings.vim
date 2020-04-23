@@ -214,6 +214,3 @@ let g:which_key_map.o.g.d = 'diary'
 
 nnoremap <silent> <leader>ogi :VimwikiGenerateLinks<CR>
 let g:which_key_map.o.g.i = 'index'
-
-nnoremap <silent> <leader>$ :call SwitchDarkLightColorscheme()<CR>
-let g:which_key_map['$'] = 'switch dark/light theme'

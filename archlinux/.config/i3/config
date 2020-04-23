@@ -113,8 +113,8 @@ bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
 bindsym Print exec "scrot /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym --release Shift+Print exec "scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png"
 bindsym $mod+Print exec "scrot -u /tmp/img_$(date +%m%d%y_%H%M%S).png"
-bindsym Mod4+l exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png"
-bindsym Mod4+h exec --no-startup-id "i3lock -ti ~/pictures/wallpapers/Autumn-mountain-wallpaper-HD-free-download-blured.png && systemctl hibernate"
+bindsym Mod4+l exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti"
+bindsym Mod4+h exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti && systemctl hibernate"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload

@@ -128,14 +128,14 @@ pin-workspaces = true
 ; ws-icon-default = 
 
 label-focused = %name%
-label-focused-foreground = ${colors.violet2}
-label-focused-background = ${colors.transparent}
-label-focused-underline = ${colors.violet4}
+label-focused-foreground = ${colors.violet5}
+label-focused-background = ${colors.violet9}
+label-focused-underline = ${colors.violet9}
 label-focused-padding = 4
 
 label-visible = %name%
-label-visible-foreground = ${colors.violet5}
-label-visible-background = ${colors.violet9}
+label-visible-foreground = ${colors.violet2}
+label-visible-background = ${colors.transparent}
 label-visible-underline = ${colors.violet9}
 label-visible-padding = 4
 
