@@ -40,7 +40,6 @@ autocmd BufWritePre * %s/\s\+$//e
 
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/bepo.vim
-source ~/.config/nvim/platform-specific.vim
 
 let platform_specific_file="~/.config/nvim/platform-specific.vim"
 if filereadable(platform_specific_file)
