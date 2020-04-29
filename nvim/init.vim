@@ -30,6 +30,7 @@ set shortmess+=c
 set foldmethod=manual
 set timeoutlen=500
 set updatetime=50
+set shiftwidth=2
 
 " we want lines for all modes but terminal
 set nu
@@ -59,12 +60,13 @@ function SwitchDarkLightColorscheme(...)
     endif
   endif
 
+  let g:edge_transparent_background = 0
+
   if g:color_scheme == 'dark'
     let g:color_scheme = 'light'
-    let g:ayucolor = 'light'
-    let g:lightline.colorscheme = 'ayu_light'
+    let g:lightline.colorscheme = 'edge'
     set background=light
-    colorscheme ayu
+    colorscheme edge
   else
     let g:color_scheme = 'dark'
     let g:lightline.colorscheme = 'edge'
@@ -73,8 +75,8 @@ function SwitchDarkLightColorscheme(...)
   endif
 
   " sign/linenr column
-  hi Normal guibg=none
-  hi EndOfBuffer guibg=none
+  "hi Normal guibg=none
+  "hi EndOfBuffer guibg=none
   hi SignColumn guibg=none
   hi GitGutterAdd guibg=none
   hi GitGutterChange guibg=none
@@ -86,6 +88,6 @@ function SwitchDarkLightColorscheme(...)
   hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
 endfunction
 
-call SwitchDarkLightColorscheme("dark")
+call SwitchDarkLightColorscheme("light")
 
 source ~/.config/nvim/key_bindings.vim

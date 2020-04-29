@@ -191,25 +191,6 @@ autocmd! User vim-which-key call RegisterWhichKey()
 " org-mode
 Plug 'jceb/vim-orgmode'
 
-" vimwiki
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-let g:vimwiki_list = [{
-  \ 'path': '~/vimwiki/',
-  \ 'syntax': 'markdown', 'ext': '.md'
-  \ }]
-let g:vimwiki_key_mappings = {
-  \ 'all_maps': 0,
-  \ 'global': 0,
-  \ 'headers': 1,
-  \ 'text_objs': 1,
-  \ 'table_format': 1,
-  \ 'table_mappings': 1,
-  \ 'lists': 1,
-  \ 'links': 1,
-  \ 'html': 1,
-  \ 'mouse': 0,
-  \ }
-
 " vista
 Plug 'liuchengxu/vista.vim'
 
@@ -226,13 +207,12 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
-      \             [ 'cocstatus', 'current_function' ] ],
+      \             [ 'current_function' ] ],
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"±":&modifiable?"":"-"}',
       \   'fugitive': '%{fugitive#head()}',
-      \   'cocstatus': '%{coc#status()}',
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',

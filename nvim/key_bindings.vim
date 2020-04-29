@@ -182,35 +182,3 @@ let g:which_key_map.s.m = 'startify'
 
 nnoremap <silent> <leader>sc :SClose<CR>
 let g:which_key_map.s.c = 'close'
-
-" vimwiki
-let g:which_key_map.o = { 'name': 'organize' }
-
-nnoremap <silent> <leader>oi :VimwikiIndex<CR>
-let g:which_key_map.o.i = 'index'
-
-nnoremap <silent> <leader>oI :VimwikiTabIndex<CR>
-let g:which_key_map.o.I = 'index (tab)'
-
-nnoremap <silent> <leader>od :VimwikiDiaryIndex<CR>
-let g:which_key_map.o.d = 'diary'
-
-nnoremap <silent> <leader>ot :VimwikiMakeDiaryNote<CR>
-let g:which_key_map.o.t = 'today diary'
-
-nnoremap <silent> <leader>oT :VimwikiTabMakeDiaryNote<CR>
-let g:which_key_map.o.T = 'today diary (tab)'
-
-nnoremap <silent> <leader>oy :VimwikiMakeYesterdayDiaryNote<CR>
-let g:which_key_map.o.y = 'yesterday diary'
-
-nnoremap <silent> <leader>ow :VimwikiMakeTomorrowDiaryNote<CR>
-let g:which_key_map.o.w = 'torrow diary'
-
-let g:which_key_map.o.g = { 'name': 'generate' }
-
-nnoremap <silent> <leader>ogd :VimwikiDiaryGenerateLinks<CR>
-let g:which_key_map.o.g.d = 'diary'
-
-nnoremap <silent> <leader>ogi :VimwikiGenerateLinks<CR>
-let g:which_key_map.o.g.i = 'index'

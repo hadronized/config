@@ -80,3 +80,6 @@ noremap wp <C-w>o
 
 " espace insécable -> espace
 inoremap   <Space>
+
+noremap à c
+noremap À C
