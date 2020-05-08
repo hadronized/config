@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" Syntax support
+" Better C++ support
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Haskell
@@ -50,6 +50,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'rakr/vim-one'
 let g:one_allow_italics = 1
 
+" palenight
 Plug 'drewtempelmeyer/palenight.vim'
 
 " ayu-theme
@@ -63,7 +64,7 @@ let g:shades_of_purple_bold = 1
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
-let g:gitgutter_max_signs = 1000
+let g:gitgutter_max_signs = 10000
 let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '│'
@@ -72,6 +73,7 @@ let g:gitgutter_sign_modified_removed = '│'
 let g:gitgutter_highlight_linenrs = 1
 let g:gitgutter_override_sign_column_highlight = 0
 
+" fugitive
 Plug 'tpope/vim-fugitive'
 
 " git-messenger
