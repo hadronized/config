@@ -42,6 +42,8 @@ autocmd BufWritePre * %s/\s\+$//e
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/bepo.vim
 
+lua require'colorizer'.setup()
+
 let platform_specific_file="~/.config/nvim/platform-specific.vim"
 if filereadable(platform_specific_file)
   source platform_specific_file
@@ -88,6 +90,6 @@ function SwitchDarkLightColorscheme(...)
   hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
 endfunction
 
-call SwitchDarkLightColorscheme("light")
+call SwitchDarkLightColorscheme("dark")
 
 source ~/.config/nvim/key_bindings.vim

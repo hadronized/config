@@ -22,7 +22,7 @@ map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
 
 " file tree
-noremap <silent> <leader>n :NERDTreeToggle<CR>
+noremap <silent> <leader>n :CocCommand explorer<CR>
 let g:which_key_map.n = 'file browser'
 
 " fuzzy finders
@@ -129,9 +129,7 @@ nmap <silent>       <leader>pr  <Plug>(coc-rename)
 let g:which_key_map.p.r = 'rename'
 nmap <silent>       <leader>pe  :CocList diagnostics<CR>
 let g:which_key_map.p.e = 'show diagnostics'
-nmap <silent>       <leader>xp  <Plug>(coc-diagnostic-prev)
-nmap <silent>       <leader>xn  <Plug>(coc-diagnostic-next)
-nmap <silent>       <leader>pa  <Plug>(coc-codeaction>
+nmap <silent>       <leader>pa  :CocCommand actions.open<CR>
 let g:which_key_map.p.a = 'code action'
 nmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
 nmap <silent>       <leader>pf  <Plug>(coc-fix-current>
@@ -182,3 +180,6 @@ let g:which_key_map.s.m = 'startify'
 
 nnoremap <silent> <leader>sc :SClose<CR>
 let g:which_key_map.s.c = 'close'
+
+nnoremap <silent> <leader>h :ColorizerToggle<CR>
+let g:which_key_map.h = 'highlight colors'

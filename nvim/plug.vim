@@ -32,29 +32,12 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'r0mai/vim-djinni'
 Plug 'kelan/gyp.vim'
-Plug 'ap/vim-css-color'
+
+Plug 'norcalli/nvim-colorizer.lua'
 
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
-
-" NERDTree
-Plug 'scrooloose/nerdtree'
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeMapChdir = 'H'
-let g:NERDTreeMapChdir = 'hd'
-let g:NERDTreeMapCWD = 'HD'
-let g:NERDTreeMapOpenInTab = 'j'
-let g:NERDTreeMapJumpLastChild = 'J'
-let g:NERDTreeMapOpenVSplit = 'k'
-let g:NERDTreeMapRefresh = 'l'
-let g:NERDTreeMapRefreshRoot = 'L'
-let g:NERDTreeDirArrowExpandable = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'
 
 " edge
 Plug 'sainnhe/edge'

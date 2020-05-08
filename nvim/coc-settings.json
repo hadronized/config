@@ -37,7 +37,7 @@
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
-  "diagnostic.hintign": "",
+  "diagnostic.hintSign": "",
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.refreshAfterSave": true,
   "codeLens.enable": true,
@@ -46,11 +46,70 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnInsertLeave": true,
   "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow",
-  "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"]
-    }
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.keyMappings": {
+    "i": false, // cancel default mapkey
+
+    "s": "nodePrev",
+    "t": "nodeNext",
+    "gs": "expandablePrev",
+    "gt": "expandableNext",
+
+    "*": "toggleSelection",
+    "<tab>": "actionMenu",
+
+    "h": "collapse",
+    "l": ["expandable?", "expand", "open"],
+    "J": ["toggleSelection", "nodeNext"],
+    "K": ["toggleSelection", "nodePrev"],
+    "gl": "expandRecursive",
+    "gh": "collapseRecursive",
+    "<cr>": ["expandable?", "expandOrCollapse", "open"],
+    "e": "open",
+    "o": "open:split",
+    "O": "open:split:plain",
+    "v": "open:vsplit",
+    "T": "open:tab",
+    "<bs>": "gotoParent",
+    "gp": "preview:labeling",
+
+    "y": "copyFilepath",
+    "Y": "copyFilename",
+    "à": "copyFile",
+    "C": "cutFile",
+    "p": "pasteFile",
+    "d": "delete",
+    "D": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "R": "rename",
+
+    ".": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+    "gd": "listDrive",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+
+    "[[": "sourcePrev",
+    "]]": "sourceNext",
+
+    "[d": "diagnosticPrev",
+    "]d": "diagnosticNext",
+
+    "[C": "gitPrev",
+    "]C": "gitNext",
+    "<<": "gitStage",
+    ">>": "gitUnstage"
   }
 }
