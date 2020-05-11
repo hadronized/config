@@ -113,8 +113,10 @@ autocmd CompleteDone * silent! pclose!
 let g:fzf_preview_window = ''
 let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
 
+" Markdown.
 Plug 'mzlogin/vim-markdown-toc'
 
+" Highlighted Yank
 Plug 'machakann/vim-highlightedyank'
 
 " nvim-blame-line
@@ -124,8 +126,8 @@ let g:blameLineGitFormat = '   %an | %ar | %s'
 " startify
 Plug 'mhinz/vim-startify'
 let g:startify_lists = [
-  \ { 'type': 'sessions',  'header': ['   Sessions'] },
   \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
+  \ { 'type': 'sessions',  'header': ['   Sessions'] },
   \ { 'type': 'files',     'header': ['   Recent files'] },
   \ { 'type': 'commands',  'header': ['   Commands'] },
   \ ]
@@ -145,6 +147,11 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_relative_path = 1
 let g:startify_custom_footer=['   We don’t deserve dogs!']
+let g:startify_custom_indices = ['a', 'b', 'é', 'p', 'o', 'v', 'd', 'l', 'j', 'g', 'h', 'f', 'y', 'x']
+
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
 
 " coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -175,15 +182,6 @@ autocmd! User vim-which-key call RegisterWhichKey()
 
 " org-mode
 Plug 'jceb/vim-orgmode'
-
-" vista
-Plug 'liuchengxu/vista.vim'
-
-let g:vista_default_executive = 'coc'
-let g:vista_fzf_preview = ['right:50%']
-let g:vista#renderer#enable_icon = 1
-let g:vista_echo_cursor_strategy = 'floating_win'
-let g:vista_no_mappings = 0
 
 " lightline
 Plug 'itchyny/lightline.vim'
