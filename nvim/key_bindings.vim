@@ -115,7 +115,7 @@ let g:which_key_map.r = 'show references'
 let g:which_key_map.p = { 'name': 'project' }
 nmap <silent>       <leader>ps  :CocList symbols<CR>
 let g:which_key_map.p.s = 'show symbols'
-nmap <silent>       <leader>po  :Vista finder coc<CR>
+nmap <silent>       <leader>po  :CocList outline<CR>
 let g:which_key_map.p.o = 'outline'
 nmap <silent>       <leader>pt  :Vista coc<CR>
 let g:which_key_map.p.t = 'outline tree'
@@ -132,7 +132,7 @@ let g:which_key_map.p.e = 'show diagnostics'
 nmap <silent>       <leader>pa  :CocCommand actions.open<CR>
 let g:which_key_map.p.a = 'code action'
 nmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
-nmap <silent>       <leader>pf  <Plug>(coc-fix-current>
+nmap <silent>       <leader>pf  :CocFix<CR>
 let g:which_key_map.p.f = 'fix'
 
 noremap <silent> <leader>qe :cc!<CR>

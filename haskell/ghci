@@ -1,0 +1,6 @@
+:set prompt "λ "
+:set -XOverloadedStrings
+:set -XTupleSections
+:set -XFlexibleInstances
+:set -XFlexibleContexts
+:set -XMultiParamTypeClasses
