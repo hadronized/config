@@ -183,3 +183,6 @@ let g:which_key_map.s.c = 'close'
 
 nnoremap <silent> <leader>h :ColorizerToggle<CR>
 let g:which_key_map.h = 'highlight colors'
+
+let g:coc_snippet_next = '<C-t>'
+let g:coc_snippet_prev = '<C-s>'

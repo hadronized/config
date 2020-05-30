@@ -3,6 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Better C++ support
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+" snippets
+Plug 'honza/vim-snippets'
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -70,7 +73,7 @@ let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_removed = '│'
 let g:gitgutter_sign_removed_first_line = '│'
 let g:gitgutter_sign_modified_removed = '│'
-let g:gitgutter_highlight_linenrs = 1
+let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_override_sign_column_highlight = 0
 
 " fugitive

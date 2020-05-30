@@ -3,7 +3,7 @@
     "<C-n>": "normal:t",
     "<C-p>": "normal:s"
   },
-  "suggest.enablePreview": true,
+  "suggest.enablePreview": false,
   "suggest.echodocSupport": true,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
@@ -65,7 +65,7 @@
     "K": ["toggleSelection", "nodePrev"],
     "gl": "expandRecursive",
     "gh": "collapseRecursive",
-    "<cr>": ["expandable?", "expandOrCollapse", "open"],
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
     "e": "open",
     "o": "open:split",
     "O": "open:split:plain",
@@ -111,5 +111,6 @@
     "]C": "gitNext",
     "<<": "gitStage",
     ">>": "gitUnstage"
-  }
+  },
+  "rust-analyzer.inlayHints.chainingHints": false
 }

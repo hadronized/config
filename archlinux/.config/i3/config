@@ -12,7 +12,7 @@ floating_modifier $mod
 # keybindings
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # show the scratchpad
 bindsym $mod+d scratchpad show
@@ -269,6 +269,9 @@ exec picom --experimental-backends -b
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id xset -dpms
+exec --no-startup-id xset dpms 0 0 0
+exec --no-startup-id xset s 0 0
+exec --no-startup-id xset s off
 
 exec --no-startup-id ~/bin/restart-polybar
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd

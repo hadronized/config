@@ -37,9 +37,5 @@ rebase = "⏚ "
 merge = " "
 
 [git_status]
-deleted = " "
-untracked = " "
-stashed = " "
-modified = " "
 prefix = ""
 suffix = ""
