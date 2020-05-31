@@ -48,6 +48,7 @@
   "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow",
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
+  "explorer.previewAction.onHover": false,
   "explorer.keyMappings": {
     "i": false, // cancel default mapkey
 
