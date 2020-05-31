@@ -110,11 +110,11 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl 
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10"
 bindsym XF86Sleep exec --no-startup-id "systemctl suspend"
-bindsym Print exec "scrot /tmp/img_$(date +%m%d%y_%H%M%S).png"
-bindsym --release Shift+Print exec "scrot -s /tmp/img_$(date +%m%d%y_%H%M%S).png"
-bindsym $mod+Print exec "scrot -u /tmp/img_$(date +%m%d%y_%H%M%S).png"
-bindsym Mod4+l exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti"
-bindsym Mod4+h exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti && systemctl hibernate"
+bindsym Print exec "maim /tmp/img_$(date +%m%d%y_%H%M%S).png"
+bindsym --release Shift+Print exec "maim -s /tmp/img_$(date +%m%d%y_%H%M%S).png"
+bindsym $mod+Print exec "scrot -i /tmp/img_$(date +%m%d%y_%H%M%S).png"
+bindsym Mod4+l exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti && random-wallpaper"
+bindsym Mod4+h exec --no-startup-id "cat /home/phaazon/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti && random-wallpaper && systemctl hibernate"
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
