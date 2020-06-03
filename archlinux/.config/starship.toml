@@ -1,6 +1,7 @@
 add_newline = false
 
 [battery]
+disabled = false
 full_symbol = "🔋"
 charging_symbol = "⚡️"
 
