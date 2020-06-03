@@ -10,19 +10,13 @@ style = "bold magenta"
 
 [character]
 symbol = "λ"
-vicmd_symbol = ""
+vicmd_symbol = "·"
 style_success = "bold purple"
 style_failure = "bold purple"
 use_symbol_for_status = false
 
 [memory_usage]
-disabled = false
-show_percentage = true
-show_swap = false
-threshold = -1
-symbol = " "
-separator = ", "
-style = "bold green"
+disabled = true
 
 [git_branch]
 style = "bold red"
@@ -37,5 +31,9 @@ rebase = "⏚ "
 merge = " "
 
 [git_status]
+prefix = ""
+suffix = ""
+
+[rust]
 prefix = ""
 suffix = ""

@@ -3,7 +3,7 @@ modi: "window,run,ssh";
 // width: 50;
 lines: 20;
 columns: 3;
-font: "DejaVu Sans Mono 13";
+font: "JetBrainsMono Nerd Font 16";
 bw: 0;
 // location: 0;
 // padding: 5;
