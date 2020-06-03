@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --bg-fill $(ls -d /home/phaazon/pictures/wallpapers/* | shuf -n 1)
