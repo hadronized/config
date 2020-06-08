@@ -138,8 +138,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    foreground: '0xabb2bf'
-    background: '0x282c34'
+    foreground: "#abb2bf"
+    background: "#282c34"
 
     # Bright and dim foreground colors
     #
@@ -171,8 +171,8 @@ colors:
     black:   '#363a4e'
     red:     '#ec7279'
     green:   '#a0c980'
-    yellow:  '#6cb6eb'
-    blue:    '#75b6e8'
+    yellow:  '#deb974'
+    blue:    '#6cb6eb'
     magenta: '#d38aea'
     cyan:    '#5dbbc1'
     white:   '#c5cdd9'
@@ -180,13 +180,13 @@ colors:
   # Bright colors
   bright:
     black:   '#666666'
-    red:     '#ec7279'
-    green:   '#a0c980'
-    yellow:  '#deb974'
-    blue:    '#6cb6eb'
-    magenta: '#d38aea'
-    cyan:    '#5dbbc1'
-    white:   '#c5cdd9'
+    red:     '#fc626b'
+    green:   '#9de465'
+    yellow:  '#efbe63'
+    blue:    '#5bb9fc'
+    magenta: '#da7cf8'
+    cyan:    '#30e2ee'
+    white:   '#b2c9ec'
 
   # Dim colors
   #
