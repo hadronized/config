@@ -39,7 +39,7 @@ height = 30
 radius = 0.0
 fixed-center = true
 
-background = ${colors.transparent}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -77,7 +77,7 @@ height = 26
 radius = 0.0
 fixed-center = true
 
-background = ${colors.transparent}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -128,21 +128,21 @@ pin-workspaces = true
 ; ws-icon-default = 
 
 label-focused = %name%
-label-focused-foreground = ${colors.violet5}
-label-focused-background = ${colors.violet9}
-label-focused-underline = ${colors.violet9}
+label-focused-foreground = ${colors.violet0}
+label-focused-background = ${colors.violet5}
+label-focused-underline = ${colors.violet5}
 label-focused-padding = 4
 
 label-visible = %name%
 label-visible-foreground = ${colors.violet2}
-label-visible-background = ${colors.transparent}
+label-visible-background = ${colors.background}
 label-visible-underline = ${colors.violet9}
 label-visible-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.transparent}
+label-unfocused-background = ${colors.background}
 label-unfocused-padding = 4
 
 ; urgent = Workspace with urgency hint set
