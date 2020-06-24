@@ -7,7 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = DejaVu Sans Mono Nerd Font 13
+font = JetBrainsMono Nerd Font 20
 scrollback_lines = 10000
 search_wrap = true
 icon_name = terminal
@@ -33,24 +33,24 @@ filter_unmatched_urls = true
 
 [colors]
 
-foreground = #bcc4d1
-background = #262729
+foreground= #abb2bf
+background= #2b2d37
 
-color0 = #88909f
-color1 = #f27a7a
-color2 = #a0bf88
-color3 = #d9b575
-color4 = #75b6e8
-color5 = #d798e9
-color6 = #70bab9
-color7 = #bcc4d1
-color8 = #88909f
-color9 = #f27a7a
-color10 = #a0bf88
-color11 = #d9b575
-color12 = #75b6e8
-color13 = #d798e9
-color14 = #70bab9
-color15 = #bcc4d1
+color0  = #363a4e
+color8  = #666666
+color1  = #ec7279
+color9  = #fc626b
+color2  = #a0c980
+color10 = #9de465
+color3  = #deb974
+color11 = #efbe63
+color4  = #6cb6eb
+color12 = #5bb9fc
+color5  = #d38aea
+color13 = #da7cf8
+color6  = #5dbbc1
+color14 = #30e2ee
+color7  = #c5cdd9
+color15 = #b2c9ec
 
 vim: ft=dosini cms=#%s
