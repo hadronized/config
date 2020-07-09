@@ -129,7 +129,7 @@ pin-workspaces = true
 
 label-focused = %name%
 label-focused-foreground = ${colors.violet0}
-label-focused-background = ${colors.violet5}
+label-focused-background = ${colors.transparent}
 label-focused-underline = ${colors.violet5}
 label-focused-padding = 4
 
