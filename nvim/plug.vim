@@ -114,7 +114,14 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 autocmd CompleteDone * silent! pclose!
 
 let g:fzf_preview_window = ''
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
+let g:fzf_layout = {
+  \'window': {
+  \  'width': 1.0,
+  \  'height': 0.3,
+  \  'yoffset': 1,
+  \  'border': 'top'
+  \}
+\}
 
 " Markdown.
 Plug 'mzlogin/vim-markdown-toc'
@@ -155,6 +162,9 @@ let g:startify_custom_indices = ['a', 'b', 'é', 'p', 'o', 'v', 'd', 'l', 'j', '
 function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
+
+" vista
+Plug 'liuchengxu/vista.vim'
 
 " coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

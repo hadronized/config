@@ -132,13 +132,33 @@ let g:which_key_map.p.e = 'show diagnostics'
 nmap <silent>       <leader>pa  :CocCommand actions.open<CR>
 let g:which_key_map.p.a = 'code action'
 nmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
+let g:which_key_map.p.v = { 'name': 'visual project' }
+let g:which_key_map.p.v.a = 'visual action'
 nmap <silent>       <leader>pf  :CocFix<CR>
 let g:which_key_map.p.f = 'fix'
+let g:which_key_map['.'] = { 'name': 'bookmarks' }
+nmap <silent>       <leader>.l  :CocList bookmark<CR>
+let g:which_key_map['.'].l = 'list bookmarks'
+nmap <silent>       <leader>.t  :CocCommand bookmark.toggle<CR>
+let g:which_key_map['.'].t = 'toggle bookmark'
+nmap <silent>       <leader>.a  :CocCommand bookmark.annotate<CR>
+let g:which_key_map['.'].a = 'annotate bookmark'
+nmap <silent>       <leader>.n  :CocCommand bookmark.next<CR>
+let g:which_key_map['.'].n = 'next bookmark'
+nmap <silent>       <leader>.p  :CocCommand bookmark.prev<CR>
+let g:which_key_map['.'].p = 'previous bookmark'
+nmap <silent>       <leader>.c  :CocCommand bookmark.clearForCurrentFile<CR>
+let g:which_key_map['.'].c = 'clear (current file)'
+nmap <silent>       <leader>.C  :CocCommand bookmark.clearForAllFiles<CR>
+let g:which_key_map['.'].C = 'clear (all files)'
 
 noremap <silent> <leader>qe :cc!<CR>
 noremap <silent> <leader>qn :cn!<CR>
 noremap <silent> <leader>qp :cp!<CR>
 noremap <silent> <leader>qo :cope<CR>
+
+let g:coc_snippet_next = '<C-t>'
+let g:coc_snippet_prev = '<C-s>'
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -183,6 +203,3 @@ let g:which_key_map.s.c = 'close'
 
 nnoremap <silent> <leader>h :ColorizerToggle<CR>
 let g:which_key_map.h = 'highlight colors'
-
-let g:coc_snippet_next = '<C-t>'
-let g:coc_snippet_prev = '<C-s>'

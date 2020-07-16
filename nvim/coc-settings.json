@@ -113,5 +113,6 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
-  "rust-analyzer.inlayHints.chainingHints": false
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "bookmark.sign": "🔖"
 }
