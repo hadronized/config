@@ -130,13 +130,11 @@ pin-workspaces = true
 label-focused = %name%
 label-focused-foreground = ${colors.violet0}
 label-focused-background = ${colors.transparent}
-label-focused-underline = ${colors.violet5}
 label-focused-padding = 4
 
 label-visible = %name%
 label-visible-foreground = ${colors.violet2}
 label-visible-background = ${colors.background}
-label-visible-underline = ${colors.violet9}
 label-visible-padding = 4
 
 ; unfocused = Inactive workspace on any monitor

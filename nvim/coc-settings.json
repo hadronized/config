@@ -114,5 +114,5 @@
     ">>": "gitUnstage"
   },
   "rust-analyzer.inlayHints.chainingHints": false,
-  "bookmark.sign": "🔖"
+  "bookmark.sign": ""
 }
