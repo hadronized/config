@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+prompt=$1
+shift
+
+dmenu -b -i -p "$prompt" -fn "Cantarell" -nb "#2b2d3a" -nf "#606060" -sb "#cd6596" -sf "#ffffff" $*

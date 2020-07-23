@@ -1,0 +1,137 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+alt + Return
+  alacritty
+
+# program launcher
+# bépo: alt + i
+alt + d
+  dmenu_run -b -i -p "Run" -fn "Cantarell" -nb "#2b2d3a" -nf "#606060" -sb "#cd6596" -sf "#ffffff"
+
+# make sxhkd reload its configuration files:
+alt + Escape
+  pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+# bépo: super + alt + {q,r}
+super + alt + {m, l}
+  bspc {quit,wm -r}
+
+# close and kill
+# bépo: alt + {_, shift +}q
+alt + {_,shift + }m
+  bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+# bépo: alt + e
+alt + f
+  bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+  bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest node
+# bépo: alt + z
+alt + bracketleft
+  bspc node -s biggest
+
+#
+# state/flags
+#
+
+# bépo: alt + {b,é,p,o}
+alt + {q,w,e,r}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+# bépo: alt + {à,y,x,.}
+alt + {z, x, c, v}
+  bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+alt + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {r,b,comma,period}
+  bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node in the current desktop
+super + {e,semicolon}
+  bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+#super + bracket{left,right}
+#  bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+  bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+  bspc wm -h off; \
+  bspc node {older,newer} -f; \
+  bspc wm -h on
+
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+ctrl + alt + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+# preselect the ratio
+ctrl + alt + {1-9}
+  bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+ctrl + alt + space
+  bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+ctrl + shift + alt + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# applications and misc
+Print
+  maim /tmp/img_$(date +%m%d%y_%H%M%S).png && notify-send "Screenshot taken" "Whole screen." --icon=dialog-information
+
+super + Print
+  maim -c 0.450,0.847,0.647,0.5  -l -s /tmp/img_$(date +%m%d%y_%H%M%S).png && notify-send "Screenshot taken" "Selection." --icon=dialog-information
+
+alt + Print
+  maim -i /tmp/img_$(date +%m%d%y_%H%M%S).png &&notify-send "Screenshot taken" "Window." --icon=dialog-information
