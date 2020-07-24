@@ -12,7 +12,7 @@ alt + d
   dmenu_run -b -i -p "Run" -fn "Cantarell" -nb "#2b2d3a" -nf "#606060" -sb "#cd6596" -sf "#ffffff"
 
 # make sxhkd reload its configuration files:
-alt + Escape
+super + Escape
   pkill -USR1 -x sxhkd
 
 #
@@ -48,13 +48,13 @@ alt + bracketleft
 #
 
 # bépo: alt + {b,é,p,o}
-alt + {q,w,e,r}
+alt + {space,slash,shift + slash,shift + f}
   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 # bépo: alt + {à,y,x,.}
-alt + {z, x, c, v}
-  bspc node -g {marked,locked,sticky,private}
+#alt + {z, x, c, v}
+#  bspc node -g {marked,locked,sticky,private}
 
 #
 # focus/swap
@@ -65,12 +65,16 @@ alt + {_,shift + }{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {r,b,comma,period}
+alt + {e,q,x,c}
   bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
-super + {e,semicolon}
-  bspc node -f {next,prev}.local
+# rotate the tree at the selected node
+super + {_, shift + }l
+  bspc node -R {90,180}
+
+# flip the tree at the selected node
+super + {_, shift + }slash
+  bspc node -F {horizontal,vertical}
 
 # focus the next/previous desktop in the current monitor
 #super + bracket{left,right}
@@ -128,10 +132,18 @@ super + {Left,Down,Up,Right}
 
 # applications and misc
 Print
-  maim /tmp/img_$(date +%m%d%y_%H%M%S).png && notify-send "Screenshot taken" "Whole screen." --icon=dialog-information
+  maim "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Whole screen." --icon=dialog-information
 
 super + Print
-  maim -c 0.450,0.847,0.647,0.5  -l -s /tmp/img_$(date +%m%d%y_%H%M%S).png && notify-send "Screenshot taken" "Selection." --icon=dialog-information
+  maim -c 0.450,0.847,0.647,0.5  -l -s "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Selection." --icon=dialog-information
 
 alt + Print
-  maim -i /tmp/img_$(date +%m%d%y_%H%M%S).png &&notify-send "Screenshot taken" "Window." --icon=dialog-information
+  maim -i "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Window." --icon=dialog-information
+
+# edit configurations
+super + grave
+  edit-conf
+
+# lock, suspend, hibernate
+super + {period,o,k}
+  systemctl {hibernate,lock,syspend}

@@ -66,7 +66,7 @@ font-2 = Material Icons:style=Solid:pixelsize=18;5
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = pulseaudio date
+modules-right = dunst pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -346,6 +346,14 @@ interval = 1024
 
 format-prefix = " "
 format-prefix-foreground = ${colors.magenta0}
+
+[module/dunst]
+type = custom/text
+
+content = 
+content-foreground = ${colors.magenta0}
+
+click-left = notify-send "DUNST_COMMAND_TOGGLE"
 
 [settings]
 screenchange-reload = true
