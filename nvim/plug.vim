@@ -178,10 +178,6 @@ endfunction
 " commentary
 Plug 'tpope/vim-commentary'
 
-" Other
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " which-key
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 let g:which_key_use_floating_win = 1
