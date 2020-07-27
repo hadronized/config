@@ -45,6 +45,7 @@ violet9 = #4a148c
 
 ; Bars.
 [bar/desktop-primary]
+enable-ipc = true
 monitor = DP-2
 width = 100%
 height = 30
@@ -66,7 +67,7 @@ font-2 = Material Icons:style=Solid:pixelsize=18;5
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = dunst pulseaudio date
+modules-right = spotifyprevious spotifyplaypause spotifynext spotify dunst pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -477,6 +478,45 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
+
+; Spotify module
+[module/spotifyprevious]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo "Previous"
+click-left = "spotifyctl -q previous"
+
+[module/spotifynext]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo "Next"
+click-left = "spotifyctl -q next"
+
+[module/spotifyplaypause]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo "Pause"
+; Paused
+hook-2 = echo "Play"
+click-left = "spotifyctl -q playpause"
+
+[module/spotify]
+type = custom/ipc
+
+; Default
+hook-0 = echo ""
+
+; Playing/paused show song name and artist
+hook-1 = spotifyctl -q status --format '%artist% – %title%'
 
 [settings]
 screenchange-reload = true
