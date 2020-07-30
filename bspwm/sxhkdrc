@@ -52,9 +52,9 @@ ctrl + super + {_, shift + }slash
 alt + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
-# preselect
-#
+# focus a node via dmenu
+alt + grave
+  bspwm-desktops
 
 # preselect the direction
 ctrl + alt + {h,j,k,l}
@@ -87,6 +87,7 @@ alt + d
 alt + Return
   $TERMINAL
 
+# file browser
 shift + alt + Return
   dolphin
 
