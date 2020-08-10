@@ -518,6 +518,16 @@ hook-0 = echo ""
 ; Playing/paused show song name and artist
 hook-1 = spotifyctl -q status --format '%artist% – %title%'
 
+[module/bluetooth]
+type = custom/script
+exec = /home/phaazon/github/polybar-bluetooth/toggle_bluetooth.sh
+interval = 2
+click-left = exec blueberry
+click-right = exec path/to/scripts/config/polybar/toggle_bluetooth.sh
+format-padding = 1
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
