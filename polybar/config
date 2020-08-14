@@ -190,7 +190,7 @@ label-dimmed-occupied-foreground = ${colors.blue1}
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-focused = %icon%
+label-focused = %name%
 label-focused-foreground = ${colors.green0}
 
 ; Available tokens:
@@ -198,7 +198,7 @@ label-focused-foreground = ${colors.green0}
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-occupied = %icon%
+label-occupied = %name%
 label-occupied-foreground = ${colors.green1}
 
 ; Available tokens:
@@ -206,7 +206,7 @@ label-occupied-foreground = ${colors.green1}
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-empty = %icon%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-dimmed}
 
 ; Available tokens:
@@ -214,7 +214,7 @@ label-empty-foreground = ${colors.foreground-dimmed}
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-urgent = %icon%
+label-urgent = %name%
 label-urgent-foreground = ${colors.red0}
 
 ; Separator in between workspaces
@@ -222,18 +222,6 @@ label-separator = |
 label-separator-padding = 2
 label-separator-foreground = ${colors.transparent}
 label-separator-background = ${colors.background}
-
-ws-icon-0 = web;
-ws-icon-1 = code;ﲵ
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = doc;
-ws-icon-8 = spotify;
-ws-icon-9 = chat;
-ws-icon-default = 
 
 ; The following labels will be used to indicate the layout/mode
 ; for the focused workspace. Requires <label-mode>

@@ -53,8 +53,8 @@ alt + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
 # focus a node via dmenu
-alt + grave
-  bspwm-desktops
+alt + o
+  bspwm-dmenu switch
 
 # preselect the direction
 ctrl + alt + {h,j,k,l}

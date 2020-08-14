@@ -1,3 +1,0 @@
-#!/bin/sh
-
-bspc query -D --names | dmenu-wrapper "Jump to desktop" | xargs bspc desktop -f

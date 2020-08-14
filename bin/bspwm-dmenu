@@ -1,0 +1,28 @@
+#!/bin/sh
+
+case "$1" in
+  "meta")
+    choices="\
+      switch\n\
+      new-desktop\n\
+      rename-desktop\n\
+      remove-desktop"
+    echo -e $choices | dmenu-wrapper "bspwm" | xargs $0
+    ;;
+
+  "switch")
+    bspc query -D --names | dmenu-wrapper "Jump to desktop" | xargs bspc desktop -f
+    ;;
+
+  "new-desktop")
+    echo | dmenu-wrapper "Desktop name" | xargs bspc monitor -a
+    ;;
+
+  "rename-desktop")
+    bspc query -D -d --names | dmenu-wrapper "Rename desktop" | xargs bspc desktop -n
+    ;;
+
+  "remove-desktop")
+    bspc desktop -r
+    ;;
+esac
