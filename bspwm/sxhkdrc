@@ -81,7 +81,13 @@ super + shift + {h,j,k,l}
 
 # program launcher
 alt + d
-  dmenu_run -b -i -p "Run" -fn "Cantarell" -nb "#2b2d3a" -nf "#606060" -sb "#cd6596" -sf "#ffffff"
+  rofi -show run -show-icons
+
+alt + {_, shift +} grave
+  bspwm-dmenu {new-desktop, remove-desktop}
+
+alt + comma
+  bspwm-dmenu rename-desktop
 
 # terminal emulator
 alt + Return
@@ -90,10 +96,6 @@ alt + Return
 # file browser
 shift + alt + Return
   dolphin
-
-# edit configurations
-ctrl + super + h
-  edit-conf
 
 # web browser
 ctrl + super + bracketright

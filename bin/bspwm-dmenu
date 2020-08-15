@@ -3,23 +3,26 @@
 case "$1" in
   "meta")
     choices="\
-      switch\n\
-      new-desktop\n\
-      rename-desktop\n\
-      remove-desktop"
-    echo -e $choices | dmenu-wrapper "bspwm" | xargs $0
+switch\n\
+new-desktop\n\
+rename-desktop\n\
+remove-desktop"
+    choice=$(echo -e $choices | rofi -dmenu -p "bspwm")
+    sleep 0.1
+
+    $0 $choice
     ;;
 
   "switch")
-    bspc query -D --names | dmenu-wrapper "Jump to desktop" | xargs bspc desktop -f
+    bspc query -D --names | rofi -dmenu -p "Jump to desktop" | xargs bspc desktop -f
     ;;
 
   "new-desktop")
-    echo | dmenu-wrapper "Desktop name" | xargs bspc monitor -a
+    rofi -dmenu -p "Desktop name" | xargs bspc monitor -a
     ;;
 
   "rename-desktop")
-    bspc query -D -d --names | dmenu-wrapper "Rename desktop" | xargs bspc desktop -n
+    bspc query -D -d --names | rofi -dmenu -p "Rename desktop" | xargs bspc desktop -n
     ;;
 
   "remove-desktop")
