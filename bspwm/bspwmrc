@@ -8,7 +8,7 @@ HOST=$(hostname)
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
     bspc monitor DP-2 -d 1 2 3 4 5
-    bspc monitor HDMI-0 -d 6 7 8 9 0
+    bspc monitor HDMI-0 -d 6 7 8 9 10
     ;;
 
   "$LAPTOP_HOSTNAME")
@@ -43,7 +43,7 @@ bspc config honor_size_hints            false
 sxhkd &
 dunst &
 nitrogen --restore &
-xcompmgr -c -C -f -D5 &
+#xcompmgr -c -C -f -D5 &
 
 case "$HOST" in
   "$DESKTOP_HOSTNAME")

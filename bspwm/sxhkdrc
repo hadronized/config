@@ -9,84 +9,122 @@ super + Escape
 # bspwm
 
 # quit/restart bspwm
-super + alt + {m, l}
+super + alt + {q, r}
   bspc {quit,wm -r}
 
 # close and kill node
-alt + {_,shift + }m
+alt + {_,shift + }q
   bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-alt + f
+alt + e
   bspc desktop -l next
 
 # swap the current node and the biggest node
-alt + bracketleft
+alt + z
   bspc node -s biggest
 
 # change node view
-alt + {space,slash,shift + slash,shift + f}
+alt + {space,f,shift + f,shift + e}
   bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + {apostrophe, slash}
+super + {m, f}
   bspc node -g {marked,sticky}
 
 # focus the node in the given direction
-alt + {_,shift + }{h,j,k,l}
+alt + {_,shift + }{c,t,s,r}
   bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-alt + {_, shift}{e,q,x,c}
+alt + {_, shift}{p,b,y,x}
   bspc node -{f,s} @{parent,brother,first,second}
 
 # rotate the tree
-ctrl + super + {_, shift + }l
+ctrl + super + {_, shift + }r
   bspc node -R {90,180}
 
 # flip the tree
-ctrl + super + {_, shift + }slash
+ctrl + super + {_, shift + }f
   bspc node -F {horizontal,vertical}
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
-  bspc {desktop -f,node -d} '^{1-9,10}'
+alt + {_,shift + } quotedbl
+  bspc {desktop -f,node -d} 1
+alt + {_,shift + } guillemotleft
+  bspc {desktop -f,node -d} 2
+alt + {_,shift + } guillemotright
+  bspc {desktop -f,node -d} 3
+alt + {_,shift + } parenleft
+  bspc {desktop -f,node -d} 4
+alt + {_,shift + } parenright
+  bspc {desktop -f,node -d} 5
+alt + {_,shift + } at
+  bspc {desktop -f,node -d} 6
+alt + {_,shift + } plus
+  bspc {desktop -f,node -d} 7
+alt + {_,shift + } minus
+  bspc {desktop -f,node -d} 8
+alt + {_,shift + } slash
+  bspc {desktop -f,node -d} 9
+alt + {_,shift + } asterisk
+  bspc {desktop -f,node -d} 10
+alt + {_,shift + } equal
+  bspc {desktop -f,node -d} 11
+alt + {_,shift + } percent
+  bspc {desktop -f,node -d} 12
 
 # focus a node via dmenu
-alt + o
+alt + l
   bspwm-dmenu switch
 
 # preselect the direction
-ctrl + alt + {h,j,k,l}
+ctrl + alt + {c,t,s,r}
   bspc node -p {west,south,north,east}
 
 # preselect the ratio
-ctrl + alt + {1-9}
-  bspc node -o 0.{1-9}
+ctrl + alt + quotedbl
+  bspc node -o 0.1
+ctrl + alt + guillemotleft
+  bspc node -o 0.2
+ctrl + alt + guillemotright
+  bspc node -o 0.3
+ctrl + alt + parenleft
+  bspc node -o 0.4
+ctrl + alt + parenright
+  bspc node -o 0.5
+ctrl + alt + at
+  bspc node -o 0.6
+ctrl + alt + plus
+  bspc node -o 0.7
+ctrl + alt + minus
+  bspc node -o 0.8
+ctrl + alt + slash
+  bspc node -o 0.9
 
 # cancel the preselection for the focused node
 ctrl + alt + space
   bspc node -p cancel
 
 # expand a window by moving one of its side outward
-super + {h,j,k,l}
+super + {c,t,s,r}
   bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + shift + {h,j,k,l}
+super + shift + {c,t,s,r}
   bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 ###################################################################################################
 # applications and misc
 
 # program launcher
-alt + d
+alt + i
   rofi -show run -show-icons
 
-alt + {_, shift +} grave
+alt + {_, shift +} dollar
   bspwm-dmenu {new-desktop, remove-desktop}
 
-alt + comma
+alt + g
   bspwm-dmenu rename-desktop
 
 # terminal emulator
@@ -96,10 +134,6 @@ alt + Return
 # file browser
 shift + alt + Return
   dolphin
-
-# web browser
-ctrl + super + bracketright
-  firefox
 
 # screenshoters
 Print
@@ -112,5 +146,5 @@ alt + Print
   maim -i "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Window." --icon=dialog-information
 
 # lock, suspend, hibernate
-super + {period,o,k}
+super + {l,s,h}
   systemctl {hibernate,lock,syspend}
