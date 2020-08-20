@@ -45,7 +45,6 @@
   "list.previousKeymap": "<C-s>",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnInsertLeave": true,
-  "flow.pathToFlow": "/home/phaazon/dev/ledger/ledger-live-common/node_modules/.bin/flow",
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.previewAction.onHover": false,
@@ -85,7 +84,6 @@
 
     "a": "addFile",
     "A": "addDirectory",
-    "R": "rename",
 
     ".": "toggleHidden",
     "R": "refresh",
@@ -113,6 +111,11 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
-  "rust-analyzer.inlayHints.chainingHints": false,
   "bookmark.sign": "",
+  "java.autobuild.enabled": false,
+  "java.maven.downloadSources": true,
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.format.enabled": true
 }

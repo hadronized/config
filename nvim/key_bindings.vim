@@ -78,7 +78,10 @@ noremap <silent> <leader>gn :GitGutterNextHunk<CR>
 let g:which_key_map.g.n = 'next hunk'
 
 noremap <silent> <leader>gg :Git<CR>
-let g:which_key_map.g.g = 'git status'
+let g:which_key_map.g.g = 'status'
+
+noremap <silent> <leader>gz :GitGutterFold<CR>
+let g:which_key_map.g.z = 'fold'
 
 noremap <silent> <leader>gx :GitGutterLineNrHighlightsToggle<CR>
 let g:which_key_map.g.x = 'toggle line number highlighting'
