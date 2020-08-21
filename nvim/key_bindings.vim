@@ -17,6 +17,11 @@ noremap <silent> <C-q> :tabclose<CR>
 inoremap <silent> <C-s> <C-p>
 inoremap <silent> <C-t> <C-n>
 
+" extensions
+map <silent> <leader>em :CocList marketplace<CR>
+let g:which_key_map.e = { 'name': '+extension' }
+let g:which_key_map.e.m = 'marketplace'
+
 " commentary
 map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
@@ -115,7 +120,7 @@ let g:which_key_map.i = 'go to implementation'
 nmap <silent>       <leader>r   <Plug>(coc-references)
 let g:which_key_map.r = 'show references'
 
-let g:which_key_map.p = { 'name': 'project' }
+let g:which_key_map.p = { 'name': '+project' }
 nmap <silent>       <leader>ps  :CocList symbols<CR>
 let g:which_key_map.p.s = 'show symbols'
 nmap <silent>       <leader>po  :CocList outline<CR>
@@ -130,16 +135,22 @@ nmap <silent>       <leader>pl  <Plug>(coc-codelens-action)
 let g:which_key_map.p.l = 'lens action'
 nmap <silent>       <leader>pr  <Plug>(coc-rename)
 let g:which_key_map.p.r = 'rename'
-nmap <silent>       <leader>pe  :CocList diagnostics<CR>
-let g:which_key_map.p.e = 'show diagnostics'
+
+let g:which_key_map.p.x = { 'name': '+diagnostics' }
+let g:which_key_map.p.x.l = 'show all'
+let g:which_key_map.p.x.p = 'previous error'
+let g:which_key_map.p.x.n = 'next error'
+nmap <silent> <leader>pxl :CocList diagnostics<CR>
+nmap <silent> <leader>pxp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>pxn <Plug>(coc-diagnostic-next-error)
+
 nmap <silent>       <leader>pa  :CocCommand actions.open<CR>
+vnoremap <silent>   <leader>a   :CocCommand actions.open<CR>
 let g:which_key_map.p.a = 'code action'
-nmap <silent>       <leader>pva <Plug>(coc-codeaction-selected>
-let g:which_key_map.p.v = { 'name': 'visual project' }
-let g:which_key_map.p.v.a = 'visual action'
-nmap <silent>       <leader>pf  :CocFix<CR>
+
+nmap <silent>       <leader>pf  <Plug>(coc-fix-current)
 let g:which_key_map.p.f = 'fix'
-let g:which_key_map['.'] = { 'name': 'bookmarks' }
+let g:which_key_map['.'] = { 'name': '+bookmarks' }
 nmap <silent>       <leader>.l  :CocList bookmark<CR>
 let g:which_key_map['.'].l = 'list bookmarks'
 nmap <silent>       <leader>.t  :CocCommand bookmark.toggle<CR>
@@ -187,7 +198,7 @@ nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :WhichKey 'è'<CR>
 
 " startify
-let g:which_key_map.s = { 'name': 'session' }
+let g:which_key_map.s = { 'name': '+session' }
 
 nnoremap <silent> <leader>ss :SSave<CR>
 let g:which_key_map.s.s = 'save'

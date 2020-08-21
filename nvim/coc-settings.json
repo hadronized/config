@@ -111,7 +111,6 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
-  "bookmark.sign": "",
   "java.autobuild.enabled": false,
   "java.maven.downloadSources": true,
   "java.configuration.updateBuildConfiguration": "interactive",
