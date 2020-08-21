@@ -146,5 +146,5 @@ alt + Print
   maim -i "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Window." --icon=dialog-information
 
 # lock, suspend, hibernate
-super + {l,s,h}
-  systemctl {hibernate,lock,syspend}
+super + {h,l,s}
+  systemctl {hibernate,lock,suspend}
