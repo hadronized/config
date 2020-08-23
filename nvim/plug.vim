@@ -198,9 +198,12 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'edge',
       \ 'active': {
-      \   'left': [ [ 'filename', 'paste', 'modified', 'readonly' ],
+      \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
       \             [ 'current_function' ] ],
+      \ },
+      \ 'inactive': {
+      \   'left': [ [ 'windownb', 'filename'] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
@@ -213,6 +216,7 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
       \ },
       \ 'component_function': {
+      \   'windownb': 'WindowNumber',
       \   'filetype': 'MyFiletype',
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
@@ -234,6 +238,11 @@ endfunction
 
 function! MyFileformat()
   return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! WindowNumber()
+    let str=tabpagewinnr(tabpagenr())
+    return str
 endfunction
 
 set statusline+=%#warningmsg#

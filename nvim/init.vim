@@ -94,6 +94,6 @@ call SwitchDarkLightColorscheme("dark")
 
 source ~/.config/nvim/key_bindings.vim
 
-highlight GitGutterAdd    guifg=#66FF66 ctermfg=2
-highlight GitGutterChange guifg=#FF66FF ctermfg=3
-highlight GitGutterDelete guifg=#FF6666 ctermfg=1
+highlight GitGutterAdd    guifg=#66DD66 ctermfg=2
+highlight GitGutterChange guifg=#DD66DD ctermfg=3
+highlight GitGutterDelete guifg=#DD6666 ctermfg=1
