@@ -43,7 +43,7 @@ bspc config honor_size_hints            false
 sxhkd &
 dunst &
 nitrogen --restore &
-#xcompmgr -c -C -f -D5 &
+xcompmgr -c -C -f -D5 &
 
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
