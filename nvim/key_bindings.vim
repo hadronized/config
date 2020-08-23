@@ -10,7 +10,7 @@ noremap U :redo<CR>
 " Window numbering
 let i = 1
 while i <= 9
-    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    execute 'nnoremap <silent> <Leader>' . i . ' :' . i . 'wincmd w<CR>'
     let i = i + 1
 endwhile
 
