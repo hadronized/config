@@ -116,5 +116,7 @@
   "java.configuration.updateBuildConfiguration": "interactive",
   "java.referencesCodeLens.enabled": true,
   "java.implementationsCodeLens.enabled": true,
-  "java.format.enabled": true
+  "java.format.enabled": true,
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "bookmark.sign": ""
 }
