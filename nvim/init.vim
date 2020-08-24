@@ -77,8 +77,8 @@ function SwitchDarkLightColorscheme(...)
   endif
 
   " sign/linenr column
-  "hi Normal guibg=none
-  "hi EndOfBuffer guibg=none
+  hi Normal guibg=none
+  hi EndOfBuffer guibg=none
   hi SignColumn guibg=none
   hi GitGutterAdd guibg=none
   hi GitGutterChange guibg=none
