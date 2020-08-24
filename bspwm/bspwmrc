@@ -7,8 +7,8 @@ HOST=$(hostname)
 
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
-    bspc monitor DP-2 -d 1 2 3 4 5
-    bspc monitor HDMI-0 -d 6 7 8 9 10
+    bspc monitor DP-2 -d " web" " code" " sys" " media" " misc"
+    bspc monitor HDMI-0 -d " foo" " sushi" " hotdog" " spotify" "ﳴ chat"
     ;;
 
   "$LAPTOP_HOSTNAME")

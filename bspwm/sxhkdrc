@@ -50,25 +50,25 @@ ctrl + super + {_, shift + }f
 
 # focus or send to the given desktop
 alt + {_,shift + } quotedbl
-  bspc {desktop -f,node -d} 1
+  bspc {desktop -f,node -d} " web"
 alt + {_,shift + } guillemotleft
-  bspc {desktop -f,node -d} 2
+  bspc {desktop -f,node -d} " code"
 alt + {_,shift + } guillemotright
-  bspc {desktop -f,node -d} 3
+  bspc {desktop -f,node -d} " sys"
 alt + {_,shift + } parenleft
-  bspc {desktop -f,node -d} 4
+  bspc {desktop -f,node -d} " media"
 alt + {_,shift + } parenright
-  bspc {desktop -f,node -d} 5
+  bspc {desktop -f,node -d} " misc"
 alt + {_,shift + } at
-  bspc {desktop -f,node -d} 6
+  bspc {desktop -f,node -d} " foo"
 alt + {_,shift + } plus
-  bspc {desktop -f,node -d} 7
+  bspc {desktop -f,node -d} " sushi"
 alt + {_,shift + } minus
-  bspc {desktop -f,node -d} 8
+  bspc {desktop -f,node -d} " hotdog"
 alt + {_,shift + } slash
-  bspc {desktop -f,node -d} 9
+  bspc {desktop -f,node -d} " spotify"
 alt + {_,shift + } asterisk
-  bspc {desktop -f,node -d} 10
+  bspc {desktop -f,node -d} "ﳴ chat"
 alt + {_,shift + } equal
   bspc {desktop -f,node -d} 11
 alt + {_,shift + } percent
