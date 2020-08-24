@@ -20,7 +20,8 @@
 [colors]
 foreground        = #a0a0a0
 foreground-dimmed = #606060
-background        = #2b2d3a
+; background        = #2b2d3a
+background       = #66000000
 transparent       = #00000000
 
 ; bspwm colors

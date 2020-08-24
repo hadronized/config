@@ -119,7 +119,7 @@ super + shift + {c,t,s,r}
 
 # program launcher
 alt + i
-  rofi -show run -show-icons
+  rofi -show drun
 
 alt + {_, shift +} dollar
   bspwm-dmenu {new-desktop, remove-desktop}
