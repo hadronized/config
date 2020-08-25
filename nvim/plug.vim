@@ -200,7 +200,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
-      \             [ 'current_function' ] ],
+      \             [ 'current_function', 'coc_status' ] ],
       \ },
       \ 'inactive': {
       \   'left': [ [ 'windownb', 'filename'] ]
@@ -221,6 +221,7 @@ let g:lightline = {
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
       \   'current_function': 'CocCurrentFunction',
+      \   'coc_status': 'coc#status',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
