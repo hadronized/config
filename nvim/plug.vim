@@ -114,15 +114,15 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 autocmd CompleteDone * silent! pclose!
 
 let g:fzf_preview_window = ''
-" let g:fzf_layout = {
-"   \'window': {
-"   \  'width': 1.0,
-"   \  'height': 0.3,
-"   \  'yoffset': 1,
-"   \  'border': 'top'
-"   \}
-" \}
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
+let g:fzf_layout = {
+  \'window': {
+  \  'width': 1.0,
+  \  'height': 0.3,
+  \  'yoffset': 0,
+  \  'border': 'bottom'
+  \}
+\}
+" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
 
 " Markdown.
 Plug 'mzlogin/vim-markdown-toc'
@@ -247,5 +247,9 @@ endfunction
 
 set statusline+=%#warningmsg#
 set statusline+=%*
+
+" ultisnips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
