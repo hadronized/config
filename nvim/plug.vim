@@ -117,9 +117,9 @@ let g:fzf_preview_window = ''
 let g:fzf_layout = {
   \'window': {
   \  'width': 1.0,
-  \  'height': 0.3,
-  \  'yoffset': 0,
-  \  'border': 'bottom'
+  \  'height': 0.5,
+  \  'yoffset': 1,
+  \  'border': 'top'
   \}
 \}
 " let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
@@ -201,9 +201,11 @@ let g:lightline = {
       \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
       \             [ 'current_function', 'coc_status' ] ],
+      \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'inactive': {
-      \   'left': [ [ 'windownb', 'filename'] ]
+      \   'left': [ [ 'windownb', 'filename'] ],
+      \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',

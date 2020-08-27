@@ -154,8 +154,8 @@ let g:which_key_map.p.x.l = 'show all'
 let g:which_key_map.p.x.p = 'previous error'
 let g:which_key_map.p.x.n = 'next error'
 
-nmap <silent>       <leader>pa  :CocCommand actions.open<CR>
-vnoremap <silent>   <leader>a   :CocCommand actions.open<CR>
+nmap <silent> <leader>pa  :CocCommand actions.open<CR>
+xmap <silent> <leader>a   <Plug>(coc-codeaction-selected)
 let g:which_key_map.p.a = 'code action'
 
 nmap <silent> <leader>pf  <Plug>(coc-fix-current)
