@@ -134,36 +134,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
 
-" startify
-Plug 'mhinz/vim-startify'
-let g:startify_lists = [
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
-  \ { 'type': 'sessions',  'header': ['   Sessions'] },
-  \ { 'type': 'files',     'header': ['   Recent files'] },
-  \ { 'type': 'commands',  'header': ['   Commands'] },
-  \ ]
-let g:startify_bookmarks = [
-  \ '~/.config/nvim/init.vim',
-  \ '~/.config/nvim/key_bindings.vim',
-  \ '~/.config/nvim/plug.vim',
-  \ '~/.zshrc',
-  \ '~/.config/starship.toml',
-  \ '~/.config/termite/config',
-  \ '~/.config/i3/config',
-  \ ]
-let g:startify_session_persistence = 1
-let g:startify_session_delete_buffers = 1
-let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
-let g:startify_fortune_use_unicode = 1
-let g:startify_relative_path = 1
-let g:startify_custom_footer=['   We don’t deserve dogs!']
-let g:startify_custom_indices = ['a', 'b', 'é', 'p', 'o', 'v', 'd', 'l', 'j', 'g', 'h', 'f', 'y', 'x']
-
-function! StartifyEntryFormat()
-    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
-endfunction
-
 " vista
 Plug 'liuchengxu/vista.vim'
 

@@ -1,3 +1,50 @@
+" Keybindings.
+"
+" Hierarchy:
+"
+" - window
+"   - 1..9 for window jump
+" - bookmark
+"   - list bookmarks
+"   - add unannotated bookmark
+"   - add annotated bookmarks
+"   - delete bookmarks in current file
+"   - delete all bookmarks
+" - extensions
+"   - list them all
+" - git
+"   - fold / unfold
+"   - status
+"   - blame under cursor
+"   - blame buffer
+"   - blame lensline
+"   - preview hunk
+"   - previous hunk
+"   - next hunk
+"   - unstage hunk
+"   - stage hunk
+"   - buffer commits
+" - project
+"   - diagnostics
+"   - code action
+"   - code fix
+"   - show type definition
+"   - show documentation
+"   - show references
+"   - search for symbol in current buffer
+"   - search for symbol in worspace
+"   - find file in project
+"   - find file in project (versioned)
+" - tree
+"   - open tree viewer
+" - snippets
+"   - add a new snippets
+"   - search for a snippet
+" - search
+"   - search for something in lines of current buffer
+"   - search for something in workspace
+" - misc
+
 let mapleader=' '
 let maplocalleader = 'è'
 
@@ -7,10 +54,16 @@ let g:which_key_local_map = { 'name': 'local' }
 " misc
 noremap U :redo<CR>
 
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
 " Window numbering
 let i = 1
 while i <= 9
     execute 'nnoremap <silent> <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let g:which_key_map[i] = 'window ' . i
     let i = i + 1
 endwhile
 
@@ -24,73 +77,153 @@ noremap <silent> <C-q> :tabclose<CR>
 inoremap <silent> <C-s> <C-p>
 inoremap <silent> <C-t> <C-n>
 
+" commentary
+map <silent> <leader>/ :Commentary<CR>
+let g:which_key_map['/'] = '(un)comment line'
+
+" bookmarks.
+nmap <silent> <leader>.l :CocList bookmark<CR>
+nmap <silent> <leader>.a :CocCommand bookmark.toggle<CR>
+nmap <silent> <leader>.A :CocCommand bookmark.annotate<CR>
+nmap <silent> <leader>.d :CocCommand bookmark.clearForCurrentFile<CR>
+nmap <silent> <leader>.D :CocCommand bookmark.clearForAllFiles<CR>
+let g:which_key_map['.'] = { 'name': '+bookmarks' }
+let g:which_key_map['.'].l = 'list bookmarks'
+let g:which_key_map['.'].a = 'add bookmark'
+let g:which_key_map['.'].A = 'annotate bookmark'
+let g:which_key_map['.'].n = 'next bookmark'
+let g:which_key_map['.'].p = 'previous bookmark'
+let g:which_key_map['.'].c = 'clear (current file)'
+let g:which_key_map['.'].C = 'clear (all files)'
+
 " extensions
 map <silent> <leader>em :CocList marketplace<CR>
 let g:which_key_map.e = { 'name': '+extension' }
 let g:which_key_map.e.m = 'marketplace'
 
-" commentary
-map <silent> <leader>/ :Commentary<CR>
-let g:which_key_map['/'] = '(un)comment line'
+" git
+noremap <silent> <leader>gi  :GitGutterFold<CR>
+noremap <silent> <leader>gg  :Git<CR>
+noremap <silent> <leader>gbc :GitMessenger<CR>
+noremap <silent> <leader>gbb :Gblame<CR>
+noremap <silent> <leader>gbl :ToggleBlameLine<CR>
+noremap <silent> <leader>ghh :GitGutterPreviewHunk<CR>
+noremap <silent> <leader>ghp :GitGutterPrevHunk<CR>
+noremap <silent> <leader>ghn :GitGutterNextHunk<CR>
+noremap <silent> <leader>ghx :GitGutterUndoHunk<CR>
+noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
+noremap <silent> <leader>gc  :BCommits<CR>
+let g:which_key_map.g     = { 'name': '+git' }
+let g:which_key_map.g.i   = 'isolate changes'
+let g:which_key_map.g.g   = 'status'
+let g:which_key_map.g.b   = { 'name': '+blame' }
+let g:which_key_map.g.b.c = 'cursor'
+let g:which_key_map.g.b.b = 'buffer'
+let g:which_key_map.g.b.l = 'lens'
+let g:which_key_map.g.h   = { 'name': '+hunk' }
+let g:which_key_map.g.h.h = 'preview hunk'
+let g:which_key_map.g.h.p = 'previous'
+let g:which_key_map.g.h.n = 'previous'
+let g:which_key_map.g.h.x = 'discard'
+let g:which_key_map.g.h.s = 'stage'
+let g:which_key_map.g.c   = 'buffer commits'
 
-" file tree
-noremap <silent> <leader>n :CocCommand explorer<CR>
-let g:which_key_map.n = 'file browser'
+" project
+nmap <silent> <leader>pDd :CocList diagnostics<CR>
+nmap <silent> <leader>pDp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>pDn <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>pa  :CocCommand actions.open<CR>
+nmap <silent> <leader>pf  <Plug>(coc-fix-current)
+nmap <silent> <leader>pd  <Plug>(coc-definition)
+nmap <silent> <leader>pt  <Plug>(coc-type-definition)
+nmap <silent> <leader>pi  <Plug>(coc-implementation)
+nmap <silent> <leader>pr  <Plug>(coc-references)
+nmap <silent> <leader>psp :CocList symbols<CR>
+nmap <silent> <leader>psb :CocList outline<CR>
+nmap <silent> <leader>pp :call <SID>show_documentation()<CR>
+nmap <silent> <leader>pl <Plug>(coc-codelens-action)
+nmap <silent> <leader>pr <Plug>(coc-rename)
+noremap <silent> <leader> <leader> :GFiles<CR>
+noremap <silent> <leader>ff :GFiles<CR>
+noremap <silent> <leader>f. :Files<CR>
+noremap <silent> <leader>fca :e ~/.config/alacritty/alacritty.yml<CR>
+noremap <silent> <leader>fcb :e ~/.config/bspwm/bspwmrc<CR>
+noremap <silent> <leader>fci :e ~/.ssh/config<CR>
+noremap <silent> <leader>fci :e $MYVIMRC<CR>
+noremap <silent> <leader>fck :e ~/.config/nvim/key_bindings.vim<CR>
+noremap <silent> <leader>fcp :e ~/.config/nvim/plug.vim<CR>
+noremap <silent> <leader>fcs :e ~/.config/starship.toml<CR>
+noremap <silent> <leader>fcx :e ~/.config/sxhkd/sxhkdrc<CR>
+noremap <silent> <leader>fcz :e ~/.zshrc<CR>
+noremap <silent> <leader>fcZ :e ~/.zprofile<CR>
+let g:which_key_map.p = { 'name': '+project' }
+let g:which_key_map.p.D = { 'name': '+diagnostics' }
+let g:which_key_map.p.D.d = 'diagnostics'
+let g:which_key_map.p.D.p = 'previous error'
+let g:which_key_map.p.D.n = 'next error'
+let g:which_key_map.p.a = 'action menu'
+let g:which_key_map.p.f = 'fix'
+let g:which_key_map.p.r = 'show references'
+let g:which_key_map.p.d = 'go to definition'
+let g:which_key_map.p.i = 'go to implementation'
+let g:which_key_map.p.t = 'go to type definition'
+let g:which_key_map.p.s = { 'name': '+symbols' }
+let g:which_key_map.p.s.p = 'search in project'
+let g:which_key_map.p.s.b = 'search in buffer'
+let g:which_key_map.p.p = 'peek documentation'
+let g:which_key_map.p.l = 'lens action'
+let g:which_key_map.p.r = 'rename'
+let g:which_key_map.f = { 'name': '+file' }
+let g:which_key_map.f['.'] = 'find in directory'
+let g:which_key_map.f.f = 'find in project'
+let g:which_key_map[' '] = 'find in project'
+let g:which_key_map.f.c = { 'name': '+config' }
+let g:which_key_map.f.c.a = 'alacritty'
+let g:which_key_map.f.c.b = 'bspwm'
+let g:which_key_map.f.c.h = 'ssh'
+let g:which_key_map.f.c.i = 'init'
+let g:which_key_map.f.c.k = 'keybindings'
+let g:which_key_map.f.c.p = 'plugins'
+let g:which_key_map.f.c.s = 'starship'
+let g:which_key_map.f.c.x = 'sxhkd'
+let g:which_key_map.f.c.z = 'zsh'
+let g:which_key_map.f.c.Z = 'zprofile'
 
-" fuzzy finders
+" tree
+noremap <silent> <leader>tn :CocCommand explorer<CR>
+let g:which_key_map.t = { 'name': '+tree' }
+let g:which_key_map.t.f = 'file tree'
+
+" snippets
+noremap <silent> <leader>ss :Snippets<CR>
+noremap <silent> <leader>sa :UltiSnipsEdit<CR>
+let g:which_key_map.s = { 'name': '+snippets' }
+let g:which_key_map.s.s = 'snippets'
+let g:which_key_map.s.a = 'add new snippet'
+
+" buffer
 noremap <silent> <leader>b :Buffers<CR>
-noremap <silent> <leader>f :GFiles<CR>
-noremap <silent> <leader>F :Files<CR>
-noremap <silent> <leader>zc :Commands<CR>
-noremap <silent> <leader>zf :Filetypes<CR>
-noremap <silent> <leader>zl :BLines<CR>
-noremap <silent> <leader>zr :Rg<CR>
-noremap <silent> <leader>zs :Snippets<CR>
+noremap <silent> <leader>Bb :Buffers<CR>
+noremap <silent> <leader>Bd :bdel<CR>
+let g:which_key_map.B = { 'name': '+buffer' }
+let g:which_key_map.B.b = 'find buffer'
+let g:which_key_map.B.d = 'delete buffer'
 let g:which_key_map.b = 'find buffer'
-let g:which_key_map.f = 'find git file'
-let g:which_key_map.F = 'find file'
-let g:which_key_map.z = { 'name': '+fuzzy' }
-let g:which_key_map.z.c = 'commands'
-let g:which_key_map.z.f = 'file types'
-let g:which_key_map.z.l = 'buffer lines'
-let g:which_key_map.z.r = 'everywhere'
-let g:which_key_map.z.s = 'snippets'
 
-" fuzzy git
+" ripgrep
+noremap <silent> <leader>rc :Commands<CR>
+noremap <silent> <leader>rf :Filetypes<CR>
+noremap <silent> <leader>rl :BLines<CR>
+noremap <silent> <leader>rr :Rg<CR>
+let g:which_key_map.r = { 'name': '+ripgrep' }
+let g:which_key_map.r.l = 'buffer lines'
+let g:which_key_map.r.r = 'ripgrep'
+let g:which_key_map.r.c = 'commands'
+let g:which_key_map.r.f = 'file types'
 
-noremap <silent> <leader>gb :Gblame<CR>
-noremap <silent> <leader>gB :GitMessenger<CR>
-noremap <silent> <leader>gl :ToggleBlameLine<CR>
-noremap <silent> <leader>gL :GitGutterLineHighlightsToggle<CR>
-noremap <silent> <leader>gc :BCommits<CR>
-noremap <silent> <leader>gC :Commits<CR>
-noremap <silent> <leader>gf :Git fetch --prune --all<CR>
-noremap <silent> <leader>gP :Git push<Space>
-noremap <silent> <leader>gs :GitGutterStageHunk<CR>
-noremap <silent> <leader>gu :GitGutterUndoHunk<CR>
-noremap <silent> <leader>gh :GitGutterPreviewHunk<CR>
-noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
-noremap <silent> <leader>gn :GitGutterNextHunk<CR>
-noremap <silent> <leader>gg :Git<CR>
-noremap <silent> <leader>gz :GitGutterFold<CR>
-noremap <silent> <leader>gx :GitGutterLineNrHighlightsToggle<CR>
-let g:which_key_map.g = { 'name': '+git' }
-let g:which_key_map.g.b = 'blame'
-let g:which_key_map.g.B = 'commit under cursor'
-let g:which_key_map.g.l = 'toggle lens'
-let g:which_key_map.g.L = 'toggle line highlighting'
-let g:which_key_map.g.c = 'buffer commits'
-let g:which_key_map.g.C = 'commits'
-let g:which_key_map.g.f = 'fetch'
-let g:which_key_map.g.P = 'push'
-let g:which_key_map.g.s = 'stage hunk'
-let g:which_key_map.g.u = 'unstage hunk'
-let g:which_key_map.g.h = 'preview hunk'
-let g:which_key_map.g.p = 'previous hunk'
-let g:which_key_map.g.n = 'next hunk'
-let g:which_key_map.g.g = 'status'
-let g:which_key_map.g.z = 'fold'
-let g:which_key_map.g.x = 'toggle line number highlighting'
+" colorizer
+nnoremap <silent> <leader>h :ColorizerToggle<CR>
+let g:which_key_map.h = 'highlight colors'
 
 " Convenient text objects
 omap ic <Plug>(GitGutterTextObjectInnerPending)
@@ -111,71 +244,7 @@ let g:which_key_map.C = 'go to char everywhere'
 let g:which_key_map.l = 'go to line'
 let g:which_key_map.L = 'go to line everywhere'
 
-" coc.vim
-nmap <silent>       <leader>d   <Plug>(coc-definition)
-nmap <silent>       <leader>t   <Plug>(coc-type-definition)
-nmap <silent>       <leader>i   <Plug>(coc-implementation)
-nmap <silent>       <leader>r   <Plug>(coc-references)
-let g:which_key_map.d = 'go to definition'
-let g:which_key_map.t = 'go to type definition'
-let g:which_key_map.i = 'go to implementation'
-let g:which_key_map.r = 'show references'
-
-nmap <silent> <leader>ps :CocList symbols<CR>
-nmap <silent> <leader>po :CocList outline<CR>
-nmap <silent> <leader>pt :Vista coc<CR>
-nmap <silent> <leader>pd :call <SID>show_documentation()<CR>
-nmap <silent> <leader>pl <Plug>(coc-codelens-action)
-nmap <silent> <leader>pr <Plug>(coc-rename)
-nmap <silent> <leader>pps :SSave<CR>
-nmap <silent> <leader>ppl :SLoad<CR>
-nmap <silent> <leader>ppd :SDelete<CR>
-nmap <silent> <leader>ppm :Startify<CR>
-nmap <silent> <leader>ppc :SClose<CR>
-let g:which_key_map.p = { 'name': '+project' }
-let g:which_key_map.p.s = 'show symbols'
-let g:which_key_map.p.o = 'outline'
-let g:which_key_map.p.t = 'outline tree'
-let g:which_key_map.p.d = 'show documentation'
-let g:which_key_map.p.l = 'lens action'
-let g:which_key_map.p.r = 'rename'
-let g:which_key_map.p.p = { 'name': '+session' }
-let g:which_key_map.p.p.s = 'save'
-let g:which_key_map.p.p.l = 'load'
-let g:which_key_map.p.p.d = 'delete'
-let g:which_key_map.p.p.m = 'startify'
-let g:which_key_map.p.p.c = 'close'
-
-nmap <silent> <leader>pxl :CocList diagnostics<CR>
-nmap <silent> <leader>pxp <Plug>(coc-diagnostic-prev-error)
-nmap <silent> <leader>pxn <Plug>(coc-diagnostic-next-error)
-let g:which_key_map.p.x = { 'name': '+diagnostics' }
-let g:which_key_map.p.x.l = 'show all'
-let g:which_key_map.p.x.p = 'previous error'
-let g:which_key_map.p.x.n = 'next error'
-
-nmap <silent> <leader>pa  :CocCommand actions.open<CR>
-xmap <silent> <leader>a   <Plug>(coc-codeaction-selected)
-let g:which_key_map.p.a = 'code action'
-
-nmap <silent> <leader>pf  <Plug>(coc-fix-current)
-nmap <silent> <leader>.l  :CocList bookmark<CR>
-nmap <silent> <leader>.t  :CocCommand bookmark.toggle<CR>
-nmap <silent> <leader>.a  :CocCommand bookmark.annotate<CR>
-nmap <silent> <leader>.n  :CocCommand bookmark.next<CR>
-nmap <silent> <leader>.p  :CocCommand bookmark.prev<CR>
-nmap <silent> <leader>.c  :CocCommand bookmark.clearForCurrentFile<CR>
-nmap <silent> <leader>.C  :CocCommand bookmark.clearForAllFiles<CR>
-let g:which_key_map.p.f = 'fix'
-let g:which_key_map['.'] = { 'name': '+bookmarks' }
-let g:which_key_map['.'].l = 'list bookmarks'
-let g:which_key_map['.'].t = 'toggle bookmark'
-let g:which_key_map['.'].a = 'annotate bookmark'
-let g:which_key_map['.'].n = 'next bookmark'
-let g:which_key_map['.'].p = 'previous bookmark'
-let g:which_key_map['.'].c = 'clear (current file)'
-let g:which_key_map['.'].C = 'clear (all files)'
-
+" coc.vim function
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -194,11 +263,3 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :WhichKey 'è'<CR>
-
-nnoremap <silent> <leader>h :ColorizerToggle<CR>
-let g:which_key_map.h = 'highlight colors'
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-tab>"

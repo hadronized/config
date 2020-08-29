@@ -31,6 +31,7 @@ set foldmethod=manual
 set timeoutlen=500
 set updatetime=50
 set shiftwidth=2
+set mouse=nvi
 
 " we want lines for all modes but terminal
 set nu
@@ -77,23 +78,19 @@ function SwitchDarkLightColorscheme(...)
   endif
 
   " sign/linenr column
-  hi Normal guibg=none
-  hi EndOfBuffer guibg=none
-  hi SignColumn guibg=none
-  hi GitGutterAdd guibg=none
-  hi GitGutterChange guibg=none
-  hi GitGutterChangeDelete guibg=none
-  hi GitGutterDelete guibg=none
-  hi link GitGutterAddLineNr GitGutterAdd
-  hi link GitGutterChangeLineNr GitGutterChange
-  hi link GitGutterDeleteLineNr GitGutterDelete
-  hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
+  " hi Normal guibg=none
+  " hi EndOfBuffer guibg=none
+  " hi SignColumn guibg=none
+  " hi GitGutterAdd guibg=none
+  " hi GitGutterChange guibg=none
+  " hi GitGutterChangeDelete guibg=none
+  " hi GitGutterDelete guibg=none
+  " hi link GitGutterAddLineNr GitGutterAdd
+  " hi link GitGutterChangeLineNr GitGutterChange
+  " hi link GitGutterDeleteLineNr GitGutterDelete
+  " hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
 endfunction
 
 call SwitchDarkLightColorscheme("dark")
 
 source ~/.config/nvim/key_bindings.vim
-
-highlight GitGutterAdd    guifg=#66DD66 ctermfg=2
-highlight GitGutterChange guifg=#66DDDD ctermfg=3
-highlight GitGutterDelete guifg=#DD6666 ctermfg=1

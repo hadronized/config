@@ -118,5 +118,6 @@
   "java.implementationsCodeLens.enabled": true,
   "java.format.enabled": true,
   "rust-analyzer.inlayHints.chainingHints": false,
-  "bookmark.sign": ""
+  "bookmark.sign": "",
+  "session.directory": "~/.local/share/nvim/session"
 }
