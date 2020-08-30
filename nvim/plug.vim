@@ -3,9 +3,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Better C++ support
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-" snippets
-Plug 'honza/vim-snippets'
-
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -41,6 +38,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
+let g:EasyMotion_do_mapping = 0
 
 " edge
 Plug 'sainnhe/edge'
@@ -224,5 +222,8 @@ set statusline+=%*
 " ultisnips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" easy-align
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
