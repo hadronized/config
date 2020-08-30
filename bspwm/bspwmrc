@@ -44,6 +44,8 @@ sxhkd &
 dunst &
 nitrogen --restore &
 picom --experimental-backends
+polybar desktop-primary &
+polybar desktop-secondary &
 
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
