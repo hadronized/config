@@ -16,9 +16,6 @@ set showcmd
 set incsearch
 set noswapfile
 set hidden
-set smartindent
-set expandtab
-set autoindent
 set laststatus=2
 set autoread
 set inccommand=nosplit
@@ -30,7 +27,11 @@ set shortmess+=c
 set foldmethod=manual
 set timeoutlen=500
 set updatetime=50
+set smartindent
+set expandtab
+set autoindent
 set shiftwidth=2
+set tabstop=2
 set mouse=nvi
 
 " we want lines for all modes but terminal

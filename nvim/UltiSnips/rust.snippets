@@ -2,7 +2,7 @@ snippet s "Struct definition with fields and default functions" b
 /// ${2:Documentation of $1}.
 #[derive(${3:Debug})]
 struct ${1:${VISUAL:StructName}} {
-  ${4:field}
+  ${4:fields}
 }
 
 impl $1 {
@@ -13,5 +13,19 @@ impl $1 {
 endsnippet
 
 snippet et "Error type definition" b
-#[
+/// ${2:Documentation of $1}.
+#[derive(${3:Debug})]
+enum ${1:${VISUAL:ErrorType}} {
+  ${4:variants}
+}
+
+impl std::fmt::Display for $1 {
+  fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+    match *self { $0 `!p
+for variant in t[4].split('\n'):
+  snip += snip.mkline("%s::%s => write!(f, _)," % (t[1], variant.strip()), '  ' * 3)
+`
+    }
+  }
+}
 endsnippet
