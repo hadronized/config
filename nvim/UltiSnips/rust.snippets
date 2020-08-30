@@ -1,0 +1,17 @@
+snippet s "Struct definition with fields and default functions" b
+/// ${2:Documentation of $1}.
+#[derive(${3:Debug})]
+struct ${1:${VISUAL:StructName}} {
+  ${4:field}
+}
+
+impl $1 {
+  pub fn new(${4/\n( )+/$1/g}) -> Self {
+    $1 { `!p snip.rv = ", ".join([x.strip().split(':')[0] for x in t[4].split(',')])` }
+  }
+}
+endsnippet
+
+snippet et "Error type definition" b
+#[
+endsnippet

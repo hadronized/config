@@ -38,7 +38,7 @@
 " - tree
 "   - open tree viewer
 " - snippets
-"   - add a new snippets
+"   - edit snippets for the current mode
 "   - search for a snippet
 " - search
 "   - search for something in lines of current buffer
@@ -200,7 +200,7 @@ let g:which_key_map.t   = { 'name': '+tree' }
 let g:which_key_map.t.f = 'file tree'
 
 " snippets
-noremap <silent> <leader>ss :Snippets<CR>
+noremap <silent> <leader>ss :CocList snippets<CR>
 noremap <silent> <leader>se :UltiSnipsEdit<CR>
 let g:which_key_map.s   = { 'name': '+snippets' }
 let g:which_key_map.s.s = 'snippets'
@@ -262,8 +262,7 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
