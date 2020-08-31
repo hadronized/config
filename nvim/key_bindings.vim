@@ -148,9 +148,8 @@ nmap    <silent> <leader>psb      :CocList    outline<CR>
 nmap    <silent> <leader>pp       :call       <SID>show_documentation()<CR>
 nmap    <silent> <leader>pl       <Plug>(coc-codelens-action)
 nmap    <silent> <leader>pr       <Plug>(coc-rename)
-noremap <silent> <leader><leader> :GFiles<CR>
-noremap <silent> <leader>ff       :GFiles<CR>
-noremap <silent> <leader>f.       :Files<CR>
+noremap <silent> <leader><leader> :CocList files<CR>
+noremap <silent> <leader>ff       :CocList files<CR>
 noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
 noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
 noremap <silent> <leader>fci      :e          ~/.ssh/config<CR>
@@ -183,9 +182,8 @@ let g:which_key_map.p.p    = 'peek documentation'
 let g:which_key_map.p.l    = 'lens action'
 let g:which_key_map.p.r    = 'rename'
 let g:which_key_map.f      = { 'name': '+file' }
-let g:which_key_map.f['.'] = 'find in directory'
-let g:which_key_map.f.f    = 'find in project'
-let g:which_key_map[' ']   = 'find in project'
+let g:which_key_map.f.f = 'find file'
+let g:which_key_map[' ']   = 'find file'
 let g:which_key_map.f.c    = { 'name': '+config' }
 let g:which_key_map.f.c.a  = 'alacritty'
 let g:which_key_map.f.c.b  = 'bspwm'
@@ -220,8 +218,8 @@ let g:which_key_map.s.s = 'snippets'
 let g:which_key_map.s.e = 'edit snippets'
 
 " buffer
-noremap <silent> <leader>b  :Buffers<CR>
-noremap <silent> <leader>Bb :Buffers<CR>
+noremap <silent> <leader>b  :CocList buffers<CR>
+noremap <silent> <leader>Bb :CocList buffers<CR>
 noremap <silent> <leader>Bd :bdel<CR>
 let g:which_key_map.B   = { 'name': '+buffer' }
 let g:which_key_map.B.b = 'find buffer'
@@ -229,10 +227,10 @@ let g:which_key_map.B.d = 'delete buffer'
 let g:which_key_map.b   = 'find buffer'
 
 " ripgrep
-noremap <silent> <leader>rc :Commands<CR>
-noremap <silent> <leader>rf :Filetypes<CR>
-noremap <silent> <leader>rl :BLines<CR>
-noremap <silent> <leader>rr :Rg<CR>
+noremap <silent> <leader>rc :CocList commands<CR>
+noremap <silent> <leader>rf :CocList filetypes<CR>
+noremap <silent> <leader>rl :CocList lines<CR>
+noremap <silent> <leader>rr :CocList grep<CR>
 let g:which_key_map.r   = { 'name': '+ripgrep' }
 let g:which_key_map.r.l = 'buffer lines'
 let g:which_key_map.r.r = 'ripgrep'
