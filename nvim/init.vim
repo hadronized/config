@@ -33,7 +33,7 @@ set autoindent
 set shiftwidth=2
 set tabstop=2
 set mouse=nvi
-set conceallevel=3
+set cursorline
 
 " we want lines for all modes but terminal
 set nu
@@ -53,51 +53,7 @@ if filereadable(platform_specific_file)
 endif
 
 " colorscheme
-let g:color_scheme = 'dark'
-
-" easy switch between dark and light colorschemes
-function SwitchDarkLightColorscheme(...)
-  if a:0
-    if a:1 == 'dark'
-      let g:color_scheme = 'light'
-    elseif a:1 == 'light'
-      let g:color_scheme = 'dark'
-    endif
-  endif
-
-  let g:edge_transparent_background = 0
-
-  if g:color_scheme == 'dark'
-    let g:color_scheme = 'light'
-    let g:lightline.colorscheme = 'edge'
-    set background=light
-    colorscheme edge
-  else
-    let g:color_scheme = 'dark'
-    let g:lightline.colorscheme = 'edge'
-    set background=dark
-    colorscheme edge
-  endif
-
-  " sign/linenr column
-  " hi Normal guibg=none
-  " hi EndOfBuffer guibg=none
-  " hi SignColumn guibg=none
-  " hi GitGutterAdd guibg=none
-  " hi GitGutterChange guibg=none
-  " hi GitGutterChangeDelete guibg=none
-  " hi GitGutterDelete guibg=none
-  " hi link GitGutterAddLineNr GitGutterAdd
-  " hi link GitGutterChangeLineNr GitGutterChange
-  " hi link GitGutterDeleteLineNr GitGutterDelete
-  " hi link GitGutterChangeDeleteLineNr GitGutterChangeDelete
-endfunction
-
-call SwitchDarkLightColorscheme("dark")
-
-" markdown settings
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'rust', 'haskell']
-hi! link markdownItalic CyanItalic
-hi! link markdownBold markdownH4
+let g:lightline.colorscheme = 'sonokai'
+colorscheme sonokai
 
 source ~/.config/nvim/key_bindings.vim

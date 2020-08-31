@@ -1,43 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" Better C++ support
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
-let g:haskell_indent_disable = 1          " disable Haskell source indentation
-let g:haskell_classic_highlighting = 1
-
-" Rust
-Plug 'rust-lang/rust.vim'
-let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-let g:rustfmt_autosave = 1
-
-Plug 'tikhomirov/vim-glsl'
-Plug 'cespare/vim-toml'
-Plug 'ElmCast/elm-vim'
-Plug 'raichoo/purescript-vim'
-Plug 'idris-hackers/idris-vim'
-Plug 'posva/vim-vue'
-Plug 'pest-parser/pest.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'baskerville/vim-sxhkdrc'
-Plug 'r0mai/vim-djinni'
-Plug 'kelan/gyp.vim'
-Plug 'norcalli/nvim-colorizer.lua'
-
-" easymotion
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
-let g:EasyMotion_do_mapping = 0
-
+" themes
 " edge
 Plug 'sainnhe/edge'
 let g:edge_style = 'neon'
@@ -60,15 +23,65 @@ Plug 'Rigellute/shades-of-purple.vim'
 let g:shades_of_purple_italic = 1
 let g:shades_of_purple_bold = 1
 
+" candid
+Plug 'flrnd/candid.vim'
+
+" sonokai
+Plug 'phaazon/sonokai', { 'branch': 'feature/html-prettier-colors' }
+let g:sonokai_enable_italic = 1
+let g:sonokai_better_performance = 1
+let g:sonokai_style = 'andromeda'
+let g:sonokai_sign_column_background = 'none'
+let g:sonokai_diagnostic_line_hilight = 1
+
+" Better C++ support
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:haskell_indent_disable = 1          " disable Haskell source indentation
+let g:haskell_classic_highlighting = 1
+
+" Rust
+Plug 'rust-lang/rust.vim'
+let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
+let g:rustfmt_autosave = 1
+
+Plug 'plasticboy/vim-markdown'
+Plug 'tikhomirov/vim-glsl'
+Plug 'cespare/vim-toml'
+Plug 'ElmCast/elm-vim'
+Plug 'raichoo/purescript-vim'
+Plug 'idris-hackers/idris-vim'
+Plug 'posva/vim-vue'
+Plug 'pest-parser/pest.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'baskerville/vim-sxhkdrc'
+Plug 'r0mai/vim-djinni'
+Plug 'kelan/gyp.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+
+" easymotion
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
+let g:EasyMotion_do_mapping = 0
+
 " gitgutter
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 10000
-let g:gitgutter_sign_added = '│'
-let g:gitgutter_sign_modified = '│'
-let g:gitgutter_sign_removed = '│'
-let g:gitgutter_sign_removed_first_line = '│'
-let g:gitgutter_sign_modified_removed = '│'
+let g:gitgutter_sign_added = '▏'
+let g:gitgutter_sign_modified = '▏'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▏'
+let g:gitgutter_sign_modified_removed = '▏'
 let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_override_sign_column_highlight = 0
 
@@ -132,7 +145,6 @@ Plug 'jceb/vim-orgmode'
 " lightline
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'edge',
       \ 'active': {
       \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],

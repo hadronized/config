@@ -54,6 +54,11 @@ let g:which_key_local_map = { 'name': 'local' }
 " misc
 noremap U :redo<CR>
 
+let g:which_key_map['$'] = 'hi group at cursor'
+nmap <leader>$ :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
