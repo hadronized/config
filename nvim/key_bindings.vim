@@ -161,6 +161,10 @@ noremap <silent> <leader>fcs      :e          ~/.config/starship.toml<CR>
 noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
 noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
 noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
+noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
+noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
+noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
+
 let g:which_key_map.p      = { 'name': '+project' }
 let g:which_key_map.p.D    = { 'name': '+diagnostics' }
 let g:which_key_map.p.D.d  = 'diagnostics'
@@ -193,6 +197,15 @@ let g:which_key_map.f.c.s  = 'starship'
 let g:which_key_map.f.c.x  = 'sxhkd'
 let g:which_key_map.f.c.z  = 'zsh'
 let g:which_key_map.f.c.Z  = 'zprofile'
+let g:which_key_map.f.o    = { 'name': '+org' }
+let g:which_key_map.f.o.d  = 'daily notes'
+let g:which_key_map.f.o.t  = 'tasks'
+let g:which_key_map.f.o.w  = 'tasks'
+
+function! OpenDailyNote()
+  let l:path = strftime("~/org/notes/%b_%d_%Y.md")
+  execute "edit " . l:path
+endfunction
 
 " tree
 noremap <silent> <leader>tf :CocCommand explorer<CR>

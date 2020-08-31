@@ -33,6 +33,7 @@ set autoindent
 set shiftwidth=2
 set tabstop=2
 set mouse=nvi
+set conceallevel=3
 
 " we want lines for all modes but terminal
 set nu
@@ -93,5 +94,10 @@ function SwitchDarkLightColorscheme(...)
 endfunction
 
 call SwitchDarkLightColorscheme("dark")
+
+" markdown settings
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'rust', 'haskell']
+hi! link markdownItalic CyanItalic
+hi! link markdownBold markdownH4
 
 source ~/.config/nvim/key_bindings.vim

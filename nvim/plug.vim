@@ -21,7 +21,6 @@ let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 s
 let g:rustfmt_autosave = 1
 
 Plug 'tikhomirov/vim-glsl'
-Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'ElmCast/elm-vim'
 Plug 'raichoo/purescript-vim'
@@ -32,7 +31,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'r0mai/vim-djinni'
 Plug 'kelan/gyp.vim'
-
 Plug 'norcalli/nvim-colorizer.lua'
 
 " easymotion
