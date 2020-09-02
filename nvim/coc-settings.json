@@ -119,5 +119,5 @@
   "java.format.enabled": true,
   "rust-analyzer.inlayHints.chainingHints": false,
   "bookmark.sign": "",
-  "session.directory": "~/.local/share/nvim/session"
+  "session.directory": "~/.local/share/nvim/session",
 }

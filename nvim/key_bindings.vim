@@ -158,6 +158,7 @@ noremap <silent> <leader>ff       :GFiles<CR>
 noremap <silent> <leader>f.       :Files<CR>
 noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
 noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
+noremap <silent> <leader>fcc      :CocConfig<CR>
 noremap <silent> <leader>fci      :e          ~/.ssh/config<CR>
 noremap <silent> <leader>fci      :e          $MYVIMRC<CR>
 noremap <silent> <leader>fck      :e          ~/.config/nvim/key_bindings.vim<CR>
@@ -169,7 +170,6 @@ noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
 noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
 noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
 noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
-
 let g:which_key_map.p      = { 'name': '+project' }
 let g:which_key_map.p.D    = { 'name': '+diagnostics' }
 let g:which_key_map.p.D.d  = 'diagnostics'
@@ -194,6 +194,7 @@ let g:which_key_map[' ']   = 'find in project'
 let g:which_key_map.f.c    = { 'name': '+config' }
 let g:which_key_map.f.c.a  = 'alacritty'
 let g:which_key_map.f.c.b  = 'bspwm'
+let g:which_key_map.f.c.c  = 'coc'
 let g:which_key_map.f.c.h  = 'ssh'
 let g:which_key_map.f.c.i  = 'init'
 let g:which_key_map.f.c.k  = 'keybindings'
@@ -280,7 +281,7 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <cr> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
