@@ -173,6 +173,8 @@ noremap <silent> <leader>fct      :e          ~/.tmux.conf<CR>
 noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
 noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
 noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
+noremap <silent> <leader>ff       :Clap history<CR>
+noremap <silent> <leader>fm       :Clap marks<CR>
 noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
 noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
 noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
@@ -196,6 +198,7 @@ let g:which_key_map.p.r    = 'rename'
 let g:which_key_map.f      = { 'name': '+file' }
 let g:which_key_map[' ']   = 'find in project'
 let g:which_key_map.f['.'] = 'find in directory'
+let g:which_key_map.f.m    = 'marks'
 let g:which_key_map.f.c    = { 'name': '+config' }
 let g:which_key_map.f.d    = 'filer'
 let g:which_key_map.f.f    = 'find in project'
@@ -211,6 +214,7 @@ let g:which_key_map.f.c.t  = 'tmux'
 let g:which_key_map.f.c.x  = 'sxhkd'
 let g:which_key_map.f.c.z  = 'zsh'
 let g:which_key_map.f.c.Z  = 'zprofile'
+let g:which_key_map.f.h    = 'history'
 let g:which_key_map.f.o    = { 'name': '+org' }
 let g:which_key_map.f.o.d  = 'daily notes'
 let g:which_key_map.f.o.t  = 'tasks'
@@ -221,15 +225,17 @@ function! OpenDailyNote()
   execute "edit " . l:path
 endfunction
 
-" tree
+" toggle and switch
 noremap <silent> <leader>tf :CocCommand explorer<CR>
-let g:which_key_map.t   = { 'name': '+tree' }
+noremap <silent> <leader>tc :Clap colors<CR>
+let g:which_key_map.t   = { 'name': '+toggle & switch' }
 let g:which_key_map.t.f = 'file tree'
+let g:which_key_map.t.c = 'colorscheme'
 
 " snippets
-noremap <silent> <leader>ss :CocList snippets<CR>
-noremap <silent> <leader>se :UltiSnipsEdit<CR>
-let g:which_key_map.s   = { 'name': '+snippets' }
+noremap <silent> <leader>is :CocList snippets<CR>
+noremap <silent> <leader>ie :UltiSnipsEdit<CR>
+let g:which_key_map.s   = { 'name': '+insert' }
 let g:which_key_map.s.s = 'snippets'
 let g:which_key_map.s.e = 'edit snippets'
 
@@ -237,10 +243,21 @@ let g:which_key_map.s.e = 'edit snippets'
 noremap <silent> <leader>b  :Clap buffers<CR>
 noremap <silent> <leader>Bb :Clap buffers<CR>
 noremap <silent> <leader>Bd :bdel<CR>
+noremap <silent> <leader>Bo :new<CR>
+noremap <silent> <leader>Bv :vnew<CR>
 let g:which_key_map.B   = { 'name': '+buffer' }
 let g:which_key_map.B.b = 'find buffer'
 let g:which_key_map.B.d = 'delete buffer'
+let g:which_key_map.B.o = 'new horizontal buffer'
+let g:which_key_map.B.v = 'new vertical buffer'
 let g:which_key_map.b   = 'find buffer'
+
+" session
+noremap <silent> <leader>ss :SessionSave<CR>
+noremap <silent> <leader>sl :SessionLoad<CR>
+let g:which_key_map.s  = { 'name': '+session' }
+let g:which_key_map.sl = 'load'
+let g:which_key_map.sl = 'save'
 
 " ripgrep
 noremap <silent> <leader>rc :Clap commands<CR>
@@ -297,3 +314,7 @@ autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigati
 autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigation#linewise('up')<CR>
 autocmd FileType clap_input nnoremap <silent> <buffer> t :<c-u>call clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input nnoremap <silent> <buffer> s :<c-u>call clap#navigation#linewise('up')<CR>
+
+" dashboard
+nnoremap <silent> <leader>d :Dashboard<CR>
+let g:which_key_map.d = 'dashboard'

@@ -209,4 +209,17 @@ Plug 'junegunn/vim-easy-align'
 " clap
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 
+" dashboard
+Plug 'hardcoreplayers/dashboard-nvim'
+let g:dashboard_session_directory = '~/.local/share/nvim/session'
+let g:dashboard_custom_shortcut = {
+      \ 'last_session'       : 'SPC s l',
+      \ 'find_history'       : 'SPC f h',
+      \ 'find_file'          : 'SPC f f',
+      \ 'new_file'           : 'SPC b v',
+      \ 'change_colorscheme' : 'SPC t c',
+      \ 'find_word'          : 'SPC r r',
+      \ 'book_marks'         : 'SPC f m',
+      \ }
+
 call plug#end()
