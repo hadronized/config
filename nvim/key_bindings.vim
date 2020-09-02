@@ -126,7 +126,7 @@ noremap <silent> <leader>ghp :GitGutterPrevHunk<CR>
 noremap <silent> <leader>ghn :GitGutterNextHunk<CR>
 noremap <silent> <leader>ghx :GitGutterUndoHunk<CR>
 noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
-noremap <silent> <leader>gc  :BCommits<CR>
+noremap <silent> <leader>gc  :Clap bcommits<CR>
 let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
 let g:which_key_map.g.s   = 'status'
@@ -157,9 +157,10 @@ nmap    <silent> <leader>psb      :CocList    outline<CR>
 nmap    <silent> <leader>pp       :call       <SID>show_documentation()<CR>
 nmap    <silent> <leader>pl       <Plug>(coc-codelens-action)
 nmap    <silent> <leader>pr       <Plug>(coc-rename)
-noremap <silent> <leader><leader> :GFiles<CR>
-noremap <silent> <leader>ff       :GFiles<CR>
-noremap <silent> <leader>f.       :Files<CR>
+noremap <silent> <leader><leader> :Clap gfiles<CR>
+noremap <silent> <leader>fd       :Clap filer<CR>
+noremap <silent> <leader>ff       :Clap gfiles<CR>
+noremap <silent> <leader>f.       :Clap files<CR>
 noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
 noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
 noremap <silent> <leader>fcc      :CocConfig<CR>
@@ -193,10 +194,11 @@ let g:which_key_map.p.p    = 'peek documentation'
 let g:which_key_map.p.l    = 'lens action'
 let g:which_key_map.p.r    = 'rename'
 let g:which_key_map.f      = { 'name': '+file' }
-let g:which_key_map.f['.'] = 'find in directory'
-let g:which_key_map.f.f    = 'find in project'
 let g:which_key_map[' ']   = 'find in project'
+let g:which_key_map.f['.'] = 'find in directory'
 let g:which_key_map.f.c    = { 'name': '+config' }
+let g:which_key_map.f.d    = 'filer'
+let g:which_key_map.f.f    = 'find in project'
 let g:which_key_map.f.c.a  = 'alacritty'
 let g:which_key_map.f.c.b  = 'bspwm'
 let g:which_key_map.f.c.c  = 'coc'
@@ -232,8 +234,8 @@ let g:which_key_map.s.s = 'snippets'
 let g:which_key_map.s.e = 'edit snippets'
 
 " buffer
-noremap <silent> <leader>b  :Buffers<CR>
-noremap <silent> <leader>Bb :Buffers<CR>
+noremap <silent> <leader>b  :Clap buffers<CR>
+noremap <silent> <leader>Bb :Clap buffers<CR>
 noremap <silent> <leader>Bd :bdel<CR>
 let g:which_key_map.B   = { 'name': '+buffer' }
 let g:which_key_map.B.b = 'find buffer'
@@ -241,10 +243,10 @@ let g:which_key_map.B.d = 'delete buffer'
 let g:which_key_map.b   = 'find buffer'
 
 " ripgrep
-noremap <silent> <leader>rc :Commands<CR>
-noremap <silent> <leader>rf :Filetypes<CR>
-noremap <silent> <leader>rl :BLines<CR>
-noremap <silent> <leader>rr :Rg<CR>
+noremap <silent> <leader>rc :Clap commands<CR>
+noremap <silent> <leader>rf :Clap filetypes<CR>
+noremap <silent> <leader>rl :Clap blines<CR>
+noremap <silent> <leader>rr :Clap grep2<CR>
 let g:which_key_map.r   = { 'name': '+ripgrep' }
 let g:which_key_map.r.l = 'buffer lines'
 let g:which_key_map.r.r = 'ripgrep'
@@ -293,5 +295,5 @@ inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
 " clap
 autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigation#linewise('up')<CR>
-autocmd FileType clap_input noremap  <silent> <buffer> t     <C-R>=clap#navigation#linewise('down')<CR>
-autocmd FileType clap_input noremap  <silent> <buffer> s     <C-R>=clap#navigation#linewise('up')<CR>
+autocmd FileType clap_input nnoremap <silent> <buffer> t :<c-u>call clap#navigation#linewise('down')<CR>
+autocmd FileType clap_input nnoremap <silent> <buffer> s :<c-u>call clap#navigation#linewise('up')<CR>
