@@ -117,7 +117,7 @@ let g:which_key_map.e.m = 'marketplace'
 
 " git
 noremap <silent> <leader>gi  :GitGutterFold<CR>
-noremap <silent> <leader>gg  :Git<CR>
+noremap <silent> <leader>gs  :Git<CR>
 noremap <silent> <leader>gbc :GitMessenger<CR>
 noremap <silent> <leader>gbb :Gblame<CR>
 noremap <silent> <leader>gbl :ToggleBlameLine<CR>
@@ -129,7 +129,7 @@ noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
 noremap <silent> <leader>gc  :BCommits<CR>
 let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
-let g:which_key_map.g.g   = 'status'
+let g:which_key_map.g.s   = 'status'
 let g:which_key_map.g.b   = { 'name': '+blame' }
 let g:which_key_map.g.b.c = 'cursor'
 let g:which_key_map.g.b.b = 'buffer'
@@ -168,6 +168,7 @@ noremap <silent> <leader>fci      :e          $MYVIMRC<CR>
 noremap <silent> <leader>fck      :e          ~/.config/nvim/key_bindings.vim<CR>
 noremap <silent> <leader>fcp      :e          ~/.config/nvim/plug.vim<CR>
 noremap <silent> <leader>fcs      :e          ~/.config/starship.toml<CR>
+noremap <silent> <leader>fct      :e          ~/.tmux.conf<CR>
 noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
 noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
 noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
@@ -204,6 +205,7 @@ let g:which_key_map.f.c.i  = 'init'
 let g:which_key_map.f.c.k  = 'keybindings'
 let g:which_key_map.f.c.p  = 'plugins'
 let g:which_key_map.f.c.s  = 'starship'
+let g:which_key_map.f.c.t  = 'tmux'
 let g:which_key_map.f.c.x  = 'sxhkd'
 let g:which_key_map.f.c.z  = 'zsh'
 let g:which_key_map.f.c.Z  = 'zprofile'
@@ -285,6 +287,8 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 inoremap <silent><expr> <C-Space> coc#refresh()
+inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " clap
 autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigation#linewise('down')<CR>
