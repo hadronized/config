@@ -206,4 +206,7 @@ Plug 'honza/vim-snippets'
 " easy-align
 Plug 'junegunn/vim-easy-align'
 
+" clap
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+
 call plug#end()

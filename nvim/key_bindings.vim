@@ -51,6 +51,10 @@ let maplocalleader = 'è'
 let g:which_key_map = { 'name': 'top level' }
 let g:which_key_local_map = { 'name': 'local' }
 
+" WhichKey
+nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :WhichKey 'è'<CR>
+
 " misc
 noremap U :redo<CR>
 
@@ -280,9 +284,10 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <C-Space> coc#refresh()
 
-" WhichKey
-nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :WhichKey 'è'<CR>
+" clap
+autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigation#linewise('down')<CR>
+autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigation#linewise('up')<CR>
+autocmd FileType clap_input noremap  <silent> <buffer> t     <C-R>=clap#navigation#linewise('down')<CR>
+autocmd FileType clap_input noremap  <silent> <buffer> s     <C-R>=clap#navigation#linewise('up')<CR>
