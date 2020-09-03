@@ -126,7 +126,7 @@ noremap <silent> <leader>ghp :GitGutterPrevHunk<CR>
 noremap <silent> <leader>ghn :GitGutterNextHunk<CR>
 noremap <silent> <leader>ghx :GitGutterUndoHunk<CR>
 noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
-noremap <silent> <leader>gc  :Clap bcommits<CR>
+noremap <silent> <leader>gc  :BCommits<CR>
 let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
 let g:which_key_map.g.b   = { 'name': '+blame' }
@@ -157,10 +157,10 @@ nmap    <silent> <leader>psb      :CocList    outline<CR>
 nmap    <silent> <leader>pp       :call       <SID>show_documentation()<CR>
 nmap    <silent> <leader>pl       <Plug>(coc-codelens-action)
 nmap    <silent> <leader>pr       <Plug>(coc-rename)
-noremap <silent> <leader><leader> :Clap gfiles<CR>
-noremap <silent> <leader>fd       :Clap filer<CR>
-noremap <silent> <leader>ff       :Clap gfiles<CR>
-noremap <silent> <leader>f.       :Clap files<CR>
+noremap <silent> <leader><leader> :GFiles<CR>
+noremap <silent> <leader>fd       :Ex<CR>
+noremap <silent> <leader>ff       :GFiles<CR>
+noremap <silent> <leader>f.       :Files<CR>
 noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
 noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
 noremap <silent> <leader>fcc      :CocConfig<CR>
@@ -173,8 +173,8 @@ noremap <silent> <leader>fct      :e          ~/.tmux.conf<CR>
 noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
 noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
 noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
-noremap <silent> <leader>ff       :Clap history<CR>
-noremap <silent> <leader>fm       :Clap marks<CR>
+noremap <silent> <leader>fh       :History<CR>
+noremap <silent> <leader>fm       :Marks<CR>
 noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
 noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
 noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
@@ -227,7 +227,7 @@ endfunction
 
 " toggle and switch
 noremap <silent> <leader>tf :CocCommand explorer<CR>
-noremap <silent> <leader>tc :Clap colors<CR>
+noremap <silent> <leader>tc :Colors<CR>
 let g:which_key_map.t   = { 'name': '+toggle & switch' }
 let g:which_key_map.t.f = 'file tree'
 let g:which_key_map.t.c = 'colorscheme'
@@ -240,8 +240,8 @@ let g:which_key_map.s.s = 'snippets'
 let g:which_key_map.s.e = 'edit snippets'
 
 " buffer
-noremap <silent> <leader>b  :Clap buffers<CR>
-noremap <silent> <leader>Bb :Clap buffers<CR>
+noremap <silent> <leader>b  :Buffers<CR>
+noremap <silent> <leader>Bb :Buffers<CR>
 noremap <silent> <leader>Bd :bdel<CR>
 noremap <silent> <leader>Bo :new<CR>
 noremap <silent> <leader>Bv :vnew<CR>
@@ -260,10 +260,10 @@ let g:which_key_map.sl = 'load'
 let g:which_key_map.sl = 'save'
 
 " ripgrep
-noremap <silent> <leader>rc :Clap command<CR>
-noremap <silent> <leader>rf :Clap filetypes<CR>
-noremap <silent> <leader>rl :Clap blines<CR>
-noremap <silent> <leader>rr :Clap grep2<CR>
+noremap <silent> <leader>rc :Commands<CR>
+noremap <silent> <leader>rf :Filetypes<CR>
+noremap <silent> <leader>rl :BLines<CR>
+noremap <silent> <leader>rr :Rg<CR>
 let g:which_key_map.r   = { 'name': '+ripgrep' }
 let g:which_key_map.r.l = 'buffer lines'
 let g:which_key_map.r.r = 'ripgrep'

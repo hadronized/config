@@ -97,6 +97,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 
+let $FZF_DEFAULT_OPTS = '--reverse'
+
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
@@ -207,24 +209,24 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 
 " clap
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-let g:clap_insert_mode_only = v:true
-let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
-let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
-let g:clap_fuzzy_match_hl_groups = [
-      \ [118 , '#9922ff'] ,
-      \ [82  , '#a236ff'] ,
-      \ [46  , '#ab49ff'] ,
-      \ [47  , '#b45dff'] ,
-      \ [48  , '#bd70ff'] ,
-      \ [49  , '#c684ff'] ,
-      \ [50  , '#f287ca'] ,
-      \ [51  , '#f075c3'] ,
-      \ [87  , '#ef63bb'] ,
-      \ [123 , '#ed51b3'] ,
-      \ [159 , '#eb40ab'] ,
-      \ [195 , '#e92ea4'] ,
-      \ ]
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+" let g:clap_insert_mode_only = v:true
+" let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
+" let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
+" let g:clap_fuzzy_match_hl_groups = [
+"       \ [118 , '#9922ff'] ,
+"       \ [82  , '#a236ff'] ,
+"       \ [46  , '#ab49ff'] ,
+"       \ [47  , '#b45dff'] ,
+"       \ [48  , '#bd70ff'] ,
+"       \ [49  , '#c684ff'] ,
+"       \ [50  , '#f287ca'] ,
+"       \ [51  , '#f075c3'] ,
+"       \ [87  , '#ef63bb'] ,
+"       \ [123 , '#ed51b3'] ,
+"       \ [159 , '#eb40ab'] ,
+"       \ [195 , '#e92ea4'] ,
+"       \ ]
 
 " dashboard
 Plug 'hardcoreplayers/dashboard-nvim'
