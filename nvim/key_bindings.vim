@@ -151,7 +151,7 @@ nmap    <silent> <leader>pf       <Plug>(coc-fix-current)
 nmap    <silent> <leader>pd       <Plug>(coc-definition)
 nmap    <silent> <leader>pt       <Plug>(coc-type-definition)
 nmap    <silent> <leader>pi       <Plug>(coc-implementation)
-nmap    <silent> <leader>pr       <Plug>(coc-references)
+nmap    <silent> <leader>pR       <Plug>(coc-references)
 nmap    <silent> <leader>psp      :CocList    symbols<CR>
 nmap    <silent> <leader>psb      :CocList    outline<CR>
 nmap    <silent> <leader>pp       :call       <SID>show_documentation()<CR>
