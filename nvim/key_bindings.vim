@@ -260,7 +260,7 @@ let g:which_key_map.sl = 'load'
 let g:which_key_map.sl = 'save'
 
 " ripgrep
-noremap <silent> <leader>rc :Clap commands<CR>
+noremap <silent> <leader>rc :Clap command<CR>
 noremap <silent> <leader>rf :Clap filetypes<CR>
 noremap <silent> <leader>rl :Clap blines<CR>
 noremap <silent> <leader>rr :Clap grep2<CR>
