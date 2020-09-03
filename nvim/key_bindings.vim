@@ -117,7 +117,7 @@ let g:which_key_map.e.m = 'marketplace'
 
 " git
 noremap <silent> <leader>gi  :GitGutterFold<CR>
-noremap <silent> <leader>gs  :Git<CR>
+noremap <silent> <leader>gg  :Git<CR>
 noremap <silent> <leader>gbc :GitMessenger<CR>
 noremap <silent> <leader>gbb :Gblame<CR>
 noremap <silent> <leader>gbl :ToggleBlameLine<CR>
@@ -129,11 +129,11 @@ noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
 noremap <silent> <leader>gc  :Clap bcommits<CR>
 let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
-let g:which_key_map.g.s   = 'status'
 let g:which_key_map.g.b   = { 'name': '+blame' }
 let g:which_key_map.g.b.c = 'cursor'
 let g:which_key_map.g.b.b = 'buffer'
 let g:which_key_map.g.b.l = 'lens'
+let g:which_key_map.g.g   = 'status'
 let g:which_key_map.g.h   = { 'name': '+hunk' }
 let g:which_key_map.g.h.h = 'preview hunk'
 let g:which_key_map.g.h.p = 'previous'
@@ -312,8 +312,6 @@ inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
 " clap
 autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigation#linewise('up')<CR>
-autocmd FileType clap_input nnoremap <silent> <buffer> t :<c-u>call clap#navigation#linewise('down')<CR>
-autocmd FileType clap_input nnoremap <silent> <buffer> s :<c-u>call clap#navigation#linewise('up')<CR>
 
 " dashboard
 nnoremap <silent> <leader>d :Dashboard<CR>
