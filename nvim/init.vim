@@ -1,59 +1,9 @@
 " phaazon’s neovim configuration
-set nocompatible
 
-scriptencoding utf-8
-set encoding=utf8
-
-set wrap
-set showmode!
-set hlsearch
-set backspace=indent,eol,start
-set nobackup
-set dir=/var/tmp
-set history=500
-set ruler
-set showcmd
-set incsearch
-set noswapfile
-set hidden
-set laststatus=2
-set autoread
-set inccommand=nosplit
-set wildignore+=*/target/*
-set termguicolors
-set fillchars=vert:│
-set updatetime=300
-set shortmess+=c
-set foldmethod=manual
-set timeoutlen=500
-set updatetime=50
-set smartindent
-set expandtab
-set autoindent
-set shiftwidth=2
-set tabstop=2
-set mouse=nvi
-set cursorline
-
-" we want lines for all modes but terminal
-set nu
-au TermOpen * setlocal nonu
-
-" remove trailing whitespaces
-autocmd BufWritePre * %s/\s\+$//e
-
-source ~/.config/nvim/plug.vim
+source ~/.config/nvim/common.vim
 source ~/.config/nvim/bepo.vim
+source ~/.config/nvim/plug.vim
+source ~/.config/nvim/key_bindings.vim
+source ~/.config/nvim/colorscheme.vim
 
 lua require'colorizer'.setup()
-
-let platform_specific_file="~/.config/nvim/platform-specific.vim"
-if filereadable(platform_specific_file)
-  source platform_specific_file
-endif
-
-" colorscheme
-let g:lightline.colorscheme = 'sonokai'
-colorscheme sonokai
-
-source ~/.config/nvim/key_bindings.vim
