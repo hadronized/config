@@ -104,7 +104,7 @@ let g:git_messenger_no_default_mappings = v:true
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
-
+let g:fzf_preview_window = ''
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 autocmd! FileType fzf
