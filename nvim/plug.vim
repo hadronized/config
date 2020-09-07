@@ -1,11 +1,12 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" themes
+" -- THEMES ----------------------------------------------------------------------------------------
 " edge
 Plug 'sainnhe/edge'
 let g:edge_style = 'neon'
 let g:edge_enable_italic = 1
 
+" All the nice icons!
 Plug 'ryanoasis/vim-devicons'
 
 " vim-one
@@ -27,15 +28,16 @@ let g:shades_of_purple_bold = 1
 Plug 'flrnd/candid.vim'
 
 " sonokai
-Plug 'phaazon/sonokai', { 'branch': 'feature/html-prettier-colors' }
+Plug 'phaazon/sonokai'
 let g:sonokai_enable_italic = 1
 let g:sonokai_better_performance = 1
 let g:sonokai_style = 'andromeda'
 let g:sonokai_sign_column_background = 'none'
 let g:sonokai_diagnostic_line_hilight = 1
 
-" Better C++ support
-Plug 'octol/vim-cpp-enhanced-highlight'
+" -- LANGUAGES -------------------------------------------------------------------------------------
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
@@ -49,29 +51,35 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
-" Rust
-Plug 'rust-lang/rust.vim'
-let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-let g:rustfmt_autosave = 1
+" " Rust
+" Plug 'rust-lang/rust.vim'
+" let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
+" let g:rustfmt_autosave = 1
 
+" Markdown
 Plug 'plasticboy/vim-markdown'
-Plug 'tikhomirov/vim-glsl'
-Plug 'cespare/vim-toml'
-Plug 'ElmCast/elm-vim'
-Plug 'raichoo/purescript-vim'
-Plug 'idris-hackers/idris-vim'
-Plug 'posva/vim-vue'
-Plug 'pest-parser/pest.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'baskerville/vim-sxhkdrc'
-Plug 'r0mai/vim-djinni'
-Plug 'kelan/gyp.vim'
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'mzlogin/vim-markdown-toc'
 
-" easymotion
-Plug 'easymotion/vim-easymotion'
-let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
-let g:EasyMotion_do_mapping = 0
+" GLSL
+Plug 'tikhomirov/vim-glsl'
+
+" TOML
+Plug 'cespare/vim-toml'
+
+" Elm
+Plug 'ElmCast/elm-vim'
+
+" Idris
+Plug 'idris-hackers/idris-vim'
+
+" Vue
+Plug 'posva/vim-vue'
+
+" sxhkdrc
+Plug 'baskerville/vim-sxhkdrc'
+
+" -- CANDIES ---------------------------------------------------------------------------------------
+Plug 'norcalli/nvim-colorizer.lua'
 
 " gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -104,12 +112,6 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 autocmd CompleteDone * silent! pclose!
-
-" Markdown.
-Plug 'mzlogin/vim-markdown-toc'
-
-" Highlighted Yank
-Plug 'machakann/vim-highlightedyank'
 
 " nvim-blame-line
 Plug 'tveskag/nvim-blame-line'
@@ -209,36 +211,42 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 
 " clap
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-" let g:clap_insert_mode_only = v:true
-" let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
-" let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
-" let g:clap_fuzzy_match_hl_groups = [
-"       \ [118 , '#9922ff'] ,
-"       \ [82  , '#a236ff'] ,
-"       \ [46  , '#ab49ff'] ,
-"       \ [47  , '#b45dff'] ,
-"       \ [48  , '#bd70ff'] ,
-"       \ [49  , '#c684ff'] ,
-"       \ [50  , '#f287ca'] ,
-"       \ [51  , '#f075c3'] ,
-"       \ [87  , '#ef63bb'] ,
-"       \ [123 , '#ed51b3'] ,
-"       \ [159 , '#eb40ab'] ,
-"       \ [195 , '#e92ea4'] ,
-"       \ ]
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+let g:clap_insert_mode_only = v:true
+let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
+let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
+let g:clap_fuzzy_match_hl_groups = [
+      \ [118 , '#9922ff'] ,
+      \ [82  , '#a236ff'] ,
+      \ [46  , '#ab49ff'] ,
+      \ [47  , '#b45dff'] ,
+      \ [48  , '#bd70ff'] ,
+      \ [49  , '#c684ff'] ,
+      \ [50  , '#f287ca'] ,
+      \ [51  , '#f075c3'] ,
+      \ [87  , '#ef63bb'] ,
+      \ [123 , '#ed51b3'] ,
+      \ [159 , '#eb40ab'] ,
+      \ [195 , '#e92ea4'] ,
+      \ ]
 
 " dashboard
-Plug 'hardcoreplayers/dashboard-nvim'
-let g:dashboard_session_directory = '~/.local/share/nvim/session'
-let g:dashboard_custom_shortcut = {
-      \ 'last_session'       : 'SPC s l',
-      \ 'find_history'       : 'SPC f h',
-      \ 'find_file'          : 'SPC f f',
-      \ 'new_file'           : 'SPC b v',
-      \ 'change_colorscheme' : 'SPC t c',
-      \ 'find_word'          : 'SPC r r',
-      \ 'book_marks'         : 'SPC f m',
-      \ }
+"Plug 'hardcoreplayers/dashboard-nvim'
+"let g:dashboard_session_directory = '~/.local/share/nvim/session'
+"let g:dashboard_custom_shortcut = {
+"      \ 'last_session'       : 'SPC s l',
+"      \ 'find_history'       : 'SPC f h',
+"      \ 'find_file'          : 'SPC f f',
+"      \ 'new_file'           : 'SPC b v',
+"      \ 'change_colorscheme' : 'SPC t c',
+"      \ 'find_word'          : 'SPC r r',
+"      \ 'book_marks'         : 'SPC f m',
+"      \ }
+
+" -- MOTIONS ---------------------------------------------------------------------------------------
+" easymotion
+Plug 'easymotion/vim-easymotion'
+let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
+let g:EasyMotion_do_mapping = 0
 
 call plug#end()

@@ -116,31 +116,33 @@ let g:which_key_map.e   = { 'name': '+extension' }
 let g:which_key_map.e.m = 'marketplace'
 
 " git
+noremap <silent> <leader>gcc  :Gcommit<CR>
+noremap <silent> <leader>gcl  :BCommits<CR>
 noremap <silent> <leader>gi  :GitGutterFold<CR>
 noremap <silent> <leader>gg  :Git<CR>
 noremap <silent> <leader>gbc :GitMessenger<CR>
 noremap <silent> <leader>gbb :Gblame<CR>
 noremap <silent> <leader>gbl :ToggleBlameLine<CR>
-noremap <silent> <leader>ghh :GitGutterPreviewHunk<CR>
-noremap <silent> <leader>ghp :GitGutterPrevHunk<CR>
-noremap <silent> <leader>ghn :GitGutterNextHunk<CR>
-noremap <silent> <leader>ghx :GitGutterUndoHunk<CR>
-noremap <silent> <leader>ghs :GitGutterStageHunk<CR>
-noremap <silent> <leader>gc  :BCommits<CR>
+noremap <silent> <leader>gh :GitGutterPreviewHunk<CR>
+noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
+noremap <silent> <leader>gn :GitGutterNextHunk<CR>
+noremap <silent> <leader>gs :GitGutterStageHunk<CR>
+noremap <silent> <leader>gx :GitGutterUndoHunk<CR>
 let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
 let g:which_key_map.g.b   = { 'name': '+blame' }
+let g:which_key_map.g.c   = { 'name': '+commits' }
+let g:which_key_map.g.c.c = 'commit'
+let g:which_key_map.g.c.l = 'buffer commits'
 let g:which_key_map.g.b.c = 'cursor'
 let g:which_key_map.g.b.b = 'buffer'
 let g:which_key_map.g.b.l = 'lens'
 let g:which_key_map.g.g   = 'status'
-let g:which_key_map.g.h   = { 'name': '+hunk' }
-let g:which_key_map.g.h.h = 'preview hunk'
-let g:which_key_map.g.h.p = 'previous'
-let g:which_key_map.g.h.n = 'next'
-let g:which_key_map.g.h.x = 'discard'
-let g:which_key_map.g.h.s = 'stage'
-let g:which_key_map.g.c   = 'buffer commits'
+let g:which_key_map.g.h = 'preview hunk'
+let g:which_key_map.g.p = 'previous'
+let g:which_key_map.g.n = 'next'
+let g:which_key_map.g.s = 'stage hunk'
+let g:which_key_map.g.x = 'discard hunk'
 
 " project
 nmap    <silent> <leader>pDd      :CocList    diagnostics<CR>

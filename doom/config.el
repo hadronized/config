@@ -23,7 +23,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14)
-      doom-variable-pitch-font (font-spec :family "sans" :size 10)
+      doom-variable-pitch-font (font-spec :family "sans" :size 14)
       doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 24))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -91,3 +91,7 @@
       :map evil-org-mode-map
       :n "M-t" #'org-metadown
       :n "M-s" #'org-metaup)
+
+;; markdown-mode
+(after! markdown-mode
+  (setq markdown-list-indent-width 2))

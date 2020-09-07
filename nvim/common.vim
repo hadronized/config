@@ -51,8 +51,17 @@ set tabstop=2
 set mouse=nvi
 " Nice cursor line.
 set cursorline
+" " Pseudo-transparency.
+" set winblend=60
+" set pumblend=60
 
 " Remove lines for terminal windows.
 au TermOpen * setlocal nonu
 " Remove trailing whitespaces.
 au BufWritePre * %s/\s\+$//e
+" Highlight yank.
+au TextYankPost * silent! lua vim.highlight.on_yank()
+
+" -- EXPERIMENTAL ----------------------------------------------------------------------------------
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()

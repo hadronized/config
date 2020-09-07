@@ -7,3 +7,5 @@ source ~/.config/nvim/key_bindings.vim
 source ~/.config/nvim/colorscheme.vim
 
 lua require'colorizer'.setup()
+
+lua require('treesitter-config')
