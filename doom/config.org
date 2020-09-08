@@ -281,3 +281,5 @@ Capturing allows to quickly write some notes without leaving a mode / buffer. It
 (setq org-directory "~/org"
       org-default-notes-file (concat org-directory "/notes.org"))
 #+END_SRC
+* Magit
+Hello
