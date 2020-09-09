@@ -12,6 +12,32 @@
       :n "l" 'evil-avy-goto-line
       :n "é" 'evil-avy-goto-char)
 #+END_SRC
+* Company
+Basic configuration:
+#+BEGIN_SRC emacs-lisp
+(add-hook 'after-init-hook 'global-company-mode)
+
+(after! sh-script
+  (set-company-backend! 'shmode
+    '(company-shell :with company-yasnippet)))
+#+END_SRC
+
+Keybindings and overrides:
+#+BEGIN_SRC emacs-lisp
+;; OVERRIDES
+(map! :mode emacs :map company-active-map
+      "<RET>" nil
+      "<return>" nil)
+
+(map! :mode emacs :map general-company-active-map-backup-map
+      "<RET>" nil
+      "<return>" nil)
+
+;; KEYBINDINGS
+(map! :map company-mode-map
+      :i "C-y" 'company-complete-selection)
+#+END_SRC
+
 * Org-mode
 ** Org modules
 Modules can be loaded to enable more features of org-modes.
