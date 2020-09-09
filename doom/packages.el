@@ -49,5 +49,4 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! doom-snippets :ignore t)
 (package! yasnippet-snippets)

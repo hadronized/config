@@ -16,7 +16,7 @@
 ** Org modules
 Modules can be loaded to enable more features of org-modes.
 #+BEGIN_SRC emacs-lisp
-(setq org-modules '(ol-bibtex habits))
+;; (setq org-modules '(ol-bibtex habits))
 #+END_SRC
 
 Description:
@@ -288,4 +288,3 @@ Capturing allows to quickly write some notes without leaving a mode / buffer. It
       org-default-notes-file (concat org-directory "/notes.org"))
 #+END_SRC
 * Magit
-Hello

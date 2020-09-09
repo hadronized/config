@@ -66,7 +66,7 @@
 
 ;; keybindings dela muerte
 ;; standard stuff dela muerte
-(map! :after undo-fu-mode :nv :desc "Redo" "U" #'undo-fu-only-redo)
+(map! :nv :desc "Redo" "U" #'undo-fu-only-redo)
 
 ;; window remapping
 (map! :n "w o" #'evil-window-split)
@@ -74,7 +74,8 @@
 ;; avy dela muerte
 (map! :leader
       :desc "avy words" "w" #'avy-goto-word-0
-      :desc "avy lines" "l" #'avy-goto-line)
+      :desc "avy lines" "l" #'avy-goto-line
+      :desc "avy char" "é" #'avy-goto-char)
 
 ;; altgr configuration
 (setq mac-option-key-is-meta nil)
