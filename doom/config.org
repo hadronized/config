@@ -5,6 +5,17 @@
 #+BEGIN_SRC emacs-lisp
 (map! :n "U" 'undo-fu-only-redo)
 #+END_SRC
+** Special configuration for macOS
+#+BEGIN_SRC emacs-lisp
+(cond
+ ((string-equal system-type "darwin")
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil))))
+#+END_SRC
+
 * Avy
 #+BEGIN_SRC emacs-lisp
 (map! :leader
@@ -12,6 +23,11 @@
       :n "l" 'evil-avy-goto-line
       :n "é" 'evil-avy-goto-char)
 #+END_SRC
+* Flycheck
+#+BEGIN_SRC emacs-lisp
+(setq flycheck-check-syntax-automatically '(save))
+#+END_SRC
+
 * Company
 Basic configuration:
 #+BEGIN_SRC emacs-lisp
@@ -165,16 +181,16 @@ The =TODO= annotation sets a /todo/ in any headline.
 States:
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WIP(w!/!)" "FROZEN(z@/!)" "LATER(l@/!)" "|" "DONE(d!)")
-        (sequence "BUG(b@)" "|" "FIXED(f!)")
-        (sequence "FEATURE(r@)" "|" "IMPLEMENTED(i!)")
+      '((sequence "TODO(t)" "WIP(w!/!)" "FROZEN(z!/!)" "LATER(l!/!)" "|" "DONE(d!/!)")
+        (sequence "BUG(b)" "|" "FIXED(f!/!)")
+        (sequence "FEATURE(r)" "|" "IMPLEMENTED(i!/!)")
         (sequence "|" "CANCELLED(c@)")))
 #+END_SRC
 
 Faces:
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keyword-faces
-      '(("TODO" . "purple") ("WIP" . (:foreground "green" :weight bold)) ("FROZEN" . "blue") ("DONE" . "grey")
+      '(("TODO" . "blue") ("WIP" . (:foreground "green" :weight bold)) ("FROZEN" . "blue") ("DONE" . "grey")
         ("BUG" . (:foreground "red" :weight bold)) ("FIXED" (:foreground "blue" :weight bold))
         ("FEATURE" . "purple") ("IMPLEMENTED" . (:foreground "blue" :weight bold))
         ("CANCELLED" . "grey")))
@@ -256,7 +272,7 @@ Tags have the form ~:tag:~ or ~:tag1:tag2:tag3:etc.~ and are located at the end 
 
 Default tags:
 #+BEGIN_SRC emacs-lisp
-(setq org-tag-alist '(("@spare" . ?s) ("@work" . ?w)))
+(setq org-tag-alist '(("spare" . ?s) ("work" . ?w) ("learn" . ?l)))
 #+END_SRC
 
 ** Properties
@@ -314,7 +330,6 @@ Capturing allows to quickly write some notes without leaving a mode / buffer. It
 #+END_SRC
 ** Faces
 #+BEGIN_SRC emacs-lisp
-(setq org-hide-emphasis-markers t)
 #+END_SRC
 
 * Magit
