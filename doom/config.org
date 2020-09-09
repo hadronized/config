@@ -5,7 +5,13 @@
 #+BEGIN_SRC emacs-lisp
 (map! :n "U" 'undo-fu-only-redo)
 #+END_SRC
-
+* Avy
+#+BEGIN_SRC emacs-lisp
+(map! :leader
+      :n "w" 'evil-avy-goto-word-0
+      :n "l" 'evil-avy-goto-line
+      :n "é" 'evil-avy-goto-char)
+#+END_SRC
 * Org-mode
 ** Org modules
 Modules can be loaded to enable more features of org-modes.
