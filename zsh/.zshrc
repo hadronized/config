@@ -1,7 +1,5 @@
 source ~/.fzfrc
 
-test -e ~/.zprofile && source ~/.zprofile
-
 # Completion
 autoload -Uz compinit && compinit
 setopt auto_menu

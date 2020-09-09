@@ -37,7 +37,7 @@ let g:sonokai_diagnostic_line_hilight = 1
 
 " -- LANGUAGES -------------------------------------------------------------------------------------
 " treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
