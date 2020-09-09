@@ -61,4 +61,5 @@ esac
 xset r rate 200 30
 
 # Window rules.
-# none so far
+
+bspc rule -a Emacs state=tiled
