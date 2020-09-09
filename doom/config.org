@@ -25,7 +25,6 @@ Description:
 |-------------+--------------------------------|
 | =habits=    | Enable the habit =TODO= style. |
 
-
 ** Keybindings
 | Keybinding      | Description                                                                                                |   |
 |-----------------+------------------------------------------------------------------------------------------------------------+---|
@@ -287,4 +286,9 @@ Capturing allows to quickly write some notes without leaving a mode / buffer. It
 (setq org-directory "~/org"
       org-default-notes-file (concat org-directory "/notes.org"))
 #+END_SRC
+** Faces
+#+BEGIN_SRC emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+END_SRC
+
 * Magit
