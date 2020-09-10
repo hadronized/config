@@ -78,8 +78,7 @@ nmap ga <Plug>(EasyAlign)
 " Window numbering
 let i = 1
 while i <= 9
-    execute 'nnoremap <silent> <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-    let g:which_key_map[i] = 'window ' . i
+    execute 'nnoremap <silent> w' . i . ' :' . i . 'wincmd w<CR>'
     let i = i + 1
 endwhile
 
@@ -144,21 +143,32 @@ let g:which_key_map.g.n = 'next'
 let g:which_key_map.g.s = 'stage hunk'
 let g:which_key_map.g.x = 'discard hunk'
 
-" project
-nmap    <silent> <leader>pDd      :CocList    diagnostics<CR>
-nmap    <silent> <leader>pDp      <Plug>(coc-diagnostic-prev-error)
-nmap    <silent> <leader>pDn      <Plug>(coc-diagnostic-next-error)
-nmap    <silent> <leader>pa       :CocCommand actions.open<CR>
-nmap    <silent> <leader>pf       <Plug>(coc-fix-current)
-nmap    <silent> <leader>pd       <Plug>(coc-definition)
-nmap    <silent> <leader>pt       <Plug>(coc-type-definition)
-nmap    <silent> <leader>pi       <Plug>(coc-implementation)
-nmap    <silent> <leader>pR       <Plug>(coc-references)
-nmap    <silent> <leader>psp      :CocList    symbols<CR>
-nmap    <silent> <leader>psb      :CocList    outline<CR>
-nmap    <silent> <leader>pp       :call       <SID>show_documentation()<CR>
-nmap    <silent> <leader>pl       <Plug>(coc-codelens-action)
-nmap    <silent> <leader>pr       <Plug>(coc-rename)
+" code
+nmap    <silent> <leader>ca      :CocCommand actions.open<CR>
+nmap    <silent> <leader>cb      :CocList    outline<CR>
+nmap    <silent> <leader>cd       <Plug>(coc-definition)
+nmap    <silent> <leader>cD       <Plug>(coc-references)
+nmap    <silent> <leader>cf       <Plug>(coc-fix-current)
+nmap    <silent> <leader>ci       <Plug>(coc-implementation)
+nmap    <silent> <leader>cr       <Plug>(coc-rename)
+nmap    <silent> <leader>cs      :CocList    symbols<CR>
+nmap    <silent> <leader>cS       :call       <SID>show_documentation()<CR>
+nmap    <silent> <leader>ct       <Plug>(coc-type-definition)
+nmap    <silent> <leader>cx      :CocList    diagnostics<CR>
+let g:which_key_map.c = { 'name': '+code' }
+let g:which_key_map.c.a = 'code action'
+let g:which_key_map.c.b = 'search symbol in buffer'
+let g:which_key_map.c.d = 'go to definition'
+let g:which_key_map.c.D = 'go to references'
+let g:which_key_map.c.f = 'code fix'
+let g:which_key_map.c.i = 'go to implementations'
+let g:which_key_map.c.r = 'rename'
+let g:which_key_map.c.s = 'search symbol in workspace'
+let g:which_key_map.c.S = 'show documentation'
+let g:which_key_map.c.t = 'go to type definition'
+let g:which_key_map.c.x = 'diagnostics'
+
+" file
 noremap <silent> <leader><leader> :GFiles<CR>
 noremap <silent> <leader>fd       :Ex<CR>
 noremap <silent> <leader>ff       :GFiles<CR>
@@ -180,23 +190,6 @@ noremap <silent> <leader>fm       :Marks<CR>
 noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
 noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
 noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
-let g:which_key_map.p      = { 'name': '+project' }
-let g:which_key_map.p.D    = { 'name': '+diagnostics' }
-let g:which_key_map.p.D.d  = 'diagnostics'
-let g:which_key_map.p.D.p  = 'previous error'
-let g:which_key_map.p.D.n  = 'next error'
-let g:which_key_map.p.a    = 'action menu'
-let g:which_key_map.p.f    = 'fix'
-let g:which_key_map.p.r    = 'show references'
-let g:which_key_map.p.d    = 'go to definition'
-let g:which_key_map.p.i    = 'go to implementation'
-let g:which_key_map.p.t    = 'go to type definition'
-let g:which_key_map.p.s    = { 'name': '+symbols' }
-let g:which_key_map.p.s.p  = 'search in project'
-let g:which_key_map.p.s.b  = 'search in buffer'
-let g:which_key_map.p.p    = 'peek documentation'
-let g:which_key_map.p.l    = 'lens action'
-let g:which_key_map.p.r    = 'rename'
 let g:which_key_map.f      = { 'name': '+file' }
 let g:which_key_map[' ']   = 'find in project'
 let g:which_key_map.f['.'] = 'find in directory'
@@ -220,7 +213,7 @@ let g:which_key_map.f.h    = 'history'
 let g:which_key_map.f.o    = { 'name': '+org' }
 let g:which_key_map.f.o.d  = 'daily notes'
 let g:which_key_map.f.o.t  = 'tasks'
-let g:which_key_map.f.o.w  = 'tasks'
+let g:which_key_map.f.o.w  = 'wiki'
 
 function! OpenDailyNote()
   let l:path = strftime("~/org/notes/%b_%d_%Y.md")
@@ -284,14 +277,14 @@ xmap ac <Plug>(GitGutterTextObjectOuterVisual)
 
 nmap <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <silent> <leader>W <Plug>(easymotion-overwin-w)
-nmap <silent> <leader>c <Plug>(easymotion-bd-f)
-nmap <silent> <leader>C <Plug>(easymotion-overwin-f)
+nmap <silent> <leader>é <Plug>(easymotion-bd-f)
+nmap <silent> <leader>É <Plug>(easymotion-overwin-f)
 nmap <silent> <leader>l <Plug>(easymotion-bd-jk)
 nmap <silent> <leader>L <Plug>(easymotion-overwin-line)
 let g:which_key_map.w = 'go to word'
 let g:which_key_map.W = 'go to word everywhere'
-let g:which_key_map.c = 'go to char'
-let g:which_key_map.C = 'go to char everywhere'
+let g:which_key_map['é'] = 'go to char'
+let g:which_key_map['É'] = 'go to char everywhere'
 let g:which_key_map.l = 'go to line'
 let g:which_key_map.L = 'go to line everywhere'
 

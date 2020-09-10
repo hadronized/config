@@ -123,6 +123,8 @@ Plug 'liuchengxu/vista.vim'
 " coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd User CocJumpPlaceholder call
+      \ CocActionAsync('showSignatureHelp')
 
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
@@ -152,7 +154,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
-      \             [ 'current_function', 'coc_status' ] ],
+      \             [ 'coc_status' ] ],
       \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'inactive': {
