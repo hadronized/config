@@ -97,7 +97,7 @@ map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
 
 " bookmarks.
-nmap <silent> <leader>.l :FzfPreviewBookmarks<CR>
+nmap <silent> <leader>.l :CocList bookmark<CR>
 nmap <silent> <leader>.a :CocCommand bookmark.toggle<CR>
 nmap <silent> <leader>.A :CocCommand bookmark.annotate<CR>
 nmap <silent> <leader>.d :CocCommand bookmark.clearForCurrentFile<CR>
@@ -115,10 +115,8 @@ let g:which_key_map.e   = { 'name': '+extension' }
 let g:which_key_map.e.m = 'marketplace'
 
 " git
-noremap <silent> <leader>ga  :FzfPreviewGitActions<CR>
 noremap <silent> <leader>gcc  :Gcommit<CR>
 noremap <silent> <leader>gcl  :BCommits<CR>
-noremap <silent> <leader>gdc  :FzfPreviewChanges<CR>
 noremap <silent> <leader>gi  :GitGutterFold<CR>
 noremap <silent> <leader>gg  :Git<CR>
 noremap <silent> <leader>gbc :GitMessenger<CR>
@@ -129,24 +127,21 @@ noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
 noremap <silent> <leader>gn :GitGutterNextHunk<CR>
 noremap <silent> <leader>gs :GitGutterStageHunk<CR>
 noremap <silent> <leader>gx :GitGutterUndoHunk<CR>
-let g:which_key_map.g     = { 'name': '+git'     }
-let g:which_key_map.g.a   = 'actions'
+let g:which_key_map.g     = { 'name': '+git' }
 let g:which_key_map.g.i   = 'isolate changes'
-let g:which_key_map.g.b   = { 'name': '+blame'   }
-let g:which_key_map.g.b.c = 'cursor'
-let g:which_key_map.g.b.b = 'buffer'
-let g:which_key_map.g.b.l = 'lens'
+let g:which_key_map.g.b   = { 'name': '+blame' }
 let g:which_key_map.g.c   = { 'name': '+commits' }
 let g:which_key_map.g.c.c = 'commit'
 let g:which_key_map.g.c.l = 'buffer commits'
-let g:which_key_map.g.d   = { 'name': '+diff' }
-let g:which_key_map.g.d.c = 'diff changes'
+let g:which_key_map.g.b.c = 'cursor'
+let g:which_key_map.g.b.b = 'buffer'
+let g:which_key_map.g.b.l = 'lens'
 let g:which_key_map.g.g   = 'status'
-let g:which_key_map.g.h   = 'preview hunk'
-let g:which_key_map.g.p   = 'previous'
-let g:which_key_map.g.n   = 'next'
-let g:which_key_map.g.s   = 'stage hunk'
-let g:which_key_map.g.x   = 'discard hunk'
+let g:which_key_map.g.h = 'preview hunk'
+let g:which_key_map.g.p = 'previous'
+let g:which_key_map.g.n = 'next'
+let g:which_key_map.g.s = 'stage hunk'
+let g:which_key_map.g.x = 'discard hunk'
 
 " code
 nmap    <silent> <leader>ca      :CocCommand actions.open<CR>
@@ -174,10 +169,10 @@ let g:which_key_map.c.t = 'go to type definition'
 let g:which_key_map.c.x = 'diagnostics'
 
 " file
-noremap <silent> <leader><leader> :FzfPreviewProjectFiles<CR>
+noremap <silent> <leader><leader> :GFiles<CR>
 noremap <silent> <leader>fd       :Ex<CR>
-noremap <silent> <leader>ff       :FzfPreviewProjectFiles<CR>
-noremap <silent> <leader>f.       :FzfPreviewDirectoryFiles<CR>
+noremap <silent> <leader>ff       :GFiles<CR>
+noremap <silent> <leader>f.       :Files<CR>
 noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
 noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
 noremap <silent> <leader>fcc      :CocConfig<CR>
@@ -239,21 +234,21 @@ let g:which_key_map.t.c = 'colorscheme'
 " snippets
 noremap <silent> <leader>is :CocList snippets<CR>
 noremap <silent> <leader>ie :UltiSnipsEdit<CR>
-let g:which_key_map.i   = { 'name': '+insert' }
-let g:which_key_map.i.s = 'snippets'
-let g:which_key_map.i.e = 'edit snippets'
+let g:which_key_map.s   = { 'name': '+insert' }
+let g:which_key_map.s.s = 'snippets'
+let g:which_key_map.s.e = 'edit snippets'
 
 " buffer
-noremap <silent> <leader>bb :FzfPreviewBuffers<CR>
-noremap <silent> <leader>bB :FzfPreviewAllBuffers<CR>
-noremap <silent> <leader>bd :bdel<CR>
-noremap <silent> <leader>bo :new<CR>
-noremap <silent> <leader>bv :vnew<CR>
-let g:which_key_map.b   = { 'name': '+buffer' }
-let g:which_key_map.b.b = 'find buffer'
-let g:which_key_map.b.d = 'delete buffer'
-let g:which_key_map.b.o = 'new horizontal buffer'
-let g:which_key_map.b.v = 'new vertical buffer'
+noremap <silent> <leader>b  :Buffers<CR>
+noremap <silent> <leader>Bb :Buffers<CR>
+noremap <silent> <leader>Bd :bdel<CR>
+noremap <silent> <leader>Bo :new<CR>
+noremap <silent> <leader>Bv :vnew<CR>
+let g:which_key_map.B   = { 'name': '+buffer' }
+let g:which_key_map.B.b = 'find buffer'
+let g:which_key_map.B.d = 'delete buffer'
+let g:which_key_map.B.o = 'new horizontal buffer'
+let g:which_key_map.B.v = 'new vertical buffer'
 let g:which_key_map.b   = 'find buffer'
 
 " session
@@ -266,8 +261,8 @@ let g:which_key_map.sl = 'save'
 " ripgrep
 noremap <silent> <leader>rc :Commands<CR>
 noremap <silent> <leader>rf :Filetypes<CR>
-noremap <silent> <leader>rl :FzfPreviewLines<CR>
-noremap <silent> <leader>rr :FzfPreviewProjectGrep<CR>
+noremap <silent> <leader>rl :BLines<CR>
+noremap <silent> <leader>rr :Rg<CR>
 let g:which_key_map.r   = { 'name': '+ripgrep' }
 let g:which_key_map.r.l = 'buffer lines'
 let g:which_key_map.r.r = 'ripgrep'

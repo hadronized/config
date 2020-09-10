@@ -1,4 +1,3 @@
-source ~/.zprofile
 source ~/.fzfrc
 
 # Completion
