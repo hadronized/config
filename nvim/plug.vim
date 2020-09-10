@@ -113,6 +113,12 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 autocmd CompleteDone * silent! pclose!
 
+" " FZF preview
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+let g:fzf_preview_floating_window_rate = 0.6
+let g:fzf_preview_default_fzf_options = { '--reverse': v:true, '--preview-window': 'hidden' }
+let g:fzf_preview_use_dev_icons = 1
+
 " nvim-blame-line
 Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
