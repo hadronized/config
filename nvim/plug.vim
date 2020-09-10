@@ -147,6 +147,13 @@ autocmd! User vim-which-key call RegisterWhichKey()
 
 " org-mode
 Plug 'jceb/vim-orgmode'
+let g:org_aggressive_conceal = 1
+let g:org_heading_shade_leading_stars = 1
+let g:org_todo_keywords = ['TODO', 'WIP', 'BUG', 'FEATURE', '|', 'DONE', 'CANCELLED']
+let g:org_todo_keyword_faces = [['TODO', 'blue'], ['WAITING', 'cyan'], ['CANCELLED',
+  \ [':foreground red', ':background black', ':weight bold',
+  \ ':slant italic', ':decoration underline']]]
+let g:org_indent = 1
 
 " lightline
 Plug 'itchyny/lightline.vim'
@@ -250,5 +257,11 @@ let g:clap_fuzzy_match_hl_groups = [
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 let g:EasyMotion_do_mapping = 0
+
+" Narrow region
+Plug 'chrisbra/NrrwRgn'
+
+" Syntax range
+Plug 'inkarkat/vim-SyntaxRange'
 
 call plug#end()

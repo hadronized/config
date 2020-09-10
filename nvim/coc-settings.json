@@ -37,7 +37,7 @@
   "diagnostic.highlightOffset": 100,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.virtualTextPrefix": "🠄 ",
+  "diagnostic.virtualTextPrefix": "← ",
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",

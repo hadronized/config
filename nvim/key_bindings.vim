@@ -220,6 +220,10 @@ function! OpenDailyNote()
   execute "edit " . l:path
 endfunction
 
+let g:which_key_map.o   = { 'name': '+org' }
+let g:which_key_map.o.n = 'open notes'
+noremap <silent> <leader>on :e ~/org/notes.org<CR>
+
 " toggle and switch
 noremap <silent> <leader>tf :CocCommand explorer<CR>
 noremap <silent> <leader>tc :Colors<CR>

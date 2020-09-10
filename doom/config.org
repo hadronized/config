@@ -1,6 +1,11 @@
 #+TITLE:phaazon’s configuration
 
 * Better defaults
+** Font weights
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+#+END_SRC
+
 ** Redo on U
 #+BEGIN_SRC emacs-lisp
 (map! :n "U" 'undo-fu-only-redo)
