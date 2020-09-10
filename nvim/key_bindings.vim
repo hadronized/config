@@ -186,14 +186,9 @@ noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
 noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
 noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
 noremap <silent> <leader>fh       :History<CR>
-noremap <silent> <leader>fm       :Marks<CR>
-noremap <silent> <leader>fod      :call OpenDailyNote()<CR>
-noremap <silent> <leader>fot      :e ~/org/tasks/tasks.md<CR>
-noremap <silent> <leader>fow      :e ~/org/wiki/wiki.md<CR>
 let g:which_key_map.f      = { 'name': '+file' }
 let g:which_key_map[' ']   = 'find in project'
 let g:which_key_map.f['.'] = 'find in directory'
-let g:which_key_map.f.m    = 'marks'
 let g:which_key_map.f.c    = { 'name': '+config' }
 let g:which_key_map.f.d    = 'filer'
 let g:which_key_map.f.f    = 'find in project'
@@ -210,19 +205,21 @@ let g:which_key_map.f.c.x  = 'sxhkd'
 let g:which_key_map.f.c.z  = 'zsh'
 let g:which_key_map.f.c.Z  = 'zprofile'
 let g:which_key_map.f.h    = 'history'
-let g:which_key_map.f.o    = { 'name': '+org' }
-let g:which_key_map.f.o.d  = 'daily notes'
-let g:which_key_map.f.o.t  = 'tasks'
-let g:which_key_map.f.o.w  = 'wiki'
 
 function! OpenDailyNote()
   let l:path = strftime("~/org/notes/%b_%d_%Y.md")
   execute "edit " . l:path
 endfunction
 
-let g:which_key_map.o   = { 'name': '+org' }
-let g:which_key_map.o.n = 'open notes'
-noremap <silent> <leader>on :e ~/org/notes.org<CR>
+noremap <silent> <leader>od :call OpenDailyNote()<CR>
+noremap <silent> <leader>on :e    ~/org/notes.org<CR>
+noremap <silent> <leader>ot :e    ~/org/tasks/tasks.md<CR>
+noremap <silent> <leader>ow :e    ~/org/wiki/wiki.md<CR>
+let g:which_key_map.o     = { 'name': '+org' }
+let g:which_key_map.o.n   = 'open notes'
+let g:which_key_map.o.d = 'daily notes'
+let g:which_key_map.o.t = 'tasks'
+let g:which_key_map.o.w  = 'wiki'
 
 " toggle and switch
 noremap <silent> <leader>tf :CocCommand explorer<CR>
@@ -234,9 +231,9 @@ let g:which_key_map.t.c = 'colorscheme'
 " snippets
 noremap <silent> <leader>is :CocList snippets<CR>
 noremap <silent> <leader>ie :UltiSnipsEdit<CR>
-let g:which_key_map.s   = { 'name': '+insert' }
-let g:which_key_map.s.s = 'snippets'
-let g:which_key_map.s.e = 'edit snippets'
+let g:which_key_map.i   = { 'name': '+insert' }
+let g:which_key_map.i.s = 'snippets'
+let g:which_key_map.i.e = 'edit snippets'
 
 " buffer
 noremap <silent> <leader>b  :Buffers<CR>
@@ -262,12 +259,14 @@ let g:which_key_map.sl = 'save'
 noremap <silent> <leader>rc :Commands<CR>
 noremap <silent> <leader>rf :Filetypes<CR>
 noremap <silent> <leader>rl :BLines<CR>
+noremap <silent> <leader>rm :Marks<CR>
 noremap <silent> <leader>rr :Rg<CR>
 let g:which_key_map.r   = { 'name': '+ripgrep' }
-let g:which_key_map.r.l = 'buffer lines'
-let g:which_key_map.r.r = 'ripgrep'
 let g:which_key_map.r.c = 'commands'
 let g:which_key_map.r.f = 'file types'
+let g:which_key_map.r.m  = 'marks'
+let g:which_key_map.r.l = 'buffer lines'
+let g:which_key_map.r.r = 'ripgrep'
 
 " colorizer
 nnoremap <silent> <leader>h :ColorizerToggle<CR>
