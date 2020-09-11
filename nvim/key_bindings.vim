@@ -304,7 +304,10 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 inoremap <silent><expr> <C-Space> coc#refresh()
-inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
+" inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
+"       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " clap

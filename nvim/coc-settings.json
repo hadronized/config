@@ -50,6 +50,7 @@
   "list.previousKeymap": "<C-s>",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnInsertLeave": true,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.previewAction.onHover": false,
@@ -122,7 +123,6 @@
   "java.referencesCodeLens.enabled": true,
   "java.implementationsCodeLens.enabled": true,
   "java.format.enabled": true,
-  "rust-analyzer.inlayHints.chainingHints": false,
   "bookmark.sign": "",
   "session.directory": "~/.local/share/nvim/session",
 }

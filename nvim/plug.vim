@@ -52,9 +52,9 @@ let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
 " " Rust
-" Plug 'rust-lang/rust.vim'
-" let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-" let g:rustfmt_autosave = 1
+Plug 'rust-lang/rust.vim'
+let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
+let g:rustfmt_autosave = 1
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
@@ -252,16 +252,17 @@ let g:clap_fuzzy_match_hl_groups = [
 "      \ 'book_marks'         : 'SPC f m',
 "      \ }
 
+" Narrow region
+Plug 'chrisbra/NrrwRgn'
+
+" Syntax range
+Plug 'inkarkat/vim-SyntaxRange'
+
 " -- MOTIONS ---------------------------------------------------------------------------------------
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 let g:EasyMotion_do_mapping = 0
 
-" Narrow region
-Plug 'chrisbra/NrrwRgn'
-
-" Syntax range
-Plug 'inkarkat/vim-SyntaxRange'
 
 call plug#end()

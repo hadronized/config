@@ -35,9 +35,12 @@ set fillchars=vert:│
 " Mute some messages in the statusline.
 set shortmess+=c
 " Method of folding.
-set foldmethod=manual
+set foldmethod=syntax
 " Mapped sequence timeout.
 set timeoutlen=500
+" Time between neovim waits before updating sign / gutters. It’s a stupid
+" option, it should be instead.
+set updatetime=10
 " Smart indenting for new lines.
 set smartindent
 set autoindent
@@ -61,7 +64,3 @@ au TermOpen * setlocal nonu
 au BufWritePre * %s/\s\+$//e
 " Highlight yank.
 au TextYankPost * silent! lua vim.highlight.on_yank()
-
-" -- EXPERIMENTAL ----------------------------------------------------------------------------------
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
