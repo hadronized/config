@@ -222,7 +222,7 @@ let g:which_key_map.o.t = 'tasks'
 let g:which_key_map.o.w  = 'wiki'
 
 " toggle and switch
-noremap <silent> <leader>tf :CocCommand explorer<CR>
+noremap <silent> <leader>tf :Defx -split=vertical -toggle -floating-preview -listed -resume<CR>
 noremap <silent> <leader>tc :Colors<CR>
 let g:which_key_map.t   = { 'name': '+toggle & switch' }
 let g:which_key_map.t.f = 'file tree'
