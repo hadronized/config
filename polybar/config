@@ -123,7 +123,7 @@ font-2 = Material Icons:style=Solid:pixelsize=18;5
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = dunst pulseaudio battery date
+modules-right = wireless network-up network-down dunst pulseaudio battery date
 
 tray-position = right
 tray-padding = 2
@@ -322,6 +322,10 @@ ramp-volume-foreground = ${colors.magenta0}
 
 click-right = pavucontrol &
 
+[module/wireless]
+type = internal/network
+interface = wlan0
+
 [module/network]
 type = internal/network
 interface = enp7s0
@@ -336,7 +340,7 @@ format-disconnected = <label-disconnected>
 
 [module/network-up]
 type = internal/network
-interface = enp7s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <label-connected>
@@ -348,7 +352,7 @@ format-disconnected = <label-disconnected>
 
 [module/network-down]
 type = internal/network
-interface = enp7s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <label-connected>

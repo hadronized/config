@@ -52,9 +52,9 @@ let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
 
 " " Rust
-Plug 'rust-lang/rust.vim'
-let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-let g:rustfmt_autosave = 1
+" Plug 'rust-lang/rust.vim'
+" let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
+" let g:rustfmt_autosave = 1
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
@@ -129,6 +129,14 @@ autocmd User CocJumpPlaceholder call
 
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')
+endfunction
+
+" better color for coc hints
+au Colorscheme * call OverrideCocHighlights()
+
+function OverrideCocHighlights()
+  hi! CocRustChainingHint NONE
+  hi! link CocRustChainingHint Comment
 endfunction
 
 " commentary
@@ -261,12 +269,13 @@ Plug 'inkarkat/vim-SyntaxRange'
 
 " File explorer.
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'kristijanhusak/defx-git'
+Plug 'kristijanhusak/defx-icons'
 
 " -- MOTIONS ---------------------------------------------------------------------------------------
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 let g:EasyMotion_do_mapping = 0
-
 
 call plug#end()

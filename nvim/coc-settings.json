@@ -117,6 +117,9 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "rust-analyzer.inlayHints.refreshOnInsertMode": true,
+  "coc.preferences.formatOnType": true,
   "java.autobuild.enabled": false,
   "java.maven.downloadSources": true,
   "java.configuration.updateBuildConfiguration": "interactive",
@@ -124,5 +127,5 @@
   "java.implementationsCodeLens.enabled": true,
   "java.format.enabled": true,
   "bookmark.sign": "",
-  "session.directory": "~/.local/share/nvim/session",
+  "session.directory": "~/.local/share/nvim/session"
 }

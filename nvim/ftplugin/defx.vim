@@ -18,3 +18,7 @@ nnoremap <silent><buffer><expr> p defx#do_action('cd', ['..'])
 nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
 nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
 nnoremap <silent><buffer><expr> S defx#do_action('search')
+
+call defx#custom#column('indent', {
+  \ 'indent': ' │ ',
+  \ })
