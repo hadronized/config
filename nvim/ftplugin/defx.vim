@@ -1,7 +1,7 @@
 nnoremap <silent><buffer><expr> <CR>
   \ defx#is_directory() ?
   \ defx#do_action('open_tree', ['nested', 'toggle']) :
-  \ defx#do_action('open')
+  \ defx#do_action('multi', ['drop', 'quit'])
 nnoremap <silent><buffer><expr> o defx#do_action('open_directory')
 nnoremap <silent><buffer><expr> r defx#do_action('rename')
 nnoremap <silent><buffer><expr> d defx#do_action('remove')

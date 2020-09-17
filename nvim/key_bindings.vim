@@ -97,13 +97,13 @@ map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
 
 " bookmarks.
-nmap <silent> <leader>.l :CocList bookmark<CR>
+nmap <silent> <leader>.. :CocList bookmark<CR>
 nmap <silent> <leader>.a :CocCommand bookmark.toggle<CR>
 nmap <silent> <leader>.A :CocCommand bookmark.annotate<CR>
 nmap <silent> <leader>.d :CocCommand bookmark.clearForCurrentFile<CR>
 nmap <silent> <leader>.D :CocCommand bookmark.clearForAllFiles<CR>
 let g:which_key_map['.']   = { 'name': '+bookmarks' }
-let g:which_key_map['.'].l = 'list bookmarks'
+let g:which_key_map['.']['.'] = 'list bookmarks'
 let g:which_key_map['.'].a = 'add bookmark'
 let g:which_key_map['.'].A = 'annotate bookmark'
 let g:which_key_map['.'].d = 'clear (current file)'
