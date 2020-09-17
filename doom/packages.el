@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! yasnippet-snippets)
+(package! company-box)

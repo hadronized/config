@@ -5,6 +5,7 @@
   },
   "suggest.enablePreview": false,
   "suggest.echodocSupport": true,
+  "suggest.timeout":500,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",

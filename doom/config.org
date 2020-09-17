@@ -20,6 +20,10 @@
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier nil))))
 #+END_SRC
+** Indent / tabstop
+#+BEGIN_SRC emacs-lisp
+(setq evil-shift-width 2)
+#+END_SRC
 
 * Avy
 #+BEGIN_SRC emacs-lisp
@@ -45,18 +49,24 @@ Basic configuration:
 
 Keybindings and overrides:
 #+BEGIN_SRC emacs-lisp
-;; OVERRIDES
-(map! :mode emacs :map company-active-map
-      "<RET>" nil
-      "<return>" nil)
+;; ;; OVERRIDES
+;; (map! :mode emacs :map company-active-map
+;;       "<RET>" nil
+;;       "<return>" nil)
 
-(map! :mode emacs :map general-company-active-map-backup-map
-      "<RET>" nil
-      "<return>" nil)
+;; (map! :mode emacs :map general-company-active-map-backup-map
+;;       "<RET>" nil
+;;       "<return>" nil)
 
-;; KEYBINDINGS
-(map! :map company-mode-map
-      :i "C-y" 'company-complete-selection)
+;; ;; KEYBINDINGS
+;; (map! :map company-mode-map
+;;       :i "C-y" 'company-complete-selection)
+#+END_SRC
+
+Cute colors:
+#+BEGIN_SRC emacs-lisp
+(use-package company-box
+  :hook (company-mode . company-box-mode))
 #+END_SRC
 
 * Org-mode
@@ -338,3 +348,8 @@ Capturing allows to quickly write some notes without leaving a mode / buffer. It
 #+END_SRC
 
 * Magit
+* Languages
+** Rust
+#+BEGIN_SRC emacs-lisp
+(setq rustic-indent-offset 2)
+#+END_SRC
