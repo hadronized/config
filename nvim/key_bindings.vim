@@ -46,14 +46,14 @@
 " - misc
 
 let mapleader=' '
-let maplocalleader = 'è'
+let maplocalleader = ','
 
 let g:which_key_map = { 'name': 'top level' }
 let g:which_key_local_map = { 'name': 'local' }
 
 " WhichKey
 nnoremap <silent> <leader>      :WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :WhichKey 'è'<CR>
+nnoremap <silent> <localleader> :WhichKey ','<CR>
 
 " misc
 noremap U :redo<CR>
@@ -236,17 +236,16 @@ let g:which_key_map.i.s = 'snippets'
 let g:which_key_map.i.e = 'edit snippets'
 
 " buffer
-noremap <silent> <leader>b  :Buffers<CR>
-noremap <silent> <leader>Bb :Buffers<CR>
-noremap <silent> <leader>Bd :bdel<CR>
-noremap <silent> <leader>Bo :new<CR>
-noremap <silent> <leader>Bv :vnew<CR>
-let g:which_key_map.B   = { 'name': '+buffer' }
-let g:which_key_map.B.b = 'find buffer'
-let g:which_key_map.B.d = 'delete buffer'
-let g:which_key_map.B.o = 'new horizontal buffer'
-let g:which_key_map.B.v = 'new vertical buffer'
-let g:which_key_map.b   = 'find buffer'
+noremap <silent> <leader>bb :Buffers<CR>
+noremap <silent> <leader>bd :bdel<CR>
+noremap <silent> <leader>bo :new<CR>
+noremap <silent> <leader>bv :vnew<CR>
+vmap    <silent> <leader>bv :NarrowRegion<CR>
+let g:which_key_map.b   = { 'name': '+buffer' }
+let g:which_key_map.b.b = 'find buffer'
+let g:which_key_map.b.d = 'delete buffer'
+let g:which_key_map.b.o = 'new horizontal buffer'
+let g:which_key_map.b.v = 'new vertical buffer'
 
 " session
 noremap <silent> <leader>ss :SessionSave<CR>

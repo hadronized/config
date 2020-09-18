@@ -12,13 +12,12 @@
 #+END_SRC
 ** Special configuration for macOS
 #+BEGIN_SRC emacs-lisp
-(cond
- ((string-equal system-type "darwin")
+(when (string-equal system-type "darwin")
   (progn
     (setq mac-option-key-is-meta nil)
     (setq mac-command-key-is-meta t)
     (setq mac-command-modifier 'meta)
-    (setq mac-option-modifier nil))))
+    (setq mac-option-modifier nil)))
 #+END_SRC
 ** Indent / tabstop
 #+BEGIN_SRC emacs-lisp
