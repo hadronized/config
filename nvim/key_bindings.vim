@@ -82,12 +82,6 @@ while i <= 9
     let i = i + 1
 endwhile
 
-" tab key bindings
-noremap <silent> <C-c> :tabp<CR>
-noremap <silent> <C-r> :tabn<CR>
-noremap <silent> <C-n> :tabnew<CR>
-noremap <silent> <C-q> :tabclose<CR>
-
 " next / prev vim like
 inoremap <silent> <C-s> <C-p>
 inoremap <silent> <C-t> <C-n>
@@ -238,21 +232,27 @@ let g:which_key_map.i.e = 'edit snippets'
 " buffer
 noremap <silent> <leader>bb :Buffers<CR>
 noremap <silent> <leader>bd :bdel<CR>
-noremap <silent> <leader>bo :new<CR>
+noremap <silent> <leader>bn :new<CR>
+nmap    <silent> <leader>bN :tabnew<CR>
 noremap <silent> <leader>bv :vnew<CR>
 vmap    <silent> <leader>bv :NarrowRegion<CR>
+nmap    <silent> <leader>bc :tabp<CR>
+nmap    <silent> <leader>br :tabn<CR>
 let g:which_key_map.b   = { 'name': '+buffer' }
 let g:which_key_map.b.b = 'find buffer'
 let g:which_key_map.b.d = 'delete buffer'
-let g:which_key_map.b.o = 'new horizontal buffer'
+let g:which_key_map.b.n = 'new horizontal buffer'
+let g:which_key_map.b.N = 'new tab buffer'
+let g:which_key_map.b.c = 'previous tab'
+let g:which_key_map.b.r = 'next tab'
 let g:which_key_map.b.v = 'new vertical buffer'
 
 " session
 noremap <silent> <leader>ss :SessionSave<CR>
 noremap <silent> <leader>sl :SessionLoad<CR>
 let g:which_key_map.s  = { 'name': '+session' }
-let g:which_key_map.sl = 'load'
-let g:which_key_map.sl = 'save'
+let g:which_key_map.s.l = 'load'
+let g:which_key_map.s.s = 'save'
 
 " ripgrep
 noremap <silent> <leader>rc :Commands<CR>
@@ -316,3 +316,7 @@ autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigati
 " dashboard
 nnoremap <silent> <leader>d :Dashboard<CR>
 let g:which_key_map.d = 'dashboard'
+
+" markdown-preview
+nmap <silent> <localleader>p :MarkdownPreview<CR>
+nmap <silent> <localleader>P :MarkdownPreviewStop<CR>

@@ -59,6 +59,7 @@ let g:haskell_classic_highlighting = 1
 " Markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " GLSL
 Plug 'tikhomirov/vim-glsl'
@@ -78,7 +79,7 @@ Plug 'posva/vim-vue'
 " sxhkdrc
 Plug 'baskerville/vim-sxhkdrc'
 
-" -- CANDIES ---------------------------------------------------------------------------------------
+" -- PRODUCTIVITY ----------------------------------------------------------------------------------
 " Superbe colorizer.
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -138,6 +139,9 @@ function OverrideCocHighlights()
   hi! CocRustChainingHint NONE
   hi! link CocRustChainingHint Comment
 endfunction
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
 
 " commentary
 Plug 'tpope/vim-commentary'
@@ -272,10 +276,20 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 
+" marksman
+Plug 'svermeulen/nvim-marksman', { 'do': ':UpdateRemotePlugins' }
+
 " -- MOTIONS ---------------------------------------------------------------------------------------
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 let g:EasyMotion_do_mapping = 0
+
+
+" any-jump
+Plug 'pechorin/any-jump.vim'
+
+" aerojump
+Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
