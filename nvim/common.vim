@@ -35,7 +35,7 @@ set fillchars=vert:│
 " Mute some messages in the statusline.
 set shortmess+=c
 " Method of folding.
-set foldmethod=syntax
+set foldmethod=expr
 " Mapped sequence timeout.
 set timeoutlen=500
 " Time between neovim waits before updating sign / gutters. It’s a stupid

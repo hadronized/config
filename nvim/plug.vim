@@ -163,10 +163,7 @@ Plug 'jceb/vim-orgmode'
 let g:org_agenda_files = ['~/org/index.org']
 let g:org_aggressive_conceal = 1
 let g:org_heading_shade_leading_stars = 1
-let g:org_todo_keywords = ['TODO', 'WIP', 'BUG', 'FEATURE', '|', 'DONE', 'CANCELLED']
-let g:org_todo_keyword_faces = [['TODO', 'blue'], ['WAITING', 'cyan'], ['CANCELLED',
-  \ [':foreground red', ':background black', ':weight bold',
-  \ ':slant italic', ':decoration underline']]]
+let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
 let g:org_indent = 1
 
 " lightline
