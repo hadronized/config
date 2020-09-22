@@ -314,10 +314,14 @@ nmap <silent> <localleader>P :MarkdownPreviewStop<CR>
 
 " aerojumperojumpSpace)
 nmap <leader>ja :AnyJump<CR>
+nmap <leader>jb <Plug>(AerojumpBolt)
+nmap <leader>jc <Plug>(AerojumpFromCursorBolt)
 nmap <leader>jj <Plug>(AerojumpDefault)
 nmap <leader>jl :AnyJumpLastResults<CR>
 nmap <leader>js <Plug>(AerojumpSpace)
 let g:which_key_map.j = { 'name': '+jump' }
 let g:which_key_map.j.a = 'anyjump'
+let g:which_key_map.j.b = 'bolt'
+let g:which_key_map.j.c = 'from cursor bolt'
 let g:which_key_map.j.j = 'default'
 let g:which_key_map.j.s = 'space'
