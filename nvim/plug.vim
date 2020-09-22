@@ -289,8 +289,15 @@ let g:EasyMotion_do_mapping = 0
 
 " any-jump
 Plug 'pechorin/any-jump.vim'
+let g:any_jump_disable_default_keybindings = 1
 
 " aerojump
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:aerojump_keymaps = {
+  \ "<C-t>": "AerojumpDown",
+  \ "<C-s>": "AerojumpUp",
+  \ "<Esc>": "AerojumpExit",
+  \ "<CR>": "AerojumpSelect",
+  \ }
 
 call plug#end()

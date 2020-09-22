@@ -311,3 +311,13 @@ let g:which_key_map.d = 'dashboard'
 " markdown-preview
 nmap <silent> <localleader>p :MarkdownPreview<CR>
 nmap <silent> <localleader>P :MarkdownPreviewStop<CR>
+
+" aerojumperojumpSpace)
+nmap <leader>ja :AnyJump<CR>
+nmap <leader>jj <Plug>(AerojumpDefault)
+nmap <leader>jl :AnyJumpLastResults<CR>
+nmap <leader>js <Plug>(AerojumpSpace)
+let g:which_key_map.j = { 'name': '+jump' }
+let g:which_key_map.j.a = 'anyjump'
+let g:which_key_map.j.j = 'default'
+let g:which_key_map.j.s = 'space'
