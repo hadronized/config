@@ -153,7 +153,7 @@ let g:which_key_disable_default_offset = 1
 
 function! RegisterWhichKey()
   call which_key#register('<Space>', 'g:which_key_map')
-  call which_key#register('è', 'g:which_key_local_map')
+  call which_key#register(',', 'g:which_key_local_map')
 endfunction
 
 autocmd! User vim-which-key call RegisterWhichKey()
@@ -277,12 +277,15 @@ Plug 'kristijanhusak/defx-icons'
 " marksman
 Plug 'svermeulen/nvim-marksman', { 'do': ':UpdateRemotePlugins' }
 
+" vim-surround
+Plug 'tpope/vim-surround'
+let g:surround_no_mappings = 1
+
 " -- MOTIONS ---------------------------------------------------------------------------------------
 " easymotion
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_keys = 'bpovdljzwxyqghfknarusite'
 let g:EasyMotion_do_mapping = 0
-
 
 " any-jump
 Plug 'pechorin/any-jump.vim'

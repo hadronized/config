@@ -312,7 +312,7 @@ let g:which_key_map.d = 'dashboard'
 nmap <silent> <localleader>p :MarkdownPreview<CR>
 nmap <silent> <localleader>P :MarkdownPreviewStop<CR>
 
-" aerojumperojumpSpace)
+" aerojump
 nmap <leader>ja :AnyJump<CR>
 nmap <leader>jb <Plug>(AerojumpBolt)
 nmap <leader>jc <Plug>(AerojumpFromCursorBolt)
@@ -325,3 +325,15 @@ let g:which_key_map.j.b = 'bolt'
 let g:which_key_map.j.c = 'from cursor bolt'
 let g:which_key_map.j.j = 'default'
 let g:which_key_map.j.s = 'space'
+
+" surround
+nmap <silent> ds  <Plug>Dsurround
+nmap <silent> ls  <Plug>Csurround
+nmap <silent> lS  <Plug>CSurround
+nmap <silent> ys  <Plug>Ysurround
+nmap <silent> yS  <Plug>YSurround
+nmap <silent> yss <Plug>Yssurround
+nmap <silent> ySs <Plug>YSsurround
+nmap <silent> ySS <Plug>YSSurround
+vmap <silent> ls  <Plug>Vsurround
+vmap <silent> gS  <Plug>VgSsurround
