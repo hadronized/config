@@ -118,6 +118,8 @@
     "<<": "gitStage",
     ">>": "gitUnstage"
   },
+  "rust-analyzer.serverPath": "~/github/rust-analyzer/target/release/rust-analyzer",
+  "rust-analyzer.assist.importMergeBehaviour": "none",
   "rust-analyzer.inlayHints.chainingHints": true,
   "rust-analyzer.inlayHints.refreshOnInsertMode": true,
   "coc.preferences.formatOnType": true,

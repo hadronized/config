@@ -138,17 +138,18 @@ let g:which_key_map.g.s = 'stage hunk'
 let g:which_key_map.g.x = 'discard hunk'
 
 " code
-nmap    <silent> <leader>ca      :CocCommand actions.open<CR>
-nmap    <silent> <leader>cb      :CocList    outline<CR>
-nmap    <silent> <leader>cd       <Plug>(coc-definition)
-nmap    <silent> <leader>cD       <Plug>(coc-references)
-nmap    <silent> <leader>cf       <Plug>(coc-fix-current)
-nmap    <silent> <leader>ci       <Plug>(coc-implementation)
-nmap    <silent> <leader>cr       <Plug>(coc-rename)
-nmap    <silent> <leader>cs      :CocList    symbols<CR>
-nmap    <silent> <leader>cS       :call       <SID>show_documentation()<CR>
-nmap    <silent> <leader>ct       <Plug>(coc-type-definition)
-nmap    <silent> <leader>cx      :CocList    diagnostics<CR>
+nmap <silent> <leader>ca :CocCommand actions.open<CR>
+nmap <silent> <leader>cb :CocList    outline<CR>
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cD <Plug>(coc-references)
+nmap <silent> <leader>cf <Plug>(coc-fix-current)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cr <Plug>(coc-rename)
+nmap <silent> <leader>cs :CocList    symbols<CR>
+nmap <silent> <leader>cS :call       <SID>show_documentation()<CR>
+nmap <silent> S          :call       <SID>show_documentation()<CR>
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>cx :CocList    diagnostics<CR>
 let g:which_key_map.c = { 'name': '+code' }
 let g:which_key_map.c.a = 'code action'
 let g:which_key_map.c.b = 'search symbol in buffer'
