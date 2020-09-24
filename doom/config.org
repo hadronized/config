@@ -1,6 +1,10 @@
 #+TITLE:phaazon’s configuration
 
 * Better defaults
+** Local leader
+#+BEGIN_SRC emacs-lisp
+(setq doom-localleader-key ",")
+#+END_SRC
 ** Font weights
 #+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
@@ -23,7 +27,10 @@
 #+BEGIN_SRC emacs-lisp
 (setq evil-shift-width 2)
 #+END_SRC
-
+** Window handling
+#+BEGIN_SRC emacs-lisp
+(map! :n "w o" #'evil-window-split)
+#+END_SRC
 * Avy
 #+BEGIN_SRC emacs-lisp
 (map! :leader
@@ -69,6 +76,12 @@ Cute colors:
 #+END_SRC
 
 * Org-mode
+** Paths
+Here is the list of all paths we need to set to have a customized experience.
+#+BEGIN_SRC emacs-lisp
+(setq org-directory "~/org")
+(setq org-default-notes-file (concat org-directory "/index.org"))
+#+END_SRC
 ** Org modules
 Modules can be loaded to enable more features of org-modes.
 #+BEGIN_SRC emacs-lisp
@@ -106,7 +119,7 @@ Description:
 | =C-c C-b=       | Go to previous (same level) heading.                                                                       |   |
 | =C-c C-f=       | Go to next (same level) heading.                                                                           |   |
 | =C-c C-q=       | Set tag for current headline.                                                                              |   |
-| =C-c C-c=       | Same as =C-c C-q= when pointing on a headline.                                                             | = |
+| =C-c C-c=       | Same as =C-c C-q= when pointing on a headline.                                                             |   |
 | =C-c *=         | Transform into heading.                                                                                    |   |
 | =C-c C-x d=     | Insert a drawer.                                                                                           |   |
 | =C-c .=         | Prompt for a date and insert it.                                                                           |   |
@@ -130,9 +143,6 @@ Additional keybindings here:
       :n "M-S-c" 'org-do-promote
       :n "M-S-r" 'org-do-demote)
 #+END_SRC
-
-** Paths
-=org-mode= requires to have a bunch of paths filled to create notes, tasks etc.
 
 ** Default visibility
 When /emacs/ visits an ~.org~ file for the first time, the global state is set to =OVERVIEW=. It is possible to change that
@@ -328,7 +338,6 @@ General form is ~<2006-11-01 Wed 19:15>~. They can have a repeater interval, as 
 Two timestamps connected by ~--~ denote a range.  Inactive timestamps are surrounded with ~[]~.
 
 Planning can be done with two special keywords: =DEADLINE:= and =SCHEDULED:=, right before the date.
-
 ** Moving information around
 Refiling allow to move heading where the cursor is in into another heading somewhere else, with completion.
 Copying is the same, but preserves the original source.
@@ -336,12 +345,6 @@ Copying is the same, but preserves the original source.
 Archiving allows to move something out of the way, to prevent it from showing up again in agendas and listing. It requires setting up the
 =org-archive-location= variable first. The default is enough for us though right now.
 
-** Capturing
-Capturing allows to quickly write some notes without leaving a mode / buffer. It requires a bunch of configuration to work:
-#+BEGIN_SRC emacs-lisp
-(setq org-directory "~/org"
-      org-default-notes-file (concat org-directory "/notes.org"))
-#+END_SRC
 ** Faces
 #+BEGIN_SRC emacs-lisp
 #+END_SRC
