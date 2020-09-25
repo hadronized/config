@@ -108,6 +108,10 @@ Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 let g:fzf_preview_window = ''
 let $FZF_DEFAULT_OPTS = '--reverse'
+let g:fzf_action = {
+  \ 'ctrl-T': 'tab split',
+  \ 'ctrl-o': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
@@ -265,6 +269,8 @@ Plug 'junegunn/vim-easy-align'
 
 " Narrow region
 Plug 'chrisbra/NrrwRgn'
+let g:nrrw_rgn_nomap_nr = 1
+let g:nrrw_rgn_nomap_Nr = 1
 
 " Syntax range
 Plug 'inkarkat/vim-SyntaxRange'

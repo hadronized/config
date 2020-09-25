@@ -338,3 +338,7 @@ nmap <silent> ySs <Plug>YSsurround
 nmap <silent> ySS <Plug>YSSurround
 vmap <silent> ls  <Plug>Vsurround
 vmap <silent> gS  <Plug>VgSsurround
+
+" Narrow region
+nmap <silent> <leader>ni <Plug>NrrwrgnWinIncr
+xmap <silent> nr <Plug>NrrwrgnDo
