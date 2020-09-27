@@ -139,26 +139,26 @@ let g:which_key_map.g.x = 'discard hunk'
 
 " code
 nmap <silent> <leader>ca :CocCommand actions.open<CR>
-nmap <silent> <leader>cb :CocList    outline<CR>
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cD <Plug>(coc-references)
 nmap <silent> <leader>cf <Plug>(coc-fix-current)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>co :CocList outline<CR>
 nmap <silent> <leader>cr <Plug>(coc-rename)
-nmap <silent> <leader>cs :CocList    symbols<CR>
-nmap <silent> <leader>cS :call       <SID>show_documentation()<CR>
-nmap <silent> S          :call       <SID>show_documentation()<CR>
+nmap <silent> <leader>cs :CocList symbols<CR>
+nmap <silent> <leader>cS :call <SID>show_documentation()<CR>
+nmap <silent> S          :call <SID>show_documentation()<CR>
 nmap <silent> <leader>ct <Plug>(coc-type-definition)
-nmap <silent> <leader>cx :CocList    diagnostics<CR>
+nmap <silent> <leader>cx :CocList diagnostics<CR>
 let g:which_key_map.c = { 'name': '+code' }
 let g:which_key_map.c.a = 'code action'
-let g:which_key_map.c.b = 'search symbol in buffer'
 let g:which_key_map.c.d = 'go to definition'
 let g:which_key_map.c.D = 'go to references'
 let g:which_key_map.c.f = 'code fix'
 let g:which_key_map.c.i = 'go to implementations'
+let g:which_key_map.c.o = 'outline'
 let g:which_key_map.c.r = 'rename'
-let g:which_key_map.c.s = 'search symbol in workspace'
+let g:which_key_map.c.s = 'workspace symbols'
 let g:which_key_map.c.S = 'show documentation'
 let g:which_key_map.c.t = 'go to type definition'
 let g:which_key_map.c.x = 'diagnostics'
@@ -166,27 +166,25 @@ let g:which_key_map.c.x = 'diagnostics'
 " file
 noremap <silent> <leader><leader> :GFiles<CR>
 noremap <silent> <leader>fd       :Ex<CR>
-noremap <silent> <leader>ff       :GFiles<CR>
-noremap <silent> <leader>f.       :Files<CR>
-noremap <silent> <leader>fca      :e          ~/.config/alacritty/alacritty.yml<CR>
-noremap <silent> <leader>fcb      :e          ~/.config/bspwm/bspwmrc<CR>
+noremap <silent> <leader>ff       :Files<CR>
+noremap <silent> <leader>fca      :e ~/.config/alacritty/alacritty.yml<CR>
+noremap <silent> <leader>fcb      :e ~/.config/bspwm/bspwmrc<CR>
 noremap <silent> <leader>fcc      :CocConfig<CR>
-noremap <silent> <leader>fci      :e          ~/.ssh/config<CR>
-noremap <silent> <leader>fci      :e          $MYVIMRC<CR>
-noremap <silent> <leader>fck      :e          ~/.config/nvim/key_bindings.vim<CR>
-noremap <silent> <leader>fcp      :e          ~/.config/nvim/plug.vim<CR>
-noremap <silent> <leader>fcs      :e          ~/.config/starship.toml<CR>
-noremap <silent> <leader>fct      :e          ~/.tmux.conf<CR>
-noremap <silent> <leader>fcx      :e          ~/.config/sxhkd/sxhkdrc<CR>
-noremap <silent> <leader>fcz      :e          ~/.zshrc<CR>
-noremap <silent> <leader>fcZ      :e          ~/.zprofile<CR>
+noremap <silent> <leader>fci      :e ~/.ssh/config<CR>
+noremap <silent> <leader>fci      :e $MYVIMRC<CR>
+noremap <silent> <leader>fck      :e ~/.config/nvim/key_bindings.vim<CR>
+noremap <silent> <leader>fcp      :e ~/.config/nvim/plug.vim<CR>
+noremap <silent> <leader>fcs      :e ~/.config/starship.toml<CR>
+noremap <silent> <leader>fct      :e ~/.tmux.conf<CR>
+noremap <silent> <leader>fcx      :e ~/.config/sxhkd/sxhkdrc<CR>
+noremap <silent> <leader>fcz      :e ~/.zshrc<CR>
+noremap <silent> <leader>fcZ      :e ~/.zprofile<CR>
 noremap <silent> <leader>fh       :History<CR>
 let g:which_key_map.f      = { 'name': '+file' }
-let g:which_key_map[' ']   = 'find in project'
-let g:which_key_map.f['.'] = 'find in directory'
-let g:which_key_map.f.c    = { 'name': '+config' }
+let g:which_key_map[' ']   = 'find git file'
 let g:which_key_map.f.d    = 'filer'
-let g:which_key_map.f.f    = 'find in project'
+let g:which_key_map.f.f    = 'find file'
+let g:which_key_map.f.c    = { 'name': '+config' }
 let g:which_key_map.f.c.a  = 'alacritty'
 let g:which_key_map.f.c.b  = 'bspwm'
 let g:which_key_map.f.c.c  = 'coc'
@@ -201,7 +199,7 @@ let g:which_key_map.f.c.z  = 'zsh'
 let g:which_key_map.f.c.Z  = 'zprofile'
 let g:which_key_map.f.h    = 'history'
 
-noremap <silent> <leader>on :e ~/org/index.org<CR>
+noremap <silent> <leader>on :e ~/org/notes.org<CR>
 noremap <silent> <leader>ot :OrgAgendaTodo<CR>
 let g:which_key_map.o     = { 'name': '+org' }
 let g:which_key_map.o.n   = 'open notes'
@@ -295,10 +293,7 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 inoremap <silent><expr> <C-Space> coc#refresh()
-" inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
-"       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " clap

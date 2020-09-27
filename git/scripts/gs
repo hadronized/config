@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# This script allows to switch branches easily.
+choice=$(git branch | rg -v "^\*" | tr -d ' ' | fzf \
+  --no-info \
+  --header="Select a git branch to switch to." \
+  --prompt="Switch branch: " \
+)
+
+[ $? = 0 ] && git switch $choice
