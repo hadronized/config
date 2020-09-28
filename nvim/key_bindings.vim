@@ -222,6 +222,7 @@ let g:which_key_map.i.e = 'edit snippets'
 " buffer
 noremap <silent> <leader>bb :Buffers<CR>
 noremap <silent> <leader>bd :bdel<CR>
+noremap <silent> <leader>bD :bdel!<CR>
 noremap <silent> <leader>bn :new<CR>
 nmap    <silent> <leader>bN :tabnew<CR>
 noremap <silent> <leader>bv :vnew<CR>
