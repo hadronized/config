@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# This script allows to merge a branch on the current branch easily.
+
+header="Select a branch to merge"
+choice=$(git branch -a | rg -v "^\*" | tr -d ' ' | fzf \
+  --no-info \
+  --header="$header" \
+  --prompt="Merge: " \
+)
+
+[ $? = 0 ] && git merge $choice
