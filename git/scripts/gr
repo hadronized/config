@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# This script allows to rebase the current branch easily.
+
+header="Select a git branch to rebase on"
+flags=
+while getopts "ifs" opt; do
+  case $opt in
+    i)
+      flags="-i $flags"
+      ;;
+
+    f)
+      flags="-f $flags"
+      ;;
+
+    s)
+      flags="--autostash $flags"
+      ;;
+  esac
+done
+
+choice=$(git branch -a | rg -v "^\*" | tr -d ' ' | fzf \
+  --no-info \
+  --header="$header $flags" \
+  --prompt="Rebase on: " \
+)
+
+[ $? = 0 ] && git rebase $choice $flags
