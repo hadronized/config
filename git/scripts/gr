@@ -21,7 +21,6 @@ while getopts "ifs" opt; do
 done
 
 choice=$(git branch -a | rg -v "^\*" | tr -d ' ' | fzf \
-  --no-info \
   --header="$header $flags" \
   --prompt="Rebase on: " \
 )
