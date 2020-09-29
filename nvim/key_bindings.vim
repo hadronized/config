@@ -200,10 +200,17 @@ let g:which_key_map.f.c.Z  = 'zprofile'
 let g:which_key_map.f.h    = 'history'
 
 noremap <silent> <leader>on :e ~/org/notes.org<CR>
+noremap <silent> <leader>od :call OpenDailyNote()<CR>
 noremap <silent> <leader>ot :OrgAgendaTodo<CR>
 let g:which_key_map.o     = { 'name': '+org' }
+let g:which_key_map.o.d   = 'open daily notes'
 let g:which_key_map.o.n   = 'open notes'
 let g:which_key_map.o.t   = 'open all todos'
+
+function! OpenDailyNote()
+  let l:path = strftime("~/org/notes/%b_%d_%Y.md")
+  execute "edit " . l:path
+endfunction
 
 " toggle and switch
 noremap <silent> <leader>tf :Defx -split=vertical -toggle -floating-preview -columns=git:mark:indent:icons:filename:space:size:type:time<CR>
