@@ -109,21 +109,22 @@ let g:which_key_map.e   = { 'name': '+extension' }
 let g:which_key_map.e.m = 'marketplace'
 
 " git
-noremap <silent> <leader>gcc  :Gcommit<CR>
-noremap <silent> <leader>gcl  :BCommits<CR>
+noremap <silent> <leader>gcc :Gcommit<CR>
+noremap <silent> <leader>gcl :BCommits<CR>
 noremap <silent> <leader>gi  :GitGutterFold<CR>
 noremap <silent> <leader>gg  :Git<CR>
 noremap <silent> <leader>gbc :GitMessenger<CR>
 noremap <silent> <leader>gbb :Gblame<CR>
 noremap <silent> <leader>gbl :ToggleBlameLine<CR>
-noremap <silent> <leader>gh :GitGutterPreviewHunk<CR>
-noremap <silent> <leader>gp :GitGutterPrevHunk<CR>
-noremap <silent> <leader>gn :GitGutterNextHunk<CR>
-noremap <silent> <leader>gs :GitGutterStageHunk<CR>
-noremap <silent> <leader>gx :GitGutterUndoHunk<CR>
-let g:which_key_map.g     = { 'name': '+git' }
+noremap <silent> <leader>gh  :GitGutterPreviewHunk<CR>
+noremap <silent> <leader>gp  :GitGutterPrevHunk<CR>
+noremap <silent> <leader>gn  :GitGutterNextHunk<CR>
+noremap <silent> <leader>gs  :GitGutterStageHunk<CR>
+noremap <silent> <leader>gx  :GitGutterUndoHunk<CR>
+noremap <silent> <leader>gw  :Gwrite<CR>
+let g:which_key_map.g     = { 'name': '+git'     }
 let g:which_key_map.g.i   = 'isolate changes'
-let g:which_key_map.g.b   = { 'name': '+blame' }
+let g:which_key_map.g.b   = { 'name': '+blame'   }
 let g:which_key_map.g.c   = { 'name': '+commits' }
 let g:which_key_map.g.c.c = 'commit'
 let g:which_key_map.g.c.l = 'buffer commits'
@@ -131,11 +132,12 @@ let g:which_key_map.g.b.c = 'cursor'
 let g:which_key_map.g.b.b = 'buffer'
 let g:which_key_map.g.b.l = 'lens'
 let g:which_key_map.g.g   = 'status'
-let g:which_key_map.g.h = 'preview hunk'
-let g:which_key_map.g.p = 'previous'
-let g:which_key_map.g.n = 'next'
-let g:which_key_map.g.s = 'stage hunk'
-let g:which_key_map.g.x = 'discard hunk'
+let g:which_key_map.g.h   = 'preview hunk'
+let g:which_key_map.g.p   = 'previous'
+let g:which_key_map.g.n   = 'next'
+let g:which_key_map.g.s   = 'stage hunk'
+let g:which_key_map.g.x   = 'discard hunk'
+let g:which_key_map.g.w   = 'hunk whole file'
 
 " code
 nmap <silent> <leader>ca :CocCommand actions.open<CR>
@@ -213,7 +215,7 @@ function! OpenDailyNote()
 endfunction
 
 " toggle and switch
-noremap <silent> <leader>tf :Defx -split=vertical -toggle -floating-preview -columns=git:mark:indent:icons:filename:space:size:type:time<CR>
+noremap <silent> <leader>tf :Defx -split=vertical -toggle -listed -resume -floating-preview -columns=git:mark:indent:icons:filename:space:size:type:time<CR>
 noremap <silent> <leader>tc :Colors<CR>
 let g:which_key_map.t   = { 'name': '+toggle & switch' }
 let g:which_key_map.t.f = 'file tree'
