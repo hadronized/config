@@ -145,8 +145,10 @@ nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>cD <Plug>(coc-references)
 nmap <silent> <leader>cf <Plug>(coc-fix-current)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cl <Plug>(coc-codelens-action)
 nmap <silent> <leader>co :CocList outline<CR>
 nmap <silent> <leader>cr <Plug>(coc-rename)
+nmap <silent> <leader>cR <Plug>(coc-refactor)
 nmap <silent> <leader>cs :CocList symbols<CR>
 nmap <silent> <leader>cS :call <SID>show_documentation()<CR>
 nmap <silent> S          :call <SID>show_documentation()<CR>
@@ -158,8 +160,10 @@ let g:which_key_map.c.d = 'go to definition'
 let g:which_key_map.c.D = 'go to references'
 let g:which_key_map.c.f = 'code fix'
 let g:which_key_map.c.i = 'go to implementations'
+let g:which_key_map.c.l = 'lens action'
 let g:which_key_map.c.o = 'outline'
 let g:which_key_map.c.r = 'rename'
+let g:which_key_map.c.R = 'refactor'
 let g:which_key_map.c.s = 'workspace symbols'
 let g:which_key_map.c.S = 'show documentation'
 let g:which_key_map.c.t = 'go to type definition'

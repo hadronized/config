@@ -28,7 +28,7 @@ let g:shades_of_purple_bold = 1
 Plug 'flrnd/candid.vim'
 
 " sonokai
-Plug 'phaazon/sonokai'
+Plug 'sainnhe/sonokai'
 let g:sonokai_enable_italic = 1
 let g:sonokai_better_performance = 1
 let g:sonokai_style = 'andromeda'
