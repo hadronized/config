@@ -142,6 +142,8 @@ let g:which_key_map.g.w   = 'hunk whole file'
 " code
 nmap <silent> <leader>ca :CocCommand actions.open<CR>
 nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>ccp :ContextPeek<CR>
+nmap <silent> <leader>cct :ContextToggle<CR>
 nmap <silent> <leader>cD <Plug>(coc-references)
 nmap <silent> <leader>cf <Plug>(coc-fix-current)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
@@ -156,6 +158,9 @@ nmap <silent> <leader>ct <Plug>(coc-type-definition)
 nmap <silent> <leader>cx :CocList diagnostics<CR>
 let g:which_key_map.c = { 'name': '+code' }
 let g:which_key_map.c.a = 'code action'
+let g:which_key_map.c.c = { 'name': '+context' }
+let g:which_key_map.c.c.p = 'peek'
+let g:which_key_map.c.c.t = 'toggle'
 let g:which_key_map.c.d = 'go to definition'
 let g:which_key_map.c.D = 'go to references'
 let g:which_key_map.c.f = 'code fix'
@@ -351,3 +356,4 @@ vmap <silent> gS  <Plug>VgSsurround
 " Narrow region
 nmap <silent> <leader>ni <Plug>NrrwrgnWinIncr
 xmap <silent> nr <Plug>NrrwrgnDo
+

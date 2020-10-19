@@ -306,4 +306,9 @@ let g:aerojump_keymaps = {
   \ "<CR>": "AerojumpSelect",
   \ }
 
+" context
+Plug 'wellle/context.vim'
+let g:context_enabled = 0
+let g:context_add_mappings = 0
+
 call plug#end()
