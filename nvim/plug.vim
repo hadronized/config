@@ -147,6 +147,9 @@ function OverrideCocHighlights()
   hi! link CocRustChainingHint Comment
 endfunction
 
+" coc-fzf
+Plug 'antoinemadec/coc-fzf'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'
 

@@ -58,8 +58,8 @@ nnoremap <silent> <localleader> :WhichKey ','<CR>
 " misc
 noremap U :redo<CR>
 
-let g:which_key_map['$'] = 'hi group at cursor'
-nmap <leader>$ :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+let g:which_key_map['#'] = 'hi group at cursor'
+nmap <leader># :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -91,7 +91,7 @@ map <silent> <leader>/ :Commentary<CR>
 let g:which_key_map['/'] = '(un)comment line'
 
 " bookmarks.
-nmap <silent> <leader>.. :CocList bookmark<CR>
+nmap <silent> <leader>.. :CocFzfList bookmark<CR>
 nmap <silent> <leader>.a :CocCommand bookmark.toggle<CR>
 nmap <silent> <leader>.A :CocCommand bookmark.annotate<CR>
 nmap <silent> <leader>.d :CocCommand bookmark.clearForCurrentFile<CR>
@@ -104,7 +104,7 @@ let g:which_key_map['.'].d = 'clear (current file)'
 let g:which_key_map['.'].D = 'clear (all files)'
 
 " extensions
-map <silent> <leader>em :CocList marketplace<CR>
+map <silent> <leader>em :CocFzfList marketplace<CR>
 let g:which_key_map.e   = { 'name': '+extension' }
 let g:which_key_map.e.m = 'marketplace'
 
@@ -148,16 +148,19 @@ nmap <silent> <leader>cD <Plug>(coc-references)
 nmap <silent> <leader>cf <Plug>(coc-fix-current)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cl <Plug>(coc-codelens-action)
-nmap <silent> <leader>co :Vista!!<CR>
-nmap <silent> <leader>cO :Vista finder<CR>
+nmap <silent> <leader>co :CocFzfList outline<CR>
+nmap <silent> <leader>cO :Vista coc<CR>
 nmap <silent> <leader>cr <Plug>(coc-rename)
 nmap <silent> <leader>cR <Plug>(coc-refactor)
-nmap <silent> <leader>cs :CocList symbols<CR>
+nmap <silent> <leader>cs :CocFzfList symbols<CR>
 nmap <silent> <leader>cS :call <SID>show_documentation()<CR>
 nmap <silent> S          :call <SID>show_documentation()<CR>
 nmap <silent> <leader>ct <Plug>(coc-type-definition)
-nmap <silent> <leader>cx :CocList diagnostics<CR>
+nmap <silent> <leader>cx :CocFzfList diagnostics<CR>
+nmap <silent> <leader>c- :CocFzfListResum<CR>
+
 let g:which_key_map.c = { 'name': '+code' }
+let g:which_key_map.c['-'] = 'hi group at cursor'
 let g:which_key_map.c.a = 'code action'
 let g:which_key_map.c.c = { 'name': '+context' }
 let g:which_key_map.c.c.p = 'peek'
@@ -232,7 +235,7 @@ let g:which_key_map.t.f = 'file tree'
 let g:which_key_map.t.c = 'colorscheme'
 
 " snippets
-noremap <silent> <leader>is :CocList snippets<CR>
+noremap <silent> <leader>is :CocFzfList snippets<CR>
 noremap <silent> <leader>ie :UltiSnipsEdit<CR>
 let g:which_key_map.i   = { 'name': '+insert' }
 let g:which_key_map.i.s = 'snippets'
