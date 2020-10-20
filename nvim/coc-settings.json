@@ -1,7 +1,7 @@
 {
   "list.insertMappings": {
-    "<C-n>": "normal:t",
-    "<C-p>": "normal:s"
+    "<C-t>": "normal:t",
+    "<C-s>": "normal:s"
   },
   "signature.enable": false,
   "suggest.enablePreview": false,

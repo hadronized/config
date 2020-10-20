@@ -108,7 +108,6 @@ Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ''
-let $FZF_DEFAULT_OPTS = '--reverse'
 let g:fzf_action = {
   \ 'ctrl-T': 'tab split',
   \ 'ctrl-o': 'split',
@@ -119,6 +118,18 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 autocmd CompleteDone * silent! pclose!
+
+" coc-fzf
+Plug 'antoinemadec/coc-fzf'
+let g:coc_fzf_layout = { 'down': '40%' }
+let g:coc_fzf_preview_window = ''
+let g:coc_fzf_preview = ''
+let g:coc_fzf_opts = []
+
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 
 " nvim-blame-line
 Plug 'tveskag/nvim-blame-line'
@@ -135,9 +146,25 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd User CocJumpPlaceholder call
       \ CocActionAsync('showSignatureHelp')
 
-function! CocCurrentFunction()
-  return get(b:, 'coc_current_function', '')
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+function! EchoCocCurrentFunction()
+  let s = get(b:, 'coc_current_function', '')
+
+  if !exists("b:was_set")
+    let b:was_set = 0
+  endif
+
+  if len(s) != 0
+    let b:was_set = 1
+    echo ' ' . s
+  elseif b:was_set
+    let b:was_set = 0
+    echo ''
+  endif
 endfunction
+autocmd CursorHold * call EchoCocCurrentFunction()
 
 " better color for coc hints
 au Colorscheme * call OverrideCocHighlights()
@@ -146,9 +173,6 @@ function OverrideCocHighlights()
   hi! CocRustChainingHint NONE
   hi! link CocRustChainingHint Comment
 endfunction
-
-" coc-fzf
-Plug 'antoinemadec/coc-fzf'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -176,7 +200,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'windownb', 'filename', 'paste', 'modified', 'readonly' ],
       \             [ 'fugitive' ],
-      \             [ 'coc_status' ] ],
+      \             [ 'coc_status'] ],
       \   'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'filetype' ] ],
       \ },
       \ 'inactive': {
@@ -198,7 +222,6 @@ let g:lightline = {
       \   'filetype': 'MyFiletype',
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
-      \   'current_function': 'CocCurrentFunction',
       \   'coc_status': 'coc#status',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
