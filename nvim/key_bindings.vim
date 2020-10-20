@@ -148,7 +148,8 @@ nmap <silent> <leader>cD <Plug>(coc-references)
 nmap <silent> <leader>cf <Plug>(coc-fix-current)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
 nmap <silent> <leader>cl <Plug>(coc-codelens-action)
-nmap <silent> <leader>co :CocList outline<CR>
+nmap <silent> <leader>co :Vista!!<CR>
+nmap <silent> <leader>cO :Vista finder<CR>
 nmap <silent> <leader>cr <Plug>(coc-rename)
 nmap <silent> <leader>cR <Plug>(coc-refactor)
 nmap <silent> <leader>cs :CocList symbols<CR>
@@ -247,21 +248,30 @@ noremap <silent> <leader>bv :vnew<CR>
 vmap    <silent> <leader>bv :NarrowRegion<CR>
 nmap    <silent> <leader>bc :tabp<CR>
 nmap    <silent> <leader>br :tabn<CR>
+noremap <silent> <leader>bs :w<CR>
+noremap <silent> <leader>bS :w!<CR>
 let g:which_key_map.b   = { 'name': '+buffer' }
 let g:which_key_map.b.b = 'find buffer'
 let g:which_key_map.b.d = 'delete buffer'
+let g:which_key_map.b.D = 'delete buffer (force)'
 let g:which_key_map.b.n = 'new horizontal buffer'
 let g:which_key_map.b.N = 'new tab buffer'
 let g:which_key_map.b.c = 'previous tab'
 let g:which_key_map.b.r = 'next tab'
+let g:which_key_map.b.s = 'save buffer'
+let g:which_key_map.b.S = 'save buffer (force)'
 let g:which_key_map.b.v = 'new vertical buffer'
 
 " session
-noremap <silent> <leader>ss :SessionSave<CR>
-noremap <silent> <leader>sl :SessionLoad<CR>
+noremap <silent> <leader>sc :SClose<CR>
+noremap <silent> <leader>sd :SDelete<CR>
+noremap <silent> <leader>sl :SLoad<CR>
+noremap <silent> <leader>ss :SSave<CR>
 let g:which_key_map.s  = { 'name': '+session' }
-let g:which_key_map.s.l = 'load'
-let g:which_key_map.s.s = 'save'
+let g:which_key_map.s.c = 'close session'
+let g:which_key_map.s.d = 'delete session'
+let g:which_key_map.s.l = 'load session'
+let g:which_key_map.s.s = 'save session'
 
 " ripgrep
 noremap <silent> <leader>rc :Commands<CR>
@@ -319,10 +329,6 @@ inoremap <silent><expr> <C-y> pumvisible() ? coc#_select_confirm()
 autocmd FileType clap_input inoremap <silent> <buffer> <C-t> <C-R>=clap#navigation#linewise('down')<CR>
 autocmd FileType clap_input inoremap <silent> <buffer> <C-s> <C-R>=clap#navigation#linewise('up')<CR>
 
-" dashboard
-nnoremap <silent> <leader>d :Dashboard<CR>
-let g:which_key_map.d = 'dashboard'
-
 " markdown-preview
 nmap <silent> <localleader>p :MarkdownPreview<CR>
 nmap <silent> <localleader>P :MarkdownPreviewStop<CR>
@@ -354,6 +360,7 @@ vmap <silent> ls  <Plug>Vsurround
 vmap <silent> gS  <Plug>VgSsurround
 
 " Narrow region
-nmap <silent> <leader>ni <Plug>NrrwrgnWinIncr
-xmap <silent> nr <Plug>NrrwrgnDo
-
+nmap <silent> <leader>nw :WR!<CR>
+xmap <silent> nr :NRV!<CR>
+let g:which_key_map.n = { 'name': '+narrow' }
+let g:which_key_map.n.w = 'widen region'

@@ -3,8 +3,10 @@
     "<C-n>": "normal:t",
     "<C-p>": "normal:s"
   },
+  "signature.enable": false,
   "suggest.enablePreview": false,
   "suggest.echodocSupport": true,
+  "suggest.floatEnable": true,
   "suggest.timeout":500,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
@@ -52,72 +54,6 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
-  "explorer.icon.enableNerdfont": true,
-  "explorer.icon.enableVimDevicons": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "i": false, // cancel default mapkey
-
-    "s": "nodePrev",
-    "t": "nodeNext",
-    "gs": "expandablePrev",
-    "gt": "expandableNext",
-
-    "*": "toggleSelection",
-    "<tab>": "actionMenu",
-
-    "h": "collapse",
-    "l": ["expandable?", "expand", "open"],
-    "J": ["toggleSelection", "nodeNext"],
-    "K": ["toggleSelection", "nodePrev"],
-    "gl": "expandRecursive",
-    "gh": "collapseRecursive",
-    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
-    "e": "open",
-    "o": "open:split",
-    "O": "open:split:plain",
-    "v": "open:vsplit",
-    "T": "open:tab",
-    "<bs>": "gotoParent",
-    "gp": "preview:labeling",
-
-    "y": "copyFilepath",
-    "Y": "copyFilename",
-    "à": "copyFile",
-    "C": "cutFile",
-    "p": "pasteFile",
-    "d": "delete",
-    "D": "deleteForever",
-
-    "a": "addFile",
-    "A": "addDirectory",
-
-    ".": "toggleHidden",
-    "R": "refresh",
-
-    "?": "help",
-    "q": "quit",
-    "<esc>": "esc",
-    "X": "systemExecute",
-    "gd": "listDrive",
-
-    "f": "search",
-    "F": "searchRecursive",
-
-    "gf": "gotoSource:file",
-    "gb": "gotoSource:buffer",
-
-    "[[": "sourcePrev",
-    "]]": "sourceNext",
-
-    "[d": "diagnosticPrev",
-    "]d": "diagnosticNext",
-
-    "[C": "gitPrev",
-    "]C": "gitNext",
-    "<<": "gitStage",
-    ">>": "gitUnstage"
-  },
   "rust-analyzer.serverPath": "~/github/rust-analyzer/target/release/rust-analyzer",
   "rust-analyzer.assist.importMergeBehaviour": "full",
   "rust-analyzer.inlayHints.chainingHints": true,

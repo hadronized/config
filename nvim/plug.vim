@@ -106,6 +106,7 @@ let g:git_messenger_no_default_mappings = v:true
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'down': '40%' }
 let g:fzf_preview_window = ''
 let $FZF_DEFAULT_OPTS = '--reverse'
 let g:fzf_action = {
@@ -125,6 +126,8 @@ let g:blameLineGitFormat = '   %an | %ar | %s'
 
 " vista
 Plug 'liuchengxu/vista.vim'
+let g:vista_cursor_delay = 0
+let g:vista_echo_cursor_strategy = 'both'
 
 " coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -152,8 +155,10 @@ Plug 'tpope/vim-commentary'
 
 " which-key
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-let g:which_key_use_floating_win = 1
-let g:which_key_disable_default_offset = 1
+let g:which_key_use_floating_win = 0
+let g:which_key_disable_default_offset = 0
+let g:which_key_flatten = 0
+let g:which_key_timeout = 0
 
 function! RegisterWhichKey()
   call which_key#register('<Space>', 'g:which_key_map')
@@ -161,14 +166,6 @@ function! RegisterWhichKey()
 endfunction
 
 autocmd! User vim-which-key call RegisterWhichKey()
-
-" org-mode
-Plug 'jceb/vim-orgmode'
-let g:org_agenda_files = ['~/org/index.org']
-let g:org_aggressive_conceal = 1
-let g:org_heading_shade_leading_stars = 1
-let g:org_todo_keywords = ['TODO', 'WIP', 'REVIEW', '|', 'DONE', 'CANCELLED']
-let g:org_indent = 1
 
 " lightline
 Plug 'itchyny/lightline.vim'
@@ -254,18 +251,13 @@ Plug 'junegunn/vim-easy-align'
 "       \ [195 , '#e92ea4'] ,
 "       \ ]
 
-" dashboard
-"Plug 'hardcoreplayers/dashboard-nvim'
-"let g:dashboard_session_directory = '~/.local/share/nvim/session'
-"let g:dashboard_custom_shortcut = {
-"      \ 'last_session'       : 'SPC s l',
-"      \ 'find_history'       : 'SPC f h',
-"      \ 'find_file'          : 'SPC f f',
-"      \ 'new_file'           : 'SPC b v',
-"      \ 'change_colorscheme' : 'SPC t c',
-"      \ 'find_word'          : 'SPC r r',
-"      \ 'book_marks'         : 'SPC f m',
-"      \ }
+" startify
+Plug 'mhinz/vim-startify'
+let g:startify_lists = [
+  \ { 'type': 'sessions',  'header': ['   Sessions']       },
+  \ { 'type': 'files',     'header': ['   MRU']            },
+  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+  \ ]
 
 " Narrow region
 Plug 'chrisbra/NrrwRgn'
@@ -287,6 +279,15 @@ Plug 'svermeulen/nvim-marksman', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
 let g:surround_no_mappings = 1
 
+" context
+Plug 'wellle/context.vim'
+let g:context_enabled = 0
+let g:context_add_mappings = 0
+
+" echodoc
+Plug 'Shougo/echodoc.vim'
+let g:echodoc#enable_at_startup = 1
+
 " -- MOTIONS ---------------------------------------------------------------------------------------
 " easymotion
 Plug 'easymotion/vim-easymotion'
@@ -305,10 +306,5 @@ let g:aerojump_keymaps = {
   \ "<Esc>": "AerojumpExit",
   \ "<CR>": "AerojumpSelect",
   \ }
-
-" context
-Plug 'wellle/context.vim'
-let g:context_enabled = 0
-let g:context_add_mappings = 0
 
 call plug#end()
