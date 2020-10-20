@@ -158,7 +158,10 @@ function! EchoCocCurrentFunction()
 
   if len(s) != 0
     let b:was_set = 1
-    echo ' ' . s
+    echohl Constant
+    echo '→ '
+    echohl Number
+    echon s
   elseif b:was_set
     let b:was_set = 0
     echo ''
