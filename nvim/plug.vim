@@ -258,6 +258,11 @@ let g:startify_lists = [
   \ { 'type': 'files',     'header': ['   MRU']            },
   \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
   \ ]
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root = 1
+let g:startify_fortune_use_unicode = 1
+let g:startify_custom_indices = ['t', 'i', 's', 'u', 'r', 'a', 'n', 'x', 'l', 'b']
+let g:startify_relative_path = 1
 
 " Narrow region
 Plug 'chrisbra/NrrwRgn'
