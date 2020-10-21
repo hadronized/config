@@ -35,6 +35,9 @@ let g:sonokai_style = 'andromeda'
 let g:sonokai_sign_column_background = 'none'
 let g:sonokai_diagnostic_line_hilight = 1
 
+" doom-one
+Plug 'romgrk/doom-one.vim'
+
 " -- LANGUAGES -------------------------------------------------------------------------------------
 " treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -50,11 +53,6 @@ let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 let g:haskell_indent_disable = 1          " disable Haskell source indentation
 let g:haskell_classic_highlighting = 1
-
-" " Rust
-" Plug 'rust-lang/rust.vim'
-" let g:rust_recommended_style = 0 " disable Rust recommended style (it forces 4 spaces indent and shit)
-" let g:rustfmt_autosave = 1
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
@@ -97,10 +95,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " fugitive
 Plug 'tpope/vim-fugitive'
-
-" git-messenger
-Plug 'rhysd/git-messenger.vim'
-let g:git_messenger_no_default_mappings = v:true
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -174,11 +168,14 @@ au Colorscheme * call OverrideCocHighlights()
 
 function OverrideCocHighlights()
   hi! CocRustChainingHint NONE
-  hi! link CocRustChainingHint Comment
+  hi! CocErrorSign NONE
+
+  hi! link CocRustChainingHint CocCodeLens
+  hi! link CocErrorSign Error
 endfunction
 
 " LSP
-Plug 'neovim/nvim-lspconfig'
+"Plug 'neovim/nvim-lspconfig'
 
 " commentary
 Plug 'tpope/vim-commentary'
@@ -250,35 +247,12 @@ function! WindowNumber()
     return str
 endfunction
 
-set statusline+=%#warningmsg#
-set statusline+=%*
-
 " ultisnips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " easy-align
 Plug 'junegunn/vim-easy-align'
-
-" clap
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-" let g:clap_insert_mode_only = v:true
-" let g:clap_current_selection_sign = { 'text': '->', 'texthl': 'ClapCurrentSelectionSign', 'linehl': 'ClapCurrentSelection' }
-" let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'ClapSelectedSign', 'linehl': 'ClapSelected' }
-" let g:clap_fuzzy_match_hl_groups = [
-"       \ [118 , '#9922ff'] ,
-"       \ [82  , '#a236ff'] ,
-"       \ [46  , '#ab49ff'] ,
-"       \ [47  , '#b45dff'] ,
-"       \ [48  , '#bd70ff'] ,
-"       \ [49  , '#c684ff'] ,
-"       \ [50  , '#f287ca'] ,
-"       \ [51  , '#f075c3'] ,
-"       \ [87  , '#ef63bb'] ,
-"       \ [123 , '#ed51b3'] ,
-"       \ [159 , '#eb40ab'] ,
-"       \ [195 , '#e92ea4'] ,
-"       \ ]
 
 " startify
 Plug 'mhinz/vim-startify'
@@ -298,16 +272,10 @@ Plug 'chrisbra/NrrwRgn'
 let g:nrrw_rgn_nomap_nr = 1
 let g:nrrw_rgn_nomap_Nr = 1
 
-" Syntax range
-Plug 'inkarkat/vim-SyntaxRange'
-
 " File explorer.
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
-
-" marksman
-Plug 'svermeulen/nvim-marksman', { 'do': ':UpdateRemotePlugins' }
 
 " vim-surround
 Plug 'tpope/vim-surround'
