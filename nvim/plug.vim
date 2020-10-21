@@ -315,8 +315,11 @@ let g:surround_no_mappings = 1
 
 " context
 Plug 'wellle/context.vim'
-let g:context_enabled = 1
+let g:context_enabled = 0
 let g:context_add_mappings = 0
+
+" nvim-treesitter-context
+" Plug 'romgrk/nvim-treesitter-context'
 
 " echodoc
 Plug 'Shougo/echodoc.vim'
