@@ -125,6 +125,23 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 
+" clap
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+"let g:clap_layout = { 'width': '100%', 'height': '30%', 'col': '0%', 'row': '70%' }
+let g:clap_no_matches_msg = 'no matches'
+let g:clap_insert_mode_only = v:true
+let g:clap_current_selection_sign = { 'text': '> ', 'texthl': 'CursorLineNr', 'linehl': 'Normal' }
+let g:clap_selected_sign = { 'text': ' ·', 'texthl': 'CursorLineNr', 'linehl': 'Green' }
+let g:clap_prompt_format = ' %provider_id% %spinner% %forerunner_status% '
+let g:clap_fuzzy_match_hl_groups = [
+  \ [176, '#bb97ee'],
+  \ [110, '#6dcae8'],
+  \ [215, '#f89860'],
+  \ [203, '#fb617e'],
+  \ [179, '#edc763'],
+  \ [107, '#9ed06c'],
+  \ ]
+
 " nvim-blame-line
 Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
