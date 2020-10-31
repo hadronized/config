@@ -1,4 +1,5 @@
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
 Tarrasch/zsh-bd
 hschne/fzf-git
