@@ -12,7 +12,7 @@ floating_modifier $mod
 # keybindings
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # show the scratchpad
 bindsym $mod+d scratchpad show
@@ -259,17 +259,17 @@ title_align center
 gaps inner 0
 #workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
 
-hide_edge_borders both
+#hide_edge_borders both
 
 focus_follows_mouse no
 workspace_auto_back_and_forth false
 show_marks yes
 
-exec --no-startup-id xcompmgr -c -C -f -D5 &
-exec --no-startup-id sh ~/.fehbg
-exec --no-startup-id setxkbmap -option caps:escape &
-exec --no-startup-id xset r rate 200 30
-
-exec --no-startup-id ~/bin/restart-polybar
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
-exec --no-startup-id redshift-gtk
+exec dunst &
+exec nitrogen --restore &
+exec picom --experimental-backends &
+exec setxkbmap -option caps:escape
+exec xset r rate 200 30
+exec redshift-gtk &
+exec polybar desktop-primary &
+exec polybar desktop-secondary &

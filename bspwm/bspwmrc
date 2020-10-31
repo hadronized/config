@@ -43,7 +43,7 @@ bspc config honor_size_hints            false
 sxhkd &
 dunst &
 nitrogen --restore &
-picom --experimental-backends
+picom --experimental-backends &
 polybar desktop-primary &
 polybar desktop-secondary &
 

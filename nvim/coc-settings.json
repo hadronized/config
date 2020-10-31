@@ -55,7 +55,6 @@
   "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "coc.preferences.formatOnType": true,
-  "rust-analyzer.serverPath": "~/github/rust-analyzer/target/release/rust-analyzer",
   "rust-analyzer.assist.importMergeBehaviour": "full",
   "rust-analyzer.inlayHints.chainingHints": true,
   "rust-analyzer.inlayHints.refreshOnInsertMode": true,

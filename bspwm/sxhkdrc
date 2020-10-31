@@ -129,7 +129,7 @@ alt + g
 
 # terminal emulator
 alt + Return
-  $TERMINAL
+  kitty
 
 # file browser
 shift + alt + Return

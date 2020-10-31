@@ -1,6 +1,9 @@
 let g:lightline.colorscheme = 'sonokai'
 colorscheme sonokai
 
+" hi! Normal guibg=#21242B
+" hi! link EndOfBuffer Normal
+
 " Some nice touch, because I like looking FABULOUS
 hi! CursorLineNr cterm=bold guifg=#bb97ee guibg=#333645
 hi! CursorLine guibg=#333645

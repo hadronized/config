@@ -367,3 +367,14 @@ nmap <silent> <leader>nw :WR!<CR>
 xmap <silent> nr :NRV!<CR>
 let g:which_key_map.n = { 'name': '+narrow' }
 let g:which_key_map.n.w = 'widen region'
+
+" marks
+nmap <silent> <leader>ma m
+nmap <silent> <leader>ml :Marks<CR>
+nmap <silent> <leader>mg '
+nmap <silent> <leader>mD :delmarks!<CR>
+let g:which_key_map.m = { 'name': '+marks' }
+let g:which_key_map.m.a = 'add a new mark'
+let g:which_key_map.m.l = 'list all marks'
+let g:which_key_map.m.g = 'go to a mark'
+let g:which_key_map.m.D = 'delete all marks in the current buffer'
