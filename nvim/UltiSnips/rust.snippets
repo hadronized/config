@@ -29,3 +29,13 @@ for variant in t[4].split('\n'):
   }
 }
 endsnippet
+
+snippet display "Implement the std::fmt::Display trait" b
+impl fmt::Display for $1 {
+  fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+		match *self {
+		  $1::$2 => write!(f, "$3"),
+		}
+	}
+}
+endsnippet
