@@ -1,28 +1,26 @@
 #!/bin/sh
 
+set -x
+
 case "$1" in
-  "meta")
-    choices="\
-switch\n\
-new-desktop\n\
-rename-desktop\n\
-remove-desktop"
-    choice=$(echo -e $choices | rofi -dmenu -p "bspwm")
-    sleep 0.1
-
-    $0 $choice
-    ;;
-
   "switch")
-    bspc query -D --names | rofi -dmenu -p "Jump to desktop" | xargs bspc desktop -f
+    desktop=$(bspc query -D --names | rofi -dmenu -p "Jump to desktop")
+    [[ -n $desktop ]] && bspc desktop -f $desktop
     ;;
 
   "new-desktop")
-    rofi -dmenu -p "Desktop name" | xargs bspc monitor -a
+    new_desktop=$(rofi -dmenu -p "Desktop name")
+    [[ -n $new_desktop ]] && bspc monitor -a $new_desktop
     ;;
 
   "rename-desktop")
-    bspc query -D -d --names | rofi -dmenu -p "Rename desktop" | xargs bspc desktop -n
+    desktop=$(bspc query -D -d --names | rofi -dmenu -p "Rename desktop")
+    [[ -n $desktop ]] && bspc desktop -n $desktop
+    ;;
+
+  "send-to-desktop")
+    desktop=$(bspc query -D --names | rofi -dmenu -p "Send node to")
+    [[ -n $desktop ]] && bspc node -d $desktop
     ;;
 
   "remove-desktop")

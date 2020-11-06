@@ -13,8 +13,8 @@ super + alt + {q, r}
   bspc {quit,wm -r}
 
 # close and kill node
-alt + {_,shift + }q
-  bspc node -{c,k}
+alt + q
+  bspc node -c
 
 # alternate between the tiled and monocle layout
 alt + e
@@ -49,34 +49,30 @@ ctrl + super + {_, shift + }f
   bspc node -F {horizontal,vertical}
 
 # focus or send to the given desktop
-alt + {_,shift + } quotedbl
-  bspc {desktop -f,node -d} 1
-alt + {_,shift + } guillemotleft
-  bspc {desktop -f,node -d} 2
-alt + {_,shift + } guillemotright
-  bspc {desktop -f,node -d} 3
-alt + {_,shift + } parenleft
-  bspc {desktop -f,node -d} 4
-alt + {_,shift + } parenright
-  bspc {desktop -f,node -d} 5
-alt + {_,shift + } at
-  bspc {desktop -f,node -d} 6
-alt + {_,shift + } plus
-  bspc {desktop -f,node -d} 7
-alt + {_,shift + } minus
-  bspc {desktop -f,node -d} 8
-alt + {_,shift + } slash
-  bspc {desktop -f,node -d} 9
-alt + {_,shift + } asterisk
-  bspc {desktop -f,node -d} 0
-alt + {_,shift + } equal
-  bspc {desktop -f,node -d} 11
-alt + {_,shift + } percent
-  bspc {desktop -f,node -d} 12
-
-# focus a node via dmenu
-alt + l
-  bspwm-dmenu switch
+# alt + {_,shift + } quotedbl
+#   bspc {desktop -f,node -d} 1
+# alt + {_,shift + } guillemotleft
+#   bspc {desktop -f,node -d} 2
+# alt + {_,shift + } guillemotright
+#   bspc {desktop -f,node -d} 3
+# alt + {_,shift + } parenleft
+#   bspc {desktop -f,node -d} 4
+# alt + {_,shift + } parenright
+#   bspc {desktop -f,node -d} 5
+# alt + {_,shift + } at
+#   bspc {desktop -f,node -d} 6
+# alt + {_,shift + } plus
+#   bspc {desktop -f,node -d} 7
+# alt + {_,shift + } minus
+#   bspc {desktop -f,node -d} 8
+# alt + {_,shift + } slash
+#   bspc {desktop -f,node -d} 9
+# alt + {_,shift + } asterisk
+#   bspc {desktop -f,node -d} 0
+# alt + {_,shift + } equal
+#   bspc {desktop -f,node -d} 11
+# alt + {_,shift + } percent
+#   bspc {desktop -f,node -d} 12
 
 # preselect the direction
 ctrl + alt + {c,t,s,r}
@@ -121,11 +117,32 @@ super + shift + {c,t,s,r}
 alt + i
   rofi -show drun
 
-alt + {_, shift +} dollar
-  bspwm-dmenu {new-desktop, remove-desktop}
+alt + l
+  ~/config/bin/bspwm-dmenu switch
 
-alt + g
-  bspwm-dmenu rename-desktop
+alt + dollar
+  ~/config/bin/bspwm-dmenu {switch, rename-desktop}
+
+alt + shift + dollar
+  ~/config/bin/bspwm-dmenu send-to-desktop
+
+alt + shift + q
+  ~/config/bin/bspwm-dmenu remove-desktop
+
+alt + shift + Return
+  ~/config/bin/bspwm-dmenu new-desktop
+
+alt + quotedbl
+  bspc desktop -f prev
+
+alt + guillemotleft
+  bspc desktop -f next
+
+alt + shift + quotedbl
+  bspc monitor -f prev
+
+alt + shift + guillemotleft
+  bspc monitor -f next
 
 # terminal emulator
 alt + Return
