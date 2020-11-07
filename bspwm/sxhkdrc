@@ -165,3 +165,7 @@ alt + Print
 # lock, suspend, hibernate
 super + {h,l,s}
   systemctl {hibernate,lock,suspend}
+
+# switch keyboard layout
+super + dollar
+  switch-kb-layout
