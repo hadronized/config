@@ -121,7 +121,7 @@ alt + l
   ~/config/bin/bspwm-dmenu switch
 
 alt + dollar
-  ~/config/bin/bspwm-dmenu {switch, rename-desktop}
+  ~/config/bin/bspwm-dmenu rename-desktop
 
 alt + shift + dollar
   ~/config/bin/bspwm-dmenu send-to-desktop
