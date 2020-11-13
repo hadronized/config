@@ -5,20 +5,20 @@ DESKTOP_HOSTNAME="orchid"
 LAPTOP_HOSTNAME="monoid-prime"
 HOST=$(hostname)
 
-case "$HOST" in
-  "$DESKTOP_HOSTNAME")
-    bspc monitor DP-2 -d 1 2 3 4 5
-    bspc monitor HDMI-0 -d 6 7 8 9 0
-    ;;
+# case "$HOST" in
+#   "$DESKTOP_HOSTNAME")
+#     bspc monitor DP-2 -d 1 2 3 4 5
+#     bspc monitor HDMI-0 -d 6 7 8 9 0
+#     ;;
 
-  "$LAPTOP_HOSTNAME")
-    bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0
-    ;;
+#   "$LAPTOP_HOSTNAME")
+#     bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0
+#     ;;
 
-  *)
-    bspc monitor I II III IV V VI VII IX X
-    ;;
-esac
+#   *)
+#     bspc monitor I II III IV V VI VII IX X
+#     ;;
+# esac
 
 # Visual.
 bspc config top_padding               20
