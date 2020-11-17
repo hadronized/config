@@ -7,3 +7,11 @@ impl fmt::Display for $1 {
 	}
 }
 endsnippet
+
+snippet from "Implement From for a type" b
+impl From<${1:FromType}> for ${2:${VISUAL:IntoType}} {
+  fn from(err: $1) -> Self {
+    Self::${3:$1}(err)
+  }
+}
+endsnippet

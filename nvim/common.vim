@@ -11,7 +11,7 @@ set nobackup
 " Show the ruler.
 set ruler
 " Show the color column
-set colorcolumn=120
+"set colorcolumn=120
 " Useful for ^w.
 set backspace=indent,eol,start
 " Show partial command.
