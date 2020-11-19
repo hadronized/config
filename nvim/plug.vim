@@ -268,6 +268,9 @@ endfunction
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
 " easy-align
 Plug 'junegunn/vim-easy-align'
 
