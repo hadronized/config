@@ -355,3 +355,7 @@ Archiving allows to move something out of the way, to prevent it from showing up
 #+BEGIN_SRC emacs-lisp
 (setq rustic-indent-offset 2)
 #+END_SRC
+* Projectile
+#+begin_src emacs-lisp
+(setq projectile-project-search-path "~/dev")
+#+end_src

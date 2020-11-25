@@ -160,26 +160,6 @@ autocmd User CocJumpPlaceholder call
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-function! EchoCocCurrentFunction()
-  let s = get(b:, 'coc_current_function', '')
-
-  if !exists("b:was_set")
-    let b:was_set = 0
-  endif
-
-  if len(s) != 0
-    let b:was_set = 1
-    echohl Constant
-    echo '→ '
-    echohl Number
-    echon s
-  elseif b:was_set
-    let b:was_set = 0
-    echo ''
-  endif
-endfunction
-autocmd CursorHold * call EchoCocCurrentFunction()
-
 " better color for coc hints
 au Colorscheme * call OverrideCocHighlights()
 
