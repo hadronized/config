@@ -8,6 +8,7 @@ let g:edge_enable_italic = 1
 
 " All the nice icons!
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " vim-one
 Plug 'rakr/vim-one'

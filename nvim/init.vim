@@ -11,3 +11,4 @@ source ~/.config/nvim/colorscheme.vim
 
 lua require'colorizer'.setup()
 lua require('treesitter-config')
+lua require('devicons-config')
