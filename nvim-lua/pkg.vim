@@ -16,6 +16,7 @@ source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/markdown.vim
 source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/surround.vim
+source ~/.config/nvim/statusline.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/treesitter.vim
 
@@ -23,5 +24,6 @@ call plug#end()
 
 " Run some lua code
 lua require('lsp-local')
-lua require('treesitter-local')
 lua require('telescope-local')
+lua require('treesitter-local')
+" lua require('statusline-local')

@@ -17,7 +17,6 @@ set updatetime=10
 set expandtab
 
 " Do not use swap files.
-
 set noswapfile
 
 " Number of spaces used for indentation.
@@ -46,6 +45,9 @@ set timeoutlen=500
 
 " Completion options (see :help completeopt)
 set completeopt=menuone,noinsert,noselect
+
+" Short messages.
+set shortmess+=c
 
 " Remove lines for terminal windows.
 au TermOpen * setlocal nonu
