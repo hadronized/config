@@ -1,6 +1,9 @@
 " Enable numbers.
 set nu
 
+" Prevent buffers from getting lost when we close them.
+set hidden
+
 " Show the current line number highlighted for the cursor.
 set cursorline
 
@@ -9,6 +12,13 @@ set termguicolors
 
 " Time to wait to update stuff (typically, the gutter columns / diagnostics).
 set updatetime=10
+
+" Insert spaces instead of tabs.
+set expandtab
+
+" Do not use swap files.
+
+set noswapfile
 
 " Number of spaces used for indentation.
 set shiftwidth=2
@@ -33,6 +43,9 @@ set fillchars=vert:│
 
 " Time to wait for a keybinding sequence before timing out.
 set timeoutlen=500
+
+" Completion options (see :help completeopt)
+set completeopt=menuone,noinsert,noselect
 
 " Remove lines for terminal windows.
 au TermOpen * setlocal nonu

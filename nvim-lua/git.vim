@@ -1,7 +1,5 @@
 " Fugitive, the “git status” for neovim.
 Plug 'tpope/vim-fugitive'
-noremap <silent> <leader>gg <cmd>Git<cr>
-noremap <silent> <leader>gw <cmd>Gwrite<cr>
 
 " Git signs in the gutter column and inline hunk preview / staging.
 Plug 'airblade/vim-gitgutter'
@@ -15,15 +13,6 @@ let g:gitgutter_sign_removed_first_line = "\u00a0▔"
 let g:gitgutter_sign_modified_removed = "\u00a0│"
 let g:gitgutter_highlight_linenrs = 0
 let g:gitgutter_override_sign_column_highlight = 0
-
-noremap <silent> <leader>gf  <cmd>GitGutterQuickFix<cr>
-noremap <silent> <leader>gh  <cmd>GitGutterPreviewHunk<cr>
-noremap <silent> <leader>gn  <cmd>GitGutterNextHunk<cr>
-noremap <silent> <leader>gp  <cmd>GitGutterPrevHunk<cr>
-noremap <silent> <leader>gf  <cmd>GitGutterPrevHunk<cr>
-noremap <silent> <leader>gs  <cmd>GitGutterStageHunk<cr>
-noremap <silent> <leader>gx  <cmd>GitGutterUndoHunk<cr>
-noremap <silent> <leader>gz  <cmd>GitGutterFold<cr>
 
 "autocmd User GitGutter call _
 "autocmd User GitGutterStage call _

@@ -1,6 +1,6 @@
 Plug 'wellle/context.vim'
 
-let g:context_add_mappings     = 1
+let g:context_add_mappings     = 0
 let g:context_add_autocmds     = 1
 let g:context_ellipsis_char    = '·'
 let g:context_border_char      = '━'

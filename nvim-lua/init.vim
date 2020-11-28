@@ -1,11 +1,11 @@
 " Set some common things.
-source common.vim
-
-" Setup bépo, because I really can’t use anything else.
-source bepo.vim
+source ~/.config/nvim/common.vim
 
 " Load packages.
-source pkg.vim
+source ~/.config/nvim/pkg.vim
 
 " Pick a colorscheme and override some things if needed.
-source colorscheme.vim
+source ~/.config/nvim/colorscheme.vim
+
+" Load various lua settings.
+lua require('keybindings-local')
