@@ -40,14 +40,13 @@ hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
 function VcsStatus()
   let branch = fugitive#head()
-  let b:branch_minwin = 4
   let b:branch_maxwin = 20
 
   if v:shell_error != 0
     return ''
   else
     let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('%%#StatusLineGitDiffAdd#+%d %%#StatusLineGitDiffMod#±%d %%#StatusLineGitDiffDel#-%d %%#StatusLineGitBranchSymbol#%%#StatusLineGitBranchName#%%-%d.%d(%s%%)', a, m, r, b:branch_minwin, b:branch_maxwin, trim(branch))
+    return printf('%%#StatusLineGitDiffAdd#+%d %%#StatusLineGitDiffMod#±%d %%#StatusLineGitDiffDel#-%d %%#StatusLineGitBranchSymbol#%%#StatusLineGitBranchName#%%-.%d(%s%%)', a, m, r, b:branch_maxwin, trim(branch))
   end
 endfunction
 
@@ -61,7 +60,7 @@ function! LspStatus() abort
     else
       let sl .= '%#StatusLineBg2b#'
     end
-    let sl .= ' ' . errors
+    let sl .= printf(' %d', errors)
 
     let warnings = luaeval("vim.lsp.diagnostic.get_count(0, [[Warning]])")
     if warnings > 0
@@ -69,7 +68,7 @@ function! LspStatus() abort
     else
       let sl .= '%#StatusLineBg2b#'
     end
-    let sl .= '  ' . warnings
+    let sl .= printf('  %d', warnings)
 
     let informations = luaeval("vim.lsp.diagnostic.get_count(0, [[Information]])")
     if informations > 0
@@ -77,7 +76,7 @@ function! LspStatus() abort
     else
       let sl .= '%#StatusLineBg2b#'
     end
-    let sl .= '  ' . informations
+    let sl .= printf('  %d', informations)
 
     let hints = luaeval("vim.lsp.diagnostic.get_count(0, [[Hints]])")
     if hints > 0
@@ -85,7 +84,7 @@ function! LspStatus() abort
     else
       let sl .= '%#StatusLineBg2b#'
     end
-    let sl .= '  ' . hints
+    let sl .= printf('  %d', hints)
   endif
 
   return sl
@@ -93,16 +92,15 @@ endfunction
 
 function GetFileName()
   let b:file_name = expand('%')
-  let b:minwin = 4
   let b:maxwin = 20
 
   if strwidth(b:file_name) == 0
     let b:file_name = '<scratch>'
   elseif exists('*WebDevIconsGetFileTypeSymbol')
-    let b:file_name = WebDevIconsGetFileTypeSymbol() . ' ' . b:file_name
+    let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(), b:file_name)
   endif
 
-  return '%-' . b:minwin . '.' . b:maxwin . '(' . b:file_name . '%)'
+  return printf('%%-.%d(%s%%)', b:maxwin, b:file_name)
 endfunction
 
 function MakeStatusLine()
@@ -150,11 +148,11 @@ function MakeStatusLine()
     endif
   endif
 
-  let b:first_part = '%#' . b:hl . '# ' . GetFileName() . ' '
-  let b:second_part = '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  let b:third_part = '%=%#StatusLineBg# LSP_SYMBOL ' . LspStatus() . ' ' . VcsStatus() . ' '
+  let b:status_line = printf('%%#%s# %s ', b:hl, GetFileName())
+  let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
+  let b:status_line .= printf('%%=%%#StatusLineBg# LSP_SYMBOL %s %s ', LspStatus(), VcsStatus())
 
-  return b:first_part . b:second_part . b:third_part
+  return b:status_line
 endfunction
 
 function ShowMode()
