@@ -33,9 +33,13 @@ hi StatusLineSelectLineMode guibg=#46D9FF guifg=#efefef
 hi StatusLineSelectLineModeItalic guibg=#46D9FF guifg=#efefef gui=italic
 hi StatusLineSelectBlockMode guibg=#46D9FF guifg=#efefef
 hi StatusLineSelectBlockModeItalic guibg=#46D9FF guifg=#efefef gui=italic
+hi StatusLineCommandMode guibg=#da8548 guifg=#efefef
+hi StatusLineCommandModeItalic guibg=#da8548 guifg=#efefef gui=italic
+hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#efefef
+hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
 function VcsStatus()
-  let branch = system('git rev-parse --abbrev-ref HEAD')
+  let branch = fugitive#head()
 
   if v:shell_error != 0
     return ''
@@ -104,13 +108,21 @@ function MakeStatusLine()
       \ 'n': 'StatusLineVisualLineMode',
       \ 'i': 'StatusLineVisualLineModeItalic'
       \ },
-    \ '^V': {
+    \ '': {
       \ 'n': 'StatusLineVisualBlockMode',
       \ 'i': 'StatusLineVisualBlockModeItalic'
       \ },
     \ 'R': {
       \ 'n': 'StatusLineReplaceMode',
       \ 'i': 'StatusLineReplaceModeItalic'
+      \ },
+    \ 'c': {
+      \ 'n': 'StatusLineCommandMode',
+      \ 'i': 'StatusLineCommandModeItalic'
+      \ },
+    \ 'r?': {
+      \ 'n': 'StatusLineHitEnterPromptMode',
+      \ 'i': 'StatusLineHitEnterPromptModeItalic'
       \ },
     \ }
   let hl = 'StatusLineBg'
