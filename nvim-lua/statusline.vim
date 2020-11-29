@@ -1,6 +1,8 @@
 hi StatusLineBg guibg=#23272e guifg=#efefef
 hi StatusLineBg2 guibg=#23272e guifg=#efefef
 hi StatusLineBg2b guibg=#23272e guifg=#5B6268
+hi StatusLineBg2c guibg=#5B6268 guifg=#23272e
+
 hi StatusLineLinNbr guibg=#23272e guifg=#51afef
 hi StatusLineColNbr guibg=#23272e guifg=#98be65
 
@@ -38,7 +40,7 @@ hi StatusLineCommandModeItalic guibg=#da8548 guifg=#efefef gui=italic
 hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#efefef
 hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
-function VcsStatus()
+function! VcsStatus()
   let branch = fugitive#head()
   let b:branch_maxwin = 20
 
@@ -90,21 +92,19 @@ function! LspStatus() abort
   return sl
 endfunction
 
-function GetFileName()
-  let b:file_name = expand('%')
+function! GetFileName()
   let b:minwin = 10
   let b:maxwin = 30
 
-  if strwidth(b:file_name) == 0
-    let b:file_name = '<scratch>'
-  elseif exists('*WebDevIconsGetFileTypeSymbol')
-    let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(), b:file_name)
+  let b:file_name = bufname(winbufnr(g:statusline_winid))
+  if exists('*WebDevIconsGetFileTypeSymbol')
+    let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(b:file_name), b:file_name)
   endif
 
   return printf('%%-%d.%d(%s%%)', b:minwin, b:maxwin, b:file_name)
 endfunction
 
-function MakeStatusLine()
+function! MakeActiveStatusLine()
   let b:hls = {
     \ 'n': {
       \ 'n': 'StatusLineNormalMode',
@@ -156,8 +156,12 @@ function MakeStatusLine()
   return b:status_line
 endfunction
 
-function ShowMode()
-  return string(mode())
+function! MakeInactiveStatusLine()
+  let b:hl = 'StatusLineBg2c'
+  let b:hlend = 'StatusLineBg'
+  let b:status_line = printf('%%#%s# %s %%#%s#', b:hl, GetFileName(), b:hlend)
+  return b:status_line
 endfunction
 
-set statusline=%!MakeStatusLine()
+au WinEnter,BufEnter * setlocal statusline=%!MakeActiveStatusLine()
+au WinLeave,BufLeave * setlocal statusline=%!MakeInactiveStatusLine()
