@@ -40,12 +40,14 @@ hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
 function VcsStatus()
   let branch = fugitive#head()
+  let b:branch_minwin = 4
+  let b:branch_maxwin = 20
 
   if v:shell_error != 0
     return ''
   else
     let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('%%#StatusLineGitDiffAdd#+%d %%#StatusLineGitDiffMod#±%d %%#StatusLineGitDiffDel#-%d %%#StatusLineGitBranchSymbol#%%#StatusLineGitBranchName#%s', a, m, r, trim(branch))
+    return printf('%%#StatusLineGitDiffAdd#+%d %%#StatusLineGitDiffMod#±%d %%#StatusLineGitDiffDel#-%d %%#StatusLineGitBranchSymbol#%%#StatusLineGitBranchName#%%-%d.%d(%s%%)', a, m, r, b:branch_minwin, b:branch_maxwin, trim(branch))
   end
 endfunction
 
@@ -89,9 +91,22 @@ function! LspStatus() abort
   return sl
 endfunction
 
+function GetFileName()
+  let b:file_name = expand('%')
+  let b:minwin = 4
+  let b:maxwin = 20
+
+  if strwidth(b:file_name) == 0
+    let b:file_name = '<scratch>'
+  elseif exists('*WebDevIconsGetFileTypeSymbol')
+    let b:file_name = WebDevIconsGetFileTypeSymbol() . ' ' . b:file_name
+  endif
+
+  return '%-' . b:minwin . '.' . b:maxwin . '(' . b:file_name . '%)'
+endfunction
+
 function MakeStatusLine()
-  let file_name = expand("%:.")
-  let hls = {
+  let b:hls = {
     \ 'n': {
       \ 'n': 'StatusLineNormalMode',
       \ 'i': 'StatusLineNormalModeItalic'
@@ -125,27 +140,21 @@ function MakeStatusLine()
       \ 'i': 'StatusLineHitEnterPromptModeItalic'
       \ },
     \ }
-  let hl = 'StatusLineBg'
+  let b:hl = 'StatusLineBg'
 
-  if strwidth(file_name) == 0
-    let file_name = "<scratch>"
-  elseif exists('*WebDevIconsGetFileTypeSymbol')
-    let file_name = WebDevIconsGetFileTypeSymbol() . ' ' . file_name
-  endif
-
-  if has_key(hls, mode()) == 1
+  if has_key(b:hls, mode()) == 1
     if &mod
-      let hl = hls[mode()]['i']
+      let b:hl = b:hls[mode()]['i']
     else
-      let hl = hls[mode()]['n']
+      let b:hl = b:hls[mode()]['n']
     endif
   endif
 
-  let first_part = '%#' . hl . '# ' . file_name . ' '
-  let second_part = '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  let third_part = '%=%#StatusLineBg# LSP_SYMBOL ' . LspStatus() . ' ' . VcsStatus() . ' '
+  let b:first_part = '%#' . b:hl . '# ' . GetFileName() . ' '
+  let b:second_part = '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
+  let b:third_part = '%=%#StatusLineBg# LSP_SYMBOL ' . LspStatus() . ' ' . VcsStatus() . ' '
 
-  return first_part . second_part . third_part
+  return b:first_part . b:second_part . b:third_part
 endfunction
 
 function ShowMode()
