@@ -93,15 +93,24 @@ function! LspStatus() abort
 endfunction
 
 function! GetFileName()
-  let b:minwin = 10
-  let b:maxwin = 30
-
+  let b:max_width = 3 * winwidth(g:statusline_winid) / 4
   let b:file_name = bufname(winbufnr(g:statusline_winid))
-  if exists('*WebDevIconsGetFileTypeSymbol')
-    let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(b:file_name), b:file_name)
+  let b:width = strwidth(b:file_name)
+
+  if b:width == 0
+    let b:file_name = "[scratch]"
+  else
+    " If the file name is too big, we just write its tail part
+    if b:width > b:max_width
+      let b:file_name = fnamemodify(b:file_name, ':t')
+    endif
+
+    if exists('*WebDevIconsGetFileTypeSymbol')
+      let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(b:file_name), b:file_name)
+    endif
   endif
 
-  return printf('%%-%d.%d(%s%%)', b:minwin, b:maxwin, b:file_name)
+  return b:file_name
 endfunction
 
 function! MakeActiveStatusLine()
