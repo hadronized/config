@@ -150,7 +150,7 @@ function MakeStatusLine()
 
   let b:status_line = printf('%%#%s# %s ', b:hl, GetFileName())
   let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  let b:status_line .= printf('%%=%%#StatusLineBg# LSP_SYMBOL %s %s ', LspStatus(), VcsStatus())
+  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
 
   return b:status_line
 endfunction
