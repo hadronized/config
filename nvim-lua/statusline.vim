@@ -92,7 +92,8 @@ endfunction
 
 function GetFileName()
   let b:file_name = expand('%')
-  let b:maxwin = 20
+  let b:minwin = 10
+  let b:maxwin = 30
 
   if strwidth(b:file_name) == 0
     let b:file_name = '<scratch>'
@@ -100,7 +101,7 @@ function GetFileName()
     let b:file_name = printf('%s %s', WebDevIconsGetFileTypeSymbol(), b:file_name)
   endif
 
-  return printf('%%-.%d(%s%%)', b:maxwin, b:file_name)
+  return printf('%%-%d.%d(%s%%)', b:minwin, b:maxwin, b:file_name)
 endfunction
 
 function MakeStatusLine()
