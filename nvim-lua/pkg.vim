@@ -23,6 +23,7 @@ source ~/.config/nvim/treesitter.vim
 call plug#end()
 
 " Run some lua code
+lua require('colorizer-local')
 lua require('lsp-local')
 lua require('telescope-local')
 lua require('treesitter-local')
