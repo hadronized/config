@@ -6,6 +6,6 @@ require'nvim-treesitter.configs'.setup({
   },
 
   indent = {
-    enabled = true,
+    enabled = false,
   },
 })

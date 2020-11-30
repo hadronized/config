@@ -71,11 +71,6 @@ vim.api.nvim_set_keymap('n', '<leader>br', '<cmd>tabn<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bs', '<cmd>w<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bS', '<cmd>w!<cr>', silent_noremap_opt)
 
--- Fuzzy searchers.
-
--- Git files.
-vim.api.nvim_set_keymap('n', '<leader><leader>', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
-
 -- Buffers.
 vim.api.nvim_set_keymap('n', '<leader>bb', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 
@@ -90,6 +85,7 @@ vim.api.nvim_set_keymap('n', '<leader>/', '<Plug>CommentaryLine', {})
 vim.api.nvim_set_keymap('x', '<leader>/', '<Plug>Commentary', {})
 
 -- Git.
+vim.api.nvim_set_keymap('n', '<leader><leader>', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>Git<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gw', '<cmd>Gwrite<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>GitGutterQuickFix<cr>', silent_noremap_opt)
@@ -100,10 +96,21 @@ vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>GitGutterPrevHunk<cr>', silent_
 vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>GitGutterStageHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gx', '<cmd>GitGutterUndoHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gz', '<cmd>GitGutterFold<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gB', "<cmd>Git branch<cr>", silent_noremap_opt)
 
 -- Context.
 vim.api.nvim_set_keymap('n', '<leader>cct', '<cmd>ContextToggle<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ccp', '<cmd>ContextPeek<cr>', silent_noremap_opt)
+
+-- Filetypes.
+vim.api.nvim_set_keymap('n', '<leader>tf', "<cmd>lua require('telescope.builtin').filetypes(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+
+-- Search.
+vim.api.nvim_set_keymap('n', '<leader>sb', "<cmd>lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+
+-- Quickfix.
+vim.api.nvim_set_keymap('n', '<leader>cq', "<cmd>lua require('telescope.builtin').quickfix(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 
 -- LSP.
 vim.api.nvim_set_keymap('n', 'S', '<cmd>lua vim.lsp.buf.hover()<CR>', silent_noremap_opt)
@@ -112,6 +119,12 @@ vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR
 vim.api.nvim_set_keymap('n', '<leader>cD', "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>co', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cs', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cS', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+
+-- Filetree.
+vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>LuaTreeToggle<CR>', silent_noremap_opt)
+
+-- Tagbar.
+vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_noremap_opt)

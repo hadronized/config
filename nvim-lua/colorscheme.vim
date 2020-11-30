@@ -1,9 +1,9 @@
 colorscheme doom-one
 
 " Some nice touch, because I like looking FABULOUS
-hi! CursorLineNr cterm=bold guifg=#bb97ee guibg=#333645
-hi! CursorLine guibg=#333645
-hi! link LineNr NonText
+" hi! CursorLineNr cterm=bold guifg=#bb97ee guibg=#333645
+" hi! CursorLine guibg=#333645
+" hi! link LineNr NonText
 
 " override git gutter highlight to respect diff
 " hi! link GitGutterAdd GreenSign

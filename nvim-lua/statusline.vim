@@ -17,6 +17,10 @@ hi StatusLineLSPWarnings guibg=#23272e guifg=#ECBE7B
 hi StatusLineLSPInformations guibg=#23272e guifg=#51afef
 hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
 
+hi StatusLineCurrentSymbolName guibg=#23272e guifg=#c678dd
+hi StatusLineCurrentSymbolType guibg=#23272e guifg=#98be65 gui=italic
+hi StatusLineCurrentSymbolBracket guibg=#23272e guifg=#5B6268 gui=italic
+
 hi StatusLineNormalMode guibg=#51afef guifg=#efefef
 hi StatusLineNormalModeItalic guibg=#51afef guifg=#efefef gui=italic
 hi StatusLineInsertMode guibg=#98be65 guifg=#efefef
@@ -113,6 +117,17 @@ function! GetFileName()
   return b:file_name
 endfunction
 
+function! CurrentSymbol()
+  let b:sym_name = tagbar#currenttag('%s', '', 'f')
+  let b:sym_ty = tagbar#currenttagtype('%s', '')
+
+  if strwidth(b:sym_name) == 0 || strwidth(b:sym_ty) == 0
+    return ''
+  else
+    return printf("%%#StatusLineCurrentSymbolName#%s %%#StatusLineCurrentSymbolBracket#[%%#StatusLineCurrentSymbolType#%s%%#StatusLineCurrentSymbolBracket#]", b:sym_name, b:sym_ty)
+  endif
+endfunction
+
 function! MakeActiveStatusLine()
   let b:hls = {
     \ 'n': {
@@ -160,7 +175,7 @@ function! MakeActiveStatusLine()
 
   let b:status_line = printf('%%#%s# %s ', b:hl, GetFileName())
   let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
+  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
 
   return b:status_line
 endfunction
