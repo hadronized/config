@@ -1,0 +1,13 @@
+snippet cdate "Changelog date annotation"
+> `date +"%b %d"`${1:th}, `date +%Y`
+$0
+endsnippet
+
+snippet centry "Changelog entry"
+# ${1:Unreleased}
+
+> `date +"%b %d"`${2:th}, `date +%Y`
+
+- ${3:Some changes that have happened…}$0
+
+endsnippet
