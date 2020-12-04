@@ -122,6 +122,12 @@ vim.api.nvim_set_keymap('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help(
 vim.api.nvim_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cs', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cS', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", silent_noremap_opt)
+
+-- Quickfix.
+vim.api.nvim_set_keymap('n', '<leader>cX', "<cmd>copen<cr>", silent_noremap_opt)
 
 -- Filetree.
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>LuaTreeToggle<CR>', silent_noremap_opt)

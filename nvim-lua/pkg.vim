@@ -13,6 +13,7 @@ source ~/.config/nvim/easy-align.vim
 source ~/.config/nvim/echodoc.vim
 source ~/.config/nvim/filetree.vim
 source ~/.config/nvim/git.vim
+source ~/.config/nvim/glsl.vim
 source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/markdown.vim
 source ~/.config/nvim/rust.vim

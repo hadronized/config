@@ -7,7 +7,7 @@ hi StatusLineLinNbr guibg=#23272e guifg=#51afef
 hi StatusLineColNbr guibg=#23272e guifg=#98be65
 
 hi StatusLineGitBranchSymbol guibg=#23272e guifg=#ff6c6b
-hi StatusLineGitBranchName guibg=#23272e guifg=#da8548 gui=italic
+hi StatusLineGitBranchName guibg=#23272e guifg=#da8548
 hi StatusLineGitDiffAdd guibg=#23272e guifg=#98be65
 hi StatusLineGitDiffMod guibg=#23272e guifg=#51afef
 hi StatusLineGitDiffDel guibg=#23272e guifg=#ff6c6b
