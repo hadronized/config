@@ -1,6 +1,6 @@
 #!/bin/sh
 #
 # Easily switch between tmux session.
-session=$(tmux ls -F "#S" | fzf --prompt "Switch to tmux session")
+session=$(tmux ls -F "#S" | fzf --prompt "Switch to tmux session: ")
 
 [ -n "$session" ] && tmux switch-client -t $session
