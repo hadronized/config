@@ -97,7 +97,8 @@ vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>GitGutterStageHunk<cr>', silent
 vim.api.nvim_set_keymap('n', '<leader>gx', '<cmd>GitGutterUndoHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gz', '<cmd>GitGutterFold<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gB', "<cmd>Git branch<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gBb', "<cmd>Git blame<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gBl', "<cmd>ToggleBlameLine<cr>", silent_noremap_opt)
 
 -- Context.
 vim.api.nvim_set_keymap('n', '<leader>cct', '<cmd>ContextToggle<cr>', silent_noremap_opt)
