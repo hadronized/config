@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap('', 'wo', '<C-w>s', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'wp', '<C-w>o', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', ' ', ' ', silent_noremap_opt)
 
+-- Redo.
+vim.api.nvim_set_keymap('n', 'U', '<cmd>redo<cr>', silent_noremap_opt)
+
 -- Better C-n / C-p
 vim.api.nvim_set_keymap('', '<c-t>', '<c-n>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-t>', '<c-n>', silent_noremap_opt)
