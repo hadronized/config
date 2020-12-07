@@ -68,3 +68,8 @@ require'lspconfig'.rust_analyzer.setup({
 
 -- Haskell.
 require'lspconfig'.hls.setup({})
+
+-- Java.
+require'lspconfig'.rust_analyzer.setup({
+  on_attach = lsp_attach,
+})
