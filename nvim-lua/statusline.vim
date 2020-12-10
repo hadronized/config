@@ -28,12 +28,12 @@ hi StatusLineInsertMode guibg=#98be65 guifg=#efefef
 hi StatusLineInsertModeItalic guibg=#98be65 guifg=#efefef gui=italic
 hi StatusLineReplaceMode guibg=#ff6c6b guifg=#efefef
 hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
-hi StatusLineVisualMode guibg=#c678dd guifg=#efefef
-hi StatusLineVisualModeItalic guibg=#c678dd guifg=#efefef gui=italic
-hi StatusLineVisualBlockMode guibg=#c678dd guifg=#efefef
-hi StatusLineVisualBlockModeItalic guibg=#c678dd guifg=#efefef gui=italic
-hi StatusLineVisualLineMode guibg=#c678dd guifg=#efefef
-hi StatusLineVisualLineModeItalic guibg=#c678dd guifg=#efefef gui=italic
+hi StatusLineVisualMode guibg=#46D9FF guifg=#efefef
+hi StatusLineVisualModeItalic guibg=#46D9FF guifg=#efefef gui=italic
+hi StatusLineVisualBlockMode guibg=#46D9FF guifg=#efefef
+hi StatusLineVisualBlockModeItalic guibg=#46D9FF guifg=#efefef gui=italic
+hi StatusLineVisualLineMode guibg=#46D9FF guifg=#efefef
+hi StatusLineVisualLineModeItalic guibg=#46D9FF guifg=#efefef gui=italic
 hi StatusLineSelectMode guibg=#46D9FF guifg=#efefef
 hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#efefef gui=italic
 hi StatusLineSelectLineMode guibg=#46D9FF guifg=#efefef
