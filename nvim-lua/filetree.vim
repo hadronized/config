@@ -18,13 +18,7 @@ let g:lua_tree_show_icons = {
     \ 'folders': 1,
     \ 'files': 1,
     \ }
-"If 0, do not show the icons for one of 'git' 'folder' and 'files'
-"1 by default, notice that if 'files' is 1, it will only display
-"if nvim-web-devicons is installed and on your runtimepath
 
-" You can edit keybindings be defining this variable
-" You don't have to define all keys.
-" NOTE: the 'edit' key will wrap/unwrap a folder and open a file
 let g:lua_tree_bindings = {
     \ 'edit':            '<cr>',
     \ 'edit_vsplit':     '<C-v>',
@@ -41,13 +35,7 @@ let g:lua_tree_bindings = {
     \ 'cut':             'x',
     \ 'copy':            'y',
     \ 'paste':           'p',
-    \ 'prev_git_item':   's',
-    \ 'next_git_item':   't',
     \ }
-
-" Disable default mappings by plugin
-" Bindings are enable by default, disabled on any non-zero value
-let lua_tree_disable_keybindings=1
 
 " default will show icon by default if no icon is provided
 " default shows no icon by default

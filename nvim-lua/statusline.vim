@@ -45,10 +45,6 @@ hi StatusLineCommandModeItalic guibg=#da8548 guifg=#efefef gui=italic
 hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#efefef
 hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
-" Whether the statusline width is bigger than the window width.
-function! IsSrunk()
-endfunction
-
 function! VcsStatus()
   let branch = fugitive#head()
   let b:branch_maxwin = 20
@@ -196,8 +192,14 @@ function! MakeActiveStatusLine()
   endif
 
   let b:status_line = printf('%%#%s# %s ', b:hl, GetFileName())
-  let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
+
+  if (winwidth(g:statusline_winid) <= &columns / 2.5)
+    " Minimal mode
+    let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
+  else
+    let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
+    let b:status_line .= printf('%%=%%#StatusLineBg# %s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
+  endif
 
   return b:status_line
 endfunction
