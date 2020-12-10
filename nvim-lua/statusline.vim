@@ -8,6 +8,7 @@ hi StatusLineColNbr guibg=#23272e guifg=#98be65
 
 hi StatusLineGitBranchSymbol guibg=#23272e guifg=#ff6c6b
 hi StatusLineGitBranchName guibg=#23272e guifg=#da8548
+hi StatusLineGitDiffNone guibg=#23272e guifg=#98be65
 hi StatusLineGitDiffAdd guibg=#23272e guifg=#98be65
 hi StatusLineGitDiffMod guibg=#23272e guifg=#51afef
 hi StatusLineGitDiffDel guibg=#23272e guifg=#ff6c6b
@@ -44,16 +45,37 @@ hi StatusLineCommandModeItalic guibg=#da8548 guifg=#efefef gui=italic
 hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#efefef
 hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
 
+" Whether the statusline width is bigger than the window width.
+function! IsSrunk()
+endfunction
+
 function! VcsStatus()
   let branch = fugitive#head()
   let b:branch_maxwin = 20
 
-  if v:shell_error != 0
-    return ''
+  let [a,m,r] = GitGutterGetHunkSummary()
+  let ahl = ''
+  let mhl = ''
+  let rhl = ''
+  if a > 0
+    let ahl .= '%#StatusLineGitDiffAdd#'
   else
-    let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('%%#StatusLineGitDiffAdd#+%d %%#StatusLineGitDiffMod#±%d %%#StatusLineGitDiffDel#-%d %%#StatusLineGitBranchSymbol#%%#StatusLineGitBranchName#%%-.%d(%s%%)', a, m, r, b:branch_maxwin, trim(branch))
+    let ahl .= '%#StatusLineBg2b#'
   end
+
+  if m > 0
+    let mhl .= '%#StatusLineGitDiffMod#'
+  else
+    let mhl .= '%#StatusLineBg2b#'
+  end
+
+  if r > 0
+    let rhl .= '%#StatusLineGitDiffDel#'
+  else
+    let rhl .= '%#StatusLineBg2b#'
+  end
+
+  return printf('%s %d %s %d %s %d %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s', ahl, a, mhl, m, rhl, r, trim(branch))
 endfunction
 
 function! LspStatus() abort
