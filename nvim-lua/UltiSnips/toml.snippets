@@ -20,3 +20,17 @@ endsnippet
 snippet d "Dependency declaration" b
 ${1:dependency-name} = "${2:0.1}"$0
 endsnippet
+
+snippet workspace "Create a Cargo.toml for a workspace" b
+[workspace]
+members = [
+  "$1",
+]
+
+default-members = [
+  "$1",
+]
+
+[patch.crates-io]
+$1 = { path = "./$1" }
+endsnippet
