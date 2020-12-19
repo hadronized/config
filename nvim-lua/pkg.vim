@@ -20,7 +20,6 @@ source ~/.config/nvim/markdown.vim
 source ~/.config/nvim/rust.vim
 source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/surround.vim
-source ~/.config/nvim/statusline.vim
 source ~/.config/nvim/tagbar.vim
 source ~/.config/nvim/ctags.vim
 source ~/.config/nvim/telescope.vim
