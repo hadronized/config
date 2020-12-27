@@ -331,9 +331,19 @@ Just a small tweak to have better gutter symbols.
     nil nil 'bottom))
 #+end_src
 * Languages
+Rust:
 #+BEGIN_SRC emacs-lisp
 (setq rustic-indent-offset 2)
 #+END_SRC
+
+Tree-sitter, yaaay:
+#+begin_src emacs-lisp
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+#+end_src
 * Projectile
 #+begin_src emacs-lisp
 (setq projectile-project-search-path "~/dev")

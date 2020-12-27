@@ -49,5 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! yasnippet-snippets)
 (package! company-box)
+(package! yasnippet-snippets)
+(package! tree-sitter)
+(package! tree-sitter-langs)
