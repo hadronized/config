@@ -9,7 +9,6 @@
 #+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
 #+END_SRC
-
 ** Redo on U
 #+BEGIN_SRC emacs-lisp
 (map! :n "U" 'undo-fu-only-redo)
@@ -39,7 +38,6 @@
 #+BEGIN_SRC emacs-lisp
 (setq flycheck-check-syntax-automatically '(save))
 #+END_SRC
-
 * Company
 Basic configuration:
 #+BEGIN_SRC emacs-lisp
@@ -71,7 +69,6 @@ Cute colors:
 (use-package company-box
   :hook (company-mode . company-box-mode))
 #+END_SRC
-
 * Org-mode
 ** Paths
 Here is the list of all paths we need to set to have a customized experience.
@@ -90,7 +87,6 @@ Description:
 | Module name | What it does                   |
 |-------------+--------------------------------|
 | =habits=    | Enable the habit =TODO= style. |
-
 ** Keybindings
 | Keybinding      | Description                                                                                                |   |
 |-----------------+------------------------------------------------------------------------------------------------------------+---|
@@ -140,7 +136,6 @@ Additional keybindings here:
       :n "M-S-c" 'org-do-promote
       :n "M-S-r" 'org-do-demote)
 #+END_SRC
-
 ** Default visibility
 When /emacs/ visits an ~.org~ file for the first time, the global state is set to =OVERVIEW=. It is possible to change that
 behavior with the =+STARTUP:= modifier. Accepted values are:
@@ -149,7 +144,6 @@ behavior with the =+STARTUP:= modifier. Accepted values are:
 - =STARTUP: content=
 - =STARTUP: showall=
 - =STARTUP: showeverything=
-
 ** Plain lists
 Plain lists come into three parts:
 
@@ -161,13 +155,11 @@ As an example for /description lists/:
 
 - Foo :: description goes here.
 - Bar :: other description goes here.
-
 ** Drawers
 Emacs has /drawers/ that allow to hide content. They are introduced with the =:DRAWERNAME:= with =:END:= syntax.
 :DRAWERNAME:
 This can be folded if wanted
 :END:
-
 ** Hyperlinks
 *** General
 The general syntax is ~[[LINK][DESCRIPTION]]~, or simply ~[[LINK]]~. A link like ~[[*Something like that]]~ points to a section in the current document.
@@ -194,7 +186,6 @@ This list defines the available linkwords:
 #+END_SRC
 
 Special abbreviations can be set on a per-file basis with ~#+LINK: google http://www.google.com/search?q=%s~, for instance.
-
 ** Todo lists
 The =TODO= annotation sets a /todo/ in any headline.
 
@@ -216,7 +207,6 @@ Faces:
         ("FEATURE" . "purple") ("IMPLEMENTED" . (:foreground "blue" :weight bold))
         ("CANCELLED" . "grey")))
 #+END_SRC
-
 *** Progress logging
 Timestamp can be automatically added when changing a TODO state, or by doing it manually with =org-todo= with the =C-u= prefix argument —
 also =SPC u= for us.
@@ -233,7 +223,6 @@ Put the TODO notes into a drawer — =LOGBOOK=:
 
 It is possible to set whether we want to add a timestamp or a timestamped note for each keyword with, respectively, ~!~ (for timestamp) or
 ~@~ (for a timestamped note). Use ~/~ to state what to do when switching back from a mode.
-
 *** Habits
 Habits are special =TODO= items used to track reccurent activities. It must:
 
@@ -243,14 +232,12 @@ Habits are special =TODO= items used to track reccurent activities. It must:
    a backlog.
 4. Time range can be put with ~/~ after ~.+~ — e.g. ~.+2d/4d~ for something that can be done after two days but shouldn’t take more than four.
 5. The =DONE= state triggers state logging.
-
 *** Priorities
 Priorities help with sorting items with priorities.
 
 #+BEGIN_SRC emacs-lisp
 (setq org-fancy-priorities-list '("❗" "⬆" "⬇"))
 #+END_SRC
-
 *** Subtasks
 To enable subtasks, insert ~[/]~ or ~[%]~ anywhere in the headline.
 
@@ -264,17 +251,14 @@ Automatically change to =DONE= an entry when its children have been completed:
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 #+END_SRC
-
 **** Example with / [1/3]
 ***** TODO Foo
 ***** DONE Bair
 ***** TODO Zoo
-
 **** Example2 with % [33%]
 ***** TODO Foo
 ***** DONE Bar
 ***** TODO Zoo
-
 *** Checkboxes
 Checkboxes start with a ~[ ]~.
 
@@ -287,7 +271,6 @@ Example:
 - [-] order food
   - [ ] think about what music to play
   - [X] talk to the neighbors
-
 ** Tags
 Tags have the form ~:tag:~ or ~:tag1:tag2:tag3:etc.~ and are located at the end of headlines.
 
@@ -295,7 +278,6 @@ Default tags:
 #+BEGIN_SRC emacs-lisp
 (setq org-tag-alist '(("spare" . ?s) ("work" . ?w) ("learn" . ?l)))
 #+END_SRC
-
 ** Properties
 Properties are like tags, but key-value pairs. They use the special =:PROPERTIES: … :END:= drawer and have the syntax ~:name: value~.
 The special syntax ~:+PROPERTY: var+ value~ allows to append a value to an already declared variable.
@@ -318,7 +300,6 @@ Special properties:
 | =TIMESTAMP=    | The first keyword-less timestamp in the entry.                                                                                          |
 | =TIMESTAMP_IA= | The first inactive timestamp in the entry.                                                                                              |
 | =TODO=         | The TODO keyword of the entry.                                                                                                          |
-
 ** TODO Columns
 Columns allow to have a tabular view of headlines.
 
@@ -329,7 +310,6 @@ Columns allow to have a tabular view of headlines.
 ***** One :foo:
 ***** Two :bar:
 ***** Three :zoo:
-
 ** Timestamps
 General form is ~<2006-11-01 Wed 19:15>~. They can have a repeater interval, as in ~<2007-05-16 Wed 12:30 +1w>~.
 Two timestamps connected by ~--~ denote a range.  Inactive timestamps are surrounded with ~[]~.
@@ -341,14 +321,16 @@ Copying is the same, but preserves the original source.
 
 Archiving allows to move something out of the way, to prevent it from showing up again in agendas and listing. It requires setting up the
 =org-archive-location= variable first. The default is enough for us though right now.
-
-** Faces
-#+BEGIN_SRC emacs-lisp
-#+END_SRC
-
 * Magit
+* vc-gutter
+Just a small tweak to have better gutter symbols.
+#+begin_src emacs-lisp
+(after! git-gutter-fringe
+  (if (fboundp 'fringe-mode) (fringe-mode '4))
+  (define-fringe-bitmap 'git-gutter-fr:deleted [255 255 255]
+    nil nil 'bottom))
+#+end_src
 * Languages
-** Rust
 #+BEGIN_SRC emacs-lisp
 (setq rustic-indent-offset 2)
 #+END_SRC
