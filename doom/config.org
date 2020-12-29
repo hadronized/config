@@ -36,7 +36,7 @@
 #+END_SRC
 * Flycheck
 #+BEGIN_SRC emacs-lisp
-(setq flycheck-check-syntax-automatically '(save))
+(setq flycheck-check-syntax-automatically '(save idle-change))
 #+END_SRC
 * Company
 Basic configuration:
