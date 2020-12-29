@@ -7,7 +7,7 @@
 #+END_SRC
 ** Font weights
 #+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+(setq doom-font (font-spec :family "JetBrainsMono" :size 14))
 #+END_SRC
 ** Redo on U
 #+BEGIN_SRC emacs-lisp
@@ -322,6 +322,10 @@ Copying is the same, but preserves the original source.
 Archiving allows to move something out of the way, to prevent it from showing up again in agendas and listing. It requires setting up the
 =org-archive-location= variable first. The default is enough for us though right now.
 * Magit
+** Forge setup
+#+begin_src emacs-lisp
+(setq auth-sources '("~/.authinfo.gpg"))
+#+end_src
 * vc-gutter
 Just a small tweak to have better gutter symbols.
 #+begin_src emacs-lisp
@@ -347,4 +351,8 @@ Tree-sitter, yaaay:
 * Projectile
 #+begin_src emacs-lisp
 (setq projectile-project-search-path "~/dev")
+#+end_src
+* EPA
+#+begin_src emacs-lisp
+(setq epa-file-encrypt-to '(9BFDD250BBECA905))
 #+end_src
