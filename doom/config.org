@@ -30,6 +30,10 @@
 #+BEGIN_SRC emacs-lisp
 (map! :n "w o" #'evil-window-split)
 #+END_SRC
+** Disable auto-save
+#+begin_src emacs-lisp
+(setq auto-save-default nil)
+#+end_src
 * Avy
 #+BEGIN_SRC emacs-lisp
 (map! :n "è" 'evil-avy-goto-word-0)

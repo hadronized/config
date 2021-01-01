@@ -50,6 +50,5 @@
 ;(unpin! t)
 
 (package! company-box)
-(package! yasnippet-snippets)
 (package! tree-sitter)
 (package! tree-sitter-langs)
