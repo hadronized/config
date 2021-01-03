@@ -338,13 +338,18 @@ Just a small tweak to have better gutter symbols.
   (define-fringe-bitmap 'git-gutter-fr:deleted [255 255 255]
     nil nil 'bottom))
 #+end_src
+
 * Languages
-Rust:
+** Haskell
+#+BEGIN_SRC emacs-lisp
+(setq haskell-process-type 'cabal-new-repl)
+#+END_SRC
+
+** Rust
 #+BEGIN_SRC emacs-lisp
 (setq rustic-indent-offset 2)
 #+END_SRC
-
-Tree-sitter, yaaay:
+** Tree-sitter, yaaay:
 #+begin_src emacs-lisp
 (use-package! tree-sitter
   :config
