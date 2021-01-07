@@ -34,6 +34,21 @@
 #+begin_src emacs-lisp
 (setq auto-save-default nil)
 #+end_src
+* Modeline
+The default modeline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
+of characters inside a buffer is everything but useful. So I’m cleaning a bit all this mess.
+
+#+begin_src elisp
+(after! doom-modeline
+  (setq doom-modeline-persp-name t
+        doom-modeline-github t
+        doom-modeline-vcs-max-length 30
+        doom-modeline-indent-info t
+        doom-modeline-buffer-encoding nil
+        doom-modeline-column-zero-based nil
+        doom-modeline-major-icon-mode t)
+  (size-indication-mode -1))
+#+end_src
 * Avy
 #+BEGIN_SRC emacs-lisp
 (map! :n "è" 'evil-avy-goto-word-0)
@@ -325,11 +340,6 @@ Copying is the same, but preserves the original source.
 
 Archiving allows to move something out of the way, to prevent it from showing up again in agendas and listing. It requires setting up the
 =org-archive-location= variable first. The default is enough for us though right now.
-* Magit
-** Forge setup
-#+begin_src emacs-lisp
-(setq auth-sources '("~/.authinfo.gpg"))
-#+end_src
 * vc-gutter
 Just a small tweak to have better gutter symbols.
 #+begin_src emacs-lisp

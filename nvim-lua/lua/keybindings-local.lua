@@ -60,55 +60,45 @@ vim.api.nvim_set_keymap('i', '<c-space>', "<cmd>lua require'completion'.triggerC
 vim.api.nvim_set_keymap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/keybindings-local.lua<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/pkg.vim<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>fcz', '<cmd>edit ~/.zshrc<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>fcZ', '<cmd>edit ~/.zprofile<cr>', silent_noremap_opt)
 
 -- Buffer and tabs.
 vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>bdel<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bD', '<cmd>bdel!<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bn', '<cmd>new<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>bN', '<cmd>tabnew<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bv', '<cmd>vnew<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bc', '<cmd>tabp<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>br', '<cmd>tabn<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bs', '<cmd>w<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bS', '<cmd>w!<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>bt', '<cmd>tabnew<cr>', silent_noremap_opt)
 
 -- Buffers.
 vim.api.nvim_set_keymap('n', '<leader>bb', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 
 -- Files.
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>fT', "<cmd>lua require('telescope.builtin').filetypes(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+
 
 -- File history.
 vim.api.nvim_set_keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 
--- Commentary.
-vim.api.nvim_set_keymap('n', '<leader>/', '<Plug>CommentaryLine', {})
-vim.api.nvim_set_keymap('x', '<leader>/', '<Plug>Commentary', {})
-
 -- Git.
 vim.api.nvim_set_keymap('n', '<leader><leader>', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>Git blame<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>Git<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gw', '<cmd>Gwrite<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>GitGutterQuickFix<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gh', '<cmd>GitGutterPreviewHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gn', '<cmd>GitGutterNextHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gp', '<cmd>GitGutterPrevHunk<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>GitGutterPrevHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>GitGutterStageHunk<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gS', '<cmd>Gwrite<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gx', '<cmd>GitGutterUndoHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gz', '<cmd>GitGutterFold<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gBb', "<cmd>Git blame<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gBl', "<cmd>ToggleBlameLine<cr>", silent_noremap_opt)
 
 -- Context.
-vim.api.nvim_set_keymap('n', '<leader>cct', '<cmd>ContextToggle<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>ccp', '<cmd>ContextPeek<cr>', silent_noremap_opt)
-
--- Filetypes.
-vim.api.nvim_set_keymap('n', '<leader>tf', "<cmd>lua require('telescope.builtin').filetypes(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>Cp', '<cmd>ContextPeek<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>Ct', '<cmd>ContextToggle<cr>', silent_noremap_opt)
 
 -- Search.
 vim.api.nvim_set_keymap('n', '<leader>sb', "<cmd>lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
@@ -119,22 +109,19 @@ vim.api.nvim_set_keymap('n', '<leader>cq', "<cmd>lua require('telescope.builtin'
 -- LSP.
 vim.api.nvim_set_keymap('n', 'S', '<cmd>lua vim.lsp.buf.hover()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ca', "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cb', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cD', "<cmd>lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<CR>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cs', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>cS', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", silent_noremap_opt)
 
--- Quickfix.
-vim.api.nvim_set_keymap('n', '<leader>cX', "<cmd>copen<cr>", silent_noremap_opt)
-
 -- Filetree.
-vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>LuaTreeToggle<CR>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>', silent_noremap_opt)
 
 -- Tagbar.
 vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_noremap_opt)

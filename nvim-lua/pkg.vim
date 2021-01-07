@@ -24,6 +24,7 @@ source ~/.config/nvim/tagbar.vim
 source ~/.config/nvim/ctags.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/treesitter.vim
+source ~/.config/nvim/which-key.vim
 
 call plug#end()
 
