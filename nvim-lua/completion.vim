@@ -1,7 +1,6 @@
 Plug 'nvim-lua/completion-nvim'
 
 let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_confirm_key = "\<C-y>"
 let g:completion_chain_complete_list = [
   \{'complete_items': ['lsp']},
   \{'complete_items': ['snippet']},

@@ -8,6 +8,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+local lsp = require'lspconfig'
+local protocol = require'vim.lsp.protocol'
+
 local lsp_attach = function(_)
   -- autocommands
   vim.api.nvim_command([[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]])
@@ -18,10 +21,39 @@ local lsp_attach = function(_)
   -- Use LSP as the handler for omnifunc.
   --    See `:help omnifunc` and `:help ins-completion` for more information.
   vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  require'completion'.on_attach()
+  protocol.CompletionItemKind = {
+      ' '; -- text
+      ' '; -- method
+      ' '; -- function
+      '全'; -- ctor
+      ' '; -- field
+      ' '; -- variable
+      ' '; -- class
+      ' '; -- interface
+      ' '; -- module
+      ' '; -- property
+      ' '; -- unit
+      ' '; -- value
+      '螺'; -- enum
+      ' '; -- keyword
+      ' '; -- snippet
+      ' '; -- color
+      ' '; -- file
+      ' '; -- reference
+      ' '; -- folder
+      ' '; -- enum member
+      ' '; -- constant
+      ' '; -- struct
+      ' '; -- event
+      '璉'; -- operator
+      ' '; -- type parameter
+  }
 end
 
 -- Lua.
-require'lspconfig'.sumneko_lua.setup({
+lsp.sumneko_lua.setup({
   settings = {
     Lua = {
       diagnostics = {
@@ -35,7 +67,7 @@ require'lspconfig'.sumneko_lua.setup({
 })
 
 -- Rust.
-require'lspconfig'.rust_analyzer.setup({
+lsp.rust_analyzer.setup({
   cmd = { "/home/phaazon/foss/rust-analyzer/target/release/rust-analyzer"},
 
   settings = {
@@ -67,9 +99,9 @@ require'lspconfig'.rust_analyzer.setup({
 })
 
 -- Haskell.
-require'lspconfig'.hls.setup({})
+lsp.hls.setup({})
 
 -- Java.
-require'lspconfig'.rust_analyzer.setup({
+lsp.rust_analyzer.setup({
   on_attach = lsp_attach,
 })
