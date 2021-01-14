@@ -34,6 +34,10 @@
 #+begin_src emacs-lisp
 (setq auto-save-default nil)
 #+end_src
+** Make underscores part of words in some major modes
+#+begin_src elisp
+(add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
+#+end_src
 * Modeline
 The default modeline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
 of characters inside a buffer is everything but useful. So I’m cleaning a bit all this mess.
