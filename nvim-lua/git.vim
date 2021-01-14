@@ -26,3 +26,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 " Blame at the end of the line.
 Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
+
+" The new shiny toy.
+Plug 'TimUntersberger/neogit'
