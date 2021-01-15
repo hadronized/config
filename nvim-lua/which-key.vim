@@ -66,6 +66,10 @@ let g:which_key_map.c.s = 'search symbol in project'
 let g:which_key_map.c.t = 'jump to type definition'
 let g:which_key_map.c.x = 'open diagnostics'
 
+" Notes.
+let g:which_key_map.n = { 'name': '+notes' }
+let g:which_key_map.n.j = 'open journal'
+
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 

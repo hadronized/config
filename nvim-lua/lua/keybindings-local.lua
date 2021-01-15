@@ -129,5 +129,5 @@ vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>', silent_nor
 -- Tagbar.
 vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_noremap_opt)
 
--- Notes.
-vim.api.nvim_set_keymap('n', '<leader>nn', "<cmd> lua require('notes-local').open_today_journal()<cr>", silent_noremap_opt)
+-- Journal.
+vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)

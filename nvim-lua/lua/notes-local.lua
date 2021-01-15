@@ -10,4 +10,11 @@ M.open_today_journal = function(args)
   vim.cmd(cmd)
 end
 
+-- Open the journal.
+M.open_journal = function(args)
+  local notes_dir = args and args.notes_dir or "~/notes"
+  local cmd = string.format("e %s/journal.md", notes_dir)
+  vim.cmd(cmd)
+end
+
 return M
