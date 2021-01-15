@@ -44,6 +44,10 @@ vim.api.nvim_set_keymap('i', ' ', ' ', silent_noremap_opt)
 -- Redo.
 vim.api.nvim_set_keymap('n', 'U', '<cmd>redo<cr>', silent_noremap_opt)
 
+-- Move lines up and down.
+vim.api.nvim_set_keymap('n', 'S', '<cmd>m .-2<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', 'T', '<cmd>m .+1<cr>', silent_noremap_opt)
+
 -- Better C-n / C-p
 vim.api.nvim_set_keymap('', '<c-t>', '<c-n>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-t>', '<c-n>', silent_noremap_opt)
@@ -107,7 +111,7 @@ vim.api.nvim_set_keymap('n', '<leader>sb', "<cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>cq', "<cmd>lua require('telescope.builtin').quickfix(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 
 -- LSP.
-vim.api.nvim_set_keymap('n', 'S', '<cmd>lua vim.lsp.buf.hover()<CR>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ca', "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cb', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>', silent_noremap_opt)
