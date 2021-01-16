@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Change the wallpaper
-random-wallpaper
-
-# lock the session using the new wallpaper as background
-cat ~/.fehbg | tail -n1 | cut -d\' -f 2 | xargs i3lock -ti

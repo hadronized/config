@@ -1,5 +1,4 @@
 #!/bin/sh
 
 setxkbmap -print | rg bepo &> /dev/null && setxkbmap us && exit 0
-
 setxkbmap fr bepo

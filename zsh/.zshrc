@@ -23,6 +23,9 @@ setopt inc_append_history
 setopt share_history
 
 # Plugins
-source ~/.config/zsh/plugins.sh
+. ~/.config/zsh/plugins.sh
+
+# Shell functions.
+. ~/config/bin/shell-functions
 
 eval "$(starship init zsh)"
