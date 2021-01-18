@@ -19,7 +19,9 @@ vim.api.nvim_set_keymap('', 'S', 'K', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'zs', 'zj', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'zt', 'zk', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'j', 't', silent_noremap_opt)
+vim.api.nvim_set_keymap('', 'à', 't', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'J', 'T', silent_noremap_opt)
+vim.api.nvim_set_keymap('', 'À', 'T', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'l', 'c', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'L', 'C', silent_noremap_opt)
 vim.api.nvim_set_keymap('', 'h', 'r', silent_noremap_opt)
@@ -54,6 +56,9 @@ vim.api.nvim_set_keymap('i', '<c-t>', '<c-n>', silent_noremap_opt)
 vim.api.nvim_set_keymap('', '<c-s>', '<c-p>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-s>', '<c-p>', silent_noremap_opt)
 
+-- Open and close folds with TAB in normal mode.
+vim.api.nvim_set_keymap('n', '<tab>', 'za', silent_noremap_opt)
+
 -- Insert completion.
 vim.api.nvim_set_keymap('i', '<c-f>', '<c-x><c-f>', silent_noremap_opt)
 
@@ -61,6 +66,7 @@ vim.api.nvim_set_keymap('i', '<c-f>', '<c-x><c-f>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-space>', "<cmd>lua require'completion'.triggerCompletion()<cr>", silent_opt)
 
 -- Quick access to common files.
+vim.api.nvim_set_keymap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/common.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/keybindings-local.lua<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/pkg.vim<cr>', silent_noremap_opt)
@@ -121,6 +127,7 @@ vim.api.nvim_set_keymap('n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_nex
 vim.api.nvim_set_keymap('n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cs', "<cmd>lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cS', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", silent_noremap_opt)
 
 -- Filetree.

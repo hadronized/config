@@ -49,6 +49,10 @@ set completeopt=menuone,noinsert,noselect
 " Short messages.
 set shortmess+=c
 
+" Fold using syntax.
+set foldmethod=syntax
+set foldlevelstart=0
+
 " Remove lines for terminal windows.
 au TermOpen * setlocal nonu
 

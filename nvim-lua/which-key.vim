@@ -10,9 +10,10 @@ let g:which_key_map.f = { 'name': '+file' }
 let g:which_key_map.f.f = 'find file in current dir'
 let g:which_key_map.f.h = 'find file in history'
 let g:which_key_map.f.c = { 'name': '+configuration' }
-let g:which_key_map.f.c.i = 'edit init file'
-let g:which_key_map.f.c.k = 'edit keybindings'
-let g:which_key_map.f.c.p = 'edit packages'
+let g:which_key_map.f.c.c = 'common settings'
+let g:which_key_map.f.c.i = 'init file'
+let g:which_key_map.f.c.k = 'keybindings'
+let g:which_key_map.f.c.p = 'packages'
 let g:which_key_map.f.t = 'open file tree'
 let g:which_key_map.f.T = 'toggle filetype'
 
