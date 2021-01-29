@@ -56,11 +56,17 @@ of characters inside a buffer is everything but useful. So I’m cleaning a bit 
 * Avy
 #+BEGIN_SRC emacs-lisp
 (map! :n "è" 'evil-avy-goto-word-0)
+
+(after! avy
+  (setq avy-keys '(?e ?t ?i ?s ?u ?r ?a ?o ?v ?n ?x ?y ?b ?d ?l ?p)
+        avy-background t))
 #+END_SRC
+
 * Flycheck
 #+BEGIN_SRC emacs-lisp
 (setq flycheck-check-syntax-automatically '(save idle-change))
 #+END_SRC
+
 * Company
 Basic configuration:
 #+BEGIN_SRC emacs-lisp
