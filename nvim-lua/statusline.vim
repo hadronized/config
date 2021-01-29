@@ -139,8 +139,26 @@ function! CurrentSymbol()
   let b:sym_name = tagbar#currenttag('%s', '', 'f')
   let b:sym_ty = tagbar#currenttagtype('%s', '')
 
+  " Early return nothing if we’re not in a buffer providing tags
   if strwidth(b:sym_name) == 0 || strwidth(b:sym_ty) == 0
     return ''
+  endif
+
+  " Map between symbol types and icons / text
+  let b:sym_hi = {
+    \ 'function': '%#Function#',
+    \ 'method': '%#Method#',
+    \ 'module': '%#Include#',
+    \ 'enum': '%#Enum#螺',
+    \ 'enum variant': '%#Label#',
+    \ 'struct': '%#Struct#',
+    \ 'struct field': '%#Label#',
+    \ 'implementation': '%#Special#',
+    \ 'type alias': '%#Type#'
+    \}
+
+  if has_key(b:sym_hi, b:sym_ty) == 1
+    return printf("%s %s", b:sym_hi[b:sym_ty], b:sym_name)
   else
     return printf("%%#StatusLineCurrentSymbolName#%s %%#StatusLineCurrentSymbolBracket#[%%#StatusLineCurrentSymbolType#%s%%#StatusLineCurrentSymbolBracket#]", b:sym_name, b:sym_ty)
   endif
@@ -198,7 +216,7 @@ function! MakeActiveStatusLine()
     let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
   else
     let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-    let b:status_line .= printf('%%=%%#StatusLineBg# %s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
+    let b:status_line .= printf('%%=%%#StatusLineBg#%s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
   endif
 
   return b:status_line
