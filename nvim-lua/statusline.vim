@@ -22,28 +22,28 @@ hi StatusLineCurrentSymbolName guibg=#23272e guifg=#c678dd
 hi StatusLineCurrentSymbolType guibg=#23272e guifg=#98be65 gui=italic
 hi StatusLineCurrentSymbolBracket guibg=#23272e guifg=#5B6268 gui=italic
 
-hi StatusLineNormalMode guibg=#51afef guifg=#efefef
-hi StatusLineNormalModeItalic guibg=#51afef guifg=#efefef gui=italic
-hi StatusLineInsertMode guibg=#98be65 guifg=#efefef
-hi StatusLineInsertModeItalic guibg=#98be65 guifg=#efefef gui=italic
-hi StatusLineReplaceMode guibg=#ff6c6b guifg=#efefef
-hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
-hi StatusLineVisualMode guibg=#46D9FF guifg=#efefef
-hi StatusLineVisualModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineVisualBlockMode guibg=#46D9FF guifg=#efefef
-hi StatusLineVisualBlockModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineVisualLineMode guibg=#46D9FF guifg=#efefef
-hi StatusLineVisualLineModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineSelectMode guibg=#46D9FF guifg=#efefef
-hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineSelectLineMode guibg=#46D9FF guifg=#efefef
-hi StatusLineSelectLineModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineSelectBlockMode guibg=#46D9FF guifg=#efefef
-hi StatusLineSelectBlockModeItalic guibg=#46D9FF guifg=#efefef gui=italic
-hi StatusLineCommandMode guibg=#da8548 guifg=#efefef
-hi StatusLineCommandModeItalic guibg=#da8548 guifg=#efefef gui=italic
-hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#efefef
-hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#efefef gui=italic
+hi StatusLineNormalMode guibg=#51afef guifg=#23272e
+hi StatusLineNormalModeItalic guibg=#51afef guifg=#23272e gui=italic
+hi StatusLineInsertMode guibg=#98be65 guifg=#23272e
+hi StatusLineInsertModeItalic guibg=#98be65 guifg=#23272e gui=italic
+hi StatusLineReplaceMode guibg=#ff6c6b guifg=#23272e
+hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
+hi StatusLineVisualMode guibg=#46D9FF guifg=#23272e
+hi StatusLineVisualModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineVisualBlockMode guibg=#46D9FF guifg=#23272e
+hi StatusLineVisualBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineVisualLineMode guibg=#46D9FF guifg=#23272e
+hi StatusLineVisualLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectMode guibg=#46D9FF guifg=#23272e
+hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectLineMode guibg=#46D9FF guifg=#23272e
+hi StatusLineSelectLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectBlockMode guibg=#46D9FF guifg=#23272e
+hi StatusLineSelectBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineCommandMode guibg=#5B6268 guifg=#23272e
+hi StatusLineCommandModeItalic guibg=#5B6268 guifg=#23272e gui=italic
+hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#23272e
+hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
 
 function! VcsStatus()
   let branch = fugitive#head()
