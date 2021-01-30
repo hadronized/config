@@ -1,5 +1,5 @@
 " Port of DOOM’s doom-one.
-Plug 'phaazon/doom-one.vim', { 'branch': 'fix/icons' }
+Plug 'romgrk/doom-one.vim'
 
 " A vivid colorscheme.
 Plug 'sainnhe/sonokai'
