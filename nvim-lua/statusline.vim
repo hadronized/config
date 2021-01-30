@@ -147,6 +147,7 @@ function! CurrentSymbol()
   " Map between symbol types and icons / text
   let b:sym_hi = {
     \ 'function': '%#Function#',
+    \ 'macro': '%#Method#',
     \ 'method': '%#Method#',
     \ 'module': '%#Include#',
     \ 'enum': '%#Enum#螺',

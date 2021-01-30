@@ -19,7 +19,6 @@ local lsp_attach = function(_)
   vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 
   -- Use LSP as the handler for omnifunc.
-  --    See `:help omnifunc` and `:help ins-completion` for more information.
   vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   require'completion'.on_attach()
