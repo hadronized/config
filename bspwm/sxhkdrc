@@ -97,6 +97,10 @@ super + Return
 alt + Return
   kitty
 
+# editor
+shift + alt + Return
+  emacsclient -nc
+
 # file browser
 shift + alt + Return
   dolphin
