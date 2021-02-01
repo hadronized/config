@@ -7,9 +7,6 @@ source ~/.config/nvim/pkg.vim
 " Pick a colorscheme and override some things if needed.
 source ~/.config/nvim/colorscheme.vim
 
-" Set the statusline.
-source ~/.config/nvim/statusline.vim
-
 " Load various lua settings.
 lua require('keybindings-local')
 

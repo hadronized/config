@@ -1,5 +1,6 @@
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'glepnir/lspsaga.nvim'
 
 sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=

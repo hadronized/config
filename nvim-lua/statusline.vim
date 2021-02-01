@@ -1,3 +1,5 @@
+" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
 hi StatusLineBg guibg=#23272e guifg=#efefef
 hi StatusLineBg2 guibg=#23272e guifg=#efefef
 hi StatusLineBg2b guibg=#23272e guifg=#5B6268
@@ -48,6 +50,10 @@ hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
 function! VcsStatus()
   let branch = fugitive#head()
   let b:branch_maxwin = 20
+
+  if branch == ""
+    return ""
+  endif
 
   let [a,m,r] = GitGutterGetHunkSummary()
   let ahl = ''
@@ -135,37 +141,6 @@ function! GetFileName()
   return b:file_name
 endfunction
 
-function! CurrentSymbol()
-  let b:sym_name = tagbar#currenttag('%s', '', 'f')
-  let b:sym_ty = tagbar#currenttagtype('%s', '')
-
-  " Early return nothing if we’re not in a buffer providing tags
-  if strwidth(b:sym_name) == 0 || strwidth(b:sym_ty) == 0
-    return ''
-  endif
-
-  " Map between symbol types and icons / text
-  let b:sym_hi = {
-    \ 'function': '%#Function#',
-    \ 'macro': '%#Method#',
-    \ 'method': '%#Method#',
-    \ 'module': '%#Include#',
-    \ 'enum': '%#Enum#螺',
-    \ 'enum variant': '%#Label#',
-    \ 'struct': '%#Struct#',
-    \ 'struct field': '%#Label#',
-    \ 'implementation': '%#Special#',
-    \ 'type alias': '%#Type#',
-    \ 'variable': '%#Variable#'
-    \}
-
-  if has_key(b:sym_hi, b:sym_ty) == 1
-    return printf("%s %s", b:sym_hi[b:sym_ty], b:sym_name)
-  else
-    return printf("%%#StatusLineCurrentSymbolName#%s %%#StatusLineCurrentSymbolBracket#[%%#StatusLineCurrentSymbolType#%s%%#StatusLineCurrentSymbolBracket#]", b:sym_name, b:sym_ty)
-  endif
-endfunction
-
 function! MakeActiveStatusLine()
   let b:hls = {
     \ 'n': {
@@ -211,15 +186,10 @@ function! MakeActiveStatusLine()
     endif
   endif
 
-  let b:status_line = printf('%%#%s# %s ', b:hl, GetFileName())
+  let b:status_line = printf(' %d %%#%s# %s ', win_id2win(g:statusline_winid), b:hl, GetFileName())
 
-  if (winwidth(g:statusline_winid) <= &columns / 2.5)
-    " Minimal mode
-    let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-  else
-    let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l %#StatusLineBg2b#(%p%% %LL)'
-    let b:status_line .= printf('%%=%%#StatusLineBg#%s %s %s ', CurrentSymbol(), LspStatus(), VcsStatus())
-  endif
+  let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL)'
+  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
 
   return b:status_line
 endfunction
@@ -227,7 +197,7 @@ endfunction
 function! MakeInactiveStatusLine()
   let b:hl = 'StatusLineBg2c'
   let b:hlend = 'StatusLineBg'
-  let b:status_line = printf('%%#%s# %s %%#%s#', b:hl, GetFileName(), b:hlend)
+  let b:status_line = printf(' %d %%#%s# %s %%#%s#', win_id2win(g:statusline_winid), b:hl, GetFileName(), b:hlend)
   return b:status_line
 endfunction
 

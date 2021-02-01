@@ -14,6 +14,7 @@ let g:which_key_map.f.c.c = 'common settings'
 let g:which_key_map.f.c.i = 'init file'
 let g:which_key_map.f.c.k = 'keybindings'
 let g:which_key_map.f.c.p = 'packages'
+let g:which_key_map.f.c.t = 'themes'
 let g:which_key_map.f.t = 'open file tree'
 let g:which_key_map.f.T = 'toggle filetype'
 

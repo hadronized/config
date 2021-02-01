@@ -104,3 +104,6 @@ lsp.hls.setup({})
 lsp.rust_analyzer.setup({
   on_attach = lsp_attach,
 })
+
+local saga = require'lspsaga'
+saga.init_lsp_saga()

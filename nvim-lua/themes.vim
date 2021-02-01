@@ -12,3 +12,6 @@ let g:sonokai_sign_column_background = 'none'
 let g:sonokai_diagnostic_line_highlight = 1
 let g:sonokai_current_word = 'grey background'
 let g:sonokai_better_performance = 1
+
+" A lua dark colorscheme.
+Plug 'glepnir/zephyr-nvim'
