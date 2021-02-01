@@ -26,26 +26,47 @@ hi StatusLineCurrentSymbolBracket guibg=#23272e guifg=#5B6268 gui=italic
 
 hi StatusLineNormalMode guibg=#51afef guifg=#23272e
 hi StatusLineNormalModeItalic guibg=#51afef guifg=#23272e gui=italic
+hi StatusLineNormalModeWinNr guibg=#316a91 guifg=#23272e
+
 hi StatusLineInsertMode guibg=#98be65 guifg=#23272e
 hi StatusLineInsertModeItalic guibg=#98be65 guifg=#23272e gui=italic
+hi StatusLineInsertModeWinNr guibg=#62803b guifg=#23272e
+
 hi StatusLineReplaceMode guibg=#ff6c6b guifg=#23272e
-hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
+hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#23272e
+hi StatusLineReplaceModeWinNr guibg=#b64a49 guifg=#23272e
+
 hi StatusLineVisualMode guibg=#46D9FF guifg=#23272e
 hi StatusLineVisualModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineVisualModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineVisualBlockMode guibg=#46D9FF guifg=#23272e
 hi StatusLineVisualBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineVisualBlockModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineVisualLineMode guibg=#46D9FF guifg=#23272e
 hi StatusLineVisualLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineVisualLineModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineSelectMode guibg=#46D9FF guifg=#23272e
 hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineSelectLineMode guibg=#46D9FF guifg=#23272e
 hi StatusLineSelectLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectLineModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineSelectBlockMode guibg=#46D9FF guifg=#23272e
 hi StatusLineSelectBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
+hi StatusLineSelectBlockModeWinNr guibg=#37a2be guifg=#23272e
+
 hi StatusLineCommandMode guibg=#5B6268 guifg=#23272e
 hi StatusLineCommandModeItalic guibg=#5B6268 guifg=#23272e gui=italic
+hi StatusLineCommandModeWinNr guibg=#42474b guifg=#23272e
+
 hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#23272e
 hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
+hi StatusLineHitEnterPromptModeWinNr guibg=#b64a49 guifg=#23272e
 
 function! VcsStatus()
   let branch = fugitive#head()
@@ -145,38 +166,47 @@ function! MakeActiveStatusLine()
   let b:hls = {
     \ 'n': {
       \ 'n': 'StatusLineNormalMode',
-      \ 'i': 'StatusLineNormalModeItalic'
+      \ 'i': 'StatusLineNormalModeItalic',
+      \ 'nr': 'StatusLineNormalModeWinNr'
       \ },
     \ 'i': {
       \ 'n': 'StatusLineInsertMode',
-      \ 'i': 'StatusLineInsertModeItalic'
+      \ 'i': 'StatusLineInsertModeItalic',
+      \ 'nr': 'StatusLineInsertModeWinNr'
       \ },
     \ 'v': {
       \ 'n': 'StatusLineVisualMode',
-      \ 'i': 'StatusLineVisualModeItalic'
+      \ 'i': 'StatusLineVisualModeItalic',
+      \ 'nr': 'StatusLineVisualModeWinNr'
       \ },
     \ 'V': {
       \ 'n': 'StatusLineVisualLineMode',
-      \ 'i': 'StatusLineVisualLineModeItalic'
+      \ 'i': 'StatusLineVisualLineModeItalic',
+      \ 'nr': 'StatusLineVisualLineModeWinNr'
       \ },
     \ '': {
       \ 'n': 'StatusLineVisualBlockMode',
-      \ 'i': 'StatusLineVisualBlockModeItalic'
+      \ 'i': 'StatusLineVisualBlockModeItalic',
+      \ 'nr': 'StatusLineVisualBlockModeWinNr'
       \ },
     \ 'R': {
       \ 'n': 'StatusLineReplaceMode',
-      \ 'i': 'StatusLineReplaceModeItalic'
+      \ 'i': 'StatusLineReplaceModeItalic',
+      \ 'nr': 'StatusLineReplaceModeWinNr'
       \ },
     \ 'c': {
       \ 'n': 'StatusLineCommandMode',
-      \ 'i': 'StatusLineCommandModeItalic'
+      \ 'i': 'StatusLineCommandModeItalic',
+      \ 'nr': 'StatusLineCommandModeWinNr'
       \ },
     \ 'r?': {
       \ 'n': 'StatusLineHitEnterPromptMode',
-      \ 'i': 'StatusLineHitEnterPromptModeItalic'
+      \ 'i': 'StatusLineHitEnterPromptModeItalic',
+      \ 'nr': 'StatusLineHitEnterPromptModeWinNr'
       \ },
     \ }
   let b:hl = 'StatusLineBg'
+  let b:hl2 = 'StatusLineBg2c'
 
   if has_key(b:hls, mode()) == 1
     if &mod
@@ -184,9 +214,12 @@ function! MakeActiveStatusLine()
     else
       let b:hl = b:hls[mode()]['n']
     endif
+
+    let b:hl2 = b:hls[mode()]['nr']
   endif
 
-  let b:status_line = printf(' %d %%#%s# %s ', win_id2win(g:statusline_winid), b:hl, GetFileName())
+
+  let b:status_line = printf('%%#%s# %d %%#%s# %s ', b:hl2, win_id2win(g:statusline_winid), b:hl, GetFileName())
 
   let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL)'
   let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
