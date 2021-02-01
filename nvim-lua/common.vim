@@ -53,7 +53,7 @@ set shortmess+=c
 au TermOpen * setlocal nonu
 
 " Remove trailing whitespaces.
-au BufWritePre * %s/\s\+$//e
+"au BufWritePre * %s/\s\+$//e
 
 " Highlight yank.
 au TextYankPost * silent! lua vim.highlight.on_yank()

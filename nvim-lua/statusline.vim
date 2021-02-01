@@ -155,7 +155,8 @@ function! CurrentSymbol()
     \ 'struct': '%#Struct#',
     \ 'struct field': '%#Label#',
     \ 'implementation': '%#Special#',
-    \ 'type alias': '%#Type#'
+    \ 'type alias': '%#Type#',
+    \ 'variable': '%#Variable#'
     \}
 
   if has_key(b:sym_hi, b:sym_ty) == 1
