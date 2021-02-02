@@ -52,22 +52,37 @@ local lsp_attach = function(_)
 end
 
 -- Lua.
-lsp.sumneko_lua.setup({
+local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
+lsp.sumneko_lua.setup {
+  cmd = { "/home/phaazon/foss/lua-language-server/bin/Linux/lua-language-server", "-E" },
   settings = {
     Lua = {
+     runtime = {
+        version = 'LuaJIT',
+        path = vim.split(package.path, ';'),
+      },
+
       diagnostics = {
         enable = true,
         globals = { "vim" },
+      },
+
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
       },
     },
   },
 
   on_attach = lsp_attach,
-})
+}
 
 -- Rust.
-lsp.rust_analyzer.setup({
-  cmd = { "/home/phaazon/foss/rust-analyzer/target/release/rust-analyzer"},
+lsp.rust_analyzer.setup {
+  cmd = { "/home/phaazon/foss/rust-analyzer/target/release/rust-analyzer" },
 
   settings = {
     ["rust-analyzer"] = {
@@ -95,15 +110,15 @@ lsp.rust_analyzer.setup({
   },
 
   on_attach = lsp_attach,
-})
+}
 
 -- Haskell.
-lsp.hls.setup({})
+lsp.hls.setup {}
 
 -- Java.
-lsp.rust_analyzer.setup({
+lsp.rust_analyzer.setup {
   on_attach = lsp_attach,
-})
+} 
 
 local saga = require'lspsaga'
 saga.init_lsp_saga()

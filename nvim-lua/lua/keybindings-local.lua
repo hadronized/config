@@ -69,6 +69,7 @@ vim.api.nvim_set_keymap('i', '<c-space>', "<cmd>lua require'completion'.triggerC
 vim.api.nvim_set_keymap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/common.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/keybindings-local.lua<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>fcl', '<cmd>edit ~/.config/nvim/lua/lsp-local.lua<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/pkg.vim<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fct', '<cmd>edit ~/.config/nvim/themes.vim<cr>', silent_noremap_opt)
 
