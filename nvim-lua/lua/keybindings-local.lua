@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap('', '<c-s>', '<c-p>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-s>', '<c-p>', silent_noremap_opt)
 
 -- Open and close folds with TAB in normal mode.
-vim.api.nvim_set_keymap('n', '<tab>', 'za', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<tab>', 'za', silent_noremap_opt)
 
 -- Insert completion.
 vim.api.nvim_set_keymap('i', '<c-f>', '<c-x><c-f>', silent_noremap_opt)
