@@ -1,3 +1,6 @@
+" Disable wrapping.
+set wrap!
+
 " Enable numbers.
 set nu
 
@@ -53,7 +56,7 @@ set shortmess+=c
 au TermOpen * setlocal nonu
 
 " Remove trailing whitespaces.
-"au BufWritePre * %s/\s\+$//e
+au BufWritePre * %s/\s\+$//e
 
 " Highlight yank.
 au TextYankPost * silent! lua vim.highlight.on_yank()
@@ -61,3 +64,17 @@ au TextYankPost * silent! lua vim.highlight.on_yank()
 " Leader key.
 let mapleader=' '
 let maplocalleader = ','
+
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+nmap <leader>$ :call SynStack()<cr>

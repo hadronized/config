@@ -14,4 +14,4 @@ let g:sonokai_current_word = 'grey background'
 let g:sonokai_better_performance = 1
 
 " A lua dark colorscheme.
-Plug 'glepnir/zephyr-nvim'
+Plug 'glepnir/zephyr-nvim', { 'branch': 'main' }

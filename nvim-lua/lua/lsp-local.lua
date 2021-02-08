@@ -11,18 +11,22 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local lsp = require'lspconfig'
 local protocol = require'vim.lsp.protocol'
 
-local lsp_attach = function(_)
-  -- autocommands
-  vim.api.nvim_command([[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]])
-  vim.api.nvim_command([[autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()]])
-  vim.api.nvim_command([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
-  vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+local lsp_attach = function(args)
+  return function()
+    -- autocommands
+    vim.api.nvim_command([[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]])
+    vim.api.nvim_command([[autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()]])
+    vim.api.nvim_command([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
 
-  -- Use LSP as the handler for omnifunc.
-  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    if args.format == nil or args.format then
+      vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+    end
 
-  require'completion'.on_attach()
-  protocol.CompletionItemKind = {
+    -- Use LSP as the handler for omnifunc.
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    require'completion'.on_attach()
+    protocol.CompletionItemKind = {
       ' '; -- text
       ' '; -- method
       ' '; -- function
@@ -48,16 +52,16 @@ local lsp_attach = function(_)
       ' '; -- event
       '璉'; -- operator
       ' '; -- type parameter
-  }
+    }
+  end
 end
 
 -- Lua.
-local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
 lsp.sumneko_lua.setup {
-  cmd = { "/home/phaazon/foss/lua-language-server/bin/Linux/lua-language-server", "-E" },
+  cmd = { "/home/phaazon/foss/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/phaazon/foss/lua-language-server/main.lua" },
   settings = {
     Lua = {
-     runtime = {
+      runtime = {
         version = 'LuaJIT',
         path = vim.split(package.path, ';'),
       },
@@ -77,7 +81,7 @@ lsp.sumneko_lua.setup {
     },
   },
 
-  on_attach = lsp_attach,
+  on_attach = lsp_attach { format = false },
 }
 
 -- Rust.
@@ -109,16 +113,11 @@ lsp.rust_analyzer.setup {
     },
   },
 
-  on_attach = lsp_attach,
+  on_attach = lsp_attach { with_autocommands = true },
 }
 
 -- Haskell.
 lsp.hls.setup {}
-
--- Java.
-lsp.rust_analyzer.setup {
-  on_attach = lsp_attach,
-} 
 
 local saga = require'lspsaga'
 saga.init_lsp_saga()

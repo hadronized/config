@@ -149,3 +149,7 @@ vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_norem
 
 -- Journal.
 vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
+
+-- Vroom.
+vim.api.nvim_set_keymap('n', 'è', "<cmd>lua require'hop'.jump_words({ keys = 'etovxqpdygfblzhckisuran' })<cr><cr>", silent_noremap_opt)
+
