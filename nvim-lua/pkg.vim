@@ -36,3 +36,6 @@ lua require('colorizer-local')
 lua require('lsp-local')
 lua require('telescope-local')
 lua require('treesitter-local')
+
+" TODO: Move this somewhere else
+lua RELOAD = require'plenary.reload'.reload_module

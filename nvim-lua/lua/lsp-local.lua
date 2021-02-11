@@ -119,5 +119,8 @@ lsp.rust_analyzer.setup {
 -- Haskell.
 lsp.hls.setup {}
 
+-- C/C++.
+lsp.clangd.setup{}
+
 local saga = require'lspsaga'
 saga.init_lsp_saga()

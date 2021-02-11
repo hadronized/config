@@ -56,9 +56,6 @@ vim.api.nvim_set_keymap('i', '<c-t>', '<c-n>', silent_noremap_opt)
 vim.api.nvim_set_keymap('', '<c-s>', '<c-p>', silent_noremap_opt)
 vim.api.nvim_set_keymap('i', '<c-s>', '<c-p>', silent_noremap_opt)
 
--- Open and close folds with TAB in normal mode.
--- vim.api.nvim_set_keymap('n', '<tab>', 'za', silent_noremap_opt)
-
 -- Insert completion.
 vim.api.nvim_set_keymap('i', '<c-f>', '<c-x><c-f>', silent_noremap_opt)
 
@@ -141,6 +138,10 @@ vim.api.nvim_set_keymap('n', '<leader>cs', "<cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>cS', "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", silent_noremap_opt)
 
+-- Tags.
+vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Telescope tags<CR>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', 'gd', '<C-]>', silent_noremap_opt)
+
 -- Filetree.
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>', silent_noremap_opt)
 
@@ -150,6 +151,6 @@ vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_norem
 -- Journal.
 vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
 
--- Vroom.
+--  Hop.
 vim.api.nvim_set_keymap('n', 'è', "<cmd>lua require'hop'.jump_words({ keys = 'etovxqpdygfblzhckisuran' })<cr><cr>", silent_noremap_opt)
 
