@@ -60,6 +60,8 @@ let g:which_key_map.c.b = 'search symbol in buffer'
 let g:which_key_map.c.d = 'jump to declaration'
 let g:which_key_map.c.D = 'jump to references'
 let g:which_key_map.c.h = 'signature help'
+let g:which_key_map.c.l = { 'name': '+LSP' }
+let g:which_key_map.c.l.r = 'restart current clients'
 let g:which_key_map.c.n = 'go to next diagnostic'
 let g:which_key_map.c.o = 'outline'
 let g:which_key_map.c.p = 'go to previous diagnostic'
@@ -68,7 +70,11 @@ let g:which_key_map.c.r = 'rename'
 let g:which_key_map.c.s = 'search symbol in project'
 let g:which_key_map.c.S = 'search symbol in document'
 let g:which_key_map.c.t = 'jump to type definition'
+let g:which_key_map.c.T = 'search tags'
 let g:which_key_map.c.x = 'open diagnostics'
+
+" Hop.
+let g:which_key_map['/'] = 'hop patterns'
 
 " Notes.
 let g:which_key_map.n = { 'name': '+notes' }

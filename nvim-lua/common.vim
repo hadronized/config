@@ -1,3 +1,6 @@
+" Text width.
+set tw=120
+
 " Disable wrapping.
 set wrap!
 

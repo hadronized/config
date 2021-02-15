@@ -12,18 +12,29 @@ local lsp = require'lspconfig'
 local protocol = require'vim.lsp.protocol'
 
 local lsp_attach = function(args)
-  return function()
-    -- autocommands
-    vim.api.nvim_command([[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]])
-    vim.api.nvim_command([[autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()]])
-    vim.api.nvim_command([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
+  return function(client, bufnr)
+    -- Set autocommands conditional on server_capabilities
+    if client.resolved_capabilities.document_highlight then
+      vim.api.nvim_exec([[
+        augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]], false)
+    end
 
     if args.format == nil or args.format then
-      vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+      vim.api.nvim_exec([[
+        augroup lsp_formatting_sync
+          autocmd! * <buffer>
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+        augroup END
+      ]], false)
     end
 
     -- Use LSP as the handler for omnifunc.
-    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     require'completion'.on_attach()
     protocol.CompletionItemKind = {
@@ -121,6 +132,3 @@ lsp.hls.setup {}
 
 -- C/C++.
 lsp.clangd.setup{}
-
-local saga = require'lspsaga'
-saga.init_lsp_saga()
