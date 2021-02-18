@@ -12,6 +12,7 @@ source ~/.config/nvim/devicons.vim
 source ~/.config/nvim/easy-align.vim
 source ~/.config/nvim/echodoc.vim
 source ~/.config/nvim/filetree.vim
+source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/glsl.vim
 source ~/.config/nvim/idris.vim
@@ -20,7 +21,6 @@ source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/markdown.vim
 source ~/.config/nvim/rust.vim
 source ~/.config/nvim/snippets.vim
-source ~/.config/nvim/statusline.vim
 source ~/.config/nvim/surround.vim
 source ~/.config/nvim/tagbar.vim
 source ~/.config/nvim/ctags.vim

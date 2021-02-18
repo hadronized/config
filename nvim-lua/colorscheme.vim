@@ -1,12 +1,9 @@
-colorscheme doom-one
-
-" Some nice touch, because I like looking FABULOUS
-" hi! CursorLineNr cterm=bold guifg=#bb97ee guibg=#333645
-" hi! CursorLine guibg=#333645
-" hi! link LineNr NonText
-
-" override git gutter highlight to respect diff
-" hi! link GitGutterAdd GreenSign
-" hi! link GitGutterDelete RedSign
-" hi! link GitGutterChange PurpleSign
-" hi! link GitGutterChangeDelete RedSign
+" colorscheme doom-one
+" colorscheme challenger_deep
+" colorscheme dracula
+" colorscheme palenight
+" colorscheme colibri
+" colorscheme shades_of_purple
+" colorscheme embark
+" colorscheme gloombuddy
+colorscheme edge
