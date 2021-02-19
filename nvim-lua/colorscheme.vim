@@ -7,3 +7,5 @@
 " colorscheme embark
 " colorscheme gloombuddy
 colorscheme edge
+
+hi! link CursorLineNr Title
