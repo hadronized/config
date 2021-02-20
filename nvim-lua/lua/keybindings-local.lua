@@ -152,6 +152,6 @@ vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_norem
 vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
 
 --  Hop.
-vim.api.nvim_set_keymap('n', 'è', "<cmd>lua require'hop'.hint_words({ keys = 'etovxqpdygfblzhckisuran' })<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', 'È', "<cmd>lua require'hop'.hint_char1({ keys = 'etovxqpdygfblzhckisuran' })<cr>", silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>/', "<cmd>lua require'hop'.hint_patterns({ keys = 'etovxqpdygfblzhckisuran' })<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)

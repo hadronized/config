@@ -39,3 +39,6 @@ lua require('treesitter-local')
 
 " TODO: Move this somewhere else
 lua RELOAD = require'plenary.reload'.reload_module
+
+" lua setup
+lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
