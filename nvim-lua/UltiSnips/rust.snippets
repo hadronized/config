@@ -1,10 +1,10 @@
 snippet display "Implement the std::fmt::Display trait" b
 impl fmt::Display for $1 {
   fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-		match *self {
-		  $1::$2 => write!(f, "$3"),
-		}
-	}
+    match *self {
+      $1::$2 => write!(f, "$3"),
+    }
+  }
 }
 endsnippet
 
@@ -14,4 +14,12 @@ impl From<${1:FromType}> for ${2:${VISUAL:IntoType}} {
     Self::${3:$1}(err)
   }
 }
+endsnippet
+
+snippet def "Implement Default for a tybe" b
+impl Default for ${1:Type} {
+  fn default() -> Self {
+    ${2:Self::}
+  }
+}$0
 endsnippet
