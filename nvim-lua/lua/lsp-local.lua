@@ -64,6 +64,23 @@ local lsp_attach = function(args)
       '璉'; -- operator
       ' '; -- type parameter
     }
+
+    -- keybindings
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>clr', '<cmd>lua       vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K',           '<cmd>lua       vim.lsp.buf.hover()<cr>',                               {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca',  '<cmd>Telescope lsp_code_actions<cr>',                                  {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>',       '<cmd>Telescope lsp_code_actions<cr>',                                  {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'x', '<leader>ca',  '<cmd>Telescope lsp_range_code_actions<cr>',                            {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cd',  '<cmd>lua       vim.lsp.buf.definition()<cr>',                          {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD',  '<cmd>Telescope lsp_references<cr>',                                    {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ct',  '<cmd>lua       vim.lsp.buf.type_definition()<cr>',                     {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ch',  '<cmd>lua       vim.lsp.buf.signature_help()<cr>',                      {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-d>',       '<cmd>lua       vim.lsp.buf.signature_help()<cr>',                      {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cn',  "<cmd>lua       vim.lsp.diagnostic.goto_next()<cr>",                    {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cp',  "<cmd>lua       vim.lsp.diagnostic.goto_prev()<cr>",                    {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr',  "<cmd>lua       vim.lsp.buf.rename()<cr>",                              {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs',  '<cmd>Telescope lsp_workspace_symbols<cr>',                             {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx',  "<cmd>lua       vim.lsp.diagnostic.set_loclist()<cr>",                  {})
   end
 end
 
@@ -124,7 +141,12 @@ lsp.rust_analyzer.setup {
     },
   },
 
-  on_attach = lsp_attach { with_autocommands = true },
+  on_attach = function(client, bufnr)
+    lsp_attach({ with_autocommands = true })(client, bufnr)
+
+    -- override the default query so that we have everything everywhere
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
+  end
 }
 
 -- Haskell.

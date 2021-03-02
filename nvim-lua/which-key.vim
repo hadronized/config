@@ -52,6 +52,7 @@ let g:which_key_map.C.t = 'toggle context'
 " Search.
 let g:which_key_map.s = { 'name': '+search' }
 let g:which_key_map.s.b = 'search in buffer'
+let g:which_key_map.s.s = 'search everywhere'
 
 " Code.
 let g:which_key_map.c = { 'name': '+code' }
