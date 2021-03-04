@@ -4,6 +4,7 @@ require('telescope').setup{
   defaults = {
     prompt_position = "bottom",
     prompt_prefix = "-> ",
+    file_sorter = require'telescope.sorters'.get_fzy_sorter,
     mappings = {
       i = {
         ["<c-s>"] = actions.move_selection_previous,

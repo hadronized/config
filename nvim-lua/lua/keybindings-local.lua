@@ -135,5 +135,8 @@ vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').ope
 
 --  Hop.
 vim.api.nvim_set_keymap('n', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('x', 'è', '<cmd>HopWordVisual<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('x', 'È', '<cmd>HopChar1Visual<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('x', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
