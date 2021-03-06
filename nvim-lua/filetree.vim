@@ -2,7 +2,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 let g:nvim_tree_side = 'left' " or right
 let g:nvim_tree_width = 40 " 30 by default
-let g:nvim_tree_ignore = [] " empty by default
+let g:nvim_tree_ignore = [ '.git', '.target' ] " empty by default
 let g:nvim_tree_auto_open = 0 " 0 by default, opens the tree when typing `vim $DIR` or `vim`
 let g:nvim_tree_auto_close = 1 " 0 by default, closes the tree when it's the last window
 let g:nvim_tree_quit_on_open = 0 " 0 by default, closes the tree when you open a file
@@ -17,24 +17,6 @@ let g:nvim_tree_show_icons = {
     \ 'git': 1,
     \ 'folders': 1,
     \ 'files': 1,
-    \ }
-
-let g:nvim_tree_bindings = {
-    \ 'edit':            '<cr>',
-    \ 'edit_vsplit':     '<C-v>',
-    \ 'edit_split':      '<C-o>',
-    \ 'edit_tab':        '<C-t>',
-    \ 'toggle_ignored':  'i',
-    \ 'toggle_dotfiles': '.',
-    \ 'refresh':         'R',
-    \ 'preview':         '<TAB>',
-    \ 'cd':              'o',
-    \ 'create':          'a',
-    \ 'remove':          'd',
-    \ 'rename':          'r',
-    \ 'cut':             'x',
-    \ 'copy':            'y',
-    \ 'paste':           'p',
     \ }
 
 " default will show icon by default if no icon is provided

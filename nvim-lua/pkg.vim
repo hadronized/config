@@ -15,6 +15,7 @@ source ~/.config/nvim/filetree.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/glsl.vim
+source ~/.config/nvim/indent-guides.vim
 source ~/.config/nvim/idris.vim
 source ~/.config/nvim/better-lua.vim
 source ~/.config/nvim/lsp.vim
@@ -31,11 +32,12 @@ source ~/.config/nvim/which-key.vim
 call plug#end()
 
 " Run some lua code
-" lua require('statusline-local')
 lua require('colorizer-local')
 lua require('lsp-local')
 lua require('telescope-local')
 lua require('treesitter-local')
+lua require('nvim-tree-local')
+lua require('indent-guides-local')
 
 " TODO: Move this somewhere else
 lua RELOAD = require'plenary.reload'.reload_module

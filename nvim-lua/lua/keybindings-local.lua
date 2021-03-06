@@ -98,8 +98,8 @@ vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>', silent
 
 -- Git.
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope git_files<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>Git blame<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Telescope git_branches<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>Git<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gh', '<cmd>GitGutterPreviewHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gn', '<cmd>GitGutterNextHunk<cr>', silent_noremap_opt)
@@ -115,6 +115,9 @@ vim.api.nvim_set_keymap('n', '<leader>Ct', '<cmd>ContextToggle<cr>', silent_nore
 
 -- Search.
 vim.api.nvim_set_keymap('n', '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_dropdown<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sm', '<cmd>Telescope marks<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sr', '<cmd>Telescope registers theme=get_dropdown<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>Telescope live_grep<cr>', silent_noremap_opt)
 
 -- Quickfix.
@@ -135,8 +138,14 @@ vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').ope
 
 --  Hop.
 vim.api.nvim_set_keymap('n', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('x', 'è', '<cmd>HopWordVisual<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('x', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('x', 'È', '<cmd>HopChar1Visual<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('x', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('x', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
+
+-- Plugins.
+vim.api.nvim_set_keymap('n', '<leader>pc', '<cmd>PlugClean<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>pi', '<cmd>PlugInstall<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>pu', '<cmd>PlugUpdate<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>pU', '<cmd>PlugUpgrade<cr>', silent_noremap_opt)

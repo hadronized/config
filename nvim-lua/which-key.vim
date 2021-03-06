@@ -52,6 +52,9 @@ let g:which_key_map.C.t = 'toggle context'
 " Search.
 let g:which_key_map.s = { 'name': '+search' }
 let g:which_key_map.s.b = 'search in buffer'
+let g:which_key_map.s.c = 'last commands'
+let g:which_key_map.s.m = 'marks'
+let g:which_key_map.s.r = 'registers'
 let g:which_key_map.s.s = 'search everywhere'
 
 " Code.
@@ -80,6 +83,13 @@ let g:which_key_map['/'] = 'hop patterns'
 " Notes.
 let g:which_key_map.n = { 'name': '+notes' }
 let g:which_key_map.n.j = 'open journal'
+
+" Plugins
+let g:which_key_map.p = { 'name': '+plugins' }
+let g:which_key_map.p.c = 'clean'
+let g:which_key_map.p.i = 'install'
+let g:which_key_map.p.u = 'update'
+let g:which_key_map.p.U = 'upgrade'
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
