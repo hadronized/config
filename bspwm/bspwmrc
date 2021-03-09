@@ -44,7 +44,7 @@ bspc config honor_size_hints            false
 sxhkd &
 dunst &
 nitrogen --restore &
-picom --experimental-backends &
+# picom --experimental-backends &
 xsetroot -cursor_name left_ptr
 xset r rate 200 30
 
