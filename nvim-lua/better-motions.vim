@@ -1,3 +1,3 @@
 " Hop.
-" Plug 'phaazon/hop.nvim'
-Plug '~/dev/hop.nvim'
+Plug 'phaazon/hop.nvim'
+" Plug '~/dev/hop.nvim'
