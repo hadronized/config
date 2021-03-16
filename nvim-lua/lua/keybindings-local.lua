@@ -1,6 +1,7 @@
 -- Global and mode keybindings.
 
 local silent_noremap_opt = { silent = true, noremap = true }
+local silent_expr_opt = { silent = true, expr = true }
 local silent_opt = { silent = true }
 
 -- Bépo.
@@ -64,8 +65,9 @@ vim.api.nvim_set_keymap('i', '<c-s>', '<c-p>', silent_noremap_opt)
 -- Insert completion.
 vim.api.nvim_set_keymap('i', '<c-f>', '<c-x><c-f>', silent_noremap_opt)
 
--- nvim-completion
-vim.api.nvim_set_keymap('i', '<c-space>', "<cmd>lua require'completion'.triggerCompletion()<cr>", silent_opt)
+-- nvim-compe
+vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', silent_expr_opt)
+vim.api.nvim_set_keymap('i', '<cr>', "compe#confirm('<CR>')", silent_expr_opt)
 
 -- Quick access to common files.
 vim.api.nvim_set_keymap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/common.vim<cr>', silent_noremap_opt)
@@ -137,12 +139,9 @@ vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_norem
 vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
 
 --  Hop.
-vim.api.nvim_set_keymap('n', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('x', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('x', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('x', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('', 'È', '<cmd>HopChar1<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('', '<leader>/', '<cmd>HopPattern<cr>', silent_noremap_opt)
 
 -- Plugins.
 vim.api.nvim_set_keymap('n', '<leader>pc', '<cmd>PlugClean<cr>', silent_noremap_opt)

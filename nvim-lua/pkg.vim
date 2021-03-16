@@ -15,7 +15,7 @@ source ~/.config/nvim/filetree.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/glsl.vim
-source ~/.config/nvim/indent-guides.vim
+" source ~/.config/nvim/indent-guides.vim
 source ~/.config/nvim/helm.vim
 source ~/.config/nvim/idris.vim
 source ~/.config/nvim/better-lua.vim
@@ -38,6 +38,7 @@ lua require('lsp-local')
 lua require('telescope-local')
 lua require('treesitter-local')
 lua require('nvim-tree-local')
+lua require('nvim-compe-local')
 " lua require('indent-guides-local')
 
 " TODO: Move this somewhere else

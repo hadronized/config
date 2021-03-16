@@ -34,9 +34,8 @@ local lsp_attach = function(args)
     end
 
     -- Use LSP as the handler for omnifunc.
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    require'completion'.on_attach()
     protocol.CompletionItemKind = {
       ' '; -- text
       ' '; -- method
@@ -86,7 +85,13 @@ local lsp_attach = function(args)
 end
 
 -- saga
-require'lspsaga'.init_lsp_saga()
+require'lspsaga'.init_lsp_saga {
+  code_action_prompt = {
+    enable = true,
+    sign = false,
+    virtual_text = true,
+  },
+}
 
 -- Lua.
 lsp.sumneko_lua.setup {

@@ -50,7 +50,7 @@ set fillchars=vert:│
 set timeoutlen=500
 
 " Completion options (see :help completeopt)
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 
 " Short messages.
 set shortmess+=c
