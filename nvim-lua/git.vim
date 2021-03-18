@@ -28,4 +28,4 @@ Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
 
 " The new shiny toy.
-Plug 'TimUntersberger/neogit'
+" Plug 'TimUntersberger/neogit'

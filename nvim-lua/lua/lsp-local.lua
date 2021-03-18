@@ -80,6 +80,7 @@ local lsp_attach = function(args)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr', '<cmd>Lspsaga rename<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>Telescope lsp_workspace_symbols<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", {})
   end
 end
@@ -130,6 +131,7 @@ lsp.rust_analyzer.setup {
       assist = {
         importMergeBehaviour = "full",
         importPrefix = "by_crate",
+        importGroup = true,
       },
 
       callInfo = {
@@ -147,14 +149,15 @@ lsp.rust_analyzer.setup {
       procMacro = {
         enable = true,
       },
+
+      autoimport = {
+        enable = true,
+      }
     },
   },
 
   on_attach = function(client, bufnr)
     lsp_attach({ with_autocommands = true })(client, bufnr)
-
-    -- override the default query so that we have everything everywhere
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
   end
 }
 
