@@ -15,9 +15,10 @@ hi StatusLineGitDiffAdd guibg=#23272e guifg=#98be65
 hi StatusLineGitDiffMod guibg=#23272e guifg=#51afef
 hi StatusLineGitDiffDel guibg=#23272e guifg=#ff6c6b
 
+hi StatusLineLSPOk guibg=#23272e guifg=#98be65
 hi StatusLineLSPErrors guibg=#23272e guifg=#ff6c6b
 hi StatusLineLSPWarnings guibg=#23272e guifg=#ECBE7B
-hi StatusLineLSPInformations guibg=#23272e guifg=#51afef
+hi StatusLineLSPInfo guibg=#23272e guifg=#51afef
 hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
 
 hi StatusLineCurrentSymbolName guibg=#23272e guifg=#c678dd
@@ -99,6 +100,14 @@ function! VcsStatus()
   end
 
   return printf('%s %d %s %d %s %d %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s', ahl, a, mhl, m, rhl, r, trim(branch))
+endfunction
+
+function! LspStatus2() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
 endfunction
 
 function! LspStatus() abort
@@ -222,7 +231,7 @@ function! MakeActiveStatusLine()
   let b:status_line = printf('%%#%s# %d %%#%s# %s ', b:hl2, win_id2win(g:statusline_winid), b:hl, GetFileName())
 
   let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL)'
-  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
+  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus2(), VcsStatus())
 
   return b:status_line
 endfunction

@@ -1,3 +1,46 @@
+-- symbol kind kind labels
+local symbol_kind_labels = {
+  ' '; -- text
+  ' '; -- method
+  ' '; -- function
+  '全'; -- ctor
+  ' '; -- field
+  ' '; -- variable
+  ' '; -- class
+  ' '; -- interface
+  ' '; -- module
+  ' '; -- property
+  ' '; -- unit
+  ' '; -- value
+  '螺'; -- enum
+  ' '; -- keyword
+  ' '; -- snippet
+  ' '; -- color
+  ' '; -- file
+  ' '; -- reference
+  ' '; -- folder
+  ' '; -- enum member
+  ' '; -- constant
+  ' '; -- struct
+  ' '; -- event
+  '璉'; -- operator
+  ' '; -- type parameter
+}
+
+-- status
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+lsp_status.config {
+  current_function = true,
+  kind_labels = symbol_kind_labels,
+  status_symbol = '%#StatusLineLinNbr#LSP',
+  indicator_errors = '%#StatusLineLSPErrors#',
+  indicator_warnings = '%#StatusLineLSPWarnings#',
+  indicator_info = '%#StatusLineLSPInfo#',
+  indicator_hints = '%#StatusLineLSPHints#',
+  indicator_ok = '%#StatusLineLSPOk#',
+}
+
 -- handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -10,6 +53,16 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 local lsp = require'lspconfig'
 local protocol = require'vim.lsp.protocol'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
 local lsp_attach = function(args)
   return function(client, bufnr)
@@ -33,55 +86,34 @@ local lsp_attach = function(args)
       ]], false)
     end
 
-    -- Use LSP as the handler for omnifunc.
-    -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    protocol.CompletionItemKind = symbol_kind_labels
 
-    protocol.CompletionItemKind = {
-      ' '; -- text
-      ' '; -- method
-      ' '; -- function
-      '全'; -- ctor
-      ' '; -- field
-      ' '; -- variable
-      ' '; -- class
-      ' '; -- interface
-      ' '; -- module
-      ' '; -- property
-      ' '; -- unit
-      ' '; -- value
-      '螺'; -- enum
-      ' '; -- keyword
-      ' '; -- snippet
-      ' '; -- color
-      ' '; -- file
-      ' '; -- reference
-      ' '; -- folder
-      ' '; -- enum member
-      ' '; -- constant
-      ' '; -- struct
-      ' '; -- event
-      '璉'; -- operator
-      ' '; -- type parameter
-    }
+    lsp_status.on_attach(client)
 
     -- keybindings
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>clr', '<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'x', '<leader>ca', '<cmd>Telescope lsp_range_code_actions theme=get_dropdown<cr>', {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>CodeActions<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>', '<cmd>CodeActions<cr>', {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'x', '<leader>ca', '<cmd>Telescope lsp_range_code_actions theme=get_dropdown<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'x', '<leader>ca', '<cmd>RangeCodeActions<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD', '<cmd>Telescope lsp_references<cr>', {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD', '<cmd>Telescope lsp_references<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD', '<cmd>References<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ch', '<cmd>Lspsaga signature_help<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-h>', '<cmd>Lspsaga signature_help<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr', '<cmd>Lspsaga rename<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>Telescope lsp_workspace_symbols<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx', "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>Telescope lsp_workspace_symbols<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>WorkspaceSymbols<cr>', {})
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'fzf_lsp'.workspace_symbol_call({ query = '#'})<cr>", {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', {})
   end
 end
 
@@ -124,14 +156,14 @@ lsp.sumneko_lua.setup {
 
 -- Rust.
 lsp.rust_analyzer.setup {
+  capabilities = capabilities,
   cmd = { "/home/phaazon/foss/rust-analyzer/target/release/rust-analyzer" },
-
   settings = {
     ["rust-analyzer"] = {
       assist = {
+        importGroup = true,
         importMergeBehaviour = "full",
         importPrefix = "by_crate",
-        importGroup = true,
       },
 
       callInfo = {
@@ -139,20 +171,63 @@ lsp.rust_analyzer.setup {
       };
 
       cargo = {
-        loadOutDirsFromCheck = true
+        allFeatures = true,
+        autoreload = true,
+        loadOutDirsFromCheck = true,
       },
 
       checkOnSave = {
+        enable = true,
         allFeatures = true,
+      },
+
+      completion = {
+        addCallArgumentSnippets = true,
+        addCallParenthesis = true,
+        postfix = {
+          enable = true,
+        },
+        autoimport = {
+          enable = true,
+        },
+      },
+
+      diagnostics = {
+        enable = true,
+        enableExperimental = true,
+      },
+
+      hoverActions = {
+        enable = true,
+        debug = true,
+        gotoTypeDef = true,
+        implementations = true,
+        run = true,
+        linksInHover = true,
+      },
+
+      inlayHints = {
+        chainingHints = true,
+        parameterHints = true,
+        typeHints = true,
+      },
+
+      lens = {
+        enable = true,
+        debug = true,
+        implementations = true,
+        run = true,
+        methodReferences = true,
+        references = true,
+      },
+
+      notifications = {
+        cargoTomlNotFound = true,
       },
 
       procMacro = {
         enable = true,
       },
-
-      autoimport = {
-        enable = true,
-      }
     },
   },
 
