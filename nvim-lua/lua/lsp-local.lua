@@ -3,7 +3,7 @@ local symbol_kind_labels = {
   ' '; -- text
   ' '; -- method
   ' '; -- function
-  '全'; -- ctor
+  ' '; -- ctor
   ' '; -- field
   ' '; -- variable
   ' '; -- class
@@ -27,12 +27,41 @@ local symbol_kind_labels = {
   ' '; -- type parameter
 }
 
+local symbol_kind_labels_map = {
+  ['File'] = '',
+	['Module'] = '全',
+	['Namespace'] = '',
+	['Package'] = '',
+	['Class'] = '',
+	['Method'] = '',
+	['Property'] = '',
+	['Field'] = '',
+	['Constructor'] = '',
+	['Enum'] = '螺',
+	['Interface'] = '',
+	['Function'] = '',
+	['Variable'] = '',
+	['Constant'] = '',
+	['String'] = '',
+	['Number'] = '7',
+	['Boolean'] = '',
+	['Array'] = '',
+	['Object'] = '',
+	['Key'] = '',
+	['Null'] = '',
+	['EnumMember'] = '',
+	['Struct'] = '',
+	['Event'] = '',
+	['Operator'] = '璉',
+	['TypeParameter'] = '',
+}
+
 -- status
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 lsp_status.config {
   current_function = true,
-  kind_labels = symbol_kind_labels,
+  kind_labels = symbol_kind_labels_map,
   status_symbol = '%#StatusLineLinNbr#LSP',
   indicator_errors = '%#StatusLineLSPErrors#',
   indicator_warnings = '%#StatusLineLSPWarnings#',
