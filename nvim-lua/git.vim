@@ -28,4 +28,11 @@ Plug 'tveskag/nvim-blame-line'
 let g:blameLineGitFormat = '   %an | %ar | %s'
 
 " The new shiny toy.
-" Plug 'TimUntersberger/neogit'
+Plug 'TimUntersberger/neogit'
+hi! link NeogitDiffAddHighlight DiffAdd
+hi! link NeogitDiffDeleteHighlight DiffDelete
+" hi! link NeogitDiffContextHighlight
+" hi! link NeogitHunkHeader guifg=#cccccc guibg=#404040
+" hi! link NeogitHunkHeaderHighlight guifg=#cccccc guibg=#4d4d4d
+
+Plug 'pwntester/octo.nvim'

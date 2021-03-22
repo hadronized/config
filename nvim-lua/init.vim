@@ -12,5 +12,3 @@ source ~/.config/nvim/statusline.vim
 
 " Load various lua settings.
 lua require('keybindings-local')
-
-call which_key#register('<Space>', "g:which_key_map")

@@ -1,6 +1,7 @@
-local actions = require('telescope.actions')
+local actions = require'telescope.actions'
+local telescope = require'telescope'
 
-require('telescope').setup{
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -54,3 +55,5 @@ require('telescope').setup{
     }
   }
 }
+
+telescope.load_extension('octo')

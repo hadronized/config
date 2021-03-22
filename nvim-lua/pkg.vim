@@ -15,7 +15,6 @@ source ~/.config/nvim/filetree.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/git.vim
 source ~/.config/nvim/glsl.vim
-" source ~/.config/nvim/indent-guides.vim
 source ~/.config/nvim/helm.vim
 source ~/.config/nvim/idris.vim
 source ~/.config/nvim/better-lua.vim
@@ -28,7 +27,6 @@ source ~/.config/nvim/tagbar.vim
 source ~/.config/nvim/ctags.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/treesitter.vim
-source ~/.config/nvim/which-key.vim
 
 call plug#end()
 
@@ -39,7 +37,6 @@ lua require('telescope-local')
 lua require('treesitter-local')
 lua require('nvim-tree-local')
 lua require('nvim-compe-local')
-" lua require('indent-guides-local')
 
 " TODO: Move this somewhere else
 lua RELOAD = require'plenary.reload'.reload_module

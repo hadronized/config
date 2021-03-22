@@ -88,25 +88,26 @@ vim.api.nvim_set_keymap('n', '<leader>bS', '<cmd>w!<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bt', '<cmd>tabnew<cr>', silent_noremap_opt)
 
 -- Buffers.
--- vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Buffers<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Buffers<cr>', silent_noremap_opt)
 
 -- Files.
--- vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
--- vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Files<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Filetypes<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Files<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Filetypes<cr>', silent_noremap_opt)
 
 -- File history.
--- vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>History<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>History<cr>', silent_noremap_opt)
 
 -- Git.
--- vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>GFiles<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>GFiles<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>Git blame<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Commits<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>Git<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>gG', "<cmd>Neogit<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gh', '<cmd>GitGutterPreviewHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gn', '<cmd>GitGutterNextHunk<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gp', '<cmd>GitGutterPrevHunk<cr>', silent_noremap_opt)
@@ -120,23 +121,23 @@ vim.api.nvim_set_keymap('n', '<leader>Cp', '<cmd>ContextPeek<cr>', silent_norema
 vim.api.nvim_set_keymap('n', '<leader>Ct', '<cmd>ContextToggle<cr>', silent_noremap_opt)
 
 -- Search.
--- vim.api.nvim_set_keymap('n', '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', silent_noremap_opt)
--- vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_dropdown<cr>', silent_noremap_opt)
--- vim.api.nvim_set_keymap('n', '<leader>sm', '<cmd>Telescope marks<cr>', silent_noremap_opt)
--- vim.api.nvim_set_keymap('n', '<leader>sr', '<cmd>Telescope registers theme=get_dropdown<cr>', silent_noremap_opt)
--- vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>Telescope live_grep<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>sb', '<cmd>BLines<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>Commands<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>sm', '<cmd>Marks<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>sr', '<cmd>Registers<cr>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>Rg<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_dropdown<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sm', '<cmd>Telescope marks<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>sr', '<cmd>Telescope registers theme=get_dropdown<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>Telescope live_grep<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>sb', '<cmd>BLines<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>sc', '<cmd>Commands<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>sm', '<cmd>Marks<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>sr', '<cmd>Registers<cr>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>Rg<cr>', silent_noremap_opt)
 
 -- Quickfix.
 vim.api.nvim_set_keymap('n', '<leader>cq', '<cmd>Telescope quickfix<cr>', silent_noremap_opt)
 
 -- Tags.
--- vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Telescope tags<CR>', silent_noremap_opt)
-vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Tags<CR>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Telescope tags<CR>', silent_noremap_opt)
+-- vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Tags<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', 'gd', '<C-]>', silent_noremap_opt)
 
 -- Filetree.
