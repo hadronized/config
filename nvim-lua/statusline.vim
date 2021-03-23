@@ -102,52 +102,12 @@ function! VcsStatus()
   return printf('%s %d %s %d %s %d %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s', ahl, a, mhl, m, rhl, r, trim(branch))
 endfunction
 
-function! LspStatus2() abort
+function! LspStatus() abort
   if luaeval('#vim.lsp.buf_get_clients() > 0')
     return luaeval("require('lsp-status').status()")
   endif
 
   return ''
-endfunction
-
-function! LspStatus() abort
-  let sl = ''
-
-  if luaeval('not vim.tbl_isempty(vim.lsp.buf_get_clients(0))')
-    let errors = luaeval("vim.lsp.diagnostic.get_count(0, [[Error]])")
-    if errors > 0
-      let sl .= '%#StatusLineLSPErrors#'
-    else
-      let sl .= '%#StatusLineBg2b#'
-    end
-    let sl .= printf(' %d', errors)
-
-    let warnings = luaeval("vim.lsp.diagnostic.get_count(0, [[Warning]])")
-    if warnings > 0
-      let sl .= '%#StatusLineLSPWarnings#'
-    else
-      let sl .= '%#StatusLineBg2b#'
-    end
-    let sl .= printf('  %d', warnings)
-
-    let informations = luaeval("vim.lsp.diagnostic.get_count(0, [[Information]])")
-    if informations > 0
-      let sl .= '%#StatusLineLSPInformations#'
-    else
-      let sl .= '%#StatusLineBg2b#'
-    end
-    let sl .= printf('  %d', informations)
-
-    let hints = luaeval("vim.lsp.diagnostic.get_count(0, [[Hints]])")
-    if hints > 0
-      let sl .= '%#StatusLineLSPHints#'
-    else
-      let sl .= '%#StatusLineBg2b#'
-    end
-    let sl .= printf('  %d', hints)
-  endif
-
-  return sl
 endfunction
 
 function! GetFileName()
@@ -231,7 +191,7 @@ function! MakeActiveStatusLine()
   let b:status_line = printf('%%#%s# %d %%#%s# %s ', b:hl2, win_id2win(g:statusline_winid), b:hl, GetFileName())
 
   let b:status_line .= '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL)'
-  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus2(), VcsStatus())
+  let b:status_line .= printf('%%=%%#StatusLineBg# %s %s ', LspStatus(), VcsStatus())
 
   return b:status_line
 endfunction
