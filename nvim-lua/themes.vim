@@ -47,3 +47,6 @@ let g:edge_cursor = 'auto'
 let g:edge_menu_selection_background = 'purple'
 let g:edge_diagnostic_text_highlight = 1
 let g:edge_diagnostic_line_highlight = 1
+
+Plug 'joshdick/onedark.vim'
+let g:onedark_terminal_italics = 1

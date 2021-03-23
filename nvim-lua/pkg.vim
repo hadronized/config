@@ -17,6 +17,7 @@ source ~/.config/nvim/git.vim
 source ~/.config/nvim/glsl.vim
 source ~/.config/nvim/helm.vim
 source ~/.config/nvim/idris.vim
+source ~/.config/nvim/indent-guides.vim
 source ~/.config/nvim/better-lua.vim
 source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/markdown.vim

@@ -6,6 +6,7 @@
 " colorscheme shades_of_purple
 " colorscheme embark
 " colorscheme gloombuddy
-colorscheme edge
+" colorscheme edge
+colorscheme onedark
 
-hi! link CursorLineNr Title
+" hi! link CursorLineNr Title
