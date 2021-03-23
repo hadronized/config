@@ -10,3 +10,4 @@
 colorscheme onedark
 
 " hi! link CursorLineNr Title
+hi! Normal guibg=none
