@@ -52,3 +52,4 @@
 (package! company-box)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! kubernetes-evil)

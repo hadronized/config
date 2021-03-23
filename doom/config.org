@@ -26,6 +26,10 @@
 #+BEGIN_SRC emacs-lisp
 (setq evil-shift-width 2)
 #+END_SRC
+** Automatic whitespace trailing
+#+begin_src emacs-lisp
+(add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
+#+end_src
 ** Window handling
 #+BEGIN_SRC emacs-lisp
 (map! :n "w o" #'evil-window-split)
@@ -45,17 +49,15 @@ of characters inside a buffer is everything but useful. So I’m cleaning a bit 
 #+begin_src elisp
 (after! doom-modeline
   (setq doom-modeline-persp-name t
-        doom-modeline-github t
         doom-modeline-vcs-max-length 30
         doom-modeline-indent-info t
         doom-modeline-buffer-encoding nil
         doom-modeline-column-zero-based nil
-        doom-modeline-major-icon-mode t)
-  (size-indication-mode -1))
+        doom-modeline-major-icon-mode t))
 #+end_src
 * Avy
 #+BEGIN_SRC emacs-lisp
-(map! :n "è" 'evil-avy-goto-word-0)
+(map! :nvom "è" 'evil-avy-goto-word-0)
 
 (after! avy
   (setq avy-keys '(?e ?t ?i ?s ?u ?r ?a ?o ?v ?n ?x ?y ?b ?d ?l ?p)
