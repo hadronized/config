@@ -62,6 +62,10 @@ of characters inside a buffer is everything but useful. So I’m cleaning a bit 
 (after! avy
   (setq avy-keys '(?e ?t ?i ?s ?u ?r ?a ?o ?v ?n ?x ?y ?b ?d ?l ?p)
         avy-background t))
+
+(setq avy-orders-alist
+      '((avy-goto-char . avy-order-closest)
+        (avy-goto-word-0 . avy-order-closest)))
 #+END_SRC
 
 * Flycheck
