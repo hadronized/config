@@ -122,7 +122,7 @@ local lsp_attach = function(args)
     -- keybindings
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>clr', '<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>Lspsaga hover_doc<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cK', '<cmd>Lspsaga hover_doc<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>CodeActions<cr>', {})
@@ -260,13 +260,20 @@ lsp.rust_analyzer.setup {
     },
   },
 
-  on_attach = function(client, bufnr)
-    lsp_attach({ with_autocommands = true })(client, bufnr)
-  end
+  on_attach = lsp_attach {}
 }
 
 -- Haskell.
-lsp.hls.setup {}
+lsp.hls.setup {
+  on_attach = lsp_attach {  },
+}
 
 -- C/C++.
-lsp.clangd.setup{}
+lsp.clangd.setup{
+  on_attach = lsp_attach {  },
+}
+
+-- Vue.
+lsp.vuels.setup{
+  on_attach = lsp_attach {  },
+}

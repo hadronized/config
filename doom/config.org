@@ -28,7 +28,7 @@
 #+END_SRC
 ** Automatic whitespace trailing
 #+begin_src emacs-lisp
-(add-hook 'write-file-hooks 'delete-trailing-whitespace nil t)
+(add-hook! 'before-save-hook 'delete-trailing-whitespace)
 #+end_src
 ** Window handling
 #+BEGIN_SRC emacs-lisp
