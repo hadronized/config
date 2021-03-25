@@ -7,7 +7,7 @@
 #+END_SRC
 ** Font weights
 #+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16))
 #+END_SRC
 ** Redo on U
 #+BEGIN_SRC emacs-lisp
@@ -42,14 +42,13 @@
 #+begin_src elisp
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
 #+end_src
-* Modeline
-The default modeline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
+* Statusline
+The default statusline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
 of characters inside a buffer is everything but useful. So I’m cleaning a bit all this mess.
 
 #+begin_src elisp
 (after! doom-modeline
-  (setq doom-modeline-persp-name t
-        doom-modeline-vcs-max-length 30
+  (setq doom-modeline-vcs-max-length 30
         doom-modeline-indent-info t
         doom-modeline-buffer-encoding nil
         doom-modeline-column-zero-based nil
@@ -60,7 +59,7 @@ of characters inside a buffer is everything but useful. So I’m cleaning a bit 
 (map! :nvom "è" 'evil-avy-goto-word-0)
 
 (after! avy
-  (setq avy-keys '(?e ?t ?i ?s ?u ?r ?a ?o ?v ?n ?x ?y ?b ?d ?l ?p)
+  (setq avy-keys '(?e ?t ?o ?v ?x ?q ?p ?d ?y ?g ?f ?b ?l ?z ?h ?c ?k ?i ?s ?u ?r ?a ?n)
         avy-background t))
 
 (setq avy-orders-alist

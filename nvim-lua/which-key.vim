@@ -1,6 +1,7 @@
 Plug 'liuchengxu/vim-which-key'
 
 let g:which_key_map = {  }
+let g:which_key_local_map = {  }
 
 " Direct shortcuts.
 let g:which_key_map[' '] = 'find file in project'
@@ -49,6 +50,13 @@ let g:which_key_map.C = { 'name': '+context' }
 let g:which_key_map.C.p = 'peek context'
 let g:which_key_map.C.t = 'toggle context'
 
+" Test.
+let g:which_key_map.t = { 'name': '+test' }
+let g:which_key_map.t.n = 'test all'
+let g:which_key_map.t.n = 'test nearest'
+let g:which_key_map.t.s = 'stop'
+let g:which_key_map.t.t = 'summary'
+
 " Search.
 let g:which_key_map.s = { 'name': '+search' }
 let g:which_key_map.s.b = 'search in buffer'
@@ -92,7 +100,9 @@ let g:which_key_map.p.u = 'update'
 let g:which_key_map.p.U = 'upgrade'
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+vnoremap <silent> <localleader> :<c-u>WhichKeyVisual ','<CR>
 
 let g:which_key_sep = '→'
 let g:which_key_use_floating_win = 1

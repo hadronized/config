@@ -10,4 +10,5 @@
 colorscheme onedark
 
 " hi! link CursorLineNr Title
-hi! Normal guibg=none
+" hi! Normal guibg=none
+hi! mkdCode guifg=#98C379 guibg=#2F2F3F

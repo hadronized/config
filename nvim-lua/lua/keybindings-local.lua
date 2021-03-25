@@ -139,6 +139,12 @@ vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Telescope tags<CR>', silent_nor
 -- vim.api.nvim_set_keymap('n', '<leader>cT', '<cmd>Tags<CR>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', 'gd', '<C-]>', silent_noremap_opt)
 
+-- Test.
+vim.api.nvim_set_keymap('n', '<leader>ta', '<cmd>Ultest<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>UltestNearest<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>UltestStop<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>UltestSummary<cr>', silent_noremap_opt)
+
 -- Filetree.
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>', silent_noremap_opt)
 
@@ -162,3 +168,6 @@ vim.api.nvim_set_keymap('n', '<leader>pU', '<cmd>PlugUpgrade<cr>', silent_norema
 
 -- Snippets.
 vim.api.nvim_set_keymap('i', '<tab>', "<cmd>lua return require'snippets'.expand_or_advance(1)<CR>", silent_noremap_opt)
+
+-- Terminal.
+vim.api.nvim_set_keymap('t', '<esc>', '<c-\\><c-n>', silent_noremap_opt)

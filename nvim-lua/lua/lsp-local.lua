@@ -106,7 +106,7 @@ local lsp_attach = function(args)
       ]], false)
     end
 
-    if args.format == nil or args.format then
+    if args == nil or args.format == nil or args.format then
       vim.api.nvim_exec([[
         augroup lsp_formatting_sync
           autocmd! * <buffer>
@@ -121,8 +121,7 @@ local lsp_attach = function(args)
 
     -- keybindings
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>clr', '<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>', {})
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cK', '<cmd>Lspsaga hover_doc<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-a>', '<cmd>Telescope lsp_code_actions theme=get_dropdown<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>CodeActions<cr>', {})
@@ -133,11 +132,11 @@ local lsp_attach = function(args)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD', '<cmd>Telescope lsp_references<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cD', '<cmd>References<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ct', '<cmd>lua vim.lsp.buf.type_definition()<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ch', '<cmd>Lspsaga signature_help<cr>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-h>', '<cmd>Lspsaga signature_help<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ch', '<cmd>lua vim.lsp.buf.signature_help()<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'i', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cn', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cp', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr', '<cmd>Lspsaga rename<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>Telescope lsp_workspace_symbols<cr>', {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cs', '<cmd>WorkspaceSymbols<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
@@ -146,14 +145,14 @@ local lsp_attach = function(args)
   end
 end
 
--- saga
-require'lspsaga'.init_lsp_saga {
-  code_action_prompt = {
-    enable = true,
-    sign = false,
-    virtual_text = true,
-  },
-}
+-- -- saga
+-- require'lspsaga'.init_lsp_saga {
+--   code_action_prompt = {
+--     enable = true,
+--     sign = false,
+--     virtual_text = true,
+--   },
+-- }
 
 -- Lua.
 lsp.sumneko_lua.setup {
@@ -260,7 +259,37 @@ lsp.rust_analyzer.setup {
     },
   },
 
-  on_attach = lsp_attach {}
+  on_attach = function(client, bufnr)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>bb', '<cmd>belowright 10sp | term cargo build<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>bc', '<cmd>belowright 10sp | term cargo check<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>br', '<cmd>belowright 10sp | term cargo build --release<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>db', '<cmd>belowright 10sp | term rustup doc --book<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>dd', '<cmd>belowright 10sp | term cargo doc --open<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>ds', '<cmd>belowright 10sp | term cargo doc --std<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>rd', '<cmd>belowright 10sp | term cargo run<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<localleader>rr', '<cmd>belowright 10sp | term cargo run --release<cr>', {})
+
+    vim.g.which_key_local_map = {
+      b = {
+        name = '+build',
+        b = 'build',
+        c = 'check',
+        r = 'build (release)',
+      },
+      d = {
+        name = '+documentation',
+        b = 'open the book',
+        d = 'document everything',
+        s = 'standard library documentation',
+      },
+      r = {
+        name = '+run',
+        d = 'debug run',
+        r = 'release run',
+      },
+    }
+    return lsp_attach()(client, bufnr)
+  end
 }
 
 -- Haskell.
