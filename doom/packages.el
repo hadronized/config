@@ -53,3 +53,4 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! kubernetes-evil)
+(package! vue-mode)

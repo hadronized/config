@@ -294,15 +294,15 @@ lsp.rust_analyzer.setup {
 
 -- Haskell.
 lsp.hls.setup {
-  on_attach = lsp_attach {  },
+  on_attach = lsp_attach {},
 }
 
 -- C/C++.
 lsp.clangd.setup{
-  on_attach = lsp_attach {  },
+  on_attach = lsp_attach {},
 }
 
 -- Vue.
 lsp.vuels.setup{
-  on_attach = lsp_attach {  },
+  on_attach = lsp_attach { format = false },
 }
