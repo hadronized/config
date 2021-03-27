@@ -52,7 +52,7 @@ let g:which_key_map.C.t = 'toggle context'
 
 " Test.
 let g:which_key_map.t = { 'name': '+test' }
-let g:which_key_map.t.n = 'test all'
+let g:which_key_map.t.a = 'test all'
 let g:which_key_map.t.n = 'test nearest'
 let g:which_key_map.t.s = 'stop'
 let g:which_key_map.t.t = 'summary'
