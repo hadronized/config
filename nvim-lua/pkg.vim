@@ -47,4 +47,4 @@ lua require('nvim-compe-local')
 " TODO: Move this somewhere else
 lua RELOAD = require'plenary.reload'.reload_module
 
-lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
+lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }

@@ -9,7 +9,7 @@
 " colorscheme edge
 colorscheme onedark
 
-hi! link CursorLineNr Title
+hi! link CursorLineNr Todo
 hi! Normal guibg=none
 hi! mkdCode guifg=#98C379 guibg=#2F2F3F
 hi! link markdownLinkTextDelimiter SpecialComment
