@@ -11,7 +11,7 @@
 #+END_SRC
 ** Font weights
 #+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
 #+END_SRC
 ** Redo on U
 #+BEGIN_SRC emacs-lisp
@@ -112,7 +112,7 @@ Cute colors:
 Here is the list of all paths we need to set to have a customized experience.
 #+BEGIN_SRC emacs-lisp
 (setq org-directory "~/org")
-(setq org-default-notes-file (concat org-directory "/index.org"))
+(setq org-agenda-files '("~/org"))
 #+END_SRC
 ** Org modules
 Modules can be loaded to enable more features of org-modes.
@@ -230,20 +230,20 @@ The =TODO= annotation sets a /todo/ in any headline.
 *** Workflow states
 States:
 #+BEGIN_SRC emacs-lisp
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "WIP(w!/!)" "FROZEN(z!/!)" "LATER(l!/!)" "|" "DONE(d!/!)")
-        (sequence "BUG(b)" "|" "FIXED(f!/!)")
-        (sequence "FEATURE(r)" "|" "IMPLEMENTED(i!/!)")
-        (sequence "|" "CANCELLED(c@)")))
+;; (setq org-todo-keywords
+;;       '((sequence "TODO(t)" "WIP(w!/!)" "FROZEN(z!/!)" "LATER(l!/!)" "|" "DONE(d!/!)")
+;;         (sequence "BUG(b)" "|" "FIXED(f!/!)")
+;;         (sequence "FEATURE(r)" "|" "IMPLEMENTED(i!/!)")
+;;         (sequence "|" "CANCELLED(c@)")))
 #+END_SRC
 
 Faces:
 #+BEGIN_SRC emacs-lisp
-(setq org-todo-keyword-faces
-      '(("TODO" . "blue") ("WIP" . (:foreground "green" :weight bold)) ("FROZEN" . "blue") ("DONE" . "grey")
-        ("BUG" . (:foreground "red" :weight bold)) ("FIXED" (:foreground "blue" :weight bold))
-        ("FEATURE" . "purple") ("IMPLEMENTED" . (:foreground "blue" :weight bold))
-        ("CANCELLED" . "grey")))
+;; (setq org-todo-keyword-faces
+;;       '(("TODO" . "blue") ("WIP" . (:foreground "green" :weight bold)) ("FROZEN" . "blue") ("DONE" . "grey")
+;;         ("BUG" . (:foreground "red" :weight bold)) ("FIXED" (:foreground "blue" :weight bold))
+;;         ("FEATURE" . "purple") ("IMPLEMENTED" . (:foreground "blue" :weight bold))
+;;         ("CANCELLED" . "grey")))
 #+END_SRC
 *** Progress logging
 Timestamp can be automatically added when changing a TODO state, or by doing it manually with =org-todo= with the =C-u= prefix argument —
@@ -293,7 +293,7 @@ Automatically change to =DONE= an entry when its children have been completed:
 ***** TODO Foo
 ***** DONE Bair
 ***** TODO Zoo
-**** Example2 with % [33%]
+**** TODO Example2 with % [33%]
 ***** TODO Foo
 ***** DONE Bar
 ***** TODO Zoo

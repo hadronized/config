@@ -88,7 +88,7 @@ vim.api.nvim_set_keymap('n', '<leader>bS', '<cmd>w!<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bt', '<cmd>tabnew<cr>', silent_noremap_opt)
 
 -- Buffers.
-vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Buffers<cr>', silent_noremap_opt)
 
 -- Files.
