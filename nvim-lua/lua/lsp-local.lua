@@ -145,15 +145,6 @@ local lsp_attach = function(args)
   end
 end
 
--- -- saga
--- require'lspsaga'.init_lsp_saga {
---   code_action_prompt = {
---     enable = true,
---     sign = false,
---     virtual_text = true,
---   },
--- }
-
 -- Lua.
 lsp.sumneko_lua.setup {
   cmd = { "/home/phaazon/foss/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/phaazon/foss/lua-language-server/main.lua" },
