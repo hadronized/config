@@ -10,6 +10,12 @@ colorscheme doom-one
 " colorscheme onedark
 
 " Override
+hi! Normal guibg=none
+hi! NonText guibg=none
+hi! EndOfBuffer guibg=none
+hi! SignColumn guibg=none
+hi! LineNr guibg=none
+
 hi! link markdownLinkTextDelimiter NonText
 hi! link markdownLinkDelimiter NonText
 hi! link markdownCodeDelimiter NonText

@@ -1,3 +1,6 @@
+" Report window title (how is that not a default?!).
+set title
+
 " Text width.
 set tw=120
 
