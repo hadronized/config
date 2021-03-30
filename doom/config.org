@@ -5,6 +5,11 @@
 (setq doom-theme 'doom-one)
 #+end_src
 * Better defaults
+** Fill column
+#+begin_src emacs-lisp
+(setq-default fill-column 120)
+(map! :leader :n "t a" 'auto-fill-mode)
+#+end_src
 ** Local leader
 #+BEGIN_SRC emacs-lisp
 (setq doom-localleader-key ",")
@@ -46,6 +51,10 @@
 #+begin_src elisp
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
 #+end_src
+** Enable Auto-Fill mode for some major modes
+#+begin_src emacs-lisp
+(add-hook! 'rustic-mode-hook (auto-fill-mode 1))
+#+end_src
 * Statusline
 The default statusline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
 of characters inside a buffer is everything but useful. So I’m cleaning a bit all this mess.
@@ -85,6 +94,8 @@ Basic configuration:
   (set-company-backend! 'shmode
     '(company-shell :with company-yasnippet)))
 #+END_SRC
+
+#+RESULTS:
 
 Keybindings and overrides:
 #+BEGIN_SRC emacs-lisp
