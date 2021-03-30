@@ -9,12 +9,13 @@ colorscheme doom-one
 " colorscheme edge
 " colorscheme onedark
 
-" Override
+" Transparent neovim
 hi! Normal guibg=none
 hi! NonText guibg=none
 hi! EndOfBuffer guibg=none
 hi! SignColumn guibg=none
 hi! LineNr guibg=none
+hi! VertSplit guibg=none
 
 hi! link markdownLinkTextDelimiter NonText
 hi! link markdownLinkDelimiter NonText
