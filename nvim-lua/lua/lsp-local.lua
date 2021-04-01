@@ -289,11 +289,16 @@ lsp.hls.setup {
 }
 
 -- C/C++.
-lsp.clangd.setup{
+lsp.clangd.setup {
   on_attach = lsp_attach {},
 }
 
 -- Vue.
-lsp.vuels.setup{
+lsp.vuels.setup {
   on_attach = lsp_attach { format = false },
+}
+
+-- Python, sneeeek.
+lsp.pyls.setup {
+  on_attach = lsp_attach {},
 }
