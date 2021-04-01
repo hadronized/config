@@ -21,7 +21,7 @@ source ~/.config/nvim/indent-guides.vim
 source ~/.config/nvim/better-lua.vim
 source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/markdown.vim
-source ~/.config/nvim/prettier.vim
+source ~/.config/nvim/org.vim
 source ~/.config/nvim/rust.vim
 source ~/.config/nvim/snippets.vim
 " source ~/.config/nvim/surround.vim

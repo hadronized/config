@@ -80,3 +80,16 @@ setopt share_history
 # Prompt.
 PS1='%B%F{green} %~ %F{magenta}λ %f%b'
 RPS1='$vcs_info_msg_0_ '
+
+if [ -e /Users/dimitri.sabadie/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dimitri.sabadie/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Kubenertes
+kube_ps1="/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+if [ -e $kube_ps1 ]; then
+  source $kube_ps1
+  KUBE_PS1_PREFIX=
+  KUBE_PS1_SUFFIX=
+  KUBE_PS1_SEPARATOR=
+  RPS1=$RPS1'$(kube_ps1) '
+fi
+

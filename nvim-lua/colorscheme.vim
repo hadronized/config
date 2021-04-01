@@ -40,4 +40,3 @@ hi! markdownCode guifg=#98be65 guibg=#2E323C
 hi! markdownItalic guifg=#a9a1e1 gui=italic
 hi! markdownBold guifg=#da8548 gui=bold
 hi! markdownListMarker guifg=#ff6c6b
-

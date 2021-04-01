@@ -88,21 +88,21 @@ vim.api.nvim_set_keymap('n', '<leader>bS', '<cmd>w!<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>bt', '<cmd>tabnew<cr>', silent_noremap_opt)
 
 -- Buffers.
-vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers previewer=false<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Buffers<cr>', silent_noremap_opt)
 
 -- Files.
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files previewer=false<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Files<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader>fT', '<cmd>Filetypes<cr>', silent_noremap_opt)
 
 -- File history.
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope oldfiles previewer=false<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>History<cr>', silent_noremap_opt)
 
 -- Git.
-vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_dropdown previewer=false<cr>', silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope git_files previewer=false<cr>', silent_noremap_opt)
 -- vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>GFiles<cr>', silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gb', "<cmd>Git blame<cr>", silent_noremap_opt)
 vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Commits<cr>', silent_noremap_opt)
@@ -151,8 +151,9 @@ vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>', silent_nor
 -- Tagbar.
 vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>TagbarToggle<CR>', silent_noremap_opt)
 
--- Journal.
-vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
+-- Org
+-- vim.api.nvim_set_keymap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>", silent_noremap_opt)
+vim.api.nvim_set_keymap('n', '<leader>nt', '<cmd>edit ~/org/todo.org<cr>', silent_noremap_opt)
 
 --  Hop.
 vim.api.nvim_set_keymap('', 'è', '<cmd>HopWord<cr>', silent_noremap_opt)
