@@ -8,7 +8,9 @@
 ** Fill column
 #+begin_src emacs-lisp
 (setq-default fill-column 120)
-(map! :leader :n "t a" 'auto-fill-mode)
+(map! :leader
+      :desc "Auto fill"
+      :n "t a" 'auto-fill-mode)
 #+end_src
 ** Local leader
 #+BEGIN_SRC emacs-lisp
@@ -54,6 +56,13 @@
 ** Enable Auto-Fill mode for some major modes
 #+begin_src emacs-lisp
 (add-hook! 'rustic-mode-hook (auto-fill-mode 1))
+#+end_src
+** Rename buffer
+#+begin_src emacs-lisp
+(map! :leader
+      :prefix "b"
+      :desc "Rename buffer"
+      :n "R" #'rename-buffer)
 #+end_src
 * Statusline
 The default statusline of Doom is pretty but… not very practical for the programmer I am. For instance, knowing the number
