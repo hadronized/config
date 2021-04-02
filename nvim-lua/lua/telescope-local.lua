@@ -30,7 +30,7 @@ telescope.setup {
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
     file_ignore_patterns = {},
-    generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     shorten_path = true,
     winblend = 0,
     width = 0.75,
@@ -56,5 +56,4 @@ telescope.setup {
   }
 }
 
-telescope.load_extension('fzy_native')
 telescope.load_extension('octo')
