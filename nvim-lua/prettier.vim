@@ -1,1 +1,0 @@
-Plug 'prettier/vim-prettier'

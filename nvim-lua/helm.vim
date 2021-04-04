@@ -1,1 +1,0 @@
-Plug 'towolf/vim-helm'

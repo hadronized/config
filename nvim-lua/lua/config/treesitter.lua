@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup({
+require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
@@ -20,4 +20,4 @@ require'nvim-treesitter.configs'.setup({
       node_decremental = "grm",
     },
   },
-})
+}

@@ -54,3 +54,8 @@
 (package! tree-sitter-langs)
 (package! kubernetes-evil)
 (package! vue-mode)
+
+(when (package! treemacs)
+  (progn
+    (package! treemacs-all-the-icons)
+    (package! treemacs-icons-dired)))

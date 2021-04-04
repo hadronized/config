@@ -70,13 +70,22 @@ lsp_status.config {
   indicator_ok = '%#StatusLineLSPOk#',
 }
 
+vim.cmd [[
+  hi StatusLineLinNbr guibg=#23272e guifg=#51afef
+  hi StatusLineLSPOk guibg=#23272e guifg=#98be65
+  hi StatusLineLSPErrors guibg=#23272e guifg=#ff6c6b
+  hi StatusLineLSPWarnings guibg=#23272e guifg=#ECBE7B
+  hi StatusLineLSPInfo guibg=#23272e guifg=#51afef
+  hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
+]]
+
 -- handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,
     virtual_text = true,
     signs = true,
-    update_in_insert = true,
+    update_in_insert = false,
   }
 )
 
@@ -142,6 +151,7 @@ local lsp_attach = function(args)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols { query = '#' }<cr>", {})
     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cS', "<cmd>lua require'fzf_lsp'.workspace_symbol_call({ query = '#'})<cr>", {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cx', '<cmd>Telescope lsp_workspace_diagnostics<cr>', {})
   end
 end
 
@@ -302,3 +312,4 @@ lsp.vuels.setup {
 lsp.pyls.setup {
   on_attach = lsp_attach {},
 }
+

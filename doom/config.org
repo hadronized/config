@@ -411,6 +411,15 @@ Just a small tweak to have better gutter symbols.
 #+begin_src emacs-lisp
 (setq projectile-project-search-path "~/dev")
 #+end_src
+* Treemacs
+Always show the cursor.
+#+begin_src emacs-lisp
+(setq-default treemacs-show-cursor t)
+#+end_src
+
+treemacs all the icons, and in dired too, because it’s cute.
+#+begin_src emacs-lisp
+#+end_src
 * EPA
 #+begin_src emacs-lisp
 (setq epa-file-encrypt-to '(9BFDD250BBECA905))

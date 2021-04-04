@@ -1,1 +1,0 @@
-Plug 'petrbroz/vim-glsl'

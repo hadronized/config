@@ -1,1 +1,0 @@
-au TermOpen * startinsert
