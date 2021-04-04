@@ -5,6 +5,10 @@ local function remap(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
 end
 
+local function remap_expr(mode, lhs, rhs)
+  vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true, expr = true })
+end
+
 -- Bépo.
 remap('', 'é', 'w')
 remap('', 'É', 'W')
@@ -66,16 +70,15 @@ remap('i', '<c-s>', '<c-p>')
 remap('i', '<c-f>', '<c-x><c-f>')
 
 -- nvim-compe
-remap('i', '<c-space>', 'compe#complete()', silent_expr_opt)
-remap('i', '<cr>', "compe#confirm('<CR>')", silent_expr_opt)
+remap_expr('i', '<c-space>', 'compe#complete()')
+remap_expr('i', '<cr>', "compe#confirm('<CR>')")
 
 -- Quick access to common files.
-remap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/common.vim<cr>')
-remap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.vim<cr>')
-remap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/keybindings-local.lua<cr>')
-remap('n', '<leader>fcl', '<cmd>edit ~/.config/nvim/lua/lsp-local.lua<cr>')
-remap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/pkg.vim<cr>')
-remap('n', '<leader>fct', '<cmd>edit ~/.config/nvim/themes.vim<cr>')
+remap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/lua/config/colorscheme.lua<cr>')
+remap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/config/keybindings.lua<cr>')
+remap('n', '<leader>fcl', '<cmd>edit ~/.config/nvim/lua/config/lsp.lua<cr>')
+remap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/lua/config/pkg.lua<cr>')
+remap('n', '<leader>fcv', '<cmd>edit ~/.config/nvim/lua/config/vim.lua<cr>')
 
 -- Buffer and tabs.
 remap('n', '<leader>bd', '<cmd>bdel<cr>')

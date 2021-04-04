@@ -141,7 +141,7 @@ local function get_file_name()
   return file_name
 end
 
-function make_active_status_line()
+local function make_active_status_line()
   local hls = {
     n = {
       n = 'StatusLineNormalMode',
@@ -211,7 +211,7 @@ function make_active_status_line()
   return status_line
 end
 
-function make_inactive_status_line()
+local function make_inactive_status_line()
   local hl = 'StatusLineBg2c'
   local hlend = 'StatusLineBg'
   local status_line = string.format(' %d %%#%s# %s %%#%s#',
@@ -226,9 +226,9 @@ end
 
 function M.make_status_line(active)
   if active then
-    vim.wo.statusline = '%!v:lua.make_active_status_line()'
+    vim.wo.statusline = '%!v:lua.active_status_line()'
   else
-    vim.wo.statusline = '%!v:lua.make_inactive_status_line()'
+    vim.wo.statusline = '%!v:lua.inactive_status_line()'
   end
 end
 
