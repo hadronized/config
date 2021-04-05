@@ -1,7 +1,7 @@
 local M = {}
 
 function M.create_highlights()
-  vim.cmd [[
+  vim.api.nvim_exec([[
     hi StatusLineBg guibg=#23272e guifg=#efefef
     hi StatusLineBg2 guibg=#23272e guifg=#efefef
     hi StatusLineBg2b guibg=#23272e guifg=#5B6268
@@ -70,7 +70,7 @@ function M.create_highlights()
     hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#23272e
     hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
     hi StatusLineHitEnterPromptModeWinNr guibg=#b64a49 guifg=#23272e
-  ]]
+  ]], false)
 end
 
 vim.api.nvim_command('augroup phaazon')
@@ -242,7 +242,6 @@ local function create_au()
   vim.api.nvim_command("au BufLeave * lua require'config.statusline'.make_status_line(false)")
 end
 
-M.create_highlights()
 create_au()
 
 M.make_status_line(true)

@@ -1,15 +1,8 @@
 local M = {}
 
 function M.setup(colorscheme)
-  vim.api.nvim_command('colorscheme ' .. colorscheme)
-  vim.cmd [[
-    hi! Normal guibg=none
-    hi! NonText guibg=none
-    hi! EndOfBuffer guibg=none
-    hi! SignColumn guibg=none
-    hi! LineNr guibg=none
-    hi! VertSplit guibg=none
-
+  vim.api.nvim_exec('colorscheme ' .. colorscheme, true)
+  vim.api.nvim_exec([[
     hi! link markdownLinkTextDelimiter NonText
     hi! link markdownLinkDelimiter NonText
     hi! link markdownCodeDelimiter NonText
@@ -33,10 +26,9 @@ function M.setup(colorscheme)
     hi! markdownItalic guifg=#a9a1e1 gui=italic
     hi! markdownBold guifg=#da8548 gui=bold
     hi! markdownListMarker guifg=#ff6c6b
-  ]]
+  ]], false)
 end
 
-
-M.setup('doom-one')
+M.setup('onedark')
 
 return M

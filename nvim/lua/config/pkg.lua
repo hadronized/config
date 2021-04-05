@@ -1,6 +1,97 @@
+-- Package configuration — I fucking hate Lua.
+vim.g.sonokai_style = 'andromeda'
+vim.g.sonokai_enable_italic = true
+vim.g.sonokai_cursor = 'red'
+vim.g.sonokai_transparent_background = false
+vim.g.sonokai_menu_selection_background = 'green'
+vim.g.sonokai_sign_column_background = 'none'
+vim.g.sonokai_diagnostic_line_highlight = true
+vim.g.sonokai_current_word = 'grey background'
+vim.g.sonokai_better_performance = true
+
+vim.g.palenight_terminal_italics = 1
+
+vim.g.embark_terminal_italics = 1
+
+vim.g.edge_style = 'neon'
+vim.g.edge_enable_italic = 1
+vim.g.edge_cursor = 'auto'
+vim.g.edge_menu_selection_background = 'purple'
+vim.g.edge_diagnostic_text_highlight = 1
+vim.g.edge_diagnostic_line_highlight = 1
+
+vim.g.onedark_terminal_italics = 1
+
+vim.g.nvim_tree_side = 'left'
+vim.g.nvim_tree_width = 40
+vim.g.nvim_tree_ignore = { '.git', '.target' }
+vim.g.nvim_tree_auto_open = 0
+vim.g.nvim_tree_auto_close = 1
+vim.g.nvim_tree_quit_on_open = 0
+vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_hide_dotfiles = 0
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_root_folder_modifier = ':.'
+vim.g.nvim_tree_tab_open = 1
+vim.g.nvim_tree_allow_resize = 1
+vim.g.nvim_tree_show_icons = {
+  git = 1,
+  folders = 1,
+  files = 1,
+}
+vim.g.nvim_tree_icons = {
+  default = '',
+  symlink = '',
+  git = {
+    unstaged = '✗',
+    staged = '✓',
+    unmerged = '',
+    renamed = '➜',
+    untracked = '★'
+  },
+  folder = {
+    default = '',
+    open = ''
+  },
+}
+
+vim.g.gitgutter_map_keys = false
+vim.g.gitgutter_max_signs = 10000
+vim.g.gitgutter_sign_added = "▎"
+vim.g.gitgutter_sign_modified = "▎"
+vim.g.gitgutter_sign_removed = "▁"
+vim.g.gitgutter_sign_removed_first_line = "▔"
+vim.g.gitgutter_sign_modified_removed = "▎"
+vim.g.gitgutter_highlight_linenrs = 0
+vim.g.gitgutter_override_sign_column_highlight = false
+
+vim.g.blameLineGitFormat = '   %an | %ar | %s'
+
+vim.g.UltiSnipsExpandTrigger = '<tab>'
+vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<S-tab>'
+
+vim.g.indent_blankline_char = '│'
+vim.g.indent_blankline_use_treesitter = true
+vim.g.indent_blankline_show_current_context = false
+vim.g.indent_blankline_show_trailing_blankline_indent = false
+vim.g.indent_blankline_context_highlight = 'SpecialComment'
+
+vim.g.idris_indent_if = 3
+vim.g.idris_indent_let = 4
+vim.g.idris_indent_where = 6
+vim.g.idris_indent_do = 3
+vim.g.idris_indent_rewrite = 8
+
+vim.g.vim_markdown_new_list_item_indent = 2
+
+vim.g.rust_recommended_style = false
+
+-- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes
@@ -8,20 +99,7 @@ return require('packer').startup(function(use)
 
   use 'romgrk/doom-one.vim'
 
-  use {
-    'sainnhe/sonokai',
-    setup = function()
-      vim.g.sonokai_style = 'andromeda'
-      vim.g.sonokai_enable_italic = true
-      vim.g.sonokai_cursor = 'red'
-      vim.g.sonokai_transparent_background = false
-      vim.g.sonokai_menu_selection_background = 'green'
-      vim.g.sonokai_sign_column_background = 'none'
-      vim.g.sonokai_diagnostic_line_highlight = true
-      vim.g.sonokai_current_word = 'grey background'
-      vim.g.sonokai_better_performance = true
-    end
-  }
+  use 'sainnhe/sonokai'
 
   use { 'glepnir/zephyr-nvim', branch = 'main' }
 
@@ -29,45 +107,19 @@ return require('packer').startup(function(use)
 
   use { 'challenger-deep-theme/vim', as = 'challenger-deep' }
 
-  use {
-    'drewtempelmeyer/palenight.vim',
-    setup = function()
-      vim.g.palenight_terminal_italics = 1
-    end
-  }
+  use 'drewtempelmeyer/palenight.vim'
 
   use 'Rigellute/shades-of-purple.vim'
 
   use 'archseer/colibri.vim'
 
-  use {
-    'embark-theme/vim',
-    as = 'embark',
-    setup = function()
-      vim.g.embark_terminal_italics = 1
-    end
-  }
+  use 'embark-theme/vim'
 
   use 'bkegley/gloombuddy'
 
-  use {
-    'sainnhe/edge',
-    setup = function()
-      vim.g.edge_style = 'neon'
-      vim.g.edge_enable_italic = 1
-      vim.g.edge_cursor = 'auto'
-      vim.g.edge_menu_selection_background = 'purple'
-      vim.g.edge_diagnostic_text_highlight = 1
-      vim.g.edge_diagnostic_line_highlight = 1
-    end
-  }
+  use 'sainnhe/edge'
 
-  use {
-    'joshdick/onedark.vim',
-    setup = function()
-      vim.g.onedark_terminal_italics = 1
-    end
-  }
+  use 'joshdick/onedark.vim'
 
   -- Productivity.
   use 'nvim-lua/popup.nvim'
@@ -137,41 +189,6 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     as = 'nvim-tree',
-    setup = function()
-      vim.g.nvim_tree_side = 'left'
-      vim.g.nvim_tree_width = 40
-      vim.g.nvim_tree_ignore = { '.git', '.target' }
-      vim.g.nvim_tree_auto_open = 0
-      vim.g.nvim_tree_auto_close = 1
-      vim.g.nvim_tree_quit_on_open = 0
-      vim.g.nvim_tree_follow = 1
-      vim.g.nvim_tree_indent_markers = 1
-      vim.g.nvim_tree_hide_dotfiles = 0
-      vim.g.nvim_tree_git_hl = 1
-      vim.g.nvim_tree_root_folder_modifier = ':.'
-      vim.g.nvim_tree_tab_open = 1
-      vim.g.nvim_tree_allow_resize = 1
-      vim.g.nvim_tree_show_icons = {
-        git = 1,
-        folders = 1,
-        files = 1,
-      }
-      vim.g.nvim_tree_icons = {
-        default = '',
-        symlink = '',
-        git = {
-          unstaged = '✗',
-          staged = '✓',
-          unmerged = '',
-          renamed = '➜',
-          untracked = '★'
-        },
-        folder = {
-          default = '',
-          open = ''
-        },
-      }
-    end,
     config = function()
       local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       vim.g.nvim_tree_bindings = {
@@ -202,27 +219,9 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
-  use {
-    'airblade/vim-gitgutter',
-    setup = function()
-      vim.g.gitgutter_map_keys = false
-      vim.g.gitgutter_max_signs = 10000
-      vim.g.gitgutter_sign_added = "▎"
-      vim.g.gitgutter_sign_modified = "▎"
-      vim.g.gitgutter_sign_removed = "▁"
-      vim.g.gitgutter_sign_removed_first_line = "▔"
-      vim.g.gitgutter_sign_modified_removed = "▎"
-      vim.g.gitgutter_highlight_linenrs = 0
-      vim.g.gitgutter_override_sign_column_highlight = false
-    end
-  }
+  use 'airblade/vim-gitgutter'
 
-  use {
-    'tveskag/nvim-blame-line',
-    setup = function()
-      vim.g.blameLineGitFormat = '   %an | %ar | %s'
-    end
-  }
+  use 'tveskag/nvim-blame-line'
 
   use {
     'TimUntersberger/neogit',
@@ -254,14 +253,7 @@ return require('packer').startup(function(use)
 
   use 'honza/vim-snippets'
 
-  use {
-    'SirVer/ultisnips',
-    setup = function()
-      vim.g.UltiSnipsExpandTrigger = '<tab>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<S-tab>'
-    end
-  }
+  use 'SirVer/ultisnips'
 
   use 'vim-test/vim-test'
 
@@ -291,13 +283,6 @@ return require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = 'lua',
-    setup = function()
-      vim.g.indent_blankline_char = '│'
-      vim.g.indent_blankline_use_treesitter = true
-      vim.g.indent_blankline_show_current_context = false
-      vim.g.indent_blankline_show_trailing_blankline_indent = false
-      vim.g.indent_blankline_context_highlight = 'SpecialComment'
-    end
   }
 
   use {
@@ -311,30 +296,11 @@ return require('packer').startup(function(use)
 
   use 'towolf/vim-helm'
 
-  use {
-    'idris-hackers/idris-vim',
-    setup = function()
-      vim.g.idris_indent_if = 3
-      vim.g.idris_indent_let = 4
-      vim.g.idris_indent_where = 6
-      vim.g.idris_indent_do = 3
-      vim.g.idris_indent_rewrite = 8
-    end
-  }
+  use 'idris-hackers/idris-vim'
 
-  use {
-    'plasticboy/vim-markdown',
-    setup = function()
-      vim.g.vim_markdown_new_list_item_indent = 2
-    end
-  }
+  use 'plasticboy/vim-markdown'
 
   use 'mzlogin/vim-markdown-toc'
 
-  use {
-    'rust-lang/rust.vim',
-    setup = function()
-      vim.g.rust_recommended_style = false
-    end
-  }
+  use 'rust-lang/rust.vim'
 end)
