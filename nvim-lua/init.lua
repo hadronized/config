@@ -1,8 +1,0 @@
-require 'config.vim'
-require 'config.keybindings'
-require 'config.pkg'
-require 'config.colorscheme'
-require 'config.lsp'
-require 'config.treesitter'
-require 'config.telescope'
-require 'config.statusline'

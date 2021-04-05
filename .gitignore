@@ -1,3 +1,4 @@
 archlinux/.config/nvim/plugged
 archlinux/.config/nvim/platform-specific.vim
 archlinux/.config/polybar/github_token
+/nvim/plugin

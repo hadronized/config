@@ -130,6 +130,7 @@ return require('packer').startup(function(use)
 
   use {
     'romgrk/nvim-treesitter-context',
+    disable = true,
     requires = { { 'nvim-treesitter/nvim-treesitter' } }
   }
 
@@ -197,7 +198,7 @@ return require('packer').startup(function(use)
         ["q"]              = tree_cb("close"),
       }
     end
-}
+  }
 
   use 'tpope/vim-fugitive'
 
@@ -227,7 +228,6 @@ return require('packer').startup(function(use)
     'TimUntersberger/neogit',
     disable = true
   }
-
 
   use 'pwntester/octo.nvim'
 
@@ -322,7 +322,13 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'plasticboy/vim-markdown'
+  use {
+    'plasticboy/vim-markdown',
+    setup = function()
+      vim.g.vim_markdown_new_list_item_indent = 2
+    end
+  }
+
   use 'mzlogin/vim-markdown-toc'
 
   use {

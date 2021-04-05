@@ -1,6 +1,6 @@
 local M = {}
 
-local function create_highlights()
+function M.create_highlights()
   vim.cmd [[
     hi StatusLineBg guibg=#23272e guifg=#efefef
     hi StatusLineBg2 guibg=#23272e guifg=#efefef
@@ -73,6 +73,11 @@ local function create_highlights()
   ]]
 end
 
+vim.api.nvim_command('augroup phaazon')
+vim.api.nvim_command('  au!')
+vim.api.nvim_command([[  au ColorScheme * lua require'config.statusline'.create_highlights()]])
+vim.api.nvim_command('augroup END')
+
 local function vcs_status()
   local branch = vim.fn['fugitive#head']()
 
@@ -122,7 +127,7 @@ end
 
 local function get_file_name()
   local max_width = 3 * vim.fn.winwidth(vim.g.statusline_winid) / 4
-  local file_name = vim.fn.bufname(vim.g.statusline_winid)
+  local file_name = vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid))
   local width = vim.fn.strwidth(file_name)
 
   if width == 0 then
@@ -233,11 +238,11 @@ function M.make_status_line(active)
 end
 
 local function create_au()
-  vim.api.nvim_command("au WinEnter,BufEnter * lua require'config.statusline'.make_status_line(true)")
-  vim.api.nvim_command("au WinLeave,BufLeave * lua require'config.statusline'.make_status_line(false)")
+  vim.api.nvim_command("au BufEnter * lua require'config.statusline'.make_status_line(true)")
+  vim.api.nvim_command("au BufLeave * lua require'config.statusline'.make_status_line(false)")
 end
 
-create_highlights()
+M.create_highlights()
 create_au()
 
 M.make_status_line(true)

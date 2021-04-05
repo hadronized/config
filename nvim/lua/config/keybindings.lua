@@ -75,6 +75,7 @@ remap_expr('i', '<cr>', "compe#confirm('<CR>')")
 
 -- Quick access to common files.
 remap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/lua/config/colorscheme.lua<cr>')
+remap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.lua<cr>')
 remap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/config/keybindings.lua<cr>')
 remap('n', '<leader>fcl', '<cmd>edit ~/.config/nvim/lua/config/lsp.lua<cr>')
 remap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/lua/config/pkg.lua<cr>')
@@ -120,8 +121,8 @@ remap('n', '<leader>gx', '<cmd>GitGutterUndoHunk<cr>')
 remap('n', '<leader>gz', '<cmd>GitGutterFold<cr>')
 
 -- Context.
-remap('n', '<leader>Cp', '<cmd>ContextPeek<cr>')
-remap('n', '<leader>Ct', '<cmd>ContextToggle<cr>')
+remap('n', '<leader>Ce', '<cmd>TSContextEnable<cr>')
+remap('n', '<leader>Cd', '<cmd>TSContextDisable<cr>')
 
 -- Search.
 remap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_dropdown<cr>')
@@ -166,10 +167,12 @@ remap('', '<C-l>', '<cmd>HopLine<cr>')
 remap('', '<leader>/', '<cmd>HopPattern<cr>')
 
 -- Plugins.
-remap('n', '<leader>pc', '<cmd>PlugClean<cr>')
-remap('n', '<leader>pi', '<cmd>PlugInstall<cr>')
-remap('n', '<leader>pu', '<cmd>PlugUpdate<cr>')
-remap('n', '<leader>pU', '<cmd>PlugUpgrade<cr>')
+remap('n', '<leader>pc', '<cmd>PackerClean<cr>')
+remap('n', '<leader>pC', '<cmd>PackerCompile<cr>')
+remap('n', '<leader>pi', '<cmd>PackerInstall<cr>')
+remap('n', '<leader>ps', '<cmd>PackerStatus<cr>')
+remap('n', '<leader>pS', '<cmd>PackerSync<cr>')
+remap('n', '<leader>pu', '<cmd>PackerUpdate<cr>')
 
 -- Snippets.
 remap('i', '<tab>', "<cmd>lua return require'snippets'.expand_or_advance(1)<CR>")

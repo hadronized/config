@@ -24,6 +24,11 @@
 #+BEGIN_SRC emacs-lisp
 (map! :n "U" 'undo-fu-only-redo)
 #+END_SRC
+** t / T on à / À
+#+begin_src emacs-lisp
+(map! :nvom "à" 'evil-snipe-t)
+(map! :nvom "À" 'evil-snipe-T)
+#+end_src
 ** Special configuration for macOS
 #+BEGIN_SRC emacs-lisp
 (when (string-equal system-type "darwin")
