@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup(colorscheme)
-  vim.api.nvim_exec('colorscheme ' .. colorscheme, true)
+  vim.api.nvim_exec('colorscheme ' .. colorscheme, false)
   vim.api.nvim_exec([[
     hi! link markdownLinkTextDelimiter NonText
     hi! link markdownLinkDelimiter NonText
@@ -29,6 +29,6 @@ function M.setup(colorscheme)
   ]], false)
 end
 
-M.setup('onedark')
+M.setup('edge')
 
 return M

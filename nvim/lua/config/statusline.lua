@@ -127,7 +127,7 @@ end
 
 local function get_file_name()
   local max_width = 3 * vim.fn.winwidth(vim.g.statusline_winid) / 4
-  local file_name = vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid))
+  local file_name = vim.fn.fnamemodify(vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid)), ':.')
   local width = vim.fn.strwidth(file_name)
 
   if width == 0 then
@@ -153,7 +153,42 @@ local function make_active_status_line()
       i = 'StatusLineNormalModeItalic',
       nr = 'StatusLineNormalModeWinNr',
     },
+    no = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    nov = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    ['noV'] = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    ['no'] = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
     i = {
+      n = 'StatusLineInsertMode',
+      i = 'StatusLineInsertModeItalic',
+      nr = 'StatusLineInsertModeWinNr',
+    },
+    ic = {
+      n = 'StatusLineInsertMode',
+      i = 'StatusLineInsertModeItalic',
+      nr = 'StatusLineInsertModeWinNr',
+    },
+    ix = {
+      n = 'StatusLineInsertMode',
+      i = 'StatusLineInsertModeItalic',
+      nr = 'StatusLineInsertModeWinNr',
+    },
+    ['niI'] = {
       n = 'StatusLineInsertMode',
       i = 'StatusLineInsertModeItalic',
       nr = 'StatusLineInsertModeWinNr',
@@ -173,7 +208,47 @@ local function make_active_status_line()
       i = 'StatusLineVisualBlockModeItalic',
       nr = 'StatusLineVisualBlockModeWinNr',
     },
+    ['niV'] = {
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
+    },
+    s = {
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
+    },
+    S = {
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
+    },
+    [''] = {
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
+    },
     R = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    Rc = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    Rv = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    Rx = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
+    },
+    ['niR'] = {
       n = 'StatusLineReplaceMode',
       i = 'StatusLineReplaceModeItalic',
       nr = 'StatusLineReplaceModeWinNr',
@@ -183,10 +258,40 @@ local function make_active_status_line()
       i = 'StatusLineCommandModeItalic',
       nr = 'StatusLineCommandModeWinNr',
     },
+    cv = {
+      n = 'StatusLineCommandMode',
+      i = 'StatusLineCommandModeItalic',
+      nr = 'StatusLineCommandModeWinNr',
+    },
+    ce = {
+      n = 'StatusLineCommandMode',
+      i = 'StatusLineCommandModeItalic',
+      nr = 'StatusLineCommandModeWinNr',
+    },
+    r = {
+      n = 'StatusLineHitEnterPromptMode',
+      i = 'StatusLineHitEnterPromptModeItalic',
+      nr = 'StatusLineHitEnterPromptModeWinNr',
+    },
+    rm = {
+      n = 'StatusLineHitEnterPromptMode',
+      i = 'StatusLineHitEnterPromptModeItalic',
+      nr = 'StatusLineHitEnterPromptModeWinNr',
+    },
     ['r?'] = {
       n = 'StatusLineHitEnterPromptMode',
       i = 'StatusLineHitEnterPromptModeItalic',
       nr = 'StatusLineHitEnterPromptModeWinNr',
+    },
+    ['!'] = {
+      n = 'StatusLineHitEnterPromptMode',
+      i = 'StatusLineHitEnterPromptModeItalic',
+      nr = 'StatusLineHitEnterPromptModeWinNr',
+    },
+    t = {
+      n = 'StatusLineReplaceMode',
+      i = 'StatusLineReplaceModeItalic',
+      nr = 'StatusLineReplaceModeWinNr',
     },
   }
 
