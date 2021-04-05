@@ -422,8 +422,21 @@ Always show the cursor.
 (setq-default treemacs-show-cursor t)
 #+end_src
 
-treemacs all the icons, and in dired too, because it’s cute.
+All the icons, and in dired too, because it’s cute.
 #+begin_src emacs-lisp
+#+end_src
+
+Symbol outline and error list via treemacs:
+#+begin_src emacs-lisp
+(map! :leader
+      :prefix "c"
+      :desc "Symbol outline"
+      :n "o" #'lsp-treemacs-symbols)
+
+(map! :leader
+      :prefix "c"
+      :desc "List errors"
+      :n "x" #'lsp-treemacs-errors-list)
 #+end_src
 * EPA
 #+begin_src emacs-lisp
