@@ -1,3 +1,8 @@
+-- The statusline requires some plugins to be installed:
+--
+-- - tpope/fugitive
+-- - airblade/vim-gitgutter
+-- - neovim/nvim-lspconfig
 local M = {}
 
 function M.create_highlights()

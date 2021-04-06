@@ -29,6 +29,6 @@ function M.setup(colorscheme)
   ]], false)
 end
 
-M.setup('edge')
+M.setup('doom-one')
 
 return M

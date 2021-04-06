@@ -143,7 +143,7 @@ require('packer').startup(function(use)
     end
   }
 
-  use 'tpope/vim-commentary'
+  use 'b3nj5m1n/kommentary'
 
   use {
     'hrsh7th/nvim-compe',
