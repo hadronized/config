@@ -1,0 +1,25 @@
+#+TITLE: phaazon’s configuration files
+
+This repository holds my configuration files.
+
+- [[./alacritty][alacritty]], a terminal emulator.
+- [[./bin][bin]], a collection of binaries I use /mostly/ on Linux and [[https://github.com/baskerville/bspwm][bspwm]] / [[https://i3wm.org][i3wm]].
+- [[./bspwm][bspwm]], which contains my configuration for [[https://github.com/baskerville/bspwm][bspwm]] and sxhkd.
+- [[./deprecated][deprecated]] contains old configuration files I’m unlikely to use ever again, and are just there for history™.
+- [[./doom][doom]], for everything relating to my [[https://github.com/hlissner/doom-emacs][Doom Emacs]] configuration.
+- [[./dunst][dunst]], a small and stand-alone notification application for Linux.
+- [[./fzf][fzf]], the best fuzzy searcher.
+- [[./git][git]], for everything relating to [[https://git-scm.com][Git]].
+- [[./haskell][haskell]], containing mostly configuration for GHC and especially its REPL, GHCi.
+- [[./i3][i3]], my configuration files for [[https://i3wm.org][i3wm]].
+- [[./kitty][kitty]], the main terminal emulator I’m using.
+- [[./nvim][nvim]], the main editor I use in Kitty!
+- [[./picom][picom]], a stand-alone Xorg compositor.
+- [[./polybar][polybar]], a stand-alone panel for Xorg (especially useful when used with either [[https://github.com/baskerville/bspwm][bspwm]] or [[https://i3wm.org][i3wm]]).
+- [[./rofi][rofi]], a nice application launcher / window switcher / stdin-stdout prompt for Xorg.
+- [[./rust][rust]], which contains default configuration files for things like [[https://github.com/rust-lang/rustfmt][rustfmt]].
+- [[./termite][termite]], configuration files for an awesome VTE terminal that I used a lot in the past years, but not so much
+  anymore.
+- [[./tmux][tmux]], configuration files for the [[https://github.com/tmux/tmux][famous terminal multiplexer]].
+- [[./tty][tty]], which contains files I might want to install on fresh setup, especially Archlinux.
+- [[./zsh][zsh]], my [[https://www.zsh.org][ZSH]] configuration files.
