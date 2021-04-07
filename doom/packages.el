@@ -54,6 +54,7 @@
 (package! tree-sitter-langs)
 (package! kubernetes-evil)
 (package! vue-mode)
+(package! web-mode)
 (package! lsp-treemacs)
 
 (when (package! treemacs)

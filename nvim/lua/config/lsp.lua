@@ -1,3 +1,7 @@
+-- Useful configuration for multi-platform environments.
+local user_home = os.getenv("HOME") or "/tmp"
+local foss_path = string.format("%s/foss/lua-language-server", user_home)
+
 -- symbol kind kind labels
 local symbol_kind_labels = {
   ' '; -- text
@@ -157,7 +161,11 @@ end
 
 -- Lua.
 lsp.sumneko_lua.setup {
-  cmd = { "/home/phaazon/foss/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/phaazon/foss/lua-language-server/main.lua" },
+  cmd = {
+    string.format("%s/bin/platform/lua-language-server", foss_path),
+    "-E",
+    string.format("%s/lua-language-server/main.lua", foss_path)
+  },
   settings = {
     Lua = {
       runtime = {
@@ -186,7 +194,7 @@ lsp.sumneko_lua.setup {
 -- Rust.
 lsp.rust_analyzer.setup {
   capabilities = capabilities,
-  cmd = { "/home/phaazon/foss/rust-analyzer/target/release/rust-analyzer" },
+  cmd = { string.format("%s/rust-analyzer/target/release/rust-analyzer", foss_path) },
   settings = {
     ["rust-analyzer"] = {
       assist = {
