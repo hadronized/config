@@ -303,4 +303,7 @@ require('packer').startup(function(use)
   use 'mzlogin/vim-markdown-toc'
 
   use 'rust-lang/rust.vim'
+
+  -- Convenience.
+  use 'vim-scripts/SyntaxAttr.vim'
 end)

@@ -156,9 +156,9 @@ remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 -- Tagbar.
 remap('n', '<leader>co', '<cmd>TagbarToggle<CR>')
 
--- Org
--- remap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>")
-remap('n', '<leader>nt', '<cmd>edit ~/org/todo.org<cr>')
+-- Org & notes.
+remap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>")
+-- remap('n', '<leader>nt', '<cmd>edit ~/org/todo.org<cr>')
 
 --  Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
@@ -179,3 +179,6 @@ remap('i', '<tab>', "<cmd>lua return require'snippets'.expand_or_advance(1)<CR>"
 
 -- Terminal.
 -- remap('t', '<esc>', '<c-\\><c-n>')
+
+-- See highlight at point.
+remap('n', '<leader>$', '<cmd>call SyntaxAttr()<cr>')
