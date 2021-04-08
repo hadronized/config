@@ -1,6 +1,6 @@
 -- Useful configuration for multi-platform environments.
 local user_home = os.getenv("HOME") or "/tmp"
-local foss_path = string.format("%s/foss/lua-language-server", user_home)
+local foss_path = string.format("%s/foss", user_home)
 
 -- symbol kind kind labels
 local symbol_kind_labels = {
@@ -162,7 +162,7 @@ end
 -- Lua.
 lsp.sumneko_lua.setup {
   cmd = {
-    string.format("%s/bin/platform/lua-language-server", foss_path),
+    string.format("%s/lua-language-server/bin/platform/lua-language-server", foss_path),
     "-E",
     string.format("%s/lua-language-server/main.lua", foss_path)
   },
