@@ -18,7 +18,7 @@
 #+END_SRC
 ** Font weights
 #+BEGIN_SRC emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
 #+END_SRC
 ** Redo on U
 #+BEGIN_SRC emacs-lisp

@@ -45,6 +45,9 @@ function M.setup(colorscheme)
     hi! link LspDiagnosticsVirtualTextInformation LspDiagnosticsSignInformation
     hi! link LspDiagnosticsVirtualTextWarning LspDiagnosticsSignWarning
     hi! link LspDiagnosticsVirtualTextError LspDiagnosticsSignError
+
+    hi! link BookmarkSign GreenSign
+    hi! link BookmarkAnnotationSign BlueSign
   ]], false)
 end
 

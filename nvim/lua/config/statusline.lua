@@ -131,7 +131,7 @@ local function lsp_status()
 end
 
 local function get_file_name()
-  local max_width = 3 * vim.fn.winwidth(vim.g.statusline_winid) / 4
+  local max_width = vim.fn.winwidth(vim.g.statusline_winid) * 0.25
   local file_name = vim.fn.fnamemodify(vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid)), ':.')
   local width = vim.fn.strwidth(file_name)
 

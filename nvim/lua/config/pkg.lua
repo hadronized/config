@@ -88,6 +88,9 @@ vim.g.vim_markdown_new_list_item_indent = 2
 
 vim.g.rust_recommended_style = false
 
+vim.g.bookmark_sign = '♥'
+vim.g.bookmark_highlight_lines = 1
+
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
@@ -144,6 +147,8 @@ require('packer').startup(function(use)
   }
 
   use 'b3nj5m1n/kommentary'
+
+  use 'MattesGroeger/vim-bookmarks'
 
   use {
     'hrsh7th/nvim-compe',
