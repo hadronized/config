@@ -74,12 +74,12 @@ The default statusline of Doom is pretty but… not very practical for the progr
 of characters inside a buffer is everything but useful. So I’m cleaning a bit all this mess.
 
 #+begin_src elisp
-(after! doom-modeline
-  (setq doom-modeline-vcs-max-length 30
-        doom-modeline-indent-info t
-        doom-modeline-buffer-encoding nil
-        doom-modeline-column-zero-based nil
-        doom-modeline-major-icon-mode t))
+;; (after! doom-modeline
+;;   (setq doom-modeline-vcs-max-length 30
+;;         doom-modeline-indent-info t
+;;         doom-modeline-buffer-encoding nil
+;;         doom-modeline-column-zero-based nil
+;;         doom-modeline-major-icon-mode t))
 #+end_src
 * Avy
 #+BEGIN_SRC emacs-lisp
