@@ -84,7 +84,36 @@ vim.g.idris_indent_where = 6
 vim.g.idris_indent_do = 3
 vim.g.idris_indent_rewrite = 8
 
-vim.g.vim_markdown_new_list_item_indent = 2
+-- vim.g.vim_markdown_new_list_item_indent = 2
+vim.g['mkdx#settings'] = {
+  map = {
+    enable = 1,
+    prefix = '<localleader>'
+  },
+  gf_on_steroids = 0,
+  tokens = {
+    enter = { '-', '+' },
+    italic = '_',
+  },
+  enter = {
+    shift = 1,
+    o = 1,
+    shifto = 1,
+  },
+  toc = {
+    text = 'Index',
+  },
+  highlight = {
+    enable = 1,
+    frontmatter = {
+      toml = 1,
+      json = 1,
+    }
+  },
+  fold = {
+    enable = 1,
+  },
+}
 
 vim.g.rust_recommended_style = false
 
@@ -147,6 +176,8 @@ require('packer').startup(function(use)
   }
 
   use 'b3nj5m1n/kommentary'
+
+  use 'mfussenegger/nvim-dap'
 
   use 'MattesGroeger/vim-bookmarks'
 
@@ -303,9 +334,11 @@ require('packer').startup(function(use)
 
   use 'idris-hackers/idris-vim'
 
-  use 'plasticboy/vim-markdown'
+  -- use 'plasticboy/vim-markdown'
 
-  use 'mzlogin/vim-markdown-toc'
+  -- use 'mzlogin/vim-markdown-toc'
+
+  use 'SidOfc/mkdx'
 
   use 'rust-lang/rust.vim'
 

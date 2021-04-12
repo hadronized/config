@@ -48,6 +48,10 @@ function M.setup(colorscheme)
 
     hi! link BookmarkSign GreenSign
     hi! link BookmarkAnnotationSign BlueSign
+
+    hi! link mkdxCheckboxPending GreenSign
+    hi! link mkdxCheckboxEmpty BlueSign
+    hi! link mkdxCheckboxComplete NonText
   ]], false)
 end
 
