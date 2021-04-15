@@ -120,6 +120,8 @@ vim.g.rust_recommended_style = false
 vim.g.bookmark_sign = '♥'
 vim.g.bookmark_highlight_lines = 1
 
+vim.g.snips_author = 'Dimitri Sabadie'
+
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
@@ -175,7 +177,7 @@ require('packer').startup(function(use)
     end
   }
 
-  use 'b3nj5m1n/kommentary'
+  use 'tpope/vim-commentary'
 
   use 'mfussenegger/nvim-dap'
 

@@ -71,7 +71,27 @@ remap('i', '<c-f>', '<c-x><c-f>')
 
 -- nvim-compe
 remap_expr('i', '<c-space>', 'compe#complete()')
-remap_expr('i', '<cr>', "compe#confirm('<CR>')")
+
+local autopairs = require('nvim-autopairs')
+
+vim.g.completion_confirm_key = ""
+_G.completion_confirm = function()
+  if vim.fn.pumvisible() ~= 0  then
+    if vim.fn.complete_info()["selected"] ~= -1 then
+      vim.fn["compe#confirm"]()
+      return autopairs.esc("")
+    else
+      vim.api.nvim_select_popupmenu_item(0, false, false, {})
+      vim.fn["compe#confirm"]()
+      return autopairs.esc("<c-n>")
+    end
+  else
+    return autopairs.check_break_line_char()
+  end
+end
+
+remap_expr('i' , '<cr>','v:lua.completion_confirm()')
+-- remap_expr('i', '<cr>', "compe#confirm('<CR>')")
 
 -- Quick access to common files.
 remap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/lua/config/colorscheme.lua<cr>')
