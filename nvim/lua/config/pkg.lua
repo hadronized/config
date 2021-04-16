@@ -306,6 +306,12 @@ require('packer').startup(function(use)
     requires = { { 'nvim-telescope/telescope.nvim' } }
   }
 
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    requires = { { 'nvim-telescope/telescope.nvim' } },
+    run = 'make',
+  }
+
   -- Visual & graphics.
   use {
     'norcalli/nvim-colorizer.lua',

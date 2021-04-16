@@ -80,5 +80,3 @@ setopt share_history
 # Prompt.
 PS1='%B%F{green} %~ %F{magenta}λ %f%b'
 RPS1='$vcs_info_msg_0_ '
-
-if [ -e /Users/dimitri.sabadie/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dimitri.sabadie/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
