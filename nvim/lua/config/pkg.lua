@@ -172,6 +172,7 @@ require('packer').startup(function(use)
 
   use {
     'windwp/nvim-autopairs',
+    disable = true,
     config = function()
       require'nvim-autopairs'.setup()
     end
@@ -322,7 +323,12 @@ require('packer').startup(function(use)
 
   use 'ryanoasis/vim-devicons'
 
-  use 'kyazdani42/nvim-web-devicons'
+  -- use 'kyazdani42/nvim-web-devicons'
+
+  use {
+    'yamatsum/nvim-web-nonicons',
+    requires = { { 'kyazdani42/nvim-web-devicons' } },
+  }
 
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -344,7 +350,7 @@ require('packer').startup(function(use)
 
   -- use 'plasticboy/vim-markdown'
 
-  -- use 'mzlogin/vim-markdown-toc'
+  use 'mzlogin/vim-markdown-toc'
 
   use 'SidOfc/mkdx'
 
