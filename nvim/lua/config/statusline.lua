@@ -3,6 +3,7 @@
 -- - tpope/fugitive
 -- - airblade/vim-gitgutter
 -- - neovim/nvim-lspconfig
+-- - kyazdani42/nvim-web-devicons
 local M = {}
 
 function M.create_highlights()
@@ -143,8 +144,10 @@ local function get_file_name()
       file_name = vim.fn.fnamemodify(file_name, ':t')
     end
 
-    if vim.fn.exists('*WebDevIconsGetFileTypeSymbol') then
-      file_name = string.format('%s %s', vim.fn['WebDevIconsGetFileTypeSymbol'](file_name), file_name)
+    local devicons = require'nvim-web-devicons'
+    if devicons ~= nil then
+      local ext = vim.fn.fnamemodify(file_name, ':e')
+      file_name = string.format('%s %s', devicons.get_icon(file_name, ext), file_name)
     end
   end
 
