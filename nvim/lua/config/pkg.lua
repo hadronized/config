@@ -115,7 +115,7 @@ vim.g['mkdx#settings'] = {
   },
 }
 
-vim.g.rust_recommended_style = false
+vim.g.rust_recommended_style = 0
 
 vim.g.bookmark_sign = '♥'
 vim.g.bookmark_highlight_lines = 1

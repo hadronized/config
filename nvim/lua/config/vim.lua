@@ -23,6 +23,7 @@ o.completeopt = 'menuone,noselect' -- completions options
 o.shortmess = 'filmxoOstTIc' -- it really is a mess
 wo.number = true -- enable number annotations
 bo.shiftwidth = 2 -- indentation level
+o.shiftwidth = 2
 
 -- remove trailing whitespaces & highlight yank
 vim.api.nvim_command([[au BufWritePre * %s/\s\+$//e]])
