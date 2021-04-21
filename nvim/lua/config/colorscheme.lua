@@ -4,9 +4,13 @@ local M = {}
 --
 -- The `colorscheme` argument is the name of the colorscheme to switch to. If non nil, it will switch to the
 -- colorescheme and install autocommands to override its highlights.
-function M.setup(colorscheme)
+function M.setup(colorscheme, colorbuddy)
   if colorscheme ~= nil then
-    vim.api.nvim_command('colorscheme ' .. colorscheme)
+    if colorbuddy then
+      require'colorbuddy'.colorscheme(colorscheme)
+    else
+      vim.api.nvim_command('colorscheme ' .. colorscheme)
+    end
 
     vim.api.nvim_command([[augroup EdgeCustom]])
     vim.api.nvim_command([[  autocmd!]])
@@ -55,6 +59,6 @@ function M.setup(colorscheme)
   ]], false)
 end
 
-M.setup('edge')
+M.setup('material', true)
 
 return M
