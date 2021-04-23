@@ -108,7 +108,12 @@ require('packer').startup(function(use)
   -- Themes
   use 'tjdevries/colorbuddy.vim'
 
-  use 'romgrk/doom-one.vim'
+  -- use 'romgrk/doom-one.vim'
+
+  use {
+    'phaazon/doom-one.vim',
+    branch = 'fix/function-colors'
+  }
 
   use 'sainnhe/sonokai'
 
@@ -156,6 +161,8 @@ require('packer').startup(function(use)
       require'nvim-autopairs'.setup()
     end
   }
+
+  use 'preservim/tagbar'
 
   use 'tpope/vim-commentary'
 

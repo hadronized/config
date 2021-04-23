@@ -59,6 +59,6 @@ function M.setup(colorscheme, colorbuddy)
   ]], false)
 end
 
-M.setup('material', true)
+M.setup('doom-one')
 
 return M
