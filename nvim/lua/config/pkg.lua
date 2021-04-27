@@ -108,12 +108,7 @@ require('packer').startup(function(use)
   -- Themes
   use 'tjdevries/colorbuddy.vim'
 
-  -- use 'romgrk/doom-one.vim'
-
-  use {
-    'phaazon/doom-one.vim',
-    branch = 'fix/function-colors'
-  }
+  use 'romgrk/doom-one.vim'
 
   use 'sainnhe/sonokai'
 
@@ -137,7 +132,10 @@ require('packer').startup(function(use)
 
   use 'joshdick/onedark.vim'
 
-  use 'marko-cerovac/material.nvim'
+  use {
+    'marko-cerovac/material.nvim',
+    disable = true,
+  }
 
   -- Productivity.
   use 'nvim-lua/popup.nvim'
