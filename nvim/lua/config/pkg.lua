@@ -307,17 +307,18 @@ require('packer').startup(function(use)
 
   use 'ryanoasis/vim-devicons'
 
-  -- use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-web-devicons'
 
   use {
     'yamatsum/nvim-web-nonicons',
     requires = { { 'kyazdani42/nvim-web-devicons' } },
+    disable = true,
   }
 
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = 'lua',
-    disable = true,
+    disable = false,
   }
 
   use {
