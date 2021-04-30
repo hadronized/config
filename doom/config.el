@@ -11,9 +11,9 @@
 (setq doom-localleader-key ",")
 
 ;; Font setting.
-(setq doom-font (font-spec :family "JetBrainsMono" :size 16 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Noto Serif" :size 17)
-      ivy-posframe-font (font-spec :family "JetBrainsMono" :size 19))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "DejaVu Serif" :size 17)
+      ivy-posframe-font (font-spec :family "JetBrains Mono" :size 19))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
@@ -172,3 +172,6 @@
 (setq epa-file-encrypt-to '(9BFDD250BBECA905))
 
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
+
+;; Format-on-save whitelist.
+(setq +format-on-save-enabled-modes '(rust-mode java-mode python-mode vue-mode js-mode))
