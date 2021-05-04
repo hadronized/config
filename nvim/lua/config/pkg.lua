@@ -251,7 +251,10 @@ require('packer').startup(function(use)
     disable = true
   }
 
-  use 'pwntester/octo.nvim'
+  use {
+    'pwntester/octo.nvim',
+    disable = true,
+  }
 
   use 'rafcamlet/nvim-luapad'
 
