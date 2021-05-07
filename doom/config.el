@@ -174,4 +174,10 @@
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
 
 ;; Format-on-save whitelist.
-(setq +format-on-save-enabled-modes '(rust-mode java-mode python-mode vue-mode js-mode))
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode
+            java-mode
+            sql-mode
+            tex-mode
+            latex-mode
+            yaml-mode))
