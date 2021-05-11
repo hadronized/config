@@ -180,4 +180,7 @@
             sql-mode
             tex-mode
             latex-mode
-            yaml-mode))
+            yaml-mode
+            vue-mode
+            typescript-mode
+            ))
