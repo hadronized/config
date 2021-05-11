@@ -321,7 +321,7 @@ require('packer').startup(function(use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = 'lua',
-    disable = false,
+    disable = true,
   }
 
   use {
