@@ -1,0 +1,34 @@
+{
+  "o": {
+    "title": true,
+    "textwidth": 120,
+    "wrap": false,
+    "hidden": true,
+    "cursorline": true,
+    "termguicolors": true,
+    "updatetime": 10,
+    "expandtab": true,
+    "swapfile": false,
+    "tabstop": 2,
+    "mouse": "nvi",
+    "showmode": false,
+    "ruler": true,
+    "inccommand": "nosplit",
+    "fillchars": "vert:│",
+    "timeout": false,
+    "timeoutlen": 99999999,
+    "completeopt": "menuone,noselect",
+    "shortmess": "filmxoOstTIc",
+    "shiftwidth": 2,
+    "ignorecase": true,
+    "smartcase": true
+  },
+
+  "wo": {
+    "number": true
+  },
+
+  "bo": {
+    "shiftwidth": 2
+  }
+}
