@@ -1,5 +1,5 @@
 {
-  "packager": "packer",
+  "packager": "paq",
   "plugins": {
     "tjdevries/colorbuddy.vim": {},
 
@@ -42,6 +42,7 @@
     "archseer/colibri.vim": {},
 
     "embark-theme/vim": {
+      "rename": "embark",
       "global_setup": {
         "embark_terminal_italics": 1
       }
@@ -83,7 +84,7 @@
 
     "nvim-treesitter/nvim-treesitter": {},
 
-    "~/dev/hop.nvim": {
+    "phaazon/hop.nvim": {
       "rename": "hop",
       "config": {
         "keys": "etovxqpdygfblzhckisuran"
@@ -178,7 +179,7 @@
           "folder": {
             "default": "",
             "open": ""
-          },
+          }
         }
       },
       "config": {
@@ -273,13 +274,69 @@
     "vim-test/vim-test": {},
 
     "rcarriga/vim-ultest": {
+      "enable": false,
       "depends": ["janko/vim-test"],
       "after": ":UpdateRemotePlugins"
     },
 
     "universal-ctags/ctags": {},
 
-    "nvim-telescope/telescope.nvim": {},
+    "nvim-telescope/telescope.nvim": {
+      "config": {
+        "defaults": {
+          "vimgrep_arguments": [
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case"
+          ],
+          "prompt_position": "bottom",
+          "prompt_prefix": "-> ",
+          "selection_caret": "> ",
+          "entry_prefix": "  ",
+          "initial_mode": "insert",
+          "selection_strategy": "reset",
+          "sorting_strategy": "descending",
+          "layout_strategy": "horizontal",
+          "layout_defaults": {
+            "horizontal": {
+              "mirror": false
+            },
+            "vertical": {
+              "mirror": false
+            }
+          },
+          "file_sorter": "get_fuzzy_file",
+          "file_ignore_patterns": [],
+          "generic_sorter": "get_generic_fuzzy_sorter",
+          "shorten_path": true,
+          "winblend": 0,
+          "width": 0.75,
+          "preview_cutoff": 120,
+          "results_height": 1,
+          "results_width": 0.8,
+          "border": [],
+          "borderchars": ["─", "│", "─", "│", "╭", "╮", "╯", "╰"],
+          "color_devicons": true,
+          "use_less": true,
+          "set_env": { "COLORTERM": "truecolor" },
+          "file_previewer": "vim_buffer_cat",
+          "grep_previewer": "vim_buffer_vimgrep",
+          "qflist_previewer": "vim_buffer_qflist",
+          "mappings": {
+            "i": {
+              "<c-s>": "move_selection_previous",
+              "<c-t>": "move_selection_next",
+              "<tab>": "add_selection",
+              "<esc>": "close"
+            }
+          }
+        }
+      }
+    },
 
     "nvim-telescope/telescope-fzy-native.nvim": {
       "enable": false,
@@ -288,7 +345,7 @@
 
     "nvim-telescope/telescope-fzf-native.nvim": {
       "depends": ["nvim-telescope/telescope.nvim"],
-      "after": "make",
+      "after": "make"
     },
 
     "norcalli/nvim-colorizer.lua": {
@@ -345,7 +402,7 @@
     "mzlogin/vim-markdown-toc": {},
 
     "SidOfc/mkdx": {
-      "enable": false,
+      "enable": false
     },
 
     "rust-lang/rust.vim": {
