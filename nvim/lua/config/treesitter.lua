@@ -4,11 +4,11 @@ require'nvim-treesitter.configs'.setup {
   },
 
   indent = {
-    enabled = false,
+    enable = false,
   },
 
   textobjects = {
-    enabled = true
+    enable = true
   },
 
   incremental_selection = {
