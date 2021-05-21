@@ -62,4 +62,4 @@
     (package! treemacs-all-the-icons)
     (package! treemacs-icons-dired)))
 
-(package! bazel-mode)
+; (package! bazel-mode)

@@ -11,9 +11,7 @@
 (setq doom-localleader-key ",")
 
 ;; Font setting.
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "DejaVu Serif" :size 17)
-      ivy-posframe-font (font-spec :family "JetBrains Mono" :size 19))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 13 :weight 'light))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
@@ -51,6 +49,7 @@
       :n "R" #'rename-buffer)
 
 (map! :nvom "è" 'evil-avy-goto-word-0)
+(map! :nvom "È" 'evil-avy-goto-char)
 
 (after! avy
   (setq avy-keys '(?e ?t ?o ?v ?x ?q ?p ?d ?y ?g ?f ?b ?l ?z ?h ?c ?k ?i ?s ?u ?r ?a ?n)

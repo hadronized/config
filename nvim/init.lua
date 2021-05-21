@@ -7,13 +7,13 @@
 --    ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝░╚════╝░╚═╝░░╚══╝╚═╝╚══════╝░╚═════╝░╚═╝░░╚═╝
 --                           °.· phaazon’s Neovim configuration ·.°
 
-require 'poesie'
--- require 'config.vim'
+--require 'poesie'
+require 'config.vim'
 require 'config.keybindings'
 require 'config.statusline'
--- require 'config.pkg'
--- require 'config.lsp'
--- require 'config.treesitter'
--- require 'config.telescope'
+require 'config.pkg'
+require 'config.lsp'
+require 'config.treesitter'
+require 'config.telescope'
 require 'config.debugger'
 require 'config.colorscheme'
