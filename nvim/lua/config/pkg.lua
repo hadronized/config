@@ -156,7 +156,9 @@ require('packer').startup(function(use)
     '~/dev/hop.nvim',
     as = 'hop',
     config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      require'hop'.setup {
+        keys = 'etovxqpdygéèfblzhckisuran',
+      }
     end
   }
 
