@@ -11,7 +11,7 @@
 (setq doom-localleader-key ",")
 
 ;; Font setting.
-(setq doom-font (font-spec :family "JetBrains Mono" :size 13 :weight 'light))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
@@ -139,6 +139,9 @@
 
 (setq org-tag-alist '(("spare" . ?s) ("work" . ?w) ("learn" . ?l)))
 
+;; Make bookmark face do nothing (it’s annoying).
+(custom-set-faces! '(bookmark-face :background nil :foreground nil))
+
 (after! git-gutter-fringe
   (if (fboundp 'fringe-mode) (fringe-mode '4))
   (define-fringe-bitmap 'git-gutter-fr:deleted [255 255 255]
@@ -182,4 +185,6 @@
             yaml-mode
             vue-mode
             typescript-mode
+            lua-mode
+            markdown-mode
             ))
