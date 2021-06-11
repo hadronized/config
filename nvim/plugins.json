@@ -345,7 +345,8 @@
 
     "nvim-telescope/telescope-fzf-native.nvim": {
       "depends": ["nvim-telescope/telescope.nvim"],
-      "after": "make"
+      "after": "make",
+      "config": {}
     },
 
     "norcalli/nvim-colorizer.lua": {

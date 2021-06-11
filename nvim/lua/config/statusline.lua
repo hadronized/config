@@ -147,7 +147,11 @@ local function get_file_name()
     local devicons = require'nvim-web-devicons'
     if devicons ~= nil then
       local ext = vim.fn.fnamemodify(file_name, ':e')
-      file_name = string.format('%s %s', devicons.get_icon(file_name, ext), file_name)
+      local icon = devicons.get_icon(file_name, ext)
+
+      if icon ~= nil then
+        file_name = string.format('%s %s', icon, file_name)
+      end
     end
   end
 

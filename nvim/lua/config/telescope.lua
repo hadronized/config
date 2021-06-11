@@ -34,6 +34,7 @@ telescope.setup {
     shorten_path = true,
     winblend = 0,
     width = 0.75,
+    height = 10,
     preview_cutoff = 120,
     results_height = 1,
     results_width = 0.8,
