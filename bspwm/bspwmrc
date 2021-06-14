@@ -16,7 +16,7 @@ case "$HOST" in
     ;;
 
   *)
-    bspc monitor I II III IV V VI VII IX X
+    bspc monitor 1 2 3 4 5 6 7 8 9 0
     ;;
 esac
 
@@ -58,7 +58,3 @@ case "$HOST" in
     polybar laptop-primary &
     ;;
 esac
-
-
-# Window rules.
-# none so far
