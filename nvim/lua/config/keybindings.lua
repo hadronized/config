@@ -157,8 +157,9 @@ remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 remap('n', '<leader>co', '<cmd>TagbarToggle<CR>')
 
 -- Org & notes.
-remap('n', '<leader>nj', "<cmd> lua require('notes-local').open_journal()<cr>")
--- remap('n', '<leader>nt', '<cmd>edit ~/org/todo.org<cr>')
+remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
+remap('n', '<leader>nt', "<cmd>lua require('notes-local').open_todo()<cr>")
+remap('n', '<leader>ns', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ query = '^# ' })<cr>")
 
 --  Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
