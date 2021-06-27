@@ -302,6 +302,16 @@ require('packer').startup(function(use)
     run = 'make',
   }
 
+  use {
+    'kristijanhusak/orgmode.nvim',
+    config = function()
+      require'orgmode'.setup {
+        org_agenda_files = {'~/org/*'},
+        org_default_notes_file = '~/org/notes.org',
+      }
+    end
+  }
+
   -- Visual & graphics.
   use {
     'norcalli/nvim-colorizer.lua',
@@ -348,7 +358,7 @@ require('packer').startup(function(use)
     disable = true
   }
 
-  use 'rust-lang/rust.vim'
+  -- use 'rust-lang/rust.vim'
 
   -- Convenience.
   use 'vim-scripts/SyntaxAttr.vim'
