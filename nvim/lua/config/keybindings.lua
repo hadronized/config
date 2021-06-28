@@ -93,21 +93,21 @@ remap('n', '<leader>bS', '<cmd>w!<cr>')
 remap('n', '<leader>bt', '<cmd>tabnew<cr>')
 
 -- Buffers.
-remap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_dropdown previewer=false<cr>')
 -- remap('n', '<leader>bb', '<cmd>Buffers<cr>')
 
 -- Files.
-remap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_ivy previewer=false<cr>')
-remap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_dropdown previewer=false<cr>')
+remap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_dropdown previewer=false<cr>')
 -- remap('n', '<leader>ff', '<cmd>Files<cr>')
 -- remap('n', '<leader>fT', '<cmd>Filetypes<cr>')
 
 -- File history.
-remap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_dropdown previewer=false<cr>')
 -- remap('n', '<leader>fh', '<cmd>History<cr>')
 
 -- Git.
-remap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_ivy previewer=false<cr>')
+remap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_dropdown previewer=false<cr>')
 -- remap('n', '<leader><leader>', '<cmd>GFiles<cr>')
 remap('n', '<leader>gb', "<cmd>Git blame<cr>")
 remap('n', '<leader>gc', '<cmd>Commits<cr>')
@@ -125,11 +125,11 @@ remap('n', '<leader>Ce', '<cmd>TSContextEnable<cr>')
 remap('n', '<leader>Cd', '<cmd>TSContextDisable<cr>')
 
 -- Search.
-remap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_ivy<cr>')
-remap('n', '<leader>sm', '<cmd>Telescope marks theme=get_ivy<cr>')
-remap('n', '<leader>sp', '<cmd>Telescope live_grep theme=get_ivy<cr>')
-remap('n', '<leader>sr', '<cmd>Telescope registers theme=get_ivy<cr>')
-remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<cr>')
+remap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_dropdown<cr>')
+remap('n', '<leader>sm', '<cmd>Telescope marks theme=get_dropdown<cr>')
+remap('n', '<leader>sp', '<cmd>Telescope live_grep theme=get_dropdown<cr>')
+remap('n', '<leader>sr', '<cmd>Telescope registers theme=get_dropdown<cr>')
+remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_dropdown<cr>')
 -- remap('n', '<leader>sb', '<cmd>BLines<cr>')
 -- remap('n', '<leader>sc', '<cmd>Commands<cr>')
 -- remap('n', '<leader>sm', '<cmd>Marks<cr>')
@@ -137,10 +137,10 @@ remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy
 -- remap('n', '<leader>ss', '<cmd>Rg<cr>')
 
 -- Quickfix.
-remap('n', '<leader>cq', '<cmd>Telescope quickfix theme=get_ivy<cr>')
+remap('n', '<leader>cq', '<cmd>Telescope quickfix theme=get_dropdown<cr>')
 
 -- Tags.
-remap('n', '<leader>cT', '<cmd>Telescope tags theme=get_ivy<CR>')
+remap('n', '<leader>cT', '<cmd>Telescope tags theme=get_dropdown<CR>')
 -- remap('n', '<leader>cT', '<cmd>Tags<CR>')
 remap('n', 'gd', '<C-]>')
 
@@ -159,12 +159,13 @@ remap('n', '<leader>co', '<cmd>TagbarToggle<CR>')
 -- Org & notes.
 remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
 remap('n', '<leader>nt', "<cmd>lua require('notes-local').open_todo()<cr>")
-remap('n', '<leader>ns', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ query = '^# ' })<cr>")
+remap('n', '<leader>ns', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [ ]' })<cr>")
+remap('n', '<leader>nS', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [·]' })<cr>")
 
 --  Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
 remap('', 'È', '<cmd>HopChar1<cr>')
-remap('', '<C-l>', '<cmd>HopLine<cr>')
+remap('', '<C-l>', '<cmd>HopLineStart<cr>')
 remap('', '<leader>/', '<cmd>HopPattern<cr>')
 
 -- Plugins.
