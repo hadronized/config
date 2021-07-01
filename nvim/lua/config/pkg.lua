@@ -200,6 +200,7 @@ require('packer').startup(function(use)
           snippets_nvim = false;
           treesitter = false;
           ultisnips = true;
+          orgmode = true;
         };
       }
     end
@@ -218,26 +219,26 @@ require('packer').startup(function(use)
       local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       vim.g.nvim_tree_bindings = {
         -- default mappings
-        ["<CR>"]           = tree_cb("edit"),
-        ["o"]              = tree_cb("cd"),
-        ["<C-v>"]          = tree_cb("vsplit"),
-        ["<C-o>"]          = tree_cb("split"),
-        ["<C-t>"]          = tree_cb("tabnew"),
-        ["<BS>"]           = tree_cb("close_node"),
-        ["<S-CR>"]         = tree_cb("close_node"),
-        ["<Tab>"]          = tree_cb("preview"),
-        ["I"]              = tree_cb("toggle_ignored"),
-        ["."]              = tree_cb("toggle_dotfiles"),
-        ["R"]              = tree_cb("refresh"),
-        ["a"]              = tree_cb("create"),
-        ["d"]              = tree_cb("remove"),
-        ["r"]              = tree_cb("rename"),
-        ["<C-r>"]          = tree_cb("full_rename"),
-        ["x"]              = tree_cb("cut"),
-        ["y"]              = tree_cb("copy"),
-        ["p"]              = tree_cb("paste"),
-        ["c"]              = tree_cb("dir_up"),
-        ["q"]              = tree_cb("close"),
+        { key = "<CR>",   cb = tree_cb("edit") },
+        { key = "o",      cb = tree_cb("cd") },
+        { key = "<C-v>",  cb = tree_cb("vsplit") },
+        { key = "<C-o>",  cb = tree_cb("split") },
+        { key = "<C-t>",  cb = tree_cb("tabnew") },
+        { key = "<BS>",   cb = tree_cb("close_node") },
+        { key = "<S-CR>", cb = tree_cb("close_node") },
+        { key = "<Tab>",  cb = tree_cb("preview") },
+        { key = "I",      cb = tree_cb("toggle_ignored") },
+        { key = ".",      cb = tree_cb("toggle_dotfiles") },
+        { key = "R",      cb = tree_cb("refresh") },
+        { key = "a",      cb = tree_cb("create") },
+        { key = "d",      cb = tree_cb("remove") },
+        { key = "r",      cb = tree_cb("rename") },
+        { key = "<C-r>",  cb = tree_cb("full_rename") },
+        { key = "x",      cb = tree_cb("cut") },
+        { key = "y",      cb = tree_cb("copy") },
+        { key = "p",      cb = tree_cb("paste") },
+        { key = "c",      cb = tree_cb("dir_up") },
+        { key = "q",      cb = tree_cb("close") },
       }
     end
   }
@@ -308,6 +309,29 @@ require('packer').startup(function(use)
       require'orgmode'.setup {
         org_agenda_files = {'~/org/*'},
         org_default_notes_file = '~/org/notes.org',
+        org_todo_keywords = { 'TODO', 'WIP', 'HOLD', 'PROJ', '|', 'DONE', 'KILL' },
+        mappings = {
+          global = {
+            org_agenda = '<leader>na',
+            org_capture = '<leader>nn',
+          },
+          capture = {
+            org_capture_finalize = 'C-c C-c',
+            org_capture_refile = 'C-c C-r',
+            org_capture_kill = 'C-c C-k',
+          },
+          org = {
+            org_refile = 'C-c C-r',
+            org_todo = '<localleader>t',
+            org_todo_prev = '<localleader>T',
+            org_archive_subtree = '<localleader>$',
+            org_set_tags_command = '<localleader>q',
+            org_toggle_archive_tag = '<localleader>A',
+            org_meta_return = '<S-CR>',
+            org_move_subtree_up = 'S',
+            org_move_subtree_down = 'T',
+          },
+        },
       }
     end
   }
