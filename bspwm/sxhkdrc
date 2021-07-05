@@ -90,7 +90,7 @@ ctrl + super + space
 # applications and misc
 
 # program launcher
-super + Return
+alt + d
   rofi -show drun
 
 # terminal emulator
