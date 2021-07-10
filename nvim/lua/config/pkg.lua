@@ -145,7 +145,8 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
 
   use {
-    'phaazon/hop.nvim',
+    -- 'phaazon/hop.nvim',
+    '~/dev/hop.nvim',
     as = 'hop',
     config = function()
       require'hop'.setup {

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xrandr --output DP-2 --primary --panning 0x0 --pos 0x0
+export HOST="orchid-mono"
+bspc wm -r

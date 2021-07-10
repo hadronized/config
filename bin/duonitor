@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xrandr --output DP-2 --primary --panning 0x0 --left-of HDMI-0 --auto
+bspc wm -r

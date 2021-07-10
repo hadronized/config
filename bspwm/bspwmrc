@@ -3,12 +3,16 @@
 # Monitor and workspaces.
 DESKTOP_HOSTNAME="orchid"
 LAPTOP_HOSTNAME="monoid-prime"
-HOST=$(cat /etc/hostname)
+HOST=${HOST:-$(cat /etc/hostname)}
 
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
     bspc monitor DP-2 -d 1 2 3 4 5
     bspc monitor HDMI-0 -d 6 7 8 9 0
+    ;;
+
+  "$DESKTOP_HOSTNAME-mono")
+    bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 0
     ;;
 
   "$LAPTOP_HOSTNAME")
@@ -40,10 +44,11 @@ bspc config honor_size_hints            false
 sxhkd &
 dunst &
 nitrogen --restore &
-# picom --experimental-backends &
+picom --experimental-backends &
 xsetroot -cursor_name left_ptr
 xset r rate 200 30
 
+pkill polybar
 case "$HOST" in
   "$DESKTOP_HOSTNAME")
     polybar desktop-primary &
