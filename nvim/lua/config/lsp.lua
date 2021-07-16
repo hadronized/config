@@ -309,7 +309,6 @@ lsp.vuels.setup {
 }
 
 -- Python, sneeeek.
-lsp.pyls.setup {
-  on_attach = lsp_attach {},
-}
-
+-- lsp.pyls.setup {
+--   on_attach = lsp_attach {},
+-- }

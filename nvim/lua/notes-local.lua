@@ -1,7 +1,7 @@
 local M = {}
 
 local function get_notes_dir(args)
-  return args and args.notes_dir or "~/notes"
+  return args and args.notes_dir or "~/org"
 end
 -- Open today’s journal.
 --
