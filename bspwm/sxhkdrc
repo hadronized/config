@@ -28,6 +28,10 @@ super + {space,period,shift + period,shift + slash}
 alt + {_,shift + }{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
+# rotate the node
+super + {h,j}
+  bspc node -R {90,180}
+
 # focus the node for the given path jump
 super + {_, shift}{u,i,o,p}
   bspc node -{f,s} @{first,second,parent,brother}
@@ -114,6 +118,13 @@ super + Print
 
 alt + Print
   maim -i "/tmp/img_$(date +%m%d%y_%H%M%S).png" && notify-send "Screenshot taken" "Window." --icon=dialog-information
+
+# brightness
+XF86MonBrightnessDown
+  xbacklight -dec 10%
+
+XF86MonBrightnessUp
+  xbacklight -inc 10%
 
 # switch keyboard layout
 super + grave
