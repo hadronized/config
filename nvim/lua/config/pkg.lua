@@ -405,6 +405,8 @@ require('packer').startup(function(use)
 
   -- use 'rust-lang/rust.vim'
 
+  use 'vmchale/dhall-vim'
+
   -- Convenience.
   use 'vim-scripts/SyntaxAttr.vim'
 end)
