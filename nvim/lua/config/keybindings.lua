@@ -108,10 +108,10 @@ remap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_ivy previewer=false<
 
 -- Git.
 remap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_ivy previewer=false<cr>')
--- remap('n', '<leader><leader>', '<cmd>GFiles<cr>')
-remap('n', '<leader>gb', "<cmd>Git blame<cr>")
+remap('n', '<leader>gb', "<cmd>Telescope git_branches theme=get_ivy previewer=false<cr>")
+remap('n', '<leader>gB', "<cmd>Git blame<cr>")
 remap('n', '<leader>gc', '<cmd>Commits<cr>')
-remap('n', '<leader>gg', "<cmd>Gstatus<cr>")
+remap('n', '<leader>gg', "<cmd>Neogit<cr>")
 remap('n', '<leader>gh', '<cmd>GitGutterPreviewHunk<cr>')
 remap('n', '<leader>gn', '<cmd>GitGutterNextHunk<cr>')
 remap('n', '<leader>gp', '<cmd>GitGutterPrevHunk<cr>')
