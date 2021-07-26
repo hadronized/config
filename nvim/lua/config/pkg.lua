@@ -409,6 +409,8 @@ require('packer').startup(function(use)
 
   use 'vmchale/dhall-vim'
 
+  use 'purescript-contrib/purescript-vim'
+
   -- Convenience.
   use 'vim-scripts/SyntaxAttr.vim'
 end)

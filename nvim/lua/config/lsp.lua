@@ -312,3 +312,8 @@ lsp.vuels.setup {
 -- lsp.pyls.setup {
 --   on_attach = lsp_attach {},
 -- }
+
+-- Purescript
+require'lspconfig'.purescriptls.setup {
+  on_attach = lsp_attach {},
+}
