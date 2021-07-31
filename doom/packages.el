@@ -63,3 +63,5 @@
     (package! treemacs-icons-dired)))
 
 ; (package! bazel-mode)
+
+(disable-packages! evil-snipe)
