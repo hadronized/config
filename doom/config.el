@@ -188,3 +188,5 @@
             lua-mode
             markdown-mode
             ))
+
+(setq org-roam-directory (file-truename "~/org"))
