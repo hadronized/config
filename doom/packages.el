@@ -65,3 +65,5 @@
 ; (package! bazel-mode)
 
 (disable-packages! evil-snipe)
+
+(package! restclient)
