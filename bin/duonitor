@@ -1,4 +1,4 @@
 #!/bin/sh
 
-xrandr --output DP-2 --primary --panning 0x0 --left-of HDMI-0 --auto
+xrandr --output DP-2 --primary --panning 0x0 --auto --rate 143.97 --output HDMI-0 --auto --right-of DP-2
 bspc wm -r

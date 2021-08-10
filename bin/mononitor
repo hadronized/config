@@ -1,5 +1,5 @@
 #!/bin/sh
 
-xrandr --output DP-2 --primary --panning 0x0 --pos 0x0
+xrandr --output DP-2 --primary --panning 0x0 --pos 0x0 --mode 2560x1440 --rate 143.97 --output HDMI-0 --off
 export HOST="orchid-mono"
 bspc wm -r

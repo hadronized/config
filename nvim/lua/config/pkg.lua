@@ -142,7 +142,20 @@ require('packer').startup(function(use)
 
   use 'nvim-lua/plenary.nvim'
 
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+      parser_configs.norg = {
+        install_info = {
+          url = "https://github.com/vhyrro/tree-sitter-norg",
+          files = { "src/parser.c" },
+          branch = "main"
+        },
+      }
+    end
+  }
 
   use {
     'phaazon/hop.nvim',
@@ -168,7 +181,13 @@ require('packer').startup(function(use)
                 my_workspace = "~/neorg"
               }
             }
-          }
+          },
+          ["core.keybinds"] = {
+            config = {
+              default_keybinds = true,
+              neorg_leader = "<leader>n",
+            },
+          },
         },
       }
     end,
@@ -222,6 +241,7 @@ require('packer').startup(function(use)
           treesitter = false;
           ultisnips = true;
           orgmode = true;
+          neorg = true;
         };
       }
     end
