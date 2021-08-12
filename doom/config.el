@@ -139,6 +139,10 @@
 
 (setq org-tag-alist '(("spare" . ?s) ("work" . ?w) ("learn" . ?l)))
 
+(setq org-roam-directory (file-truename "~/org"))
+
+(setq +org-roam-open-buffer-on-find-file nil)
+
 ;; Make bookmark face do nothing (it’s annoying).
 (custom-set-faces! '(bookmark-face :background nil :foreground nil))
 
@@ -188,5 +192,3 @@
             lua-mode
             markdown-mode
             ))
-
-(setq org-roam-directory (file-truename "~/org"))
