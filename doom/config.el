@@ -161,7 +161,9 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(setq projectile-project-search-path "~/dev")
+(setq projectile-project-search-path "~/dev"
+      workspaces-switch-project-function (lambda (x) '())
+      )
 
 (setq-default treemacs-show-cursor t)
 
