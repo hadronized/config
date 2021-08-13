@@ -163,7 +163,11 @@
 
 (setq projectile-project-search-path "~/dev"
       workspaces-switch-project-function (lambda (x) '())
-      )
+      projectile-project-root-functions
+        '(projectile-root-top-down
+          projectile-root-local
+          projectile-root-bottom-up
+          projectile-root-top-down-recurring))
 
 (setq-default treemacs-show-cursor t)
 
