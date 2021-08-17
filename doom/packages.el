@@ -67,3 +67,5 @@
 (disable-packages! evil-snipe)
 
 (package! restclient)
+
+(package! dhall-mode)

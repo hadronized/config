@@ -185,7 +185,7 @@
 
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
 
-;; Format-on-save whitelist.
+;; Format-on-save ignore list.
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode
             java-mode
