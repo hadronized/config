@@ -69,3 +69,7 @@
 (package! restclient)
 
 (package! dhall-mode)
+
+(package! bazel)
+
+(package! terraform-mode)

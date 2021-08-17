@@ -12,6 +12,7 @@
 
 ;; Font setting.
 (setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light))
+(setq doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
@@ -22,8 +23,8 @@
 ;; Undo / redo.
 (map! :n "U" 'undo-tree-redo)
 
-(map! :nvom "à" 'evil-snipe-t)
-(map! :nvom "À" 'evil-snipe-T)
+(map! :nvom "à" 'evil-find-char-to)
+(map! :nvom "À" 'evil-find-char-to-backward)
 
 ;; Fix for macOS and its stupid support for alt-gr.
 (when (string-equal system-type "darwin")
