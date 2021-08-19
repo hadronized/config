@@ -162,7 +162,7 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(setq projectile-project-search-path "~/dev"
+(setq projectile-project-search-path '("~/dev")
       workspaces-switch-project-function (lambda (x) '())
       projectile-project-root-functions
         '(projectile-root-top-down
