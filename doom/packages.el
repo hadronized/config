@@ -54,15 +54,12 @@
 (package! tree-sitter-langs)
 (package! kubernetes-evil)
 (package! vue-mode)
-(package! web-mode)
 (package! lsp-treemacs)
 
 (when (package! treemacs)
   (progn
     (package! treemacs-all-the-icons)
     (package! treemacs-icons-dired)))
-
-; (package! bazel-mode)
 
 (disable-packages! evil-snipe)
 
