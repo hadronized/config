@@ -70,3 +70,5 @@
 (package! bazel)
 
 (package! terraform-mode)
+
+(package! simpleclip)

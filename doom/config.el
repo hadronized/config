@@ -199,3 +199,10 @@
             lua-mode
             markdown-mode
             ))
+
+;; Simpleclip
+(map! :desc "System-wide copy"
+      "M-c" #'simpleclip-copy)
+
+(map! :desc "System-wide paste"
+      "M-v" #'simpleclip-paste)
