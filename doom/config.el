@@ -198,6 +198,7 @@
             typescript-mode
             lua-mode
             markdown-mode
+            dhall-mode
             ))
 
 ;; Simpleclip
