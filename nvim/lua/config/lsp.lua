@@ -2,70 +2,11 @@
 local user_home = os.getenv("HOME") or "/tmp"
 local foss_path = string.format("%s/foss", user_home)
 
--- symbol kind kind labels
-local symbol_kind_labels = {
-  ' '; -- text
-  ' '; -- method
-  ' '; -- function
-  ' '; -- ctor
-  ' '; -- field
-  ' '; -- variable
-  ' '; -- class
-  ' '; -- interface
-  ' '; -- module
-  ' '; -- property
-  ' '; -- unit
-  ' '; -- value
-  '螺'; -- enum
-  ' '; -- keyword
-  ' '; -- snippet
-  ' '; -- color
-  ' '; -- file
-  ' '; -- reference
-  ' '; -- folder
-  ' '; -- enum member
-  ' '; -- constant
-  ' '; -- struct
-  ' '; -- event
-  '璉'; -- operator
-  ' '; -- type parameter
-}
-
-local symbol_kind_labels_map = {
-  ['File'] = '',
-	['Module'] = '全',
-	['Namespace'] = '',
-	['Package'] = '',
-	['Class'] = '',
-	['Method'] = '',
-	['Property'] = '',
-	['Field'] = '',
-	['Constructor'] = '',
-	['Enum'] = '螺',
-	['Interface'] = '',
-	['Function'] = '',
-	['Variable'] = '',
-	['Constant'] = '',
-	['String'] = '',
-	['Number'] = '7',
-	['Boolean'] = '',
-	['Array'] = '',
-	['Object'] = '',
-	['Key'] = '',
-	['Null'] = '',
-	['EnumMember'] = '',
-	['Struct'] = '',
-	['Event'] = '',
-	['Operator'] = '璉',
-	['TypeParameter'] = '',
-}
-
 -- status
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 lsp_status.config {
   current_function = true,
-  kind_labels = symbol_kind_labels_map,
   status_symbol = '%#StatusLineLinNbr#LSP',
   indicator_errors = '%#StatusLineLSPErrors#',
   indicator_warnings = '%#StatusLineLSPWarnings#',
@@ -82,16 +23,6 @@ vim.cmd [[
   hi StatusLineLSPInfo guibg=#23272e guifg=#51afef
   hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
 ]]
-
--- handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
-)
 
 local lsp = require'lspconfig'
 local protocol = require'vim.lsp.protocol'
@@ -127,8 +58,6 @@ local lsp_attach = function(args)
         augroup END
       ]], false)
     end
-
-    protocol.CompletionItemKind = symbol_kind_labels
 
     lsp_status.on_attach(client)
 

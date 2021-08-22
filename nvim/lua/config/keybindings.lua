@@ -6,7 +6,7 @@ local function remap(mode, lhs, rhs)
 end
 
 local function remap_expr(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true, expr = true })
+  vim.api.nvim_set_keymap(mode, lhs, rhs, { expr = true })
 end
 
 -- Bépo.
@@ -74,7 +74,6 @@ remap_expr('i', '<c-space>', 'compe#complete()')
 remap_expr('i', '<cr>', "compe#confirm('<CR>')")
 
 -- Quick access to common files.
-remap('n', '<leader>fcc', '<cmd>edit ~/.config/nvim/lua/config/colorscheme.lua<cr>')
 remap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.lua<cr>')
 remap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/config/keybindings.lua<cr>')
 remap('n', '<leader>fcl', '<cmd>edit ~/.config/nvim/lua/config/lsp.lua<cr>')
@@ -112,13 +111,7 @@ remap('n', '<leader>gb', "<cmd>Telescope git_branches theme=get_ivy previewer=fa
 remap('n', '<leader>gB', "<cmd>Git blame<cr>")
 remap('n', '<leader>gc', '<cmd>Commits<cr>')
 remap('n', '<leader>gg', "<cmd>Neogit<cr>")
-remap('n', '<leader>gh', '<cmd>GitGutterPreviewHunk<cr>')
-remap('n', '<leader>gn', '<cmd>GitGutterNextHunk<cr>')
-remap('n', '<leader>gp', '<cmd>GitGutterPrevHunk<cr>')
-remap('n', '<leader>gs', '<cmd>GitGutterStageHunk<cr>')
 remap('n', '<leader>gS', '<cmd>Gwrite<cr>')
-remap('n', '<leader>gx', '<cmd>GitGutterUndoHunk<cr>')
-remap('n', '<leader>gz', '<cmd>GitGutterFold<cr>')
 
 -- Context.
 remap('n', '<leader>Ce', '<cmd>TSContextEnable<cr>')

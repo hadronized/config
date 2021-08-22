@@ -1,33 +1,3 @@
--- Package configuration — I fucking hate Lua.
-vim.g.sonokai_style = 'andromeda'
-vim.g.sonokai_enable_italic = true
-vim.g.sonokai_cursor = 'red'
-vim.g.sonokai_transparent_background = false
-vim.g.sonokai_menu_selection_background = 'green'
-vim.g.sonokai_sign_column_background = 'none'
-vim.g.sonokai_diagnostic_line_highlight = true
-vim.g.sonokai_current_word = 'grey background'
-vim.g.sonokai_better_performance = true
-
-vim.g.palenight_terminal_italics = 1
-
-vim.g.material_style = "palenight"
-vim.g.material_flat_ui = 0
-vim.g.material_italic_comment = 1
-vim.g.material_italic_keywords = 1
-vim.g.material_italic_functions = 1
-
-vim.g.embark_terminal_italics = 1
-
-vim.g.edge_style = 'neon'
-vim.g.edge_enable_italic = 1
-vim.g.edge_cursor = 'auto'
-vim.g.edge_menu_selection_background = 'purple'
-vim.g.edge_diagnostic_text_highlight = 1
-vim.g.edge_diagnostic_line_highlight = 1
-
-vim.g.onedark_terminal_italics = 1
-
 vim.g.nvim_tree_side = 'left'
 vim.g.nvim_tree_width = 40
 vim.g.nvim_tree_ignore = { '.git', '.target' }
@@ -62,42 +32,9 @@ vim.g.nvim_tree_icons = {
   },
 }
 
-vim.g.gitgutter_map_keys = false
-vim.g.gitgutter_max_signs = 10000
-vim.g.gitgutter_sign_added = "▎"
-vim.g.gitgutter_sign_modified = "▎"
-vim.g.gitgutter_sign_removed = "▁"
-vim.g.gitgutter_sign_removed_first_line = "▔"
-vim.g.gitgutter_sign_modified_removed = "▎"
-vim.g.gitgutter_highlight_linenrs = 0
-vim.g.gitgutter_override_sign_column_highlight = false
-
-vim.g.blameLineGitFormat = '   %an | %ar | %s'
-
-vim.g.UltiSnipsExpandTrigger = '<tab>'
-vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-vim.g.UltiSnipsJumpBackwardTrigger = '<S-tab>'
-
-vim.g.indent_blankline_char = '│'
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_show_current_context = false
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-vim.g.indent_blankline_context_highlight = 'SpecialComment'
-
-vim.g.idris_indent_if = 3
-vim.g.idris_indent_let = 4
-vim.g.idris_indent_where = 6
-vim.g.idris_indent_do = 3
-vim.g.idris_indent_rewrite = 8
-
-vim.g.vim_markdown_new_list_item_indent = 2
-
-vim.g.rust_recommended_style = 0
-
-vim.g.bookmark_sign = '♥'
-vim.g.bookmark_highlight_lines = 1
-
-vim.g.snips_author = 'Dimitri Sabadie'
+vim.g.material_style = 'palenight'
+vim.g.material_italic_keywords = true
+vim.g.material_hide_eob = true
 
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
@@ -106,55 +43,36 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes
-  use 'tjdevries/colorbuddy.vim'
+  use {
+    'romgrk/doom-one.vim',
+    config = function()
+      vim.cmd('colorscheme doom-one')
+    end
+  }
 
-  use 'romgrk/doom-one.vim'
-
-  use 'sainnhe/sonokai'
-
-  use { 'glepnir/zephyr-nvim', branch = 'main' }
-
-  use { 'dracula/vim', as = 'dracula' }
-
-  use { 'challenger-deep-theme/vim', as = 'challenger-deep' }
-
-  use 'drewtempelmeyer/palenight.vim'
-
-  use 'Rigellute/shades-of-purple.vim'
-
-  use 'archseer/colibri.vim'
-
-  use 'embark-theme/vim'
-
-  use 'bkegley/gloombuddy'
-
-  use 'sainnhe/edge'
-
-  use 'joshdick/onedark.vim'
+  -- https://github.com/rose-pine/neovim
+  use {
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      -- require('rose-pine.functions').select_variant('moon')
+    end
+  }
 
   use {
     'marko-cerovac/material.nvim',
-    disable = true,
+    config = function()
+    end
   }
 
+  --[[ use {
+    'NTBBloodbath/doom-one.nvim',
+  } ]]
+
   -- Productivity.
-  use 'nvim-lua/popup.nvim'
-
-  use 'nvim-lua/plenary.nvim'
-
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = function()
-      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-      parser_configs.norg = {
-        install_info = {
-          url = "https://github.com/vhyrro/tree-sitter-norg",
-          files = { "src/parser.c" },
-          branch = "main"
-        },
-      }
-    end
+    run = ':TSUpdate',
   }
 
   use {
@@ -168,47 +86,15 @@ require('packer').startup(function(use)
   }
 
   use {
-    "vhyrro/neorg",
-    config = function()
-      require('neorg').setup {
-        -- Tell Neorg what modules to load
-        load = {
-          ["core.defaults"] = {}, -- Load all the default modules
-          ["core.norg.concealer"] = {}, -- Allows for use of icons
-          ["core.norg.dirman"] = { -- Manage your directories with Neorg
-            config = {
-              workspaces = {
-                my_workspace = "~/neorg"
-              }
-            }
-          },
-          ["core.keybinds"] = {
-            config = {
-              default_keybinds = true,
-              neorg_leader = "<leader>n",
-            },
-          },
-        },
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim"
-  }
-
-  use {
     'windwp/nvim-autopairs',
-    disable = true,
     config = function()
       require'nvim-autopairs'.setup()
     end
   }
 
-  use 'preservim/tagbar'
-
-  use 'tpope/vim-commentary'
+  use 'b3nj5m1n/kommentary'
 
   use 'mfussenegger/nvim-dap'
-
-  use 'MattesGroeger/vim-bookmarks'
 
   use {
     'hrsh7th/nvim-compe',
@@ -222,26 +108,27 @@ require('packer').startup(function(use)
         preselect = 'enable';
         throttle_time = 80;
         source_timeout = 200;
+        resolve_timeout = 800;
         incomplete_delay = 400;
         max_abbr_width = 100;
         max_kind_width = 100;
         max_menu_width = 100;
-        documentation = true;
+        documentation = {
+          border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
+          winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+          max_width = 120,
+          min_width = 60,
+          max_height = math.floor(vim.o.lines * 0.3),
+          min_height = 1,
+        };
 
         source = {
           path = true;
           buffer = true;
           calc = true;
-          vsnip = false;
           nvim_lsp = true;
           nvim_lua = true;
-          spell = true;
-          tags = true;
-          snippets_nvim = false;
-          treesitter = false;
-          ultisnips = true;
-          orgmode = true;
-          neorg = true;
+          luasnip = true;
         };
       }
     end
@@ -249,8 +136,12 @@ require('packer').startup(function(use)
 
   use {
     'romgrk/nvim-treesitter-context',
-    disable = true,
-    requires = { { 'nvim-treesitter/nvim-treesitter' } }
+    requires = { { 'nvim-treesitter/nvim-treesitter' } },
+    config = function()
+      require'treesitter-context'.setup {
+        enable = false,
+      }
+    end
   }
 
   use {
@@ -260,7 +151,7 @@ require('packer').startup(function(use)
       local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       vim.g.nvim_tree_bindings = {
         -- default mappings
-        { key = { "<CR>" },   cb = tree_cb("edit") },
+        { key = { "<CR>", "<TAB>" },   cb = tree_cb("edit") },
         { key = { "o" },      cb = tree_cb("cd") },
         { key = { "<C-v>" },  cb = tree_cb("vsplit") },
         { key = { "<C-o>" },  cb = tree_cb("split") },
@@ -284,15 +175,12 @@ require('packer').startup(function(use)
     end
   }
 
-  use 'tpope/vim-fugitive'
-
-  use 'airblade/vim-gitgutter'
-
-  use 'tveskag/nvim-blame-line'
-
   use {
     'TimUntersberger/neogit',
-    disable = false,
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require'neogit'.setup {}
+    end
   }
 
   use {
@@ -320,10 +208,6 @@ require('packer').startup(function(use)
     'nvim-lua/lsp-status.nvim',
     as = 'lsp-status'
   }
-
-  use 'honza/vim-snippets'
-
-  use 'SirVer/ultisnips'
 
   use 'vim-test/vim-test'
 
@@ -383,7 +267,7 @@ require('packer').startup(function(use)
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require'colorizer'.setup()
+      require'colorizer'.setup {}
     end
   }
 
@@ -394,19 +278,29 @@ require('packer').startup(function(use)
   use {
     'yamatsum/nvim-web-nonicons',
     requires = { { 'kyazdani42/nvim-web-devicons' } },
-    disable = true,
   }
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    branch = 'lua',
-    disable = true,
+    config = function()
+      require'indent_blankline'.setup {
+        char = '│',
+        use_treesitter = true,
+      }
+    end
   }
 
   use {
-  'glepnir/galaxyline.nvim',
+    'glepnir/galaxyline.nvim',
     branch = 'main',
     disable = true
+  }
+
+  use {
+    'ojroques/nvim-hardline',
+    config = function()
+      require'hardline'.setup {}
+    end
   }
 
   -- Languages.
@@ -414,23 +308,40 @@ require('packer').startup(function(use)
 
   use 'towolf/vim-helm'
 
-  use 'idris-hackers/idris-vim'
-
-  -- use 'plasticboy/vim-markdown'
-
   use 'mzlogin/vim-markdown-toc'
-
-  use {
-    'SidOfc/mkdx',
-    disable = true
-  }
-
-  -- use 'rust-lang/rust.vim'
 
   use 'vmchale/dhall-vim'
 
   use 'purescript-contrib/purescript-vim'
 
-  -- Convenience.
-  use 'vim-scripts/SyntaxAttr.vim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup({
+        keymaps = {
+          noremap = true,
+
+          ['n <leader>gp'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+          ['n <leader>gn'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+          ['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+          ['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+          ['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+          ['n <leader>gx'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+          ['v <leader>gx'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+          ['n <leader>gX'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+          ['n <leader>gh'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+          ['n <leader>gB'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+
+          -- Text objects
+          ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+          ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
+        }
+      })
+    end
+  }
+
+  use 'L3MON4D3/LuaSnip'
 end)

@@ -18,7 +18,6 @@ o.ruler = true -- show the ruler
 o.inccommand = 'nosplit' -- do not split and show matches when searching
 o.fillchars = 'vert:│' -- various fill chars
 o.timeout = false
-o.timeoutlen = 99999999 -- time (milliseconds) to wait fo ra keybinding sequence before timing out
 o.completeopt = 'menuone,noselect' -- completions options
 o.shortmess = 'filmxoOstTIc' -- it really is a mess
 wo.number = true -- enable number annotations
