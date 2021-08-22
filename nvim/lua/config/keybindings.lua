@@ -56,10 +56,6 @@ end
 -- Redo.
 remap('n', 'U', '<cmd>redo<cr>')
 
--- Move lines up and down.
-remap('n', 'S', '<cmd>m .-2<cr>')
-remap('n', 'T', '<cmd>m .+1<cr>')
-
 -- Better C-n / C-p
 remap('', '<c-t>', '<c-n>')
 remap('i', '<c-t>', '<c-n>')
@@ -68,10 +64,6 @@ remap('i', '<c-s>', '<c-p>')
 
 -- Insert completion.
 remap('i', '<c-f>', '<c-x><c-f>')
-
--- nvim-compe
-remap_expr('i', '<c-space>', 'compe#complete()')
-remap_expr('i', '<cr>', "compe#confirm('<CR>')")
 
 -- Quick access to common files.
 remap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.lua<cr>')
@@ -146,9 +138,6 @@ remap('n', '<leader>tt', '<cmd>UltestSummary<cr>')
 -- Filetree.
 remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
--- Tagbar.
-remap('n', '<leader>co', '<cmd>TagbarToggle<CR>')
-
 -- Org & notes.
 -- remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
 -- remap('n', '<leader>nt', "<cmd>lua require('notes-local').open_todo()<cr>")
@@ -168,9 +157,6 @@ remap('n', '<leader>pi', '<cmd>PackerInstall<cr>')
 remap('n', '<leader>ps', '<cmd>PackerStatus<cr>')
 remap('n', '<leader>pS', '<cmd>PackerSync<cr>')
 remap('n', '<leader>pu', '<cmd>PackerUpdate<cr>')
-
--- Snippets.
-remap('i', '<tab>', "<cmd>lua return require'snippets'.expand_or_advance(1)<CR>")
 
 -- Terminal.
 -- remap('t', '<esc>', '<c-\\><c-n>')

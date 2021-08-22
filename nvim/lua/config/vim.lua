@@ -1,6 +1,7 @@
 local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
+local g = vim.g
 
 o.title = true -- report window title
 o.textwidth = 120 -- live the dream
@@ -29,3 +30,5 @@ o.smartcase = true
 -- remove trailing whitespaces & highlight yank
 vim.api.nvim_command([[au BufWritePre * %s/\s\+$//e]])
 vim.api.nvim_command([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
+
+g.rust_recommended_style = 0

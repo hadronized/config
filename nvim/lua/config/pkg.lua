@@ -97,40 +97,58 @@ require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
 
   use {
-    'hrsh7th/nvim-compe',
-    as = 'compe',
+    'hrsh7th/nvim-cmp',
+    requires = { 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip', 'hrsh7th/cmp-nvim-lsp' },
     config = function()
-      require'compe'.setup {
-        enabled = true;
-        autocomplete = true;
-        debug = false;
-        min_length = 1;
-        preselect = 'enable';
-        throttle_time = 80;
-        source_timeout = 200;
-        resolve_timeout = 800;
-        incomplete_delay = 400;
-        max_abbr_width = 100;
-        max_kind_width = 100;
-        max_menu_width = 100;
-        documentation = {
-          border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-          winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-          max_width = 120,
-          min_width = 60,
-          max_height = math.floor(vim.o.lines * 0.3),
-          min_height = 1,
-        };
+      -- luasnip setup
+      local luasnip = require 'luasnip'
 
-        source = {
-          path = true;
-          buffer = true;
-          calc = true;
-          nvim_lsp = true;
-          nvim_lua = true;
-          luasnip = true;
-        };
+      -- nvim-cmp setup
+      local cmp = require 'cmp'
+      cmp.setup {
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
+        },
+        mapping = {
+          ['<C-s>'] = cmp.mapping.prev_item(),
+          ['<C-t>'] = cmp.mapping.next_item(),
+          ['<C-d>'] = cmp.mapping.scroll(-4),
+          ['<C-f>'] = cmp.mapping.scroll(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.close(),
+          ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          },
+          ['<Tab>'] = cmp.mapping.mode({ 'i', 's' }, function(_, fallback)
+            if vim.fn.pumvisible() == 1 then
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+            elseif luasnip.expand_or_jumpable() then
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+            else
+              fallback()
+            end
+          end),
+          ['<S-Tab>'] = cmp.mapping.mode({ 'i', 's' }, function(_, fallback)
+            if vim.fn.pumvisible() == 1 then
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+            elseif luasnip.jumpable(-1) then
+              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+            else
+              fallback()
+            end
+          end),
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+        },
       }
+
+      -- Set up lsp completion for nvim-cmp
+      require('cmp_nvim_lsp').setup {}
     end
   }
 
@@ -267,7 +285,7 @@ require('packer').startup(function(use)
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require'colorizer'.setup {}
+      require'colorizer'.setup()
     end
   }
 
@@ -276,12 +294,8 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
 
   use {
-    'yamatsum/nvim-web-nonicons',
-    requires = { { 'kyazdani42/nvim-web-devicons' } },
-  }
-
-  use {
     'lukas-reineke/indent-blankline.nvim',
+    disable = true,
     config = function()
       require'indent_blankline'.setup {
         char = '│',
@@ -298,6 +312,7 @@ require('packer').startup(function(use)
 
   use {
     'ojroques/nvim-hardline',
+    disable = true,
     config = function()
       require'hardline'.setup {}
     end
@@ -343,5 +358,8 @@ require('packer').startup(function(use)
     end
   }
 
+  use 'saadparwaiz1/cmp_luasnip'
+
   use 'L3MON4D3/LuaSnip'
+
 end)

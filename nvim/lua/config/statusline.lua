@@ -1,9 +1,3 @@
--- The statusline requires some plugins to be installed:
---
--- - tpope/fugitive
--- - airblade/vim-gitgutter
--- - neovim/nvim-lspconfig
--- - kyazdani42/nvim-web-devicons
 local M = {}
 
 function M.create_highlights()
@@ -45,17 +39,17 @@ function M.create_highlights()
     hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#23272e
     hi StatusLineReplaceModeWinNr guibg=#b64a49 guifg=#23272e
 
-    hi StatusLineVisualMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineVisualModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineVisualModeWinNr guibg=#37a2be guifg=#23272e
+    hi StatusLineVisualMode guibg=#be70ff guifg=#23272e
+    hi StatusLineVisualModeItalic guibg=#be70ff guifg=#23272e gui=italic
+    hi StatusLineVisualModeWinNr guibg=#8a00fc guifg=#23272e
 
-    hi StatusLineVisualBlockMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineVisualBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineVisualBlockModeWinNr guibg=#37a2be guifg=#23272e
+    hi StatusLineVisualBlockMode guibg=#be70ff guifg=#23272e
+    hi StatusLineVisualBlockModeItalic guibg=#be70ff guifg=#23272e gui=italic
+    hi StatusLineVisualBlockModeWinNr guibg=#8a00fc guifg=#23272e
 
-    hi StatusLineVisualLineMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineVisualLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineVisualLineModeWinNr guibg=#37a2be guifg=#23272e
+    hi StatusLineVisualLineMode guibg=#be70ff guifg=#23272e
+    hi StatusLineVisualLineModeItalic guibg=#be70ff guifg=#23272e gui=italic
+    hi StatusLineVisualLineModeWinNr guibg=#8a00fc guifg=#23272e
 
     hi StatusLineSelectMode guibg=#46D9FF guifg=#23272e
     hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#23272e gui=italic
@@ -85,41 +79,48 @@ vim.api.nvim_command([[  au ColorScheme * lua require'config.statusline'.create_
 vim.api.nvim_command('augroup END')
 
 local function vcs_status()
-  local branch = vim.fn['fugitive#head']()
+  local dict = vim.b.gitsigns_status_dict
 
-  if #branch == 0 then
+  if dict == nil then
     return ''
   end
 
-  local summary = vim.fn['GitGutterGetHunkSummary']()
-  local ahl, mhl, rhl
+  if dict.head == nil then
+    return ''
+  end
 
-  if summary[1] > 0 then
+  local ahl, mhl, rhl
+  local added, changed, removed = 0, 0, 0
+
+  if dict.added ~= nil and dict.added > 0 then
     ahl = '%#StatusLineGitDiffAdd#'
+    added = dict.added
   else
     ahl = '%#StatusLineBg2b#'
   end
 
-  if summary[2] > 0 then
+  if dict.changed ~= nil and dict.changed > 0 then
     mhl = '%#StatusLineGitDiffMod#'
+    changed = dict.changed
   else
     mhl = '%#StatusLineBg2b#'
   end
 
-  if summary[3] > 0 then
+  if dict.removed ~= nil and dict.removed > 0 then
     rhl = '%#StatusLineGitDiffDel#'
+    removed = dict.removed
   else
     rhl = '%#StatusLineBg2b#'
   end
 
   return string.format('%s %i %s %i %s %i %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s',
     ahl,
-    summary[1],
+    added,
     mhl,
-    summary[2],
+    changed,
     rhl,
-    summary[3],
-   branch:gsub('%s+', '')
+    removed,
+   dict.head:gsub('%s+', '')
   )
 end
 
