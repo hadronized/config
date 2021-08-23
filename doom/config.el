@@ -1,6 +1,10 @@
 ;; The best theme — ever.
 (setq doom-theme 'doom-one)
 
+;; This is sometimes required. I have no idea why.
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; Default fill-column to 120 and add the keybinding to toggle it on and off.
 (setq-default fill-column 120)
 (map! :leader
