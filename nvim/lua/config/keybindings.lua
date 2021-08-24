@@ -139,7 +139,7 @@ remap('n', '<leader>tt', '<cmd>UltestSummary<cr>')
 remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
 -- Org & notes.
--- remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
+remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
 -- remap('n', '<leader>nt', "<cmd>lua require('notes-local').open_todo()<cr>")
 -- remap('n', '<leader>ns', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [ ]' })<cr>")
 -- remap('n', '<leader>nS', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [·]' })<cr>")

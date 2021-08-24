@@ -19,6 +19,7 @@ o.ruler = true -- show the ruler
 o.inccommand = 'nosplit' -- do not split and show matches when searching
 o.fillchars = 'vert:│' -- various fill chars
 o.timeout = false
+o.timeoutlen = 9999999
 o.completeopt = 'menuone,noselect' -- completions options
 o.shortmess = 'filmxoOstTIc' -- it really is a mess
 wo.number = true -- enable number annotations
