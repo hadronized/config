@@ -1,0 +1,41 @@
+"*":
+  "atom-fuzzy-grep":
+    preserveLastSearch: true
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      showDiagnosticTraces: true
+  core:
+    allowPendingPaneItems: false
+    audioBeep: false
+    automaticallyUpdate: false
+    disabledPackages: [
+      "tabs"
+    ]
+    projectHome: "/home/phaazon/dev"
+    telemetryConsent: "no"
+    titleBar: "hidden"
+    uriHandlerRegistration: "always"
+  "easy-motion-redux":
+    replaceCharacters: "etovxqpdygéèfblzhckisuran"
+  editor:
+    fontFamily: "JetBrains Mono"
+    fontSize: 25
+    preferredLineLength: 120
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+  "exception-reporting":
+    userId: "19f31b2d-3465-43e7-b84b-aed72ed1b55c"
+  "ide-haskell":
+    onCursorMove: "Show Tooltip"
+    onSavePrettifyFormats:
+      "source*cabal": true
+  "ide-purescript":
+    addPscPackageSources: true
+    addSpagoSources: true
+  "linter-ui-default":
+    panelHeight: 300
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false

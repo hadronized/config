@@ -1,0 +1,69 @@
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  't': 'vim-mode-plus:move-down'
+  's': 'vim-mode-plus:move-up'
+  'c': 'vim-mode-plus:move-left'
+  'r': 'vim-mode-plus:move-right'
+  'altgraph space': 'vim-mode-plus:move-to-first-character-of-line-and-down'
+  'w': null
+  'w v': 'pane:split-right-and-copy-active-item'
+  'w o': 'pane:split-down-and-copy-active-item'
+
+  # easymotion
+  'è': 'easy-motion-redux:words'
+
+  # fuzzy finders
+  'space b b': 'fuzzy-finder:toggle-buffer-finder'
+  'space space': 'fuzzy-finder:toggle-file-finder'
+  'space f f': 'fuzzy-finder:toggle-file-finder'
+  'space f g': 'fuzzy-finder:toggle-git-status-finder'
+
+  # tree view
+  'space f t': 'tree-view:toggle'
+
+  # window
+  'w c': 'window:focus-pane-on-left'
+  'w r': 'window:focus-pane-on-right'
+  'w t': 'window:focus-pane-below'
+  'w s': 'window:focus-pane-above'
+  'w q': 'pane:close'
+  'space b d': 'pane:close'
+
+  # save
+  'space b s': 'core:save'
+
+  # code
+  'space c o': 'outline:toggle'
+  'space c d': 'atom-ide-go-to-definition:go-to-definition'
+  'space c D': 'find-references:activate'
+
+  # replace t
+  'à': 'vim-mode-plus:till'
+  'shift-à': 'vim-mode-plus:till-backwards'
+
+  # replace s
+  'k': 'vim-mode-plus:substitute'
+  'shift-k': 'vim-mode-plus:substitute-line'
+
+  # replace c
+  'l': 'vim-mode-plus:change'
+  'shift-l': 'vim-mode-plus:change-to-last-character-of-line'
+
+  # replace r
+  'h': 'vim-mode-plus:replace'
+  'shift-h': 'vim-mode-plus:activate-replace-mode'
+
+  # replace w
+  'é': 'vim-mode-plus:move-to-next-word'
+
+'.tree-view':
+  't': 'core:move-down'
+  's': 'core:move-up'
+
+'body':
+  'ctrl-i': 'cursor-history:next'
+  'ctrl-o': 'cursor-history:prev'
+  'ctrl-t': 'core:move-down'
+  'ctrl-s': 'core:move-up'
+  'ctrl-+': 'window:increase-font-size'
+  'ctrl--': 'window:decrease-font-size'
+  'ctrl-space': 'choose-pane:start'
