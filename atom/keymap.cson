@@ -25,8 +25,8 @@
   'w r': 'window:focus-pane-on-right'
   'w t': 'window:focus-pane-below'
   'w s': 'window:focus-pane-above'
-  'w q': 'pane:close'
-  'space b d': 'pane:close'
+  'w q': 'core:close'
+  'space b d': 'core:close'
 
   # save
   'space b s': 'core:save'

@@ -7,10 +7,7 @@
   core:
     allowPendingPaneItems: false
     audioBeep: false
-    automaticallyUpdate: false
-    disabledPackages: [
-      "tabs"
-    ]
+    closeEmptyWindows: false
     projectHome: "/home/phaazon/dev"
     telemetryConsent: "no"
     titleBar: "hidden"
@@ -19,7 +16,7 @@
     replaceCharacters: "etovxqpdygéèfblzhckisuran"
   editor:
     fontFamily: "JetBrains Mono"
-    fontSize: 25
+    fontSize: 26
     preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
@@ -35,6 +32,7 @@
     addSpagoSources: true
   "linter-ui-default":
     panelHeight: 300
+  "status-bar": {}
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
