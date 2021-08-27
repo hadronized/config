@@ -8,6 +8,9 @@
     allowPendingPaneItems: false
     audioBeep: false
     closeEmptyWindows: false
+    disabledPackages: [
+      "tabs"
+    ]
     projectHome: "/home/phaazon/dev"
     telemetryConsent: "no"
     titleBar: "hidden"
@@ -16,13 +19,14 @@
     replaceCharacters: "etovxqpdygéèfblzhckisuran"
   editor:
     fontFamily: "JetBrains Mono"
-    fontSize: 26
+    fontSize: 21
     preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
   "exception-reporting":
     userId: "19f31b2d-3465-43e7-b84b-aed72ed1b55c"
+  "git-blame": {}
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     onSavePrettifyFormats:
@@ -32,6 +36,7 @@
     addSpagoSources: true
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   "status-bar": {}
   "tree-view":
     hideVcsIgnoredFiles: true

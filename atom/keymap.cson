@@ -1,15 +1,22 @@
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  ':': 'go-to-line:toggle'
   't': 'vim-mode-plus:move-down'
   's': 'vim-mode-plus:move-up'
   'c': 'vim-mode-plus:move-left'
   'r': 'vim-mode-plus:move-right'
   'altgraph space': 'vim-mode-plus:move-to-first-character-of-line-and-down'
+  'alt-space': 'vim-mode-plus:move-to-first-character-of-line-and-down'
+  'U': 'core:redo'
   'w': null
   'w v': 'pane:split-right-and-copy-active-item'
   'w o': 'pane:split-down-and-copy-active-item'
 
   # easymotion
   'è': 'easy-motion-redux:words'
+
+  # bookmarks
+  'space b m': 'bookmarks:toggle-bookmark'
+  'space enter': 'bookmarks:view-all'
 
   # fuzzy finders
   'space b b': 'fuzzy-finder:toggle-buffer-finder'
@@ -35,6 +42,11 @@
   'space c o': 'outline:toggle'
   'space c d': 'atom-ide-go-to-definition:go-to-definition'
   'space c D': 'find-references:activate'
+
+  # git
+  'space g n': 'git-diff:move-to-next-diff'
+  'space g p': 'git-diff:move-to-previous-diff'
+  'space g g': 'github:toggle-git-tab'
 
   # replace t
   'à': 'vim-mode-plus:till'
