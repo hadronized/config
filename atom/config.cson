@@ -29,8 +29,10 @@
   "git-blame": {}
   "ide-haskell":
     onCursorMove: "Show Tooltip"
+    onSavePrettify: true
     onSavePrettifyFormats:
       "source*cabal": true
+    stylishHaskellPath: "ormolu"
   "ide-purescript":
     addPscPackageSources: true
     addSpagoSources: true
