@@ -11,12 +11,12 @@
       :desc "Auto fill"
       :n "t a" 'auto-fill-mode)
 
-;; Use , as local leader.
+;; Use , as local leader.
 (setq doom-localleader-key ",")
 
 ;; Font setting.
-(setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light))
-(setq doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 15))
+(setq doom-variable-pitch-font (font-spec :family "Overpass" :size 15))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
