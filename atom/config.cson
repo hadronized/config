@@ -38,7 +38,6 @@
     addSpagoSources: true
   "linter-ui-default":
     panelHeight: 300
-    showPanel: true
   "status-bar": {}
   "tree-view":
     hideVcsIgnoredFiles: true

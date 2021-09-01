@@ -10,6 +10,8 @@
   'w': null
   'w v': 'pane:split-right-and-copy-active-item'
   'w o': 'pane:split-down-and-copy-active-item'
+  'altgraph y': 'vim-mode-plus:move-to-previous-paragraph'
+  'altgraph x': 'vim-mode-plus:move-to-next-paragraph'
 
   # easymotion
   'è': 'easy-motion-redux:words'
