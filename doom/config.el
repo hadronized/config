@@ -48,6 +48,8 @@
 
 (add-hook! 'rustic-mode-hook (auto-fill-mode 1))
 
+(setq lsp-rust-analyzer-server-display-inlay-hints t)
+
 (map! :leader
       :prefix "b"
       :desc "Rename buffer"
