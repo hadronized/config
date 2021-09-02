@@ -1,8 +1,6 @@
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files --follow --preview='
-
 export FZF_DEFAULT_OPTS="
   --height 40%
   -m
@@ -10,5 +8,5 @@ export FZF_DEFAULT_OPTS="
   --info=inline
   "
 
-export FZF_CTRL_T_OPTS='--border --height 40 --preview='
-export FZF_CTRL_R_OPTS='--border --height 20 --preview='
+export FZF_CTRL_T_OPTS='--border --height 40'
+export FZF_CTRL_R_OPTS='--border --height 20'
