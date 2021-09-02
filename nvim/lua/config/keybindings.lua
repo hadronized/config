@@ -105,10 +105,6 @@ remap('n', '<leader>gc', '<cmd>Commits<cr>')
 remap('n', '<leader>gg', "<cmd>Neogit<cr>")
 remap('n', '<leader>gS', '<cmd>Gwrite<cr>')
 
--- Context.
-remap('n', '<leader>Ce', '<cmd>TSContextEnable<cr>')
-remap('n', '<leader>Cd', '<cmd>TSContextDisable<cr>')
-
 -- Search.
 remap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_ivy<cr>')
 remap('n', '<leader>sm', '<cmd>Telescope marks theme=get_ivy<cr>')

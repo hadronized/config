@@ -50,25 +50,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- https://github.com/rose-pine/neovim
-  use {
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      -- require('rose-pine.functions').select_variant('moon')
-    end
-  }
-
-  use {
-    'marko-cerovac/material.nvim',
-    config = function()
-    end
-  }
-
-  --[[ use {
-    'NTBBloodbath/doom-one.nvim',
-  } ]]
-
   -- Productivity.
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -153,16 +134,6 @@ require('packer').startup(function(use)
   }
 
   use {
-    'romgrk/nvim-treesitter-context',
-    requires = { { 'nvim-treesitter/nvim-treesitter' } },
-    config = function()
-      require'treesitter-context'.setup {
-        enable = false,
-      }
-    end
-  }
-
-  use {
     'kyazdani42/nvim-tree.lua',
     as = 'nvim-tree',
     config = function()
@@ -201,15 +172,6 @@ require('packer').startup(function(use)
     end
   }
 
-  use {
-    'pwntester/octo.nvim',
-    disable = true,
-  }
-
-  use 'rafcamlet/nvim-luapad'
-
-  use 'euclidianAce/BetterLua.vim'
-
   use 'neovim/nvim-lspconfig'
 
   use {
@@ -227,10 +189,6 @@ require('packer').startup(function(use)
     as = 'lsp-status'
   }
 
-  use 'vim-test/vim-test'
-
-  use { "rcarriga/vim-ultest", requires = {"janko/vim-test"}, run = ":UpdateRemotePlugins" }
-
   use 'universal-ctags/ctags'
 
   use 'nvim-telescope/telescope.nvim'
@@ -244,41 +202,6 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope-fzf-native.nvim',
     requires = { { 'nvim-telescope/telescope.nvim' } },
     run = 'make',
-  }
-
-  use {
-    'kristijanhusak/orgmode.nvim',
-    config = function()
-      require'orgmode'.setup {
-        org_agenda_files = {'~/org/*'},
-        org_default_notes_file = '~/org/notes.org',
-        org_todo_keywords = { 'TODO', 'WIP', 'HOLD', 'PROJ', '|', 'DONE', 'KILL' },
-        org_indent_mode = 'noindent',
-        org_hide_leading_stars = true,
-        mappings = {
-          global = {
-            org_agenda = '<leader>na',
-            org_capture = '<leader>nn',
-          },
-          capture = {
-            org_capture_finalize = 'C-c C-c',
-            org_capture_refile = 'C-c C-r',
-            org_capture_kill = 'C-c C-k',
-          },
-          org = {
-            org_refile = 'C-c C-r',
-            org_todo = '<localleader>t',
-            org_todo_prev = '<localleader>T',
-            org_archive_subtree = '<localleader>$',
-            org_set_tags_command = '<localleader>q',
-            org_toggle_archive_tag = '<localleader>A',
-            org_meta_return = '<S-CR>',
-            org_move_subtree_up = 'S',
-            org_move_subtree_down = 'T',
-          },
-        },
-      }
-    end
   }
 
   -- Visual & graphics.
@@ -301,20 +224,6 @@ require('packer').startup(function(use)
         char = '│',
         use_treesitter = true,
       }
-    end
-  }
-
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    disable = true
-  }
-
-  use {
-    'ojroques/nvim-hardline',
-    disable = true,
-    config = function()
-      require'hardline'.setup {}
     end
   }
 
@@ -361,5 +270,4 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   use 'L3MON4D3/LuaSnip'
-
 end)
