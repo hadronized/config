@@ -5,10 +5,6 @@ local function remap(mode, lhs, rhs)
   vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
 end
 
-local function remap_expr(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { expr = true })
-end
-
 -- Bépo.
 remap('', 'é', 'w')
 remap('', 'É', 'W')
@@ -85,17 +81,13 @@ remap('n', '<leader>bt', '<cmd>tabnew<cr>')
 
 -- Buffers.
 remap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_ivy previewer=false<cr>')
--- remap('n', '<leader>bb', '<cmd>Buffers<cr>')
 
 -- Files.
 remap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_ivy previewer=false<cr>')
 remap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_ivy previewer=false<cr>')
--- remap('n', '<leader>ff', '<cmd>Files<cr>')
--- remap('n', '<leader>fT', '<cmd>Filetypes<cr>')
 
 -- File history.
 remap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_ivy previewer=false<cr>')
--- remap('n', '<leader>fh', '<cmd>History<cr>')
 
 -- Git.
 remap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_ivy previewer=false<cr>')
@@ -111,18 +103,12 @@ remap('n', '<leader>sm', '<cmd>Telescope marks theme=get_ivy<cr>')
 remap('n', '<leader>sp', '<cmd>Telescope live_grep theme=get_ivy<cr>')
 remap('n', '<leader>sr', '<cmd>Telescope registers theme=get_ivy<cr>')
 remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<cr>')
--- remap('n', '<leader>sb', '<cmd>BLines<cr>')
--- remap('n', '<leader>sc', '<cmd>Commands<cr>')
--- remap('n', '<leader>sm', '<cmd>Marks<cr>')
--- remap('n', '<leader>sr', '<cmd>Registers<cr>')
--- remap('n', '<leader>ss', '<cmd>Rg<cr>')
 
 -- Quickfix.
 remap('n', '<leader>cq', '<cmd>Telescope quickfix theme=get_ivy<cr>')
 
 -- Tags.
 remap('n', '<leader>cT', '<cmd>Telescope tags theme=get_ivy<CR>')
--- remap('n', '<leader>cT', '<cmd>Tags<CR>')
 remap('n', 'gd', '<C-]>')
 
 -- Test.
@@ -136,9 +122,6 @@ remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
 -- Org & notes.
 remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
--- remap('n', '<leader>nt', "<cmd>lua require('notes-local').open_todo()<cr>")
--- remap('n', '<leader>ns', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [ ]' })<cr>")
--- remap('n', '<leader>nS', "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find({ default_text = '^# [·]' })<cr>")
 
 --  Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
@@ -153,9 +136,3 @@ remap('n', '<leader>pi', '<cmd>PackerInstall<cr>')
 remap('n', '<leader>ps', '<cmd>PackerStatus<cr>')
 remap('n', '<leader>pS', '<cmd>PackerSync<cr>')
 remap('n', '<leader>pu', '<cmd>PackerUpdate<cr>')
-
--- Terminal.
--- remap('t', '<esc>', '<c-\\><c-n>')
-
--- See highlight at point.
-remap('n', '<leader>$', '<cmd>call SyntaxAttr()<cr>')
