@@ -32,6 +32,8 @@ vim.g.nvim_tree_icons = {
   },
 }
 
+vim.g.nvim_tree_disable_default_keybindings = 1
+
 vim.g.material_style = 'palenight'
 vim.g.material_italic_keywords = true
 vim.g.material_hide_eob = true
@@ -161,6 +163,16 @@ require('packer').startup(function(use)
         { key = { "c" },      cb = tree_cb("dir_up") },
         { key = { "q" },      cb = tree_cb("close") },
       }
+    end
+  }
+
+  use 'nvim-lua/plenary.nvim'
+
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require'neogit'.setup {}
     end
   }
 
