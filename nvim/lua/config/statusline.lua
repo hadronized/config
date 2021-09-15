@@ -41,15 +41,7 @@ function M.create_highlights()
 
     hi StatusLineVisualMode guibg=#be70ff guifg=#23272e
     hi StatusLineVisualModeItalic guibg=#be70ff guifg=#23272e gui=italic
-    hi StatusLineVisualModeWinNr guibg=##c678dd guifg=#23272e
-
-    hi StatusLineVisualBlockMode guibg=#be70ff guifg=#23272e
-    hi StatusLineVisualBlockModeItalic guibg=#be70ff guifg=#23272e gui=italic
-    hi StatusLineVisualBlockModeWinNr guibg=#c678dd guifg=#23272e
-
-    hi StatusLineVisualLineMode guibg=#be70ff guifg=#23272e
-    hi StatusLineVisualLineModeItalic guibg=#be70ff guifg=#23272e gui=italic
-    hi StatusLineVisualLineModeWinNr guibg=#c678dd guifg=#23272e
+    hi StatusLineVisualModeWinNr guibg=#c678dd guifg=#23272e
 
     hi StatusLineSelectMode guibg=#46D9FF guifg=#23272e
     hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#23272e gui=italic
@@ -212,14 +204,14 @@ local function make_active_status_line()
       nr = 'StatusLineVisualModeWinNr',
     },
     V = {
-      n = 'StatusLineVisualLineMode',
-      i = 'StatusLineVisualLineModeItalic',
-      nr = 'StatusLineVisualLineModeWinNr',
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
     },
     [''] = {
-      n = 'StatusLineVisualBlockMode',
-      i = 'StatusLineVisualBlockModeItalic',
-      nr = 'StatusLineVisualBlockModeWinNr',
+      n = 'StatusLineVisualMode',
+      i = 'StatusLineVisualModeItalic',
+      nr = 'StatusLineVisualModeWinNr',
     },
     ['niV'] = {
       n = 'StatusLineVisualMode',
