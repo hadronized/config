@@ -169,12 +169,9 @@
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 (setq projectile-project-search-path '("~/dev")
-      workspaces-switch-project-function (lambda (x) '())
-      projectile-project-root-functions
-        '(projectile-root-top-down
-          projectile-root-local
-          projectile-root-bottom-up
-          projectile-root-top-down-recurring))
+      projectile-auto-discover nil
+      projectile-track-known-projects-automatically nil
+      )
 
 (setq-default treemacs-show-cursor t)
 
@@ -186,7 +183,7 @@
 (map! :leader
       :prefix "c"
       :desc "List errors"
-      :n "x" #'lsp-treemacs-errors-list)
+      :n "x" #'consult-lsp-diagnostics)
 
 (setq epa-file-encrypt-to '(9BFDD250BBECA905))
 
