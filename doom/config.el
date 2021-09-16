@@ -168,10 +168,7 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-(setq projectile-project-search-path '("~/dev")
-      projectile-auto-discover nil
-      projectile-track-known-projects-automatically nil
-      )
+(setq projectile-project-search-path '("~/dev"))
 
 (setq-default treemacs-show-cursor t)
 
