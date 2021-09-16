@@ -38,6 +38,12 @@ vim.g.material_style = 'palenight'
 vim.g.material_italic_keywords = true
 vim.g.material_hide_eob = true
 
+vim.g.edge_style = 'neon'
+vim.g.edge_enable_italic = 1
+vim.g.edge_diagnostic_text_highlight = 1
+vim.g.edge_diagnostic_line_highlight = 1
+vim.g.edge_diagnostic_virtual_text = 'colored'
+
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
@@ -48,7 +54,14 @@ require('packer').startup(function(use)
   use {
     'romgrk/doom-one.vim',
     config = function()
-      vim.cmd('colorscheme doom-one')
+      -- vim.cmd('colorscheme doom-one')
+    end
+  }
+
+  use {
+    'sainnhe/edge',
+    config = function()
+      vim.cmd('colorscheme edge')
     end
   }
 
@@ -196,11 +209,6 @@ require('packer').startup(function(use)
   use 'universal-ctags/ctags'
 
   use 'nvim-telescope/telescope.nvim'
-
-  use {
-    'nvim-telescope/telescope-fzy-native.nvim',
-    requires = { { 'nvim-telescope/telescope.nvim' } }
-  }
 
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
