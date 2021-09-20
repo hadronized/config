@@ -24,6 +24,9 @@
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
+;; Tab spaces / indentation
+(setq tab-width 2)
+
 ;; Undo / redo.
 (map! :n "U" 'undo-tree-redo)
 

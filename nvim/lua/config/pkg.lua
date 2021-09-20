@@ -51,11 +51,33 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes
+  use 'tjdevries/colorbuddy.vim'
+
+  use 'romgrk/doom-one.vim'
+
+  use 'sainnhe/sonokai'
+
+  use { 'glepnir/zephyr-nvim', branch = 'main' }
+
+  use { 'dracula/vim', as = 'dracula' }
+
+  use { 'challenger-deep-theme/vim', as = 'challenger-deep' }
+
+  use 'drewtempelmeyer/palenight.vim'
+
+  use 'Rigellute/shades-of-purple.vim'
+
+  use 'archseer/colibri.vim'
+
+  use 'embark-theme/vim'
+
+  use 'bkegley/gloombuddy'
+
+  use 'sainnhe/edge'
+
   use {
-    'romgrk/doom-one.vim',
-    config = function()
-      -- vim.cmd('colorscheme doom-one')
-    end
+    'joshdick/onedark.vim',
+    branch = 'main',
   }
 
   use {
