@@ -25,7 +25,6 @@ vim.cmd [[
 ]]
 
 local lsp = require'lspconfig'
-local protocol = require'vim.lsp.protocol'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -37,6 +36,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
+-- common flags to all LSPs
+local lsp_flags = {}
+
+-- attach
 local lsp_attach = function(args)
   return function(client, bufnr)
     -- Set autocommands conditional on server_capabilities
@@ -61,8 +64,11 @@ local lsp_attach = function(args)
 
     lsp_status.on_attach(client)
 
+    -- make omnifunc go via LSP’s completion directly
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
     -- keybindings
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'S', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>clr', '<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>Telescope lsp_code_actions<cr>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cd', '<cmd>lua vim.lsp.buf.definition()<cr>', {})
@@ -82,6 +88,7 @@ end
 
 -- Lua.
 lsp.sumneko_lua.setup {
+  flags = lsp_flags,
   cmd = {
     string.format("%s/lua-language-server/bin/platform/lua-language-server", foss_path),
     "-E",
@@ -114,6 +121,7 @@ lsp.sumneko_lua.setup {
 
 -- Rust.
 lsp.rust_analyzer.setup {
+  flags = lsp_flags,
   capabilities = capabilities,
   cmd = { string.format("%s/rust-analyzer/target/release/rust-analyzer", foss_path) },
   settings = {
@@ -218,31 +226,37 @@ lsp.rust_analyzer.setup {
         r = 'release run',
       },
     }
+
     return lsp_attach()(client, bufnr)
   end
 }
 
 -- Haskell.
 lsp.hls.setup {
+  flags = lsp_flags,
   on_attach = lsp_attach {},
 }
 
 -- C/C++.
 lsp.clangd.setup {
+  flags = lsp_flags,
   on_attach = lsp_attach {},
 }
 
 -- Vue.
 lsp.vuels.setup {
+  flags = lsp_flags,
   on_attach = lsp_attach { format = false },
 }
 
 -- Python, sneeeek.
 -- lsp.pyls.setup {
+--   flags = lsp_flags,
 --   on_attach = lsp_attach {},
 -- }
 
 -- Purescript
 require'lspconfig'.purescriptls.setup {
+  flags = lsp_flags,
   on_attach = lsp_attach {},
 }

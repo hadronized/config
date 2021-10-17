@@ -46,7 +46,12 @@ require('packer').startup(function(use)
   -- Themes
   use 'tjdevries/colorbuddy.vim'
 
-  use 'romgrk/doom-one.vim'
+  use {
+    'romgrk/doom-one.vim',
+    config = function()
+      vim.cmd('colorscheme doom-one')
+    end
+  }
 
   use 'sainnhe/sonokai'
 
@@ -74,7 +79,7 @@ require('packer').startup(function(use)
   use {
     'sainnhe/edge',
     config = function()
-      vim.cmd('colorscheme edge')
+      -- vim.cmd('colorscheme edge')
     end
   }
 
@@ -85,7 +90,7 @@ require('packer').startup(function(use)
   }
 
   use {
-    'phaazon/hop.nvim',
+    '~/dev/hop.nvim',
     as = 'hop',
     config = function()
       require'hop'.setup {
@@ -132,8 +137,8 @@ require('packer').startup(function(use)
             select = true,
           },
           ['<Tab>'] = function(fallback)
-            if vim.fn.pumvisible() == 1 then
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+            if cmp.visible() then
+              cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
               vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
             else
@@ -141,8 +146,8 @@ require('packer').startup(function(use)
             end
           end,
           ['<S-Tab>'] = function(fallback)
-            if vim.fn.pumvisible() == 1 then
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
+            if cmp.visible() then
+              cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
               vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
             else
@@ -151,6 +156,7 @@ require('packer').startup(function(use)
           end,
         },
         sources = {
+          { name = 'crates' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         },
@@ -173,7 +179,9 @@ require('packer').startup(function(use)
           auto_close = true,
         },
         tab_open = false,
-        follow = true,
+        update_focused_file = {
+          enable = true,
+        },
         view = {
           mappings = {
             custom_only = true,
@@ -233,6 +241,19 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope-fzf-native.nvim',
     requires = { { 'nvim-telescope/telescope.nvim' } },
     run = 'make',
+  }
+
+  use {
+    'saecki/crates.nvim',
+    event = { "BufRead Cargo.toml" },
+    requires = { { 'nvim-lua/plenary.nvim' } },
+    config = function()
+      require('crates').setup {
+        popup = {
+          version_date = true,
+        }
+      }
+    end,
   }
 
   -- Visual & graphics.
@@ -304,8 +325,4 @@ require('packer').startup(function(use)
       })
     end
   }
-
-  use 'saadparwaiz1/cmp_luasnip'
-
-  use 'L3MON4D3/LuaSnip'
 end)
