@@ -72,3 +72,5 @@
 (package! terraform-mode)
 
 (package! simpleclip)
+
+(package! protobuf-mode)
