@@ -121,7 +121,8 @@ remap('n', '<leader>tt', '<cmd>UltestSummary<cr>')
 remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
 -- Org & notes.
-remap('n', '<leader>nj', "<cmd>lua require('notes-local').open_journal()<cr>")
+remap('n', '<leader>nn', "<cmd>lua require'mind'.open_node()<cr>")
+remap('n', '<leader>na', "<cmd>lua require'mind'.create_node()<cr>")
 
 --  Hop.
 remap('', 'è', '<cmd>HopWord<cr>')

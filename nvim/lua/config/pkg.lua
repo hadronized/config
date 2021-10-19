@@ -49,7 +49,7 @@ require('packer').startup(function(use)
   use {
     'romgrk/doom-one.vim',
     config = function()
-      vim.cmd('colorscheme doom-one')
+      -- vim.cmd('colorscheme doom-one')
     end
   }
 
@@ -79,7 +79,7 @@ require('packer').startup(function(use)
   use {
     'sainnhe/edge',
     config = function()
-      -- vim.cmd('colorscheme edge')
+      vim.cmd('colorscheme edge')
     end
   }
 
@@ -90,12 +90,18 @@ require('packer').startup(function(use)
   }
 
   use {
-    '~/dev/hop.nvim',
-    as = 'hop',
+    'phaazon/hop.nvim',
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygéèfblzhckisuran',
       }
+    end
+  }
+
+  use {
+    'phaazon/mind.nvim',
+    config = function()
+      require'mind'.setup()
     end
   }
 
@@ -264,6 +270,18 @@ require('packer').startup(function(use)
     end
   }
 
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        highlight = {
+          comments_only = false,
+        }
+      }
+    end
+  }
+
   use 'ryanoasis/vim-devicons'
 
   use 'kyazdani42/nvim-web-devicons'
@@ -289,6 +307,8 @@ require('packer').startup(function(use)
   use 'vmchale/dhall-vim'
 
   use 'purescript-contrib/purescript-vim'
+
+  use 'tpope/vim-fugitive'
 
   use {
     'lewis6991/gitsigns.nvim',

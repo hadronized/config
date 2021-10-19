@@ -5,7 +5,7 @@
 # Switch to a project directory.
 #
 # The PROJ_DIR environment variable can be set to change the directory where the projects are expected to be found.
-function proj() {
+function p() {
   # The directory where we expect the projects to be in.
   proj_dir=${PROJ_DIR:-~/dev}
 
