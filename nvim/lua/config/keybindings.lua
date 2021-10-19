@@ -94,8 +94,10 @@ remap('n', '<leader><leader>', '<cmd>Telescope git_files<cr>')
 remap('n', '<leader>gb', "<cmd>Telescope git_branches<cr>")
 remap('n', '<leader>gB', "<cmd>Git blame<cr>")
 remap('n', '<leader>gc', '<cmd>Commits<cr>')
-remap('n', '<leader>gg', "<cmd>Neogit<cr>")
+remap('n', '<leader>gg', "<cmd>Git<cr>")
 remap('n', '<leader>gS', '<cmd>Gwrite<cr>')
+remap('n', '<leader>gtl', '<cmd>Gitsigns toggle_linehl<cr>')
+remap('n', '<leader>gtw', '<cmd>Gitsigns toggle_word_diff<cr>')
 
 -- Search.
 remap('n', '<leader>sc', '<cmd>Telescope command_history<cr>')
