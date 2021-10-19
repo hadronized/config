@@ -304,6 +304,8 @@ require('packer').startup(function(use)
 
   use 'mzlogin/vim-markdown-toc'
 
+  use 'plasticboy/vim-markdown'
+
   use 'vmchale/dhall-vim'
 
   use 'purescript-contrib/purescript-vim'
