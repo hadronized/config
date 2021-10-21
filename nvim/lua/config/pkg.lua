@@ -241,7 +241,16 @@ require('packer').startup(function(use)
 
   use 'universal-ctags/ctags'
 
-  use 'nvim-telescope/telescope.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require'telescope'.setup {
+        defaults = {
+          path_display = { smart = 1 }
+        }
+      }
+    end
+  }
 
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -262,6 +271,8 @@ require('packer').startup(function(use)
     end,
   }
 
+  use 'MattesGroeger/vim-bookmarks'
+
   -- Visual & graphics.
   use {
     'norcalli/nvim-colorizer.lua',
@@ -277,7 +288,37 @@ require('packer').startup(function(use)
       require("todo-comments").setup {
         highlight = {
           comments_only = false,
-        }
+        },
+        keywords = {
+          FIX = {
+            icon = " ", -- icon used for the sign, and in search results
+            color = "error", -- can be a hex color, or a named color (see below)
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+            -- signs = false, -- configure signs for some keywords individually
+          },
+          TODO = { icon = " ", color = "info" },
+          HACK = { icon = " ", color = "warning" },
+          WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+          PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+          -- task management only
+          TASK = { icon = " ", color = "task" },
+          WIP = { icon =  " ", color = "wip" },
+          DONE = { icon = " ", color = "done" },
+          KILL = { icon = "ﮊ ", color = "done" },
+          WAIT = { icon = " ", color = "pause" }
+        },
+        colors = {
+          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+          default = { "Identifier" },
+          task = { "#A020F0" },
+          wip = { "#00FA9A" },
+          done = { "#666666" },
+          pause = { "#FF5F1F" }
+        },
       }
     end
   }
