@@ -80,18 +80,18 @@ remap('n', '<leader>bS', '<cmd>w!<cr>')
 remap('n', '<leader>bt', '<cmd>tabnew<cr>')
 
 -- Buffers.
-remap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
+remap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_ivy previewer=false<cr>')
 
 -- Files.
-remap('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-remap('n', '<leader>fT', '<cmd>Telescope filetypes<cr>')
+remap('n', '<leader>ff', '<cmd>Telescope find_files theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>fT', '<cmd>Telescope filetypes theme=get_ivy previewer=false<cr>')
 
 -- File history.
-remap('n', '<leader>fh', '<cmd>Telescope oldfiles<cr>')
+remap('n', '<leader>fh', '<cmd>Telescope oldfiles theme=get_ivy previewer=false<cr>')
 
 -- Git.
-remap('n', '<leader><leader>', '<cmd>Telescope git_files<cr>')
-remap('n', '<leader>gb', "<cmd>Telescope git_branches<cr>")
+remap('n', '<leader><leader>', '<cmd>Telescope git_files theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>gb', "<cmd>Telescope git_branches theme=get_ivy previewer=false<cr>")
 remap('n', '<leader>gB', "<cmd>Git blame<cr>")
 remap('n', '<leader>gc', '<cmd>Commits<cr>')
 remap('n', '<leader>gg', "<cmd>Git<cr>")
@@ -100,14 +100,14 @@ remap('n', '<leader>gtl', '<cmd>Gitsigns toggle_linehl<cr>')
 remap('n', '<leader>gtw', '<cmd>Gitsigns toggle_word_diff<cr>')
 
 -- Search.
-remap('n', '<leader>sc', '<cmd>Telescope command_history<cr>')
+remap('n', '<leader>sc', '<cmd>Telescope command_history theme=get_ivy previewer=false<cr>')
 remap('n', '<leader>sm', '<cmd>Telescope marks<cr>')
-remap('n', '<leader>sp', '<cmd>Telescope live_grep<cr>')
+remap('n', '<leader>sp', '<cmd>Telescope live_grep theme=get_ivy<cr>')
 remap('n', '<leader>sr', '<cmd>Telescope registers<cr>')
-remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
+remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy<cr>')
 
 -- Quickfix.
-remap('n', '<leader>cq', '<cmd>Telescope quickfix<cr>')
+remap('n', '<leader>cq', '<cmd>Telescope quickfix theme=get_ivy previewer=false<cr>')
 
 -- Tags.
 remap('n', '<leader>cT', '<cmd>Telescope tags<CR>')
