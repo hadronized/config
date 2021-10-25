@@ -347,6 +347,8 @@ require('packer').startup(function(use)
 
   use 'purescript-contrib/purescript-vim'
 
+  use 'hashivim/vim-terraform'
+
   use 'tpope/vim-fugitive'
 
   use {
