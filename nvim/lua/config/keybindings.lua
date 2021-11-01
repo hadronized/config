@@ -126,8 +126,10 @@ remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 remap('n', '<leader>nn', "<cmd>lua require'mind'.open_node()<cr>")
 remap('n', '<leader>na', "<cmd>lua require'mind'.create_node()<cr>")
 
---  Hop.
+-- Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
+remap('', 'f', '<cmd>HopChar1CurrentLineAC<cr>')
+remap('', 'F', '<cmd>HopChar1CurrentLineBC<cr>')
 remap('', 'È', '<cmd>HopChar1<cr>')
 remap('', '<C-l>', '<cmd>HopLineStart<cr>')
 remap('', '<leader>/', '<cmd>HopPattern<cr>')

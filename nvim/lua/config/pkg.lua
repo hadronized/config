@@ -1,8 +1,6 @@
 vim.g.nvim_tree_side = 'left'
 vim.g.nvim_tree_width = 40
-vim.g.nvim_tree_ignore = { '.git', '.target' }
 vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_hide_dotfiles = 0
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_root_folder_modifier = ':.'
 vim.g.nvim_tree_allow_resize = 1
@@ -91,6 +89,7 @@ require('packer').startup(function(use)
 
   use {
     'phaazon/hop.nvim',
+    branch = 'hop-redesign-api',
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygéèfblzhckisuran',
