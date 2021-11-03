@@ -89,7 +89,7 @@ require('packer').startup(function(use)
 
   use {
     'phaazon/hop.nvim',
-    branch = 'hop-redesign-api',
+    branch = "v1",
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygéèfblzhckisuran',
@@ -332,6 +332,8 @@ require('packer').startup(function(use)
       }
     end
   }
+
+  use 'rcarriga/nvim-notify'
 
   -- Languages.
   use 'petrbroz/vim-glsl'

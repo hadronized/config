@@ -124,7 +124,7 @@ local function lsp_status()
   return ''
 end
 
-local function get_file_name()
+local function get_file_name(modified)
   local max_width = vim.fn.winwidth(vim.g.statusline_winid) * 0.25
   local file_name = vim.fn.fnamemodify(vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid)), ':.')
   local width = vim.fn.strwidth(file_name)
@@ -148,7 +148,11 @@ local function get_file_name()
     end
   end
 
-  return file_name
+  if modified then
+    return file_name .. ' '
+  else
+    return file_name
+  end
 end
 
 local function make_active_status_line()
@@ -318,7 +322,7 @@ local function make_active_status_line()
     hl2,
     vim.fn.win_id2win(vim.g.statusline_winid),
     hl,
-    get_file_name()
+    get_file_name(vim.bo.mod)
   )
   status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL)'
   status_line = status_line .. string.format('%%=%%#StatusLineBg# %s %s ', lsp_status(), vcs_status())
