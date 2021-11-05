@@ -78,6 +78,12 @@ require('packer').startup(function(use)
     'sainnhe/edge',
     config = function()
       vim.cmd('colorscheme edge')
+
+      -- edge overrides Hop and I don’t really like its default, it’s too dimmed to me; so we re-insert them
+      vim.api.nvim_command('highlight HopNextKey  guifg=#ff007c gui=bold ctermfg=198 cterm=bold')
+      vim.api.nvim_command('highlight HopNextKey1 guifg=#00dfff gui=bold ctermfg=45 cterm=bold')
+      vim.api.nvim_command('highlight HopNextKey2 guifg=#2b8db3 ctermfg=33')
+      vim.api.nvim_command('highlight HopUnmatched guifg=#666666 guibg=bg guisp=#666666 ctermfg=242')
     end
   }
 
@@ -88,7 +94,7 @@ require('packer').startup(function(use)
   }
 
   use {
-    'phaazon/hop.nvim',
+    '~/dev/hop.nvim',
     branch = "v1",
     config = function()
       require'hop'.setup {
@@ -364,7 +370,7 @@ require('packer').startup(function(use)
           change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
           delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
           topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-          changedelete = {hl = 'GitSignsChange', text = '└ ', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+          changedelete = {hl = 'GitSignsChange', text = '│ ', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
         },
         keymaps = {
           noremap = true,
@@ -378,7 +384,6 @@ require('packer').startup(function(use)
           ['v <leader>gx'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
           ['n <leader>gX'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
           ['n <leader>gh'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-          ['n <leader>gB'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
 
           -- Text objects
           ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
