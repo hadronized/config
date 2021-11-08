@@ -108,6 +108,8 @@ remap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find theme=get_ivy
 
 -- Quickfix.
 remap('n', '<leader>cq', '<cmd>Telescope quickfix theme=get_ivy previewer=false<cr>')
+remap('n', '<leader>c(', '<cmd>cp<cr>')
+remap('n', '<leader>c)', '<cmd>cn<cr>')
 
 -- Tags.
 remap('n', '<leader>cT', '<cmd>Telescope tags<CR>')
