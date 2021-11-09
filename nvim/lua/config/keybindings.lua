@@ -79,6 +79,9 @@ remap('n', '<leader>bs', '<cmd>w<cr>')
 remap('n', '<leader>bS', '<cmd>w!<cr>')
 remap('n', '<leader>bt', '<cmd>tabnew<cr>')
 
+-- Resume search.
+remap('n', "<leader>'", '<cmd>Telescope resume<cr>')
+
 -- Buffers.
 remap('n', '<leader>bb', '<cmd>Telescope buffers theme=get_ivy previewer=false<cr>')
 
