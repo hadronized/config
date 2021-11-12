@@ -172,12 +172,6 @@ lsp.rust_analyzer.setup {
         linksInHover = true,
       },
 
-      inlayHints = {
-        chainingHints = true,
-        parameterHints = true,
-        typeHints = true,
-      },
-
       lens = {
         enable = true,
         debug = true,

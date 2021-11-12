@@ -230,16 +230,6 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
 
   use {
-    'nvim-lua/lsp_extensions.nvim',
-    as = 'lsp_extensions',
-    config = function()
-      vim.cmd [[
-        au BufEnter,BufWinEnter,BufWritePost,InsertLeave,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = " » " }
-      ]]
-    end
-  }
-
-  use {
     'nvim-lua/lsp-status.nvim',
     as = 'lsp-status'
   }

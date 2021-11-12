@@ -27,6 +27,9 @@
 ;; Tab spaces / indentation
 (setq tab-width 2)
 
+;; Native compilation
+(setq package-native-compile t)
+
 ;; Undo / redo.
 (map! :n "U" 'undo-tree-redo)
 
