@@ -15,8 +15,8 @@
 (setq doom-localleader-key ",")
 
 ;; Font setting.
-(setq doom-font (font-spec :family "JetBrains Mono" :size 13)
-      doom-variable-pitch-font (font-spec :family "Overpass" :size 13))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 13 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 13 :weight 'thin))
 
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)

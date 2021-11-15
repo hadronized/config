@@ -128,8 +128,19 @@ remap('n', '<leader>tt', '<cmd>UltestSummary<cr>')
 remap('n', '<leader>ft', '<cmd>NvimTreeToggle<CR>')
 
 -- Org & notes.
-remap('n', '<leader>nn', "<cmd>lua require'mind'.open_node()<cr>")
-remap('n', '<leader>na', "<cmd>lua require'mind'.create_node()<cr>")
+remap('n', '<leader>nn', "<cmd>lua require'mind'.open_note()<cr>")
+remap('n', '<leader>nN', "<cmd>lua require'mind'.new_note()<cr>")
+remap('n', '<leader>nt', "<cmd>lua require'mind'.open_todo()<cr>")
+remap('n', '<leader>nT', "<cmd>lua require'mind'.new_todo()<cr>")
+remap('n', '<leader>ns', "<cmd>lua require'mind'.open_wip()<cr>")
+remap('n', '<leader>nS', "<cmd>lua require'mind'.new_wip()<cr>")
+remap('n', '<leader>nd', "<cmd>lua require'mind'.open_done()<cr>")
+remap('n', '<leader>nD', "<cmd>lua require'mind'.new_done()<cr>")
+remap('n', '<leader>nj', "<cmd>lua require'mind'.open_daily()<cr>")
+remap('n', '<leader>nJ', "<cmd>lua require'mind'.open_journal()<cr>")
+remap('n', '<leader>n$t', "<cmd>lua require'mind'.mark_todo()<cr>")
+remap('n', '<leader>n$s', "<cmd>lua require'mind'.mark_wip()<cr>")
+remap('n', '<leader>n$d', "<cmd>lua require'mind'.mark_done()<cr>")
 
 -- Hop.
 remap('', 'è', '<cmd>HopWord<cr>')

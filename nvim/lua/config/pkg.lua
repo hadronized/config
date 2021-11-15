@@ -104,7 +104,8 @@ require('packer').startup(function(use)
   }
 
   use {
-    'phaazon/mind.nvim',
+    -- 'phaazon/mind.nvim',
+    '~/dev/mind.nvim',
     config = function()
       require'mind'.setup()
     end
