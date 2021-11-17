@@ -144,8 +144,10 @@ remap('n', '<leader>n$d', "<cmd>lua require'mind'.mark_done()<cr>")
 
 -- Hop.
 remap('', 'è', '<cmd>HopWord<cr>')
-remap('', 'f', '<cmd>HopChar1CurrentLineAC<cr>')
-remap('', 'F', '<cmd>HopChar1CurrentLineBC<cr>')
+remap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>")
+remap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>")
+remap('', 'à', '<cmd>HopChar1CurrentLineAC<cr>')
+remap('', 'À', '<cmd>HopChar1CurrentLineBC<cr>')
 remap('', 'È', '<cmd>HopChar1<cr>')
 remap('', '<C-l>', '<cmd>HopLineStart<cr>')
 remap('', '<leader>/', '<cmd>HopPattern<cr>')
