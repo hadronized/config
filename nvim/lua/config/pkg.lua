@@ -263,8 +263,6 @@ require('packer').startup(function(use)
     end,
   }
 
-  use 'MattesGroeger/vim-bookmarks'
-
   -- Visual & graphics.
   use {
     'norcalli/nvim-colorizer.lua',
@@ -381,6 +379,21 @@ require('packer').startup(function(use)
           ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
         }
       })
+    end
+  }
+
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('trouble').setup()
+    end
+  }
+
+  use {
+    'chentau/marks.nvim',
+    config = function()
+      require'marks'.setup({})
     end
   }
 end)
