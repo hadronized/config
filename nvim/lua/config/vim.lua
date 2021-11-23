@@ -27,6 +27,7 @@ bo.shiftwidth = 2 -- indentation level
 o.shiftwidth = 2
 o.ignorecase = true
 o.smartcase = true
+o.virtualedit = 'onemore'
 
 -- remove trailing whitespaces & highlight yank
 vim.api.nvim_command([[au BufWritePre * %s/\s\+$//e]])
