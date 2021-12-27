@@ -98,7 +98,7 @@ require('packer').startup(function(use)
     branch = "v1",
     config = function()
       require'hop'.setup {
-        keys = 'etovxqpdygéèfblzhckisuran',
+        keys = 'etovxqpdygfblzhckisuran',
       }
     end
   }
@@ -262,6 +262,8 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     config = function()
       require'telescope'.setup()
+
+      vim.cmd [[autocmd FileType TelescopePrompt inoremap <C-W> <C-S-W>]]
     end
   }
 

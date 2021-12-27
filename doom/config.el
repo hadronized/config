@@ -1,6 +1,9 @@
 ;; The best theme — ever.
 (setq doom-theme 'doom-one)
 
+;; Compile all elisp
+(setq comp-deferred-compilation t)
+
 ;; This is sometimes required. I have no idea why.
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
