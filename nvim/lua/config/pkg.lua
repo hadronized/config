@@ -275,6 +275,7 @@ require('packer').startup(function(use)
 
   use {
     'saecki/crates.nvim',
+    branch = 'main',
     event = { "BufRead Cargo.toml" },
     requires = { { 'nvim-lua/plenary.nvim' } },
     config = function()
