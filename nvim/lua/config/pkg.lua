@@ -91,11 +91,38 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = 'maintained',
+
+        highlight = {
+          enable = true,              -- false will disable the whole extension
+        },
+
+        indent = {
+          enable = true,
+        },
+
+        textobjects = {
+          enable = true
+        },
+
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+          },
+        },
+      }
+    end
   }
 
   use {
     'phaazon/hop.nvim',
-    branch = "v1",
+    -- branch = "v1",
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',

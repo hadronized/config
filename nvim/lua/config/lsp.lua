@@ -251,7 +251,13 @@ lsp.vuels.setup {
 -- }
 
 -- Purescript
-require'lspconfig'.purescriptls.setup {
+lsp.purescriptls.setup {
+  flags = lsp_flags,
+  on_attach = lsp_attach {},
+}
+
+-- Golang.
+lsp.gopls.setup {
   flags = lsp_flags,
   on_attach = lsp_attach {},
 }
