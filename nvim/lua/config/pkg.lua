@@ -53,8 +53,6 @@ require('packer').startup(function(use)
 
   use 'sainnhe/sonokai'
 
-  use { 'glepnir/zephyr-nvim', branch = 'main' }
-
   use { 'dracula/vim', as = 'dracula' }
 
   use { 'challenger-deep-theme/vim', as = 'challenger-deep' }
@@ -93,8 +91,6 @@ require('packer').startup(function(use)
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = 'maintained',
-
         highlight = {
           enable = true,              -- false will disable the whole extension
         },
