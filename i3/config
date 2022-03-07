@@ -12,7 +12,7 @@ floating_modifier $mod
 # keybindings
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # show the scratchpad
 bindsym $mod+d scratchpad show
@@ -256,7 +256,8 @@ default_floating_border normal
 
 title_align center
 
-gaps inner 0
+gaps inner 5
+gaps outer 5
 #workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
 
 #hide_edge_borders both
@@ -267,9 +268,8 @@ show_marks yes
 
 exec dunst &
 exec nitrogen --restore &
-exec picom --experimental-backends &
-exec setxkbmap -option caps:escape
+#exec picom --experimental-backends &
+#exec setxkbmap -option caps:escape
 exec xset r rate 200 30
-exec redshift-gtk &
-exec polybar desktop-primary &
-exec polybar desktop-secondary &
+#exec redshift-gtk &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

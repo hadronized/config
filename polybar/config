@@ -20,29 +20,17 @@
 [colors]
 foreground        = #a0a0a0
 foreground-dimmed = #606060
-; background        = #2b2d3a
-background       = #66000000
+background        = #222222
+background-dimmed = #333333
 transparent       = #00000000
 
-; bspwm colors
+; colors
 green0   = #73d8a5
 green1   = #578f77
 blue0    = #73d2d8
 blue1    = #558084
 red0     = #fb355c
 magenta0 = #cd6596
-
-; i3 colors (deprecated)
-violet0 = #f3e5f5
-violet1 = #e1bee7
-violet2 = #ce93d8
-violet3 = #ba68c8
-violet4 = #ab47bc
-violet5 = #9c27b0
-violet6 = #8e24aa
-violet7 = #7b1fa2
-violet8 = #6a1b9a
-violet9 = #4a148c
 
 ; Bars.
 [bar/desktop-primary]
@@ -52,7 +40,7 @@ width = 100%
 height = 30
 radius = 0.0
 fixed-center = true
-wm-restack = bspwm
+wm-restack = i3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -66,7 +54,7 @@ font-0 = Cantarell:style=Bold:pixelsize=14;2
 font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=18;4
 font-2 = Material Icons:style=Solid:pixelsize=18;5
 
-modules-left = bspwm
+modules-left = i3
 modules-center = xwindow
 modules-right = spotifyprevious spotifyplaypause spotifynext spotify dunst pulseaudio date
 
@@ -79,7 +67,7 @@ width = 100%
 height = 30
 radius = 0.0
 fixed-center = true
-wm-restack = bspwm
+wm-restack = i3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -96,7 +84,7 @@ font-0 = Cantarell:style=Bold:pixelsize=13;2
 font-1 = DejaVu Sans Mono Nerd Font:style=Solid:pixelsize=18;4
 font-2 = Material Icons:style=Solid:pixelsize=18;5
 
-modules-left = bspwm
+modules-left = i3
 modules-center = xwindow
 modules-right = network-up network-down network info-kernel date
 
@@ -107,7 +95,7 @@ width = 100%
 height = 30
 radius = 0.0
 fixed-center = true
-wm-restack = bspwm
+wm-restack = i3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -121,28 +109,33 @@ font-0 = Cantarell:style=Bold:pixelsize=14;2
 font-1 = Symbols Nerd Font:style=Solid:pixelsize=18;4
 font-2 = Material Icons:style=Solid:pixelsize=18;5
 
-modules-left = bspwm
+modules-left = i3
 modules-center = xwindow
 modules-right = wireless network-up network-down dunst pulseaudio battery date
 
 tray-position = right
 tray-padding = 2
 
-
 ; Modules.
-[module/bspwm]
-type = internal/bspwm
+[module/i3]
+type = internal/i3
 
 ; Only show workspaces defined on the same output as the bar
-; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
-; But if you rename your bspwm monitors with bspc -n this option will no longer
-; behave correctly.
-; Default: true
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
 pin-workspaces = true
 
-; Output mode flags after focused state label
+; This will split the workspace name on ':'
 ; Default: false
-inline-mode = false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
 
 ; Create click handler used to focus workspace
 ; Default: true
@@ -151,6 +144,10 @@ enable-click = true
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
 enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
 
 ; Set the scroll cycle direction
 ; Default: true
@@ -164,117 +161,64 @@ reverse-scroll = false
 fuzzy-match = true
 
 ; Available tags:
-;   <label-monitor>
-;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
-;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
-; Default: <label-state>
-format = <label-mode> <label-state>
-format-foreground = ${colors.magenta0}
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
 
 ; Available tokens:
-;   %name%
-; Default: %name%
-label-monitor = %name%
-
-; If any values for label-dimmed-N are defined, the workspace/mode
-; colors will get overridden with those values if the monitor is out of focus
-; To only override workspaces in a specific state, use:
-;   label-dimmed-focused
-;   label-dimmed-occupied
-;   label-dimmed-urgent
-;   label-dimmed-empty
-label-dimmed-focused-foreground = ${colors.blue0}
-label-dimmed-occupied-foreground = ${colors.blue1}
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.background}
 
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
-; Default: %icon%  %name%
-label-focused = %name%
+;   %output%
+; Default: %icon% %name%
+label-focused = %index%
 label-focused-foreground = ${colors.green0}
+label-focused-background = ${colors.background-dimmed}
+label-focused-underline = ${colors.green0}
+label-focused-padding = 2
 
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
-; Default: %icon%  %name%
-label-occupied = %name%
-label-occupied-foreground = ${colors.green1}
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-empty = %name%
-label-empty-foreground = ${colors.foreground-dimmed}
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-urgent = %name%
-label-urgent-foreground = ${colors.red0}
-
-; Separator in between workspaces
-label-separator = |
-label-separator-padding = 2
-label-separator-foreground = ${colors.transparent}
-label-separator-background = ${colors.background}
-
-; The following labels will be used to indicate the layout/mode
-; for the focused workspace. Requires <label-mode>
-;
-; Available tokens:
-;   None
-label-monocle = 
-label-tiled = 
-label-fullscreen = 
-label-floating = 
-label-pseudotiled = 
-label-locked = 
-label-locked-foreground = #bd2c40
-label-sticky = 
-label-sticky-foreground = #fba922
-label-private = 
-label-private-foreground = #bd2c40
-label-marked = 
-
-[module/i3]
-type = internal/i3
-format =  <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-strip-wsnumbers = false
-pin-workspaces = true
-
-label-focused = %name%
-label-focused-foreground = ${colors.violet0}
-label-focused-background = ${colors.transparent}
-label-focused-padding = 4
-
-label-visible = %name%
-label-visible-foreground = ${colors.violet2}
-label-visible-background = ${colors.background}
-label-visible-padding = 4
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
+;   %output%
+; Default: %icon% %name%
+label-unfocused = %index%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
-label-unfocused-padding = 4
+label-unfocused-padding = 2
 
-; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-foreground = ${colors.violet1}
-label-urgent-background = ${colors.violet4}
-label-urgent-padding = 4
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-visible = %index%
+label-visible-padding = 2
 
-label-separator = " "
-label-separator-padding = 0
-label-separator-background = ${colors.transparent}
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = ·
+; label-separator-padding = 2
+; label-separator-foreground = ${colors.blue0}
 
 [module/xwindow]
 type = internal/xwindow
@@ -332,7 +276,7 @@ interface = enp7s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix = " "
+format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.magenta0}
 label-connected = %local_ip%
 
@@ -344,7 +288,7 @@ interface = wlan0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix = " "
+format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.magenta0}
 label-connected = %upspeed%
 
@@ -356,7 +300,7 @@ interface = wlan0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix = " "
+format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.magenta0}
 label-connected = %downspeed%
 
@@ -367,7 +311,7 @@ type = custom/script
 exec = uname -r
 interval = 1024
 
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.magenta0}
 
 [module/dunst]
