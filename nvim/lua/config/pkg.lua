@@ -44,33 +44,7 @@ require('packer').startup(function(use)
   -- Themes
   use 'tjdevries/colorbuddy.vim'
 
-  use {
-    'romgrk/doom-one.vim',
-    config = function()
-      -- vim.cmd('colorscheme doom-one')
-    end
-  }
-
-  use 'sainnhe/sonokai'
-
   use { 'dracula/vim', as = 'dracula' }
-
-  use { 'challenger-deep-theme/vim', as = 'challenger-deep' }
-
-  use 'drewtempelmeyer/palenight.vim'
-
-  use 'Rigellute/shades-of-purple.vim'
-
-  use 'archseer/colibri.vim'
-
-  use 'embark-theme/vim'
-
-  use 'bkegley/gloombuddy'
-
-  use {
-    'joshdick/onedark.vim',
-    branch = 'main',
-  }
 
   use {
     'sainnhe/edge',
@@ -118,7 +92,7 @@ require('packer').startup(function(use)
 
   use {
     'phaazon/hop.nvim',
-    -- branch = "v1",
+    branch = "v1",
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',
@@ -324,7 +298,7 @@ require('packer').startup(function(use)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    disable = true,
+    -- disable = true,
     config = function()
       require'indent_blankline'.setup {
         char = '│',
