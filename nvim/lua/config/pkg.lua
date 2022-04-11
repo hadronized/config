@@ -1,6 +1,5 @@
 vim.g.nvim_tree_side = 'left'
 vim.g.nvim_tree_width = 40
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_root_folder_modifier = ':.'
 vim.g.nvim_tree_allow_resize = 1
@@ -65,6 +64,12 @@ require('packer').startup(function(use)
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
+        renderer = {
+          indent_markers = {
+            enable = true,
+          },
+        },
+
         highlight = {
           enable = true,              -- false will disable the whole extension
         },
