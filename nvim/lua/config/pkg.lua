@@ -209,11 +209,6 @@ require('packer').startup(function(use)
       local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
       require'nvim-tree'.setup {
-        update_to_buf_dir = {
-          auto_open = false,
-          auto_close = true,
-        },
-        tab_open = false,
         update_focused_file = {
           enable = true,
         },
@@ -382,6 +377,13 @@ require('packer').startup(function(use)
     'chentau/marks.nvim',
     config = function()
       require'marks'.setup({})
+    end
+  }
+
+  use {
+    'stevearc/aerial.nvim',
+    config = function()
+      require('aerial').setup()
     end
   }
 end)

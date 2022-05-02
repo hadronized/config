@@ -43,16 +43,6 @@ local lsp_flags = {}
 local lsp_attach = function(args)
   return function(client, bufnr)
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
-      vim.api.nvim_exec([[
-        augroup lsp_document_highlight
-          autocmd! * <buffer>
-          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-      ]], false)
-    end
-
     if args == nil or args.format == nil or args.format then
       vim.api.nvim_exec([[
         augroup lsp_formatting_sync
