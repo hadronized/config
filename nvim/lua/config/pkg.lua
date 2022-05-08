@@ -60,6 +60,13 @@ require('packer').startup(function(use)
 
   -- Productivity.
   use {
+    "williamboman/nvim-lsp-installer",
+    config = function()
+      require("nvim-lsp-installer").setup {}
+    end
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
@@ -278,7 +285,7 @@ require('packer').startup(function(use)
     config = function()
       require('crates').setup {
         popup = {
-          version_date = true,
+          show_version_date = true,
         }
       }
     end,
@@ -380,10 +387,5 @@ require('packer').startup(function(use)
     end
   }
 
-  use {
-    'stevearc/aerial.nvim',
-    config = function()
-      require('aerial').setup()
-    end
-  }
+  use 'simrat39/symbols-outline.nvim'
 end)

@@ -25,16 +25,6 @@ vim.cmd [[
 ]]
 
 local lsp = require'lspconfig'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
-vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
 -- common flags to all LSPs
 local lsp_flags = {}
@@ -42,12 +32,11 @@ local lsp_flags = {}
 -- attach
 local lsp_attach = function(args)
   return function(client, bufnr)
-    -- Set autocommands conditional on server_capabilities
     if args == nil or args.format == nil or args.format then
       vim.api.nvim_exec([[
         augroup lsp_formatting_sync
           autocmd! * <buffer>
-          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+          autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
         augroup END
       ]], false)
     end
@@ -113,7 +102,6 @@ lsp.sumneko_lua.setup {
 -- Rust.
 lsp.rust_analyzer.setup {
   flags = lsp_flags,
-  capabilities = capabilities,
   cmd = { string.format("%s/rust-analyzer/target/release/rust-analyzer", foss_path) },
   settings = {
     ["rust-analyzer"] = {
