@@ -12,6 +12,7 @@
     allowPendingPaneItems: false
     audioBeep: false
     closeEmptyWindows: false
+    colorProfile: "srgb"
     disabledPackages: [
       "tabs"
     ]
@@ -23,7 +24,7 @@
     replaceCharacters: "etovxqpdygéèfblzhckisuran"
   editor:
     fontFamily: "JetBrains Mono"
-    fontSize: 25
+    fontSize: 19
     preferredLineLength: 120
     showIndentGuide: true
     showInvisibles: true
