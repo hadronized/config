@@ -29,6 +29,8 @@ local lsp = require'lspconfig'
 -- common flags to all LSPs
 local lsp_flags = {}
 
+local lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- attach
 local lsp_attach = function(args)
   return function(client, bufnr)
@@ -68,7 +70,7 @@ end
 
 -- Lua.
 lsp.sumneko_lua.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   cmd = {
     string.format("%s/lua-language-server/bin/platform/lua-language-server", foss_path),
     "-E",
@@ -101,7 +103,7 @@ lsp.sumneko_lua.setup {
 
 -- Rust.
 lsp.rust_analyzer.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   cmd = { string.format("%s/rust-analyzer/target/release/rust-analyzer", foss_path) },
   settings = {
     ["rust-analyzer"] = {
@@ -206,19 +208,19 @@ lsp.rust_analyzer.setup {
 
 -- Haskell.
 lsp.hls.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   on_attach = lsp_attach {},
 }
 
 -- C/C++.
 lsp.clangd.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   on_attach = lsp_attach {},
 }
 
 -- Vue.
 lsp.vuels.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   on_attach = lsp_attach { format = false },
 }
 
@@ -230,12 +232,12 @@ lsp.vuels.setup {
 
 -- Purescript
 lsp.purescriptls.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   on_attach = lsp_attach {},
 }
 
 -- Golang.
 lsp.gopls.setup {
-  flags = lsp_flags,
+  capabilities = lsp_capabilities,
   on_attach = lsp_attach {},
 }
