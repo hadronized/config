@@ -28,26 +28,27 @@ vim.g.material_style = 'palenight'
 vim.g.material_italic_keywords = true
 vim.g.material_hide_eob = true
 
-vim.g.edge_style = 'neon'
-vim.g.edge_enable_italic = 1
-vim.g.edge_diagnostic_text_highlight = 1
-vim.g.edge_diagnostic_line_highlight = 1
-vim.g.edge_diagnostic_virtual_text = 'colored'
-
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Themes
-  use 'tjdevries/colorbuddy.vim'
+  use 'nvim-lua/plenary.nvim'
 
-  use { 'dracula/vim', as = 'dracula' }
+  use 'tjdevries/colorbuddy.vim'
 
   use {
     'sainnhe/edge',
     config = function()
+      vim.g.edge_style = 'neon'
+      vim.g.edge_enable_italic = 1
+      vim.g.edge_better_performance = 1
+      vim.g.edge_diagnostic_text_highlight = 1
+      vim.g.edge_diagnostic_line_highlight = 1
+      vim.g.edge_diagnostic_virtual_text = 'colored'
+      vim.g.edge_spell_foreground = 'colored'
+
       vim.cmd('colorscheme edge')
 
       -- edge overrides Hop and I don’t really like its default, it’s too dimmed to me; so we re-insert them
@@ -58,7 +59,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- Productivity.
   use {
     "williamboman/nvim-lsp-installer",
     config = function()
@@ -78,7 +78,7 @@ require('packer').startup(function(use)
         },
 
         highlight = {
-          enable = true,              -- false will disable the whole extension
+          enable = true,
         },
 
         indent = {
@@ -234,8 +234,6 @@ require('packer').startup(function(use)
     end
   }
 
-  use 'nvim-lua/plenary.nvim'
-
   use 'neovim/nvim-lspconfig'
 
   use {
@@ -328,7 +326,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- Languages.
   use 'petrbroz/vim-glsl'
 
   use 'towolf/vim-helm'
