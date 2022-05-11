@@ -15,6 +15,17 @@ lsp_status.config {
   indicator_ok = '%#StatusLineLSPOk#',
 }
 
+local signs = {
+	{ name = "DiagnosticSignError", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
 vim.cmd [[
   hi StatusLineLinNbr guibg=#23272e guifg=#51afef
   hi StatusLineLSPOk guibg=#23272e guifg=#98be65
@@ -24,11 +35,23 @@ vim.cmd [[
   hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
 ]]
 
+-- Prefix diagnostic virtual text
+vim.diagnostic.config {
+    virtual_text = {
+        source = "always",
+        prefix = "» ",
+        spacing = 6,
+    },
+    float = {
+        header = false,
+        source = "always",
+    },
+    signs = true,
+    underline = false,
+    update_in_insert = false,
+}
+
 local lsp = require'lspconfig'
-
--- common flags to all LSPs
-local lsp_flags = {}
-
 local lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- attach

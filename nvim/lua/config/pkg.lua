@@ -153,21 +153,57 @@ require('packer').startup(function(use)
       -- nvim-cmp setup
       local cmp = require 'cmp'
       local snippy = require'snippy'
-      local has_words_before = function()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
+
+      local icons = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "⌘",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "廓",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+      }
 
       cmp.setup {
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(_, vim_item)
+            vim_item.menu = vim_item.kind
+            vim_item.kind = icons[vim_item.kind]
+
+            return vim_item
+          end,
+        },
+
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
+
         snippet = {
           expand = function(args)
             snippy.expand_snippet(args.body)
           end,
         },
+
         mapping = {
           ['<C-s>'] = cmp.mapping.select_prev_item(),
           ['<C-t>'] = cmp.mapping.select_next_item(),
@@ -180,6 +216,7 @@ require('packer').startup(function(use)
             select = true,
           },
         },
+
         sources = {
           { name = 'crates' },
           { name = 'nvim_lsp' },
