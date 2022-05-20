@@ -28,7 +28,7 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' get-revision true
 zstyle ':vcs_info:git:*' stagedstr '%F{green}✓'
 zstyle ':vcs_info:git:*' unstagedstr '%F{red}±'
-#
+
 # enable hooks, requires Zsh >=4.3.11
 if [[ $ZSH_VERSION == 4.3.<11->* || $ZSH_VERSION == 4.<4->* || $ZSH_VERSION == <5->* ]] ; then
   # hook for untracked files
