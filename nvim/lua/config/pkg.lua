@@ -103,6 +103,14 @@ require('packer').startup(function(use)
   }
 
   use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require'nvim-gps'.setup()
+    end
+  }
+
+  use {
     'phaazon/hop.nvim',
     branch = "v1",
     config = function()
@@ -422,11 +430,9 @@ require('packer').startup(function(use)
   }
 
   use {
-    'chentau/marks.nvim',
+    'chentoast/marks.nvim',
     config = function()
       require'marks'.setup({})
     end
   }
-
-  use 'simrat39/symbols-outline.nvim'
 end)

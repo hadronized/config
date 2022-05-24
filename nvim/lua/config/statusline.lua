@@ -116,6 +116,15 @@ local function vcs_status()
   )
 end
 
+local function lsp_breadcrumbs()
+  local gps = require'nvim-gps'
+  if gps == nil or not gps.is_available() then
+    return ''
+  end
+
+  return gps.get_location()
+end
+
 local function lsp_status()
   if #vim.lsp.buf_get_clients() > 0 then
     return require('lsp-status').status()
@@ -305,7 +314,6 @@ local function make_active_status_line()
   }
 
   local hl = 'StatusLineBg'
-  local hl2 = 'StatusLineBg2c'
 
   local mode = vim.fn.mode()
   if vim.fn.has_key(hls, mode) then
@@ -314,28 +322,22 @@ local function make_active_status_line()
     else
       hl = hls[mode]['n']
     end
-
-    hl2 = hls[mode]['nr']
   end
 
-  local status_line = string.format('%%#%s# %d %%#%s# %s ',
-    hl2,
-    vim.fn.win_id2win(vim.g.statusline_winid),
+  local status_line = string.format('%%#%s# %s ',
     hl,
     get_file_name(vim.bo.mod)
   )
-  status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
+  -- status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
+  status_line = status_line .. '%#StatusLineBg2b# ' .. lsp_breadcrumbs()
   status_line = status_line .. string.format('%%=%%#StatusLineBg# %s %s ', lsp_status(), vcs_status())
 
   return status_line
 end
 
 local function make_inactive_status_line()
-  local hl = 'StatusLineBg2c'
   local hlend = 'StatusLineBg'
-  local status_line = string.format(' %d %%#%s# %s %%#%s#',
-    vim.fn.win_id2win(vim.g.statusline_winid),
-    hl,
+  local status_line = string.format(' %s %%#%s#',
     get_file_name(),
     hlend
   )
