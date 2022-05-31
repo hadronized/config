@@ -127,7 +127,6 @@ lsp.sumneko_lua.setup {
 -- Rust.
 lsp.rust_analyzer.setup {
   capabilities = lsp_capabilities,
-  cmd = { string.format("%s/rust-analyzer/target/release/rust-analyzer", foss_path) },
   settings = {
     ["rust-analyzer"] = {
       assist = {
