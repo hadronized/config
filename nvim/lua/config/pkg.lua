@@ -1,28 +1,6 @@
 vim.g.nvim_tree_side = 'left'
 vim.g.nvim_tree_width = 40
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_root_folder_modifier = ':.'
 vim.g.nvim_tree_allow_resize = 1
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1,
-}
-vim.g.nvim_tree_icons = {
-  default = '',
-  symlink = '',
-  git = {
-    unstaged = '✗',
-    staged = '✓',
-    unmerged = '',
-    renamed = '➜',
-    untracked = '★'
-  },
-  folder = {
-    default = '',
-    open = ''
-  },
-}
 
 vim.g.material_style = 'palenight'
 vim.g.material_italic_keywords = true
@@ -75,6 +53,35 @@ require('packer').startup(function(use)
           indent_markers = {
             enable = true,
           },
+
+          root_folder_modifier = ':.',
+
+          show_icons = {
+            git = true,
+            folder = true,
+            file = true,
+          },
+
+
+          icons = {
+            glyph = {
+              default = '',
+              symlink = '',
+              git = {
+                unstaged = '✗',
+                staged = '✓',
+                unmerged = '',
+                renamed = '➜',
+                untracked = '★'
+              },
+              folder = {
+                default = '',
+                open = ''
+              },
+            },
+          },
+
+          higlight_git = true,
         },
 
         highlight = {
