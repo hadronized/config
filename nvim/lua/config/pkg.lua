@@ -286,7 +286,13 @@ require('packer').startup(function(use)
     end
   }
 
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require'nvim-lsp-installer'.setup()
+      require'config.lsp'
+    end
+  }
 
   use {
     'nvim-lua/lsp-status.nvim',

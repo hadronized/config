@@ -3,3 +3,18 @@ snippet str "Derive famous traits" b
 	pub struct ${2:Foo} {
 	  ${3:field_name}: ${4:i32}
 	}
+
+snippet modtest "Add a test suite" b
+	#[cfg(test)]
+	mod test {
+	  use super::*;
+
+		$0
+	}
+
+snippet test "Add a new test" b
+	/// $2
+	#[test]
+	fn test_$1() {
+		$0
+	}
