@@ -52,7 +52,8 @@ vim.diagnostic.config {
 }
 
 local lsp = require'lspconfig'
-local lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+lsp_capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_capabilities)
 
 -- attach
 local lsp_attach = function(args)
@@ -131,8 +132,8 @@ lsp.rust_analyzer.setup {
     ["rust-analyzer"] = {
       assist = {
         importGroup = true,
-        importMergeBehaviour = "full",
-        importPrefix = "by_crate",
+        importGranularity = "crate",
+        importPrefix = "crate",
       },
 
       callInfo = {
