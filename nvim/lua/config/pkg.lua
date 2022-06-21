@@ -317,9 +317,25 @@ require('packer').startup(function(use)
             },
           },
         },
+
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+              -- more options
+            },
+          }
+        }
       }
 
       require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("fzf")
 
       vim.cmd [[autocmd FileType TelescopePrompt inoremap <C-W> <C-S-W>]]
     end
