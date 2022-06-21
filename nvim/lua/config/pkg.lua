@@ -2,10 +2,6 @@ vim.g.nvim_tree_side = 'left'
 vim.g.nvim_tree_width = 40
 vim.g.nvim_tree_allow_resize = 1
 
-vim.g.material_style = 'palenight'
-vim.g.material_italic_keywords = true
-vim.g.material_hide_eob = true
-
 -- Package loading.
 vim.cmd [[packadd packer.nvim]]
 
@@ -118,7 +114,9 @@ require('packer').startup(function(use)
   }
 
   use {
-    'phaazon/hop.nvim',
+    -- 'phaazon/hop.nvim',
+    '~/dev/hop.nvim',
+    -- branch = "v1",
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',
