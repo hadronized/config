@@ -119,7 +119,6 @@ require('packer').startup(function(use)
 
   use {
     'phaazon/hop.nvim',
-    branch = "v1",
     config = function()
       require'hop'.setup {
         keys = 'etovxqpdygfblzhckisuran',
