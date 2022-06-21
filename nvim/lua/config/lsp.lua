@@ -2,19 +2,6 @@
 local user_home = os.getenv("HOME") or "/tmp"
 local foss_path = string.format("%s/foss", user_home)
 
--- status
-local lsp_status = require('lsp-status')
-lsp_status.register_progress()
-lsp_status.config {
-  current_function = true,
-  status_symbol = '%#StatusLineLinNbr#LSP',
-  indicator_errors = '%#StatusLineLSPErrors#',
-  indicator_warnings = '%#StatusLineLSPWarnings#',
-  indicator_info = '%#StatusLineLSPInfo#',
-  indicator_hints = '%#StatusLineLSPHints#',
-  indicator_ok = '%#StatusLineLSPOk#',
-}
-
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -66,8 +53,6 @@ local lsp_attach = function(args)
         augroup END
       ]], false)
     end
-
-    lsp_status.on_attach(client)
 
     -- make omnifunc go via LSP’s completion directly
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

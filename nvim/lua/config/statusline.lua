@@ -125,14 +125,6 @@ local function lsp_breadcrumbs()
   return gps.get_location()
 end
 
-local function lsp_status()
-  if #vim.lsp.buf_get_clients() > 0 then
-    return require('lsp-status').status()
-  end
-
-  return ''
-end
-
 local function get_file_name(modified)
   local max_width = vim.fn.winwidth(vim.g.statusline_winid) * 0.25
   local file_name = vim.fn.fnamemodify(vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid)), ':.')
@@ -330,7 +322,7 @@ local function make_active_status_line()
   )
   -- status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
   status_line = status_line .. '%#StatusLineBg2b# ' .. lsp_breadcrumbs()
-  status_line = status_line .. string.format('%%=%%#StatusLineBg# %s %s ', lsp_status(), vcs_status())
+  status_line = status_line .. string.format('%%=%%#StatusLineBg# %s ', vcs_status())
 
   return status_line
 end

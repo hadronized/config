@@ -291,11 +291,6 @@ require('packer').startup(function(use)
     end
   }
 
-  use {
-    'nvim-lua/lsp-status.nvim',
-    as = 'lsp-status'
-  }
-
   use 'universal-ctags/ctags'
 
   use {
@@ -385,6 +380,7 @@ require('packer').startup(function(use)
 
   use {
     'rcarriga/nvim-notify',
+    disable = true,
     config = function()
       vim.notify = require'notify'
     end
@@ -454,4 +450,23 @@ require('packer').startup(function(use)
       require'marks'.setup({})
     end
   }
+
+  use {
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup {}
+    end
+  }
+
+  use 'simrat39/symbols-outline.nvim'
+
+  use {
+    'folke/persistence.nvim',
+    event = 'BufReadPre',
+    module = 'persistence',
+    config = function()
+      require('persistence').setup {}
+    end,
+  }
+
 end)
