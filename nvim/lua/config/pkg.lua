@@ -447,14 +447,14 @@ require('packer').startup(function(use)
   use {
     'chentoast/marks.nvim',
     config = function()
-      require'marks'.setup({})
+      require'marks'.setup {}
     end
   }
 
   use {
     'rmagatti/goto-preview',
     config = function()
-      require('goto-preview').setup {}
+      require'goto-preview'.setup {}
     end
   }
 
@@ -465,8 +465,15 @@ require('packer').startup(function(use)
     event = 'BufReadPre',
     module = 'persistence',
     config = function()
-      require('persistence').setup {}
+      require'persistence'.setup {}
     end,
   }
 
+  use {
+    'j-hui/fidget.nvim',
+    branch = 'main',
+    config = function()
+      require'fidget'.setup {}
+    end
+  }
 end)
