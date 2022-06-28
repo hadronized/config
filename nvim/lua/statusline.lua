@@ -67,7 +67,7 @@ end
 
 vim.api.nvim_command('augroup phaazon')
 vim.api.nvim_command('  au!')
-vim.api.nvim_command([[  au ColorScheme * lua require'config.statusline'.create_highlights()]])
+vim.api.nvim_command([[  au ColorScheme * lua require'statusline'.create_highlights()]])
 vim.api.nvim_command('augroup END')
 
 local function vcs_status()
@@ -346,8 +346,8 @@ function M.make_status_line(active)
 end
 
 local function create_au()
-  vim.api.nvim_command("au BufEnter * lua require'config.statusline'.make_status_line(true)")
-  vim.api.nvim_command("au BufLeave * lua require'config.statusline'.make_status_line(false)")
+  vim.api.nvim_command("au BufEnter * lua require'statusline'.make_status_line(true)")
+  vim.api.nvim_command("au BufLeave * lua require'statusline'.make_status_line(false)")
 end
 
 create_au()
