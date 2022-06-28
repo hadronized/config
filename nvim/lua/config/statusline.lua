@@ -320,8 +320,7 @@ local function make_active_status_line()
     hl,
     get_file_name(vim.bo.mod)
   )
-  -- status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
-  status_line = status_line .. '%#StatusLineBg2b# ' .. lsp_breadcrumbs()
+  status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
   status_line = status_line .. string.format('%%=%%#StatusLineBg# %s ', vcs_status())
 
   return status_line
@@ -345,6 +344,11 @@ function M.make_status_line(active)
   end
 end
 
+function M.make_tab_line()
+  vim.opt.showtabline = 2
+  vim.opt.tabline = '%!v:lua.lsp_breadcrumbs()'
+end
+
 local function create_au()
   vim.api.nvim_command("au BufEnter * lua require'config.statusline'.make_status_line(true)")
   vim.api.nvim_command("au BufLeave * lua require'config.statusline'.make_status_line(false)")
@@ -353,7 +357,10 @@ end
 create_au()
 
 M.make_status_line(true)
+M.make_tab_line()
+
 _G.active_status_line = make_active_status_line
 _G.inactive_status_line = make_inactive_status_line
+_G.lsp_breadcrumbs = lsp_breadcrumbs
 
 return M
