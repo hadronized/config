@@ -40,4 +40,5 @@ return {
   ['folke/which-key.nvim']                     = 'which-key',
   ['sindrets/diffview.nvim']                   = 'diffview',
   ['b0o/incline.nvim']                         = 'incline',
+  ['TimUntersberger/neogit']                   = 'neogit',
 }

@@ -4,7 +4,7 @@ return {
       keys = 'etovxqpdygfblzhckisuran',
     }
   end,
-  bindings = {
+  keybindings = {
     [''] = {
       {
         key = 'è',
