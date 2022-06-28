@@ -42,4 +42,5 @@ return {
   ['b0o/incline.nvim']                         = 'incline',
   ['TimUntersberger/neogit']                   = 'neogit',
   ['lewis6991/satellite.nvim']                 = 'satellite',
+  -- ['kevinhwang91/nvim-ufo']                    = 'nvim-ufo',
 }
