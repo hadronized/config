@@ -24,6 +24,9 @@
 ;; Set all-the-icons factor to 1.0 to prevent weird issues with the modeline.
 (setq all-the-icons-scale-factor 1.0)
 
+;; Enable major mode icons in the modeline.
+(setq doom-modeline-major-mode-icon t)
+
 ;; Prevents some cases of Emacs flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 

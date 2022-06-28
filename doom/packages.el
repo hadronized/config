@@ -50,8 +50,7 @@
 ;(unpin! t)
 
 (package! company-box)
-(package! tree-sitter)
-(package! tree-sitter-langs)
+(package! kubernetes)
 (package! kubernetes-evil)
 (package! vue-mode)
 (package! lsp-treemacs)
