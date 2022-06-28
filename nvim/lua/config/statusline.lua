@@ -345,11 +345,6 @@ function M.make_status_line(active)
   end
 end
 
-function M.make_tab_line()
-  vim.opt.showtabline = 2
-  vim.opt.tabline = '%!v:lua.lsp_breadcrumbs()'
-end
-
 local function create_au()
   vim.api.nvim_command("au BufEnter * lua require'config.statusline'.make_status_line(true)")
   vim.api.nvim_command("au BufLeave * lua require'config.statusline'.make_status_line(false)")
@@ -358,7 +353,6 @@ end
 create_au()
 
 M.make_status_line(true)
-M.make_tab_line()
 
 _G.active_status_line = make_active_status_line
 _G.inactive_status_line = make_inactive_status_line
