@@ -320,8 +320,9 @@ local function make_active_status_line()
     hl,
     get_file_name(vim.bo.mod)
   )
-  status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y'
-  status_line = status_line .. string.format('%%=%%#StatusLineBg# %s ', vcs_status())
+  status_line = status_line .. '%#StatusLineBg2b# ' .. lsp_breadcrumbs()
+  status_line = status_line .. '%='
+  status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y '
 
   return status_line
 end
