@@ -41,7 +41,7 @@ return {
       },
       {
         key = '<leader>gbl',
-        cmd = 'Gitsigns toggle_current_blame_line',
+        cmd = 'Gitsigns toggle_current_line_blame',
       },
     }
   }

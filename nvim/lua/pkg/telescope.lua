@@ -82,7 +82,7 @@ return {
       },
       {
         key = '<leader>ss',
-        cmd = 'Telescope current_buffer_fuzzy_find theme=get_dropdown previewer = false',
+        cmd = 'Telescope current_buffer_fuzzy_find theme=get_dropdown previewer=false',
       },
       {
         key = '<leader>fh',
