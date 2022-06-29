@@ -46,6 +46,9 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.virtualedit = 'onemore'
 opt.laststatus = 3
+opt.foldenable = true
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- a couple of crap; I wish I could move that somewhere else; get rid of it
 local g = vim.g

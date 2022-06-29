@@ -42,6 +42,6 @@ return {
   ['b0o/incline.nvim']                         = 'incline',
   ['TimUntersberger/neogit']                   = 'neogit',
   ['lewis6991/satellite.nvim']                 = 'satellite',
-  ['nvim-treesitter/nvim-treesitter']          = 'nvim-treesitter'
+  ['nvim-treesitter/nvim-treesitter']          = 'nvim-treesitter',
   -- ['kevinhwang91/nvim-ufo']                    = 'nvim-ufo',
 }
