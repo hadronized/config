@@ -12,10 +12,10 @@
 -- - First we define better defaults (vim.opt).
 -- - We then define a couple global optinons (vim.g).
 -- - Some autocommands follow.
+-- - We then load some keybindinds.
 -- - Packages are then loaded. The list of packages is in lua/pkgs, and each individual
 --   package can have their configuration in lua/pkg/<pkg_name>.lua. See the mapping to find
 --   the name of the package.
--- - We then load some keybindinds.
 -- - And finally, the home-made statusline.
 
 -- better defaults
@@ -49,6 +49,7 @@ opt.laststatus = 3
 opt.foldenable = true
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldenable = false
 
 -- a couple of crap; I wish I could move that somewhere else; get rid of it
 local g = vim.g
@@ -78,6 +79,8 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     vim.highlight.on_yank()
   end
 })
+
+require 'keybindings'
 
 -- package setup
 vim.cmd [[packadd packer.nvim]]
@@ -112,7 +115,7 @@ require'packer'.startup(function(use)
         if binding.cmd ~= nil then
           rhs = '<cmd>' .. binding.cmd .. '<cr>'
         elseif binding.lua ~= nil then
-          rhs = '<cmd>lua ' .. binding.lua .. '<cr>'
+          rhs = ':lua ' .. binding.lua .. '<cr>'
         end
 
         vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
@@ -125,5 +128,4 @@ require'packer'.startup(function(use)
   end
 end)
 
-require 'keybindings'
 require 'statusline'
