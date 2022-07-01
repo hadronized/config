@@ -2,6 +2,10 @@ return {
   keybindings = {
     n = {
       {
+        key = '<leader>pc',
+        cmd = 'PackerCompile',
+      },
+      {
         key = '<leader>ps',
         cmd = 'PackerStatus',
       },

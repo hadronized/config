@@ -10,6 +10,11 @@ return {
         topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '▏', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
       },
+      current_line_blame_opts = {
+        virt_text_pos = 'eol',
+        delay = 100,
+      },
+      current_line_blame_formatter = '   · <author>, <author_time:%R> | <summary> (<abbrev_sha>)',
       keymaps = {
         noremap = true,
 
