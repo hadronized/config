@@ -2,7 +2,7 @@ return {
   config = function()
     require('satellite').setup {
       current_only = false,
-      winblend = 50,
+      winblend = 10,
       zindex = 40,
       excluded_filetypes = {},
       width = 2,
@@ -22,5 +22,7 @@ return {
         },
       },
     }
+
+    vim.api.nvim_set_hl(0, 'ScrollView', { link = 'PmenuSel' })
   end
 }
