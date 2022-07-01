@@ -35,6 +35,7 @@ return {
   ['folke/trouble.nvim']                       = 'trouble',
   ['rmagatti/goto-preview']                    = 'goto-preview',
   ['simrat39/symbols-outline.nvim']            = 'symbols-outline',
+  ['stevearc/aerial.nvim']                     = 'aerial',
   ['folke/persistence.nvim']                   = 'persistence',
   ['j-hui/fidget.nvim']                        = 'fidget',
   ['folke/which-key.nvim']                     = 'which-key',
