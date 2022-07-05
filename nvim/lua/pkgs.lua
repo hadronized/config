@@ -22,6 +22,7 @@ return {
   ['saecki/crates.nvim']                       = 'crates',
   ['norcalli/nvim-colorizer.lua']              = 'nvim-colorizer',
   ['ryanoasis/vim-devicons']                   = 'vim-devicons',
+  ['kyazdani42/nvim-web-devicons']             = 'web-devicons',
   ['lukas-reineke/indent-blankline.nvim']      = 'indent-blankline',
   ['rcarriga/nvim-notify']                     = 'nvim-notify',
   ['petrbroz/vim-glsl']                        = 'glsl',
