@@ -64,10 +64,19 @@ return {
       },
 
       sources = {
+        { name = 'buffer' },
         { name = 'crates' },
+        { name = 'path' },
+        { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'git' },
         { name = 'snippy' },
       },
+
+      experimental = {
+        ghost_text = true,
+      }
     }
 
     -- Set up lsp completion for nvim-cmp
