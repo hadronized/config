@@ -5,6 +5,10 @@ return {
     -- config
     require'telescope'.setup {
       defaults = {
+        path_display = {
+          'truncate'
+        },
+
         mappings = {
           i = {
             ["<c-s>"] = actions.move_selection_previous,
