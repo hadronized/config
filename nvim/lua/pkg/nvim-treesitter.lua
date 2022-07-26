@@ -46,7 +46,7 @@ return {
       },
 
       textobjects = {
-        enable = true
+        enable = true,
       },
 
       incremental_selection = {
@@ -58,6 +58,10 @@ return {
           node_decremental = "grm",
         },
       },
+
+      autotag = {
+        enable = true,
+      }
     }
   end,
   keybindings = {

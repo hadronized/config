@@ -52,4 +52,5 @@ return {
   -- ['lewis6991/satellite.nvim']                 = 'satellite',
   ['nvim-treesitter/nvim-treesitter']          = 'nvim-treesitter',
   -- ['kevinhwang91/nvim-ufo']                    = 'nvim-ufo',
+  ['windwp/nvim-ts-autotag']                   = 'nvim-ts-autotag',
 }
