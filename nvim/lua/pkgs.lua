@@ -53,4 +53,5 @@ return {
   ['nvim-treesitter/nvim-treesitter']          = 'nvim-treesitter',
   -- ['kevinhwang91/nvim-ufo']                    = 'nvim-ufo',
   ['windwp/nvim-ts-autotag']                   = 'nvim-ts-autotag',
+  ['Pocco81/true-zen.nvim']                    = 'true-zen',
 }
