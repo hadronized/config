@@ -1,4 +1,5 @@
 return {
+  disable = true,
   as = 'nvim-tree',
   init = function()
     vim.g.nvim_tree_side = 'left'
@@ -42,12 +43,4 @@ return {
       }
     }
   end,
-  keybindings = {
-    n = {
-      {
-        key = '<leader>ft',
-        cmd = 'NvimTreeToggle',
-      }
-    }
-  }
 }

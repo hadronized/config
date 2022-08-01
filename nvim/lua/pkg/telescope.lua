@@ -47,13 +47,12 @@ return {
         key = "<leader>'",
         cmd = 'Telescope resume',
       },
-
       {
         key = '<leader>bb',
         cmd = 'Telescope buffers theme=get_dropdown previewer=false',
       },
       {
-      key = '<leader>ff',
+        key = '<leader>ff',
         cmd = 'Telescope find_files theme=get_dropdown previewer=false',
       },
       {

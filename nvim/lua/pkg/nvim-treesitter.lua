@@ -64,12 +64,4 @@ return {
       }
     }
   end,
-  keybindings = {
-    n = {
-      {
-        key = '<leader>ft',
-        cmd = 'NvimTreeToggle'
-      }
-    }
-  }
 }

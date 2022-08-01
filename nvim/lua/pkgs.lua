@@ -5,7 +5,8 @@ return {
   ['sainnhe/edge']                             = 'edge',
   ['williamboman/nvim-lsp-installer']          = 'nvim-lsp-installer',
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
-  ['phaazon/hop.nvim']                         = 'hop',
+  -- ['phaazon/hop.nvim']                         = 'hop',
+  ['~/dev/hop.nvim']                         = 'hop',
   ['phaazon/mind.nvim']                        = 'mind',
   ['windwp/nvim-autopairs']                    = 'autopairs',
   ['numToStr/Comment.nvim']                    = 'comment',
@@ -54,4 +55,6 @@ return {
   -- ['kevinhwang91/nvim-ufo']                    = 'nvim-ufo',
   ['windwp/nvim-ts-autotag']                   = 'nvim-ts-autotag',
   ['Pocco81/true-zen.nvim']                    = 'true-zen',
+  ['nvim-neo-tree/neo-tree.nvim']              = 'neo-tree',
+  ['mrbjarksen/neo-tree-diagnostics.nvim']     = 'neo-tree-diagnostics',
 }
