@@ -7,7 +7,7 @@ return {
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
   -- ['phaazon/hop.nvim']                         = 'hop',
   ['~/dev/hop.nvim']                         = 'hop',
-  ['phaazon/mind.nvim']                        = 'mind',
+  ['~/dev/mind.nvim']                        = 'mind',
   ['windwp/nvim-autopairs']                    = 'autopairs',
   ['numToStr/Comment.nvim']                    = 'comment',
   ['mfussenegger/nvim-dap']                    = 'dap',
