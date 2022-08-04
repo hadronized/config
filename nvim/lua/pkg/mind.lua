@@ -4,6 +4,7 @@ return {
     require'mind2'.setup {
       state_path = '~/mind/mind.json',
       data_dir = '~/mind/data',
+      width = 40,
     }
   end,
   keybindings = {
