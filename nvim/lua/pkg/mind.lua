@@ -1,6 +1,10 @@
 return {
   config = function()
     require'mind'.setup {}
+    require'mind2'.setup {
+      state_path = '~/mind/mind.json',
+      data_dir = '~/mind/data',
+    }
   end,
   keybindings = {
     n = {
@@ -55,6 +59,20 @@ return {
       {
         key = '<leader>n$d',
         lua = "require'mind'.mark_done()",
+      },
+
+      -- mind2
+      {
+        key = '<leader>mm',
+        lua = "require'mind2'.open_main()",
+      },
+      {
+        key = '<leader>mp',
+        lua = "require'mind2'.open_project()",
+      },
+      {
+        key = '<leader>mr',
+        lua = "require'mind2'.load_state()",
       },
     }
   }
