@@ -1,9 +1,16 @@
 return {
+  branch = 'v2',
+  requires = { 's1n7ax/nvim-window-picker' },
   config = function()
     require'mind'.setup {
-      state_path = '~/mind/mind.json',
-      data_dir = '~/mind/data',
-      width = 40,
+      persistence = {
+        state_path = '~/mind/mind.json',
+        data_dir = '~/mind/data',
+      },
+
+      ui = {
+        width = 40,
+      },
     }
   end,
   keybindings = {
