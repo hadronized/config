@@ -115,10 +115,16 @@ require'packer'.startup(function(use)
         if binding.cmd ~= nil then
           rhs = '<cmd>' .. binding.cmd .. '<cr>'
         elseif binding.lua ~= nil then
-          rhs = ':lua ' .. binding.lua .. '<cr>'
+          local t = type(binding.lua)
+          if t == 'string' then
+            rhs = ':lua ' .. binding.lua .. '<cr>'
+          elseif t == 'function' then
+            rhs = binding.lua
+          end
         end
 
-        vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
+        vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true })
+        -- vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
       end
     end
   end
