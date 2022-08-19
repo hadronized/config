@@ -43,6 +43,35 @@ return {
             require'mind.state'.save_state(args.opts)
           end)
         end
+      },
+      {
+        key = '<leader>mi',
+        lua = function()
+          vim.notify('initializing local tree')
+          require'mind'.wrap_project_tree_fn(function(args)
+            local mind_node = require'mind.node'
+
+            local _,tasks = mind_node.get_node_by_path(args.tree, '/Tasks', true)
+            tasks.icon = '陼'
+
+            local _, backlog = mind_node.get_node_by_path(args.tree, '/Tasks/Backlog', true)
+            backlog.icon = ' '
+
+            local _, on_going = mind_node.get_node_by_path(args.tree, '/Tasks/On-going', true)
+            on_going.icon = ' '
+
+            local _, done = mind_node.get_node_by_path(args.tree, '/Tasks/Done', true)
+            done.icon = ' '
+
+            local _, cancelled = mind_node.get_node_by_path(args.tree, '/Tasks/Cancelled', true)
+            cancelled.icon = ' '
+
+            local _, notes = mind_node.get_node_by_path(args.tree, '/Notes', true)
+            notes.icon = ' '
+
+            require'mind.state'.save_state(args.opts)
+          end)
+        end
       }
     }
   }
