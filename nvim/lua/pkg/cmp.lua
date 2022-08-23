@@ -64,7 +64,6 @@ return {
       },
 
       sources = {
-        { name = 'buffer' },
         { name = 'crates' },
         { name = 'path' },
         { name = 'nvim_lua' },
