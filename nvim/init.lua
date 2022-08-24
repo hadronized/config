@@ -93,7 +93,7 @@ require'packer'.startup(function(use)
     end
 
     -- init; code that runs before the plugin is loaded
-    if pkg_cfg.init ~= nil then
+    if not pkg_cfg.disable and pkg_cfg.init ~= nil then
       pkg_cfg.init()
       pkg_cfg.init = nil
     end
@@ -107,24 +107,26 @@ require'packer'.startup(function(use)
     use(pkg_cfg)
 
     -- set keybindings
-    for mode, bindings in pairs(keybindings) do
-      for _, binding in ipairs(bindings) do
-        local lhs = binding.key
-        local rhs
+    if not pkg_cfg.disable then
+      for mode, bindings in pairs(keybindings) do
+        for _, binding in ipairs(bindings) do
+          local lhs = binding.key
+          local rhs
 
-        if binding.cmd ~= nil then
-          rhs = '<cmd>' .. binding.cmd .. '<cr>'
-        elseif binding.lua ~= nil then
-          local t = type(binding.lua)
-          if t == 'string' then
-            rhs = ':lua ' .. binding.lua .. '<cr>'
-          elseif t == 'function' then
-            rhs = binding.lua
+          if binding.cmd ~= nil then
+            rhs = '<cmd>' .. binding.cmd .. '<cr>'
+          elseif binding.lua ~= nil then
+            local t = type(binding.lua)
+            if t == 'string' then
+              rhs = ':lua ' .. binding.lua .. '<cr>'
+            elseif t == 'function' then
+              rhs = binding.lua
+            end
           end
-        end
 
-        vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true })
-        -- vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
+          vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true })
+          -- vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
+        end
       end
     end
   end

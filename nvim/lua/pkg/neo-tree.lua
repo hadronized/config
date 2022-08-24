@@ -1,4 +1,5 @@
 return {
+  disable = true,
   branch = 'v2.x',
   requires = {
     'nvim-lua/plenary.nvim',
