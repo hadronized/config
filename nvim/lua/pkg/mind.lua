@@ -89,7 +89,7 @@ return {
         key = '<leader>ms',
         lua = function()
           require'mind'.wrap_project_tree_fn(function(args)
-            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.opts)
+            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.save_tree, args.opts)
           end)
         end
       },
@@ -97,7 +97,7 @@ return {
         key = '<leader>Ms',
         lua = function()
           require'mind'.wrap_main_tree_fn(function(args)
-            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.opts)
+            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.save_tree, args.opts)
           end)
         end
       },
