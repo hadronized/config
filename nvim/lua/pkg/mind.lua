@@ -22,10 +22,22 @@ return {
             require'mind.commands'.create_node_index(
               args.tree,
               require'mind.node'.MoveDir.INSIDE_END,
+              args.save_tree,
               args.opts
             )
-
-            args.save_tree()
+          end)
+        end
+      },
+      {
+        key = '<leader>Mc',
+        lua = function()
+          require'mind'.wrap_main_tree_fn(function(args)
+            require'mind.commands'.create_node_index(
+              args.tree,
+              require'mind.node'.MoveDir.INSIDE_END,
+              args.save_tree,
+              args.opts
+            )
           end)
         end
       },
