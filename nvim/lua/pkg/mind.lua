@@ -25,8 +25,7 @@ return {
               args.opts
             )
 
-            -- we want to save the state afterwards
-            return true
+            args.save_tree()
           end)
         end
       },
@@ -55,7 +54,7 @@ return {
             local _, notes = mind_node.get_node_by_path(args.tree, '/Notes', true)
             notes.icon = ' '
 
-            require'mind.state'.save_state(args.opts)
+            args.save_tree()
           end)
         end
       },
@@ -72,8 +71,7 @@ return {
             end
 
             require'mind.commands'.open_data(args.tree, node, args.data_dir, args.opts)
-
-            return true
+            args.save_tree()
           end)
         end
       },
