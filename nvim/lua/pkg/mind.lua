@@ -16,31 +16,17 @@ return {
   keybindings = {
     n = {
       {
-        key = '<leader>mm',
-        cmd = 'MindOpenMain',
-      },
-      {
-        key = '<leader>mp',
-        cmd = 'MindOpenProject',
-      },
-      {
-        key = '<leader>mr',
-        cmd = 'MindReloadState',
-      },
-      {
-        key = '<leader>mj',
+        key = '<leader>mc',
         lua = function()
-          require'mind'.wrap_main_tree_fn(function(args)
-            local path = vim.fn.strftime('/Journal/%Y/%b/%d')
-            local _, node = require'mind.node'.get_node_by_path(args.tree, path, true)
+          require'mind'.wrap_project_tree_fn(function(args)
+            require'mind.commands'.create_node_index(
+              args.tree,
+              require'mind.node'.MoveDir.INSIDE_END,
+              args.opts
+            )
 
-            if node == nil then
-              vim.notify('cannot open journal 🙁', vim.log.levels.WARN)
-              return
-            end
-
-            require'mind.commands'.open_data(args.tree, node, args.data_dir, args.opts)
-            require'mind.state'.save_state(args.opts)
+            -- we want to save the state afterwards
+            return true
           end)
         end
       },
@@ -72,7 +58,49 @@ return {
             require'mind.state'.save_state(args.opts)
           end)
         end
-      }
+      },
+      {
+        key = '<leader>j',
+        lua = function()
+          require'mind'.wrap_main_tree_fn(function(args)
+            local path = vim.fn.strftime('/Journal/%Y/%b/%d')
+            local _, node = require'mind.node'.get_node_by_path(args.tree, path, true)
+
+            if node == nil then
+              vim.notify('cannot open journal 🙁', vim.log.levels.WARN)
+              return
+            end
+
+            require'mind.commands'.open_data(args.tree, node, args.data_dir, args.opts)
+
+            return true
+          end)
+        end
+      },
+      {
+        key = '<leader>Mm',
+        cmd = 'MindOpenMain',
+      },
+      {
+        key = '<leader>mm',
+        cmd = 'MindOpenProject',
+      },
+      {
+        key = '<leader>ms',
+        lua = function()
+          require'mind'.wrap_project_tree_fn(function(args)
+            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.opts)
+          end)
+        end
+      },
+      {
+        key = '<leader>Ms',
+        lua = function()
+          require'mind'.wrap_main_tree_fn(function(args)
+            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.opts)
+          end)
+        end
+      },
     }
   }
 }
