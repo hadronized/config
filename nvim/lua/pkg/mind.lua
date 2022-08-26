@@ -19,7 +19,7 @@ return {
         lua = function()
           require'mind'.wrap_project_tree_fn(function(args)
             require'mind.commands'.create_node_index(
-              args.tree,
+              args.get_tree(),
               require'mind.node'.MoveDir.INSIDE_END,
               args.save_tree,
               args.opts
@@ -32,7 +32,7 @@ return {
         lua = function()
           require'mind'.wrap_main_tree_fn(function(args)
             require'mind.commands'.create_node_index(
-              args.tree,
+              args.get_tree(),
               require'mind.node'.MoveDir.INSIDE_END,
               args.save_tree,
               args.opts
@@ -45,24 +45,25 @@ return {
         lua = function()
           vim.notify('initializing local tree')
           require'mind'.wrap_project_tree_fn(function(args)
+            local tree = args.get_tree()
             local mind_node = require'mind.node'
 
-            local _,tasks = mind_node.get_node_by_path(args.tree, '/Tasks', true)
+            local _,tasks = mind_node.get_node_by_path(tree, '/Tasks', true)
             tasks.icon = '陼'
 
-            local _, backlog = mind_node.get_node_by_path(args.tree, '/Tasks/Backlog', true)
+            local _, backlog = mind_node.get_node_by_path(tree, '/Tasks/Backlog', true)
             backlog.icon = ' '
 
-            local _, on_going = mind_node.get_node_by_path(args.tree, '/Tasks/On-going', true)
+            local _, on_going = mind_node.get_node_by_path(tree, '/Tasks/On-going', true)
             on_going.icon = ' '
 
-            local _, done = mind_node.get_node_by_path(args.tree, '/Tasks/Done', true)
+            local _, done = mind_node.get_node_by_path(tree, '/Tasks/Done', true)
             done.icon = ' '
 
-            local _, cancelled = mind_node.get_node_by_path(args.tree, '/Tasks/Cancelled', true)
+            local _, cancelled = mind_node.get_node_by_path(tree, '/Tasks/Cancelled', true)
             cancelled.icon = ' '
 
-            local _, notes = mind_node.get_node_by_path(args.tree, '/Notes', true)
+            local _, notes = mind_node.get_node_by_path(tree, '/Notes', true)
             notes.icon = ' '
 
             args.save_tree()
@@ -70,18 +71,35 @@ return {
         end
       },
       {
+        key = '<leader>ml',
+        lua = function()
+          require'mind'.wrap_project_tree_fn(function(args)
+            require'mind.commands'.copy_node_link_index(args.get_tree(), nil, args.opts)
+          end)
+        end
+      },
+      {
+        key = '<leader>Ml',
+        lua = function()
+          require'mind'.wrap_main_tree_fn(function(args)
+            require'mind.commands'.copy_node_link_index(args.get_tree(), nil, args.opts)
+          end)
+        end
+      },
+      {
         key = '<leader>j',
         lua = function()
           require'mind'.wrap_main_tree_fn(function(args)
+            local tree = args.get_tree()
             local path = vim.fn.strftime('/Journal/%Y/%b/%d')
-            local _, node = require'mind.node'.get_node_by_path(args.tree, path, true)
+            local _, node = require'mind.node'.get_node_by_path(tree, path, true)
 
             if node == nil then
               vim.notify('cannot open journal 🙁', vim.log.levels.WARN)
               return
             end
 
-            require'mind.commands'.open_data(args.tree, node, args.data_dir, args.opts)
+            require'mind.commands'.open_data(tree, node, args.data_dir, args.opts)
             args.save_tree()
           end)
         end
@@ -98,7 +116,7 @@ return {
         key = '<leader>ms',
         lua = function()
           require'mind'.wrap_project_tree_fn(function(args)
-            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.save_tree, args.opts)
+            require'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
           end)
         end
       },
@@ -106,7 +124,7 @@ return {
         key = '<leader>Ms',
         lua = function()
           require'mind'.wrap_main_tree_fn(function(args)
-            require'mind.commands'.open_data_index(args.tree, args.data_dir, args.save_tree, args.opts)
+            require'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
           end)
         end
       },
