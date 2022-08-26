@@ -1,6 +1,5 @@
 return {
   branch = 'v2',
-  requires = { 's1n7ax/nvim-window-picker' },
   config = function()
     require'mind'.setup {
       persistence = {
