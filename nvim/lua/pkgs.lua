@@ -1,12 +1,11 @@
 return {
   ['wbthomason/packer.nvim']                   = 'packer',
-  ['nvim-lua/plenary.nvim']                    = 'plenary',
   ['tjdevries/colorbuddy.vim']                 = 'colorbuddy',
   ['sainnhe/edge']                             = 'edge',
   ['williamboman/nvim-lsp-installer']          = 'nvim-lsp-installer',
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
   ['phaazon/hop.nvim']                         = 'hop',
-  ['phaazon/mind.nvim']                        = 'mind',
+  ['~/dev/mind.nvim']                        = 'mind',
   ['windwp/nvim-autopairs']                    = 'autopairs',
   ['numToStr/Comment.nvim']                    = 'comment',
   ['mfussenegger/nvim-dap']                    = 'dap',

@@ -1,5 +1,6 @@
 return {
   branch = 'v2',
+  requires = { 'nvim-lua/plenary.nvim' },
   config = function()
     require'mind'.setup {
       persistence = {
