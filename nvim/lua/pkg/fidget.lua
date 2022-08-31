@@ -1,7 +1,10 @@
 return {
   branch = 'main',
-  disable = true,
   config = function()
-    require'fidget'.setup {}
+    require'fidget'.setup {
+      text = {
+        spinner = "dots_pulse",
+      }
+    }
   end
 }

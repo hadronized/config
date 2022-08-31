@@ -6,8 +6,8 @@ return {
         rising = 10
       },
       hide = {
-        cursorline = false,
-        focused_win = false,
+        cursorline = true,
+        focused_win = true,
         only_win = true
       },
       highlight = {
