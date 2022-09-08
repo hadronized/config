@@ -56,4 +56,6 @@ return {
   ['mrbjarksen/neo-tree-diagnostics.nvim']     = 'neo-tree-diagnostics',
   ['s1n7ax/nvim-window-picker']                = 'nvim-window-picker',
   ['vigoux/notifier.nvim']                     = 'notifier',
+  ['rebelot/kanagawa.nvim']                    = 'kanagawa',
+  ['catppuccin/nvim']                           = 'catppuccin',
 }

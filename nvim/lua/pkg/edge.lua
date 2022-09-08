@@ -1,4 +1,5 @@
 return {
+  disable = true,
   config = function()
     vim.g.edge_style = 'neon'
     vim.g.edge_enable_italic = 1
