@@ -5,7 +5,7 @@ return {
   ['williamboman/nvim-lsp-installer']          = 'nvim-lsp-installer',
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
   ['phaazon/hop.nvim']                         = 'hop',
-  ['~/dev/mind.nvim']                        = 'mind',
+  ['~/dev/mind.nvim']                          = 'mind',
   ['windwp/nvim-autopairs']                    = 'autopairs',
   ['numToStr/Comment.nvim']                    = 'comment',
   ['mfussenegger/nvim-dap']                    = 'dap',
@@ -58,5 +58,5 @@ return {
   ['vigoux/notifier.nvim']                     = 'notifier',
   ['rebelot/kanagawa.nvim']                    = 'kanagawa',
   ['catppuccin/nvim']                          = 'catppuccin',
-  ['B4mbus/oxocarbon-lua.nvim']                = 'oxocarbon',
+  ['sindrets/oxocarbon-lua.nvim']              = 'oxocarbon',
 }

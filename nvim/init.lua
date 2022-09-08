@@ -104,10 +104,11 @@ require'packer'.startup(function(use)
 
     pkg_cfg = vim.tbl_extend('keep', { uid }, pkg_cfg)
 
-    use(pkg_cfg)
 
-    -- set keybindings
     if not pkg_cfg.disable then
+      use(pkg_cfg)
+
+      -- set keybindings
       for mode, bindings in pairs(keybindings) do
         for _, binding in ipairs(bindings) do
           local lhs = binding.key

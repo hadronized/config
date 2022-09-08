@@ -1,6 +1,5 @@
 return {
   as = 'catppuccin',
-  disable = true,
   init = function()
     vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
   end,
@@ -45,6 +44,6 @@ return {
       highlight_overrides = {},
     }
 
-    vim.cmd('colorscheme catppuccin')
+    -- vim.cmd('colorscheme catppuccin')
   end
 }
