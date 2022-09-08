@@ -38,7 +38,7 @@ return {
       {
         key = '<leader>mc',
         lua = function()
-          require'mind'.wrap_project_tree_fn(function(args)
+          require'mind'.wrap_smart_project_tree_fn(function(args)
             require'mind.commands'.create_node_index(
               args.get_tree(),
               require'mind.node'.MoveDir.INSIDE_END,
@@ -64,8 +64,8 @@ return {
       {
         key = '<leader>mi',
         lua = function()
-          vim.notify('initializing local tree')
-          require'mind'.wrap_project_tree_fn(function(args)
+          vim.notify('initializing project tree')
+          require'mind'.wrap_smart_project_tree_fn(function(args)
             local tree = args.get_tree()
             local mind_node = require'mind.node'
 
@@ -94,7 +94,7 @@ return {
       {
         key = '<leader>ml',
         lua = function()
-          require'mind'.wrap_project_tree_fn(function(args)
+          require'mind'.wrap_smart_project_tree_fn(function(args)
             require'mind.commands'.copy_node_link_index(args.get_tree(), nil, args.opts)
           end)
         end
@@ -131,12 +131,12 @@ return {
       },
       {
         key = '<leader>mm',
-        cmd = 'MindOpenProject',
+        cmd = 'MindOpenSmartProject',
       },
       {
         key = '<leader>ms',
         lua = function()
-          require'mind'.wrap_project_tree_fn(function(args)
+          require'mind'.wrap_smart_project_tree_fn(function(args)
             require'mind.commands'.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
           end)
         end
