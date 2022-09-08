@@ -57,5 +57,6 @@ return {
   ['s1n7ax/nvim-window-picker']                = 'nvim-window-picker',
   ['vigoux/notifier.nvim']                     = 'notifier',
   ['rebelot/kanagawa.nvim']                    = 'kanagawa',
-  ['catppuccin/nvim']                           = 'catppuccin',
+  ['catppuccin/nvim']                          = 'catppuccin',
+  ['B4mbus/oxocarbon-lua.nvim']                = 'oxocarbon',
 }
