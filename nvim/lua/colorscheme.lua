@@ -1,0 +1,704 @@
+local function set_hl(group, tbl)
+  vim.api.nvim_set_hl(0, group, tbl)
+end
+
+local colors = {
+  bg = '#111111',
+  bg2 = '#2A2A2A',
+  dimmed_grey = '#505050',
+  white = '#CCCCCC',
+  dimmed_white = '#AAAAAA',
+  grey = '#666666',
+  blue = '#427BFF',
+  pink = '#DC4DEB',
+  pink2 = '#D43B7C',
+  red = '#FF549E',
+  orange = '#F57B78',
+  violet = '#8B62EB',
+  violet2 = '#5245F7',
+  cyan = '#31CAD4',
+  green = '#41EBAE',
+  green2 = '#80EB95',
+}
+
+-- set_hl('White', { fg = colors.white })
+-- set_hl('DimmedWhite', { fg = colors.dimmed_white })
+-- set_hl('Grey', { fg = colors.grey })
+-- set_hl('DimmedGrey', { fg = colors.dimmed_grey })
+-- set_hl('Blue', { fg = colors.blue })
+-- set_hl('Pink', { fg = colors.pink })
+-- set_hl('Pink2', { fg = colors.pink2 })
+-- set_hl('Red', { fg = colors.red })
+-- set_hl('Orange', { fg = colors.orange })
+-- set_hl('Violet', { fg = colors.violet })
+-- set_hl('Violet2', { fg = colors.violet2 })
+-- set_hl('Cyan', { fg = colors.cyan })
+-- set_hl('Green', { fg = colors.green })
+-- set_hl('Green2', { fg = colors.green2 })
+--
+-- set_hl('EndOfBuffer', { fg = colors.violet })
+-- TermCursor     xxx cterm=reverse gui=reverse
+-- TermCursorNC   xxx cleared
+-- set_hl('NonText', { bg = colors.grey })
+-- set_hl('Directory', { fg = colors.violet })
+-- set_hl('ErrorMsg', { fg = colors.red })
+-- set_hl('IncSearch', { bg = colors.pink, fg = colors.bg })
+-- set_hl('Search', { bg = colors.violet, fg = colors.bg })
+-- set_hl('MoreMsg', { bg = colors.green, fg = colors.bg })
+-- set_hl('ModeMsg', { bg = colors.green, fg = colors.bg })
+-- set_hl('LineNr', { fg = colors.dimmed_grey })
+-- set_hl('CursorLineNr', { fg = colors.violet, italic = true })
+-- set_hl('Question', { bg = colors.green, fg = colors.bg })
+-- set_hl('WinSeparator', { bg = colors.bg, fg = colors.grey })
+-- set_hl('Title', { fg = colors.red })
+-- set_hl('Visual', { bg = colors.violet, fg = colors.bg })
+-- set_hl('WarningMsg', { bg = colors.orange, fg = colors.bg })
+-- set_hl('WildMenu', { bg = colors.grey, fg = colors.green })
+-- set_hl('Folded', { fg = colors.pink })
+-- set_hl('FoldColumn', { fg = colors.pink })
+-- set_hl('DiffAdd', { fg = colors.green2 })
+-- set_hl('DiffChange', { fg = colors.blue })
+-- set_hl('DiffDelete', { fg = colors.red })
+-- set_hl('DiffText', { fg = colors.cyan })
+-- set_hl('SignColumn', { bg = colors.bg2 })
+-- set_hl('Conceal', { fg = colors.orange })
+-- set_hl('SpellBad', { special = colors.red, undercurl = true })
+-- set_hl('SpellCap', { special = colors.orange, undercurl = true })
+-- set_hl('SpellRare', { special = colors.orange, undercurl = true })
+-- set_hl('SpellLocal', { special = colors.orange, undercurl = true })
+-- set_hl('Pmenu', { bg = colors.bg2, fg = colors.white })
+-- set_hl('PmenuSel', { bg = colors.bg2, fg = colors.green })
+-- set_hl('PmenuSbar', { bg = colors.bg2, fg = colors.blue })
+-- set_hl('PmenuThumb', { bg = colors.bg2, fg = colors.pink })
+-- set_hl('TabLine', { bg = colors.bg, fg = colors.dimmed_grey })
+-- set_hl('TabLineSel', { bg = colors.bg2, fg = colors.pink })
+-- set_hl('TabLineFill', { bg = colors.bg, fg = colors.green })
+-- set_hl('CursorColumn', { bg = colors.bg2 })
+-- set_hl('CursorLine', { bg = colors.bg2 })
+-- set_hl('ColorColumn', { bg = colors.orange })
+-- set_hl('QuickFixLine', { bg = colors.bg2 })
+-- set_hl('Whitespace', { bg = colors.green })
+-- set_hl('Normal', { bg = colors.bg, fg = colors.white })
+-- set_hl('NormalNC', { bg = colors.bg, fg = colors.dimmed_white })
+-- set_hl('NormalFloat', { bg = colors.bg, fg = colors.white })
+-- set_hl('MsgSeparator', { bg = colors.bg })
+-- set_hl('MsgArea', { bg = colors.bg, fg = colors.white })
+-- set_hl('WinBar', { bg = colors.bg, fg = colors.white })
+-- set_hl('WinBarNC', { bg = colors.bg, fg = colors.dimmed_white })
+-- set_hl('Cursor', { reverse = true })
+-- set_hl('lCursor', { reverse = true })
+-- set_hl('Substitute', { bg = colors.pink, fg = colors.bg })
+-- set_hl('Error', { fg = colors.red })
+-- set_hl('String', { fg = colors.cyan })
+-- set_hl('Constant', { fg = colors.orange })
+-- set_hl('Character', { fg = colors.cyan })
+-- set_hl('Number', { fg = colors.pink })
+-- set_hl('Boolean', { fg = colors.pink })
+-- set_hl('Float', { fg = colors.pink2 })
+-- set_hl('Function', { fg = colors.violet })
+-- set_hl('Identifier', { fg = colors.pink })
+-- set_hl('Conditional', { fg = colors.red, italic = true })
+-- set_hl('Statement', { fg = colors.red, italic = true })
+-- set_hl('Repeat', { fg = colors.red, italic = true })
+-- set_hl('Label', { fg = colors.red, italic = true })
+-- set_hl('Operator', { fg = colors.red })
+-- set_hl('Keyword', { fg = colors.cyan, italic = true })
+-- set_hl('Exception', { fg = colors.red })
+-- set_hl('Include', { fg = colors.orange })
+-- set_hl('PreProc', { fg = colors.blue })
+-- set_hl('Define', { fg = colors.blue })
+-- set_hl('Macro', { fg = colors.blue })
+-- set_hl('PreCondit', { fg = colors.blue })
+-- set_hl('StorageClass', { fg = colors.blue })
+-- set_hl('Type', { fg = colors.blue })
+-- set_hl('Structure', { fg = colors.blue })
+-- set_hl('Typedef', { fg = colors.blue })
+-- set_hl('Tag', { fg = colors.green })
+-- set_hl('Special', { fg = colors.green })
+-- set_hl('Delimiter', { fg = colors.red })
+-- set_hl('SpecialComment', { fg = colors.green })
+-- set_hl('Debug', { fg = colors.green })
+-- set_hl('DiagnosticError', { fg = colors.red })
+-- set_hl('DiagnosticWarn', { fg = colors.orange })
+-- set_hl('DiagnosticInfo', { fg = colors.violet })
+-- set_hl('DiagnosticHint', { fg = colors.blue })
+-- set_hl('DiagnosticUnderlineError', { fg = colors.red, underline = true })
+-- set_hl('DiagnosticUnderlineWarn', { fg = colors.orange, underline = true })
+-- set_hl('DiagnosticUnderlineInfo', { fg = colors.violet, underline = true })
+-- set_hl('DiagnosticUnderlineHint', { fg = colors.blue, underline = true })
+-- set_hl('DiagnosticVirtualTextError', { fg = colors.red })
+-- set_hl('DiagnosticVirtualTextWarn', { fg = colors.orange })
+-- set_hl('DiagnosticVirtualTextInfo', { fg = colors.violet })
+-- set_hl('DiagnosticVirtualTextHint', { fg = colors.blue })
+-- set_hl('DiagnosticFloatingError', { fg = colors.red })
+-- set_hl('DiagnosticFloatingWarn', { fg = colors.orange })
+-- set_hl('DiagnosticFloatingInfo', { fg = colors.violet })
+-- set_hl('DiagnosticFloatingHint', { fg = colors.blue })
+-- set_hl('DiagnosticSignError', { fg = colors.red })
+-- set_hl('DiagnosticSignWarn', { fg = colors.orange })
+-- set_hl('DiagnosticSignInfo', { fg = colors.violet })
+-- set_hl('DiagnosticSignHint', { fg = colors.blue })
+-- set_hl('Underlined', { underline = true })
+-- set_hl('Comment', { fg = colors.grey, italic = true })
+-- set_hl('MatchParen', { fg = colors.red, italic = true })
+-- set_hl('Ignore', { bg = colors.grey })
+
+-- colorscheme
+set_hl('StatusLine', { bg = colors.bg2 })
+set_hl('StatusLineNC', { bg = colors.bg })
+set_hl('StatusLineBg', { bg = colors.bg2, fg = colors.white })
+set_hl('StatusLineDeli', { bg = colors.bg2, fg = colors.dimmed_grey })
+set_hl('StatusLineLineNb', { bg = colors.bg2, fg = colors.violet })
+set_hl('StatusLineColNb', { bg = colors.bg2, fg = colors.violet2 })
+set_hl('StatusLinePercent', { bg = colors.bg2, fg = colors.blue })
+set_hl('StatusLineCount', { bg = colors.bg2, fg = colors.dimmed_grey})
+set_hl('StatusLineGitBranchSymbol', { bg = colors.bg2, fg = colors.orange })
+set_hl('StatusLineGitBranchName', { bg = colors.bg2, fg = colors.orange })
+set_hl('StatusLineGitDiffNone', { bg = colors.bg2, fg = colors.dimmed_grey })
+set_hl('StatusLineGitDiffAdd', { bg = colors.bg2, fg = colors.green2 })
+set_hl('StatusLineGitDiffMod', { bg = colors.bg2, fg = colors.violet })
+set_hl('StatusLineGitDiffDel', { bg = colors.bg2, fg = colors.red })
+set_hl('StatusLineNormalMode', { bg = colors.bg2, fg = colors.violet, reverse = true })
+set_hl('StatusLineInsertMode', { bg = colors.bg2, fg = colors.green2, reverse = true })
+set_hl('StatusLineReplaceMode', { bg = colors.bg2, fg = colors.red, reverse = true })
+set_hl('StatusLineVisualMode', { bg = colors.bg2, fg = colors.blue, reverse = true })
+set_hl('StatusLineSelectMode', { bg = colors.bg2, fg = colors.blue, reverse = true })
+set_hl('StatusLineSelectLineMode', { bg = colors.bg2, fg = colors.blue, reverse = true })
+set_hl('StatusLineSelectBlockMode', { bg = colors.bg2, fg = colors.blue, reverse = true })
+set_hl('StatusLineCommandMode', { bg = colors.bg2, fg = colors.grey, reverse = true })
+set_hl('StatusLineHitEnterPromptMode', { bg = colors.bg2, fg = colors.grey, reverse = true })
+
+-- TSCharacterSpecial xxx links to SpecialChar
+-- @text.literal  xxx links to TSLiteral
+-- TSLiteral      xxx links to String
+-- TSConditional  xxx links to Conditional
+-- @text.uri      xxx links to TSURI
+-- TSURI          xxx links to Underlined
+-- @text.math     xxx links to TSMath
+-- TSMath         xxx links to Special
+-- @text.reference xxx links to TSTextReference
+-- TSTextReference xxx links to Constant
+-- @text.environment xxx links to TSEnvironment
+-- TSEnvironment  xxx links to Macro
+-- @text.environment.name xxx links to TSEnvironmentName
+-- TSEnvironmentName xxx links to Type
+-- @text.note     xxx links to TSNote
+-- TSNote         xxx links to SpecialComment
+-- @text.warning  xxx links to TSWarning
+-- @text.danger   xxx links to TSDanger
+-- TSTodo         xxx links to Todo
+-- @type.builtin  xxx links to TSTypeBuiltin
+-- TSTypeBuiltin  xxx links to Type
+-- @type.qualifier xxx links to TSTypeQualifier
+-- TSTypeQualifier xxx links to Type
+-- TSFloat        xxx links to Float
+-- @variable      xxx links to TSVariable
+-- @variable.builtin xxx links to TSVariableBuiltin
+-- TSDefine       xxx links to Define
+-- TSCharacter    xxx links to Character
+-- TSConstBuiltin xxx links to Special
+-- TSConstMacro   xxx links to Define
+-- TSDebug        xxx links to Debug
+-- TSConstant     xxx links to Constant
+-- @function.call xxx links to TSFunctionCall
+-- TSFunctionCall xxx links to TSFunction
+-- TSFunction     xxx links to Function
+-- TSFuncBuiltin  xxx links to Special
+-- TSFuncMacro    xxx links to Macro
+-- @keyword.function xxx links to TSKeywordFunction
+-- TSKeywordFunction xxx links to Keyword
+-- TSTypeDefinition xxx links to Typedef
+-- @keyword.operator xxx links to TSKeywordOperator
+-- @keyword.return xxx links to TSKeywordReturn
+-- @method.call   xxx links to TSMethodCall
+-- TSMethodCall   xxx links to TSMethod
+-- @namespace     xxx links to TSNamespace
+-- TSNamespace    xxx links to Include
+-- @text.title    xxx links to TSTitle
+-- TSTitle        xxx links to Title
+-- @tag           xxx links to TSTag
+-- TSTag          xxx links to Label
+-- @parameter.reference xxx links to TSParameterReference
+-- TSPreProc      xxx links to PreProc
+-- TSRepeat       xxx links to Repeat
+-- @punctuation.delimiter xxx links to TSPunctDelimiter
+-- @punctuation.bracket xxx links to TSPunctBracket
+-- @punctuation.special xxx links to TSPunctSpecial
+-- TSBoolean      xxx links to Boolean
+-- TSStorageClass xxx links to StorageClass
+-- TSString       xxx links to String
+-- @none          xxx links to TSNone
+-- TSNone         xxx cterm= gui=
+-- @string.regex  xxx links to TSStringRegex
+-- @string.special xxx links to TSStringSpecial
+-- TSStringSpecial xxx links to SpecialChar
+-- TSComment      xxx links to Comment
+-- TSNumber       xxx links to Number
+-- @tag.attribute xxx links to TSTagAttribute
+-- TSTagAttribute xxx links to TSProperty
+-- @symbol        xxx links to TSSymbol
+-- TSSymbol       xxx links to Identifier
+-- @tag.delimiter xxx links to TSTagDelimiter
+-- TSTagDelimiter xxx links to Delimiter
+-- @text.strong   xxx links to TSStrong
+-- TSStrong       xxx cterm=bold gui=bold
+-- @text.emphasis xxx links to TSEmphasis
+-- TSEmphasis     xxx cterm=italic gui=italic
+-- @annotation    xxx links to TSAnnotation
+-- TSAnnotation   xxx links to PreProc
+-- TSUnderline    xxx cterm=underline gui=underline
+-- @attribute     xxx links to TSAttribute
+-- @text.strike   xxx links to TSStrike
+-- TSStrike       xxx cterm=strikethrough gui=strikethrough
+-- @error         xxx links to TSError
+-- TSError        xxx cleared
+
+-- fidget support
+-- FidgetTitle    xxx links to Title
+-- FidgetTask     xxx links to NonText
+
+-- trouble support
+-- TroubleLocation xxx links to LineNr
+-- TroubleSource  xxx links to Comment
+-- TroubleNormal  xxx links to Normal
+-- TroubleTextError xxx links to TroubleText
+-- TroubleText    xxx links to Normal
+-- TroubleCount   xxx links to TabLineSel
+-- TroubleTextWarning xxx links to TroubleText
+-- TroubleTextInformation xxx links to TroubleText
+-- TroubleTextHint xxx links to TroubleText
+-- TroubleIndent  xxx links to LineNr
+-- TroubleFile    xxx links to Directory
+-- TroubleFoldIcon xxx links to CursorLineNr
+-- TroublePreview xxx links to Search
+-- TroubleSignOther xxx links to TroubleSignInformation
+-- TroubleSignInformation xxx links to DiagnosticSignInfo
+-- TroubleCode    xxx links to Comment
+-- TroubleOther   xxx links to DiagnosticOther
+-- DiagnosticOther xxx cleared
+-- DiagnosticSignOther xxx cleared
+-- TroubleError   xxx links to DiagnosticError
+-- TroubleSignError xxx links to DiagnosticSignError
+-- TroubleWarning xxx links to DiagnosticWarn
+-- TroubleSignWarning xxx links to DiagnosticSignWarn
+-- TroubleInformation xxx links to DiagnosticInfo
+-- TroubleHint    xxx links to DiagnosticHint
+-- TroubleSignHint xxx links to DiagnosticSignHint
+
+-- git signs support
+-- set_hl('GitSignsAdd', { link = 'DiffAdd' })
+-- set_hl('GitSignsDelete', { link = 'DiffDelete' })
+-- set_hl('GitSignsChange', { link = 'DiffChange' })
+
+-- notify-nvim support
+-- set_hl('NotifyERRORBorder', { fg = colors.red })
+-- set_hl('NotifyWARNBorder', { fg = colors.orange })
+-- set_hl('NotifyINFOBorder', { fg = colors.violet })
+-- set_hl('NotifyDEBUGBorder', { fg = colors.grey })
+-- set_hl('NotifyTRACEBorder', { fg = colors.grey })
+-- set_hl('NotifyERRORIcon', { fg = colors.red })
+-- set_hl('NotifyWARNIcon', { fg = colors.orange })
+-- set_hl('NotifyINFOIcon', { fg = colors.violet })
+-- set_hl('NotifyDEBUGIcon', { fg = colors.grey })
+-- set_hl('NotifyTRACEIcon', { fg = colors.grey })
+-- set_hl('NotifyERRORTitle', { fg = colors.grey })
+-- set_hl('NotifyWARNTitle', { fg = colors.grey })
+-- set_hl('NotifyINFOTitle', { fg = colors.grey })
+-- set_hl('NotifyDEBUGTitle', { fg = colors.grey })
+-- set_hl('NotifyTRACETitle', { fg = colors.grey })
+-- set_hl('NotifyERRORBody', { link = 'Normal' })
+-- set_hl('NotifyWARNBody', { link = 'Normal' })
+-- set_hl('NotifyINFOBody', { link = 'Normal' })
+-- set_hl('NotifyDEBUGBody', { link = 'Normal' })
+-- set_hl('NotifyTRACEBody', { link = 'Normal' })
+-- set_hl('NotifyLogTime', { link = 'Comment' })
+-- set_hl('NotifyLogTitle', { link = 'Special' })
+
+-- nvim-tree support
+-- set_hl('NvimTreeBookmark', { fg = colors.orange })
+-- set_hl('NvimTreeIndentMarker', { fg = colors.dimmed_grey })
+-- set_hl('NvimTreeSymlink', { fg = colors.blue })
+-- set_hl('NvimTreeFolderIcon', { fg = colors.violet2 })
+-- set_hl('NvimTreeRootFolder', { fg = colors.pink, bold = true })
+-- set_hl('NvimTreeExecFile', { fg = colors.green })
+-- set_hl('NvimTreeSpecialFile', { fg = colors.blue, italic = true })
+-- set_hl('NvimTreeImageFile', { fg = colors.orange, italic = true })
+-- set_hl('NvimTreeOpenedFile', { fg = colors.green, italic = true })
+-- set_hl('NvimTreeGitDirty', { fg = colors.blue })
+-- set_hl('NvimTreeGitDeleted', { link = 'DiffDelete' })
+-- set_hl('NvimTreeGitStaged', { fg = colors.orange })
+-- set_hl('NvimTreeGitMerge', { fg = colors.red })
+-- set_hl('NvimTreeGitRenamed', { fg = colors.pink })
+-- set_hl('NvimTreeGitNew', { fg = colors.cyan })
+-- set_hl('NvimTreeWindowPicker', { bg = colors.violet2, fg = colors.white })
+-- set_hl('NvimTreeLiveFilterPrefix', { link = 'Search' })
+-- set_hl('NvimTreeLiveFilterValue', { bold = true })
+-- set_hl('NvimTreeFolderName', { link = 'Directory' })
+-- set_hl('NvimTreeEmptyFolderName', { link = 'Directory' })
+-- set_hl('NvimTreeOpenedFolderName', { fg = colors.blue })
+
+-- hop.nvim support
+-- set_hl('HopNextKey', { fg = colors.pink, bold = true })
+-- set_hl('HopNextKey1', { fg = colors.blue })
+-- set_hl('HopNextKey2', { fg = colors.blue })
+-- set_hl('HopUnmatched', { bg = colors.bg, fg = colors.dimmed_grey })
+-- set_hl('HopPreview', { link = 'HopNextKey'})
+
+-- mind.nvim support
+-- set_hl('MindNodeRoot', { fg = colors.pink, bold = true })
+-- set_hl('MindNodeLeaf', { fg = colors.violet })
+-- set_hl('MindNodeParent', { fg = colors.blue })
+-- set_hl('MindDataMarker', { fg = colors.dimmed_grey })
+-- set_hl('MindURLMarker', { fg = colors.cyan })
+-- set_hl('MindModifierEmpty', { fg = colors.dimmed_grey })
+
+-- incline.nvim support
+-- set_hl('InclineNormal', { fg = colors.pink })
+-- set_hl('InclineNormalNC', { fg = colors.pink })
+
+-- LspSignatureActiveParameter xxx guifg=#ff9e3b
+-- markdownEscape xxx cleared
+-- LspCodeLens    xxx guifg=#727169
+-- IndentBlanklineContextStart xxx cterm=underline gui=underline guisp=#938aa9
+-- IndentBlanklineContextChar xxx guifg=#938aa9
+-- healthError    xxx guifg=#e82424
+-- IndentBlanklineSpaceChar xxx guifg=#54546d
+-- IndentBlanklineChar xxx guifg=#54546d
+-- DashboardCenter xxx guifg=#e6c384
+-- DashboardFooter xxx guifg=#7e9cd8
+-- FloatermBorder xxx guifg=#54546d guibg=#1f1f28
+-- healthSuccess  xxx guifg=#98bb6c
+-- healthWarning  xxx guifg=#ff9e3b
+-- CmpDocumentation xxx links to NormalFloat
+-- CmpDocumentationBorder xxx links to FloatBorder
+-- CmpCompletion  xxx links to Pmenu
+-- CmpCompletionSel xxx guibg=#2d4f67
+-- CmpItemKindFile xxx links to Directory
+-- CmpCompletionThumb xxx links to PmenuThumb
+-- CmpItemKindText xxx links to TSText
+-- TSText         xxx links to TSNone
+-- CmpItemAbbr    xxx guifg=#dcd7ba
+-- TelescopeBorder xxx guifg=#54546d guibg=#1f1f28
+-- CmpItemKindEnum xxx links to Identifier
+-- CmpItemAbbrDeprecated xxx cterm=strikethrough gui=strikethrough guifg=#727169
+-- CmpItemKindProperty xxx links to TSProperty
+-- TSProperty     xxx links to Identifier
+-- CmpItemKindStruct xxx links to Type
+-- CmpItemKindInterface xxx links to Type
+-- CmpItemAbbrMatch xxx guifg=#7e9cd8
+-- CmpItemKindConstructor xxx links to TSConstructor
+-- TSConstructor  xxx guifg=#957fb8
+-- CmpItemKindMethod xxx links to Function
+-- CmpItemKindFunction xxx links to Function
+-- CmpItemKindVariable xxx guifg=#c8c093
+-- CmpItemMenu    xxx guifg=#727169
+-- Method         xxx links to Function
+-- CmpItemKindDefault xxx guifg=#7fb4ca
+-- debugBreakpoint xxx guifg=#7fb4ca
+--
+-- TSAttribute    xxx links to Constant
+-- TSWarning      xxx links to Todo
+-- TSDanger       xxx links to WarningMsg
+-- TSException    xxx cterm=bold gui=bold guifg=#ff5d62
+-- TSKeyword      xxx links to Keyword
+-- TSKeywordReturn xxx cterm=italic gui=italic guifg=#ff5d62
+-- TSLabel        xxx links to Label
+-- TSOperator     xxx links to Operator
+-- TSKeywordOperator xxx cterm=bold gui=bold guifg=#c0a36e
+-- TSPunctDelimiter xxx guifg=#9cabca
+-- TSPunctBracket xxx guifg=#9cabca
+-- TSPunctSpecial xxx guifg=#9cabca
+-- TSStringRegex  xxx guifg=#c0a36e
+-- TSStringEscape xxx cterm=bold gui=bold guifg=#c0a36e
+-- TSVariable     xxx guifg=#dcd7ba
+-- diffDeleted    xxx guifg=#c34043
+-- NeogitDiffAdd  xxx guifg=#76946a guibg=#2b3328
+-- NeogitHunkHeader xxx guifg=#e6c384
+-- NeogitDiffContextHighlight xxx guibg=#252535
+-- CmpItemAbbrMatchFuzzy xxx links to CmpItemAbbrMatch
+-- VisualNOS      xxx links to Visual
+-- Italic         xxx cterm=italic gui=italic
+-- qfLineNr       xxx links to LineNr
+-- qfFileName     xxx links to Directory
+-- markdownCode   xxx guifg=#98bb6c
+-- markdownCodeBlock xxx guifg=#98bb6c
+-- CmpItemKindClass xxx links to Type
+-- TSParameter    xxx links to Identifier
+-- CmpItemKindField xxx links to TSField
+-- TSField        xxx links to Identifier
+-- CmpItemKindSnippet xxx guifg=#7fb4ca
+-- TelescopeResultsClass xxx links to TSType
+-- TSType         xxx links to Type
+-- CmpCompletionSbar xxx links to PmenuSbar
+-- CmpItemKindModule xxx links to TSInclude
+-- TSInclude      xxx links to Include
+-- CmpCompletionBorder xxx guifg=#2d4f67 guibg=#223249
+-- TelescopeResultsStruct xxx links to TSType
+-- CmpItemKindFolder xxx links to Directory
+-- CmpItemKindKeyword xxx links to TSKeyword
+-- CmpItemKindTypeParameter xxx links to Identifier
+-- CmpItemKindConstant xxx links to Constant
+-- CmpItemKindOperator xxx links to Operator
+-- CmpItemKindReference xxx links to TSParameterReference
+-- TSParameterReference xxx links to TSParameter
+-- IndentBlanklineSpaceCharBlankline xxx guifg=#54546d
+-- CmpItemKindEnumMember xxx links to TSField
+-- CmpItemKindValue xxx links to String
+-- CmpItemKindCopilot xxx links to String
+-- DashboardHeader xxx guifg=#c34043
+-- DashboardShortCut xxx guifg=#7fb4ca
+-- TSVariableBuiltin xxx cterm=italic gui=italic guifg=#e46876
+-- diffAdded      xxx guifg=#76946a
+-- TelescopeResultsVariable xxx links to TSVariable
+-- GitSignsDeleteLn xxx guibg=#43242b
+-- diffChanged    xxx guifg=#dca561
+-- NeogitDiffDelete xxx guifg=#c34043 guibg=#43242b
+-- diffNewFile    xxx guifg=#76946a
+-- diffRemoved    xxx guifg=#c34043
+-- diffOldFile    xxx guifg=#c34043
+-- LspReferenceWrite xxx links to LspReferenceText
+-- LspReferenceText xxx guibg=#49443c
+-- LspReferenceRead xxx links to LspReferenceText
+-- NormalSB       xxx links to Normal
+-- Struct         xxx links to Type
+-- Bold           xxx cterm=bold gui=bold
+-- CursorIM       xxx links to Cursor
+-- SignColumnSB   xxx links to SignColumn
+-- TSMethod       xxx links to Function
+-- StatusLineBg   xxx guifg=#efefef guibg=#23272e
+-- StatusLineBg2  xxx guifg=#efefef guibg=#23272e
+-- StatusLineBg2b xxx guifg=#5b6268 guibg=#23272e
+-- StatusLineBg2c xxx guifg=#23272e guibg=#5b6268
+-- StatusLineColNbr xxx guifg=#98be65 guibg=#23272e
+-- StatusLineGitBranchSymbol xxx guifg=#ff6c6b guibg=#23272e
+-- StatusLineGitBranchName xxx guifg=#da8548 guibg=#23272e
+-- StatusLineGitDiffNone xxx guifg=#98be65 guibg=#23272e
+-- StatusLineGitDiffAdd xxx guifg=#98be65 guibg=#23272e
+-- StatusLineGitDiffMod xxx guifg=#51afef guibg=#23272e
+-- StatusLineGitDiffDel xxx guifg=#ff6c6b guibg=#23272e
+-- StatusLineCurrentSymbolName xxx guifg=#c678dd guibg=#23272e
+-- StatusLineCurrentSymbolType xxx gui=italic guifg=#98be65 guibg=#23272e
+-- StatusLineCurrentSymbolBracket xxx gui=italic guifg=#5b6268 guibg=#23272e
+-- StatusLineNormalMode xxx guifg=#23272e guibg=#51afef
+-- StatusLineNormalModeItalic xxx gui=italic guifg=#23272e guibg=#51afef
+-- StatusLineNormalModeWinNr xxx guifg=#23272e guibg=#316a91
+-- StatusLineInsertMode xxx guifg=#23272e guibg=#98be65
+-- StatusLineInsertModeItalic xxx gui=italic guifg=#23272e guibg=#98be65
+-- StatusLineInsertModeWinNr xxx guifg=#23272e guibg=#62803b
+-- StatusLineReplaceMode xxx guifg=#23272e guibg=#ff6c6b
+-- StatusLineReplaceModeItalic xxx guifg=#23272e guibg=#ff6c6b
+-- StatusLineReplaceModeWinNr xxx guifg=#23272e guibg=#b64a49
+-- StatusLineVisualMode xxx guifg=#23272e guibg=#be70ff
+-- StatusLineVisualModeItalic xxx gui=italic guifg=#23272e guibg=#be70ff
+-- StatusLineVisualModeWinNr xxx guifg=#23272e guibg=#c678dd
+-- StatusLineSelectMode xxx guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectModeItalic xxx gui=italic guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectModeWinNr xxx guifg=#23272e guibg=#37a2be
+-- StatusLineSelectLineMode xxx guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectLineModeItalic xxx gui=italic guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectLineModeWinNr xxx guifg=#23272e guibg=#37a2be
+-- StatusLineSelectBlockMode xxx guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectBlockModeItalic xxx gui=italic guifg=#23272e guibg=#46d9ff
+-- StatusLineSelectBlockModeWinNr xxx guifg=#23272e guibg=#37a2be
+-- StatusLineCommandMode xxx guifg=#23272e guibg=#5b6268
+-- StatusLineCommandModeItalic xxx gui=italic guifg=#23272e guibg=#5b6268
+-- StatusLineCommandModeWinNr xxx guifg=#23272e guibg=#42474b
+-- StatusLineHitEnterPromptMode xxx guifg=#23272e guibg=#ff6c6b
+-- StatusLineHitEnterPromptModeItalic xxx gui=italic guifg=#23272e guibg=#ff6c6b
+-- StatusLineHitEnterPromptModeWinNr xxx guifg=#23272e guibg=#b64a49
+-- CmpItemAbbrDefault xxx guifg=#dcd7ba
+-- CmpItemAbbrDeprecatedDefault xxx guifg=#727169
+-- CmpItemAbbrMatchDefault xxx guifg=#dcd7ba
+-- CmpItemAbbrMatchFuzzyDefault xxx guifg=#dcd7ba
+-- CmpItemKind    xxx links to CmpItemKindDefault
+-- CmpItemMenuDefault xxx guifg=#dcd7ba
+-- CmpItemKindEnumMemberDefault xxx links to CmpItemKind
+-- CmpItemKindConstructorDefault xxx links to CmpItemKind
+-- CmpItemKindFieldDefault xxx links to CmpItemKind
+-- CmpItemKindVariableDefault xxx links to CmpItemKind
+-- CmpItemKindClassDefault xxx links to CmpItemKind
+-- CmpItemKindInterfaceDefault xxx links to CmpItemKind
+-- CmpItemKindModuleDefault xxx links to CmpItemKind
+-- CmpItemKindPropertyDefault xxx links to CmpItemKind
+-- CmpItemKindUnit xxx links to CmpItemKindUnitDefault
+-- CmpItemKindUnitDefault xxx links to CmpItemKind
+-- CmpItemKindValueDefault xxx links to CmpItemKind
+-- CmpItemKindConstantDefault xxx links to CmpItemKind
+-- CmpItemKindEnumDefault xxx links to CmpItemKind
+-- CmpItemKindEvent xxx links to CmpItemKindEventDefault
+-- CmpItemKindEventDefault xxx links to CmpItemKind
+-- CmpItemKindKeywordDefault xxx links to CmpItemKind
+-- CmpItemKindTypeParameterDefault xxx links to CmpItemKind
+-- CmpItemKindSnippetDefault xxx links to CmpItemKind
+-- CmpItemKindOperatorDefault xxx links to CmpItemKind
+-- CmpItemKindColor xxx links to CmpItemKindColorDefault
+-- CmpItemKindColorDefault xxx links to CmpItemKind
+-- CmpItemKindStructDefault xxx links to CmpItemKind
+-- CmpItemKindFileDefault xxx links to CmpItemKind
+-- CmpItemKindTextDefault xxx links to CmpItemKind
+-- CmpItemKindReferenceDefault xxx links to CmpItemKind
+-- CmpItemKindMethodDefault xxx links to CmpItemKind
+-- CmpItemKindFolderDefault xxx links to CmpItemKind
+-- CmpItemKindFunctionDefault xxx links to CmpItemKind
+-- LspInfoFiletype xxx links to Type
+-- LspInfoBorder  xxx links to Label
+-- LspInfoList    xxx links to Function
+-- LspInfoTip     xxx links to Comment
+-- LspInfoTitle   xxx links to Title
+-- TelescopeResultsLineNr xxx links to LineNr
+-- TelescopeResultsSpecialComment xxx links to SpecialComment
+-- TelescopeMatching xxx links to Special
+-- TelescopePreviewTitle xxx links to TelescopeTitle
+-- TelescopeTitle xxx links to TelescopeBorder
+-- TelescopeResultsDiffDelete xxx links to DiffDelete
+-- TelescopeResultsDiffAdd xxx links to DiffAdd
+-- TelescopeResultsConstant xxx links to Constant
+-- TelescopeNormal xxx links to Normal
+-- TelescopeResultsFileIcon xxx links to Normal
+-- TelescopeResultsNormal xxx links to TelescopeNormal
+-- TelescopeResultsBorder xxx links to TelescopeBorder
+-- TelescopeResultsTitle xxx links to TelescopeTitle
+-- TelescopePromptNormal xxx links to TelescopeNormal
+-- TelescopePromptTitle xxx links to TelescopeTitle
+-- TelescopePreviewLine xxx links to Visual
+-- TelescopePreviewMatch xxx links to Search
+-- TelescopePreviewPipe xxx links to Constant
+-- TelescopePreviewCharDev xxx links to Constant
+-- TelescopePreviewDirectory xxx links to Directory
+-- TelescopePreviewBlock xxx links to Constant
+-- TelescopeResultsOperator xxx links to Operator
+-- TelescopePreviewLink xxx links to Special
+-- TelescopePreviewSocket xxx links to Statement
+-- TelescopePreviewRead xxx links to Constant
+-- TelescopePreviewWrite xxx links to Statement
+-- TelescopePreviewExecute xxx links to String
+-- TelescopePreviewHyphen xxx links to NonText
+-- TelescopePreviewSticky xxx links to Keyword
+-- TelescopePreviewSize xxx links to String
+-- TelescopePreviewUser xxx links to Constant
+-- TelescopePreviewGroup xxx links to Constant
+-- TelescopePreviewDate xxx links to Directory
+-- TelescopePreviewMessage xxx links to TelescopePreviewNormal
+-- TelescopePreviewNormal xxx links to TelescopeNormal
+-- TelescopePreviewMessageFillchar xxx links to TelescopePreviewMessage
+-- TelescopeResultsNumber xxx links to Number
+-- TelescopeResultsIdentifier xxx links to Identifier
+-- TelescopeResultsField xxx links to Function
+-- TelescopePromptBorder xxx links to TelescopeBorder
+-- TelescopeSelectionCaret xxx links to TelescopeSelection
+-- TelescopeSelection xxx links to Visual
+-- TelescopeResultsMethod xxx links to Method
+-- TelescopeResultsFunction xxx links to Function
+-- TelescopeMultiSelection xxx links to Type
+-- TelescopeMultiIcon xxx links to Identifier
+-- TelescopeResultsDiffChange xxx links to DiffChange
+-- TelescopePromptPrefix xxx links to Identifier
+-- TelescopeResultsComment xxx links to Comment
+-- TelescopeResultsDiffUntracked xxx links to NonText
+-- TelescopePreviewBorder xxx links to TelescopeBorder
+-- TelescopePromptCounter xxx links to NonText
+-- GitSignsAddNr  xxx links to GitSignsAdd
+-- GitSignsChangeNr xxx links to GitSignsChange
+-- GitSignsDeleteNr xxx links to GitSignsDelete
+-- GitSignsAddLn  xxx links to DiffAdd
+-- GitSignsChangeLn xxx links to DiffChange
+-- GitSignsAddPreview xxx links to DiffAdd
+-- GitSignsDeletePreview xxx links to DiffDelete
+-- GitSignsCurrentLineBlame xxx links to NonText
+-- GitSignsAddInline xxx links to TermCursor
+-- GitSignsDeleteInline xxx links to TermCursor
+-- GitSignsChangeInline xxx links to TermCursor
+-- GitSignsAddLnInline xxx links to GitSignsAddInline
+-- GitSignsChangeLnInline xxx links to GitSignsChangeInline
+-- GitSignsDeleteLnInline xxx links to GitSignsDeleteInline
+-- GitSignsAddLnVirtLn xxx links to GitSignsAddLn
+-- GitSignsChangeVirtLn xxx links to GitSignsChangeLn
+-- GitSignsDeleteVirtLn xxx links to DiffDelete
+-- GitSignsAddLnVirtLnInLine xxx links to GitSignsAddLnInline
+-- GitSignsChangeVirtLnInLine xxx links to GitSignsChangeLnInline
+-- GitSignsDeleteVirtLnInLine xxx links to GitSignsDeleteLnInline
+-- luaTodo        xxx links to Todo
+-- luaComment     xxx links to Comment
+-- luaInnerComment xxx cleared
+-- luaParenError  xxx links to Error
+-- luaSpecial     xxx links to SpecialChar
+-- luaIfThen      xxx cleared
+-- luaElseifThen  xxx cleared
+-- luaElse        xxx links to Conditional
+-- luaThenEnd     xxx cleared
+-- luaBlock       xxx cleared
+-- luaLoopBlock   xxx cleared
+-- luaIn          xxx links to Operator
+-- luaStatement   xxx links to Statement
+-- luaParen       xxx cleared
+-- luaTable       xxx links to Structure
+-- luaBraceError  xxx links to Error
+-- luaTableBlock  xxx cleared
+-- luaError       xxx links to Error
+-- luaFunction    xxx links to Function
+-- luaFunctionBlock xxx cleared
+-- luaCond        xxx links to Conditional
+-- luaRepeat      xxx links to Repeat
+-- luaLabel       xxx links to Label
+-- luaOperator    xxx links to Operator
+-- luaConstant    xxx links to Constant
+-- luaString2     xxx links to String
+-- luaString      xxx links to String
+-- luaNumber      xxx links to Number
+-- luaFunc        xxx links to Identifier
+-- luaFor         xxx links to Repeat
+-- helpHeadline   xxx links to Statement
+-- helpSectionDelim xxx links to PreProc
+-- helpIgnore     xxx links to Ignore
+-- helpExample    xxx links to Comment
+-- helpBar        xxx links to Ignore
+-- helpHyperTextJump xxx links to Identifier
+-- helpStar       xxx links to Ignore
+-- helpHyperTextEntry xxx links to String
+-- helpBacktick   xxx links to Ignore
+-- helpNormal     xxx cleared
+-- helpVim        xxx links to Identifier
+-- helpOption     xxx links to Type
+-- helpCommand    xxx links to Comment
+-- helpHeader     xxx links to PreProc
+-- helpGraphic    xxx cleared
+-- helpNote       xxx links to Todo
+-- helpWarning    xxx links to Todo
+-- helpDeprecated xxx links to Todo
+-- helpSpecial    xxx links to Special
+-- helpComment    xxx links to Comment
+-- helpConstant   xxx links to Constant
+-- helpString     xxx links to String
+-- helpCharacter  xxx links to Character
+-- helpNumber     xxx links to Number
+-- helpBoolean    xxx links to Boolean
+-- helpFloat      xxx links to Float
+-- helpIdentifier xxx links to Identifier
+-- helpFunction   xxx links to Function
+-- helpStatement  xxx links to Statement
+-- helpConditional xxx links to Conditional
+-- helpRepeat     xxx links to Repeat
+-- helpLabel      xxx links to Label
+-- helpOperator   xxx links to Operator
+-- helpKeyword    xxx links to Keyword
+-- helpException  xxx links to Exception
+-- helpPreProc    xxx links to PreProc
+-- helpInclude    xxx links to Include
+-- helpDefine     xxx links to Define
+-- helpMacro      xxx links to Macro
+-- helpPreCondit  xxx links to PreCondit
+-- helpType       xxx links to Type
+-- helpStorageClass xxx links to StorageClass
+-- helpStructure  xxx links to Structure
+-- helpTypedef    xxx links to Typedef
+-- helpSpecialChar xxx links to SpecialChar
+-- helpTag        xxx links to Tag
+-- helpDelimiter  xxx links to Delimiter
+-- helpSpecialComment xxx links to SpecialComment
+-- helpDebug      xxx links to Debug
+-- helpUnderlined xxx links to Underlined
+-- helpError      xxx links to Error
+-- helpTodo       xxx links to Todo
+-- helpURL        xxx links to String
+-- @conceal       xxx cleared
+-- None           xxx cleared

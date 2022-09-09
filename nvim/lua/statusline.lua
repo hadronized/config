@@ -1,68 +1,31 @@
 local M = {}
 
 function M.create_highlights()
-  vim.api.nvim_exec([[
-    hi StatusLineBg guibg=#23272e guifg=#efefef
-    hi StatusLineBg2 guibg=#23272e guifg=#efefef
-    hi StatusLineBg2b guibg=#23272e guifg=#5B6268
-    hi StatusLineBg2c guibg=#5B6268 guifg=#23272e
+  local function set_hl(group, tbl)
+    vim.api.nvim_set_hl(0, group, tbl)
+  end
 
-    hi StatusLineLinNbr guibg=#23272e guifg=#51afef
-    hi StatusLineColNbr guibg=#23272e guifg=#98be65
-
-    hi StatusLineGitBranchSymbol guibg=#23272e guifg=#ff6c6b
-    hi StatusLineGitBranchName guibg=#23272e guifg=#da8548
-    hi StatusLineGitDiffNone guibg=#23272e guifg=#98be65
-    hi StatusLineGitDiffAdd guibg=#23272e guifg=#98be65
-    hi StatusLineGitDiffMod guibg=#23272e guifg=#51afef
-    hi StatusLineGitDiffDel guibg=#23272e guifg=#ff6c6b
-
-    hi StatusLineLSPOk guibg=#23272e guifg=#98be65
-    hi StatusLineLSPErrors guibg=#23272e guifg=#ff6c6b
-    hi StatusLineLSPWarnings guibg=#23272e guifg=#ECBE7B
-    hi StatusLineLSPInfo guibg=#23272e guifg=#51afef
-    hi StatusLineLSPHints guibg=#23272e guifg=#c678dd
-
-    hi StatusLineCurrentSymbolName guibg=#23272e guifg=#c678dd
-    hi StatusLineCurrentSymbolType guibg=#23272e guifg=#98be65 gui=italic
-    hi StatusLineCurrentSymbolBracket guibg=#23272e guifg=#5B6268 gui=italic
-
-    hi StatusLineNormalMode guibg=#51afef guifg=#23272e
-    hi StatusLineNormalModeItalic guibg=#51afef guifg=#23272e gui=italic
-    hi StatusLineNormalModeWinNr guibg=#316a91 guifg=#23272e
-
-    hi StatusLineInsertMode guibg=#98be65 guifg=#23272e
-    hi StatusLineInsertModeItalic guibg=#98be65 guifg=#23272e gui=italic
-    hi StatusLineInsertModeWinNr guibg=#62803b guifg=#23272e
-
-    hi StatusLineReplaceMode guibg=#ff6c6b guifg=#23272e
-    hi StatusLineReplaceModeItalic guibg=#ff6c6b guifg=#23272e
-    hi StatusLineReplaceModeWinNr guibg=#b64a49 guifg=#23272e
-
-    hi StatusLineVisualMode guibg=#be70ff guifg=#23272e
-    hi StatusLineVisualModeItalic guibg=#be70ff guifg=#23272e gui=italic
-    hi StatusLineVisualModeWinNr guibg=#c678dd guifg=#23272e
-
-    hi StatusLineSelectMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineSelectModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineSelectModeWinNr guibg=#37a2be guifg=#23272e
-
-    hi StatusLineSelectLineMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineSelectLineModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineSelectLineModeWinNr guibg=#37a2be guifg=#23272e
-
-    hi StatusLineSelectBlockMode guibg=#46D9FF guifg=#23272e
-    hi StatusLineSelectBlockModeItalic guibg=#46D9FF guifg=#23272e gui=italic
-    hi StatusLineSelectBlockModeWinNr guibg=#37a2be guifg=#23272e
-
-    hi StatusLineCommandMode guibg=#5B6268 guifg=#23272e
-    hi StatusLineCommandModeItalic guibg=#5B6268 guifg=#23272e gui=italic
-    hi StatusLineCommandModeWinNr guibg=#42474b guifg=#23272e
-
-    hi StatusLineHitEnterPromptMode guibg=#ff6c6b guifg=#23272e
-    hi StatusLineHitEnterPromptModeItalic guibg=#ff6c6b guifg=#23272e gui=italic
-    hi StatusLineHitEnterPromptModeWinNr guibg=#b64a49 guifg=#23272e
-  ]], false)
+  set_hl('StatusLineBg', { link = 'Statusline' })
+  set_hl('StatusLineDeli', { link = 'Statusline' })
+  set_hl('StatusLineLineNb', { link = 'Statusline' })
+  set_hl('StatusLineColNb', { link = 'Statusline' })
+  set_hl('StatusLinePercent', { link = 'Statusline' })
+  set_hl('StatusLineCount', { link = 'Statusline' })
+  set_hl('StatusLineGitBranchSymbol', { link = 'Statusline' })
+  set_hl('StatusLineGitBranchName', { link = 'Statusline' })
+  set_hl('StatusLineGitDiffNone', { link = 'Statusline' })
+  set_hl('StatusLineGitDiffAdd', { link = 'Statusline' })
+  set_hl('StatusLineGitDiffMod', { link = 'Statusline' })
+  set_hl('StatusLineGitDifDel', { link = 'Statusline' })
+  set_hl('StatusLineNormalMode', { link = 'Statusline' })
+  set_hl('StatusLineInsertMode', { link = 'Statusline' })
+  set_hl('StatusLineReplaceMode', { link = 'Statusline' })
+  set_hl('StatusLineVisualMode', { link = 'Statusline' })
+  set_hl('StatusLineSelectMode', { link = 'Statusline' })
+  set_hl('StatusLineSelectLineMode', { link = 'Statusline' })
+  set_hl('StatusLineSelectBlockMode', { link = 'Statusline' })
+  set_hl('StatusLineCommandMode', { link = 'Statusline' })
+  set_hl('StatusLineHitEnterPromptMode', { link = 'Statusline'})
 end
 
 vim.api.nvim_command('augroup phaazon')
@@ -88,24 +51,24 @@ local function vcs_status()
     ahl = '%#StatusLineGitDiffAdd#'
     added = dict.added
   else
-    ahl = '%#StatusLineBg2b#'
+    ahl = '%#StatusLineGitDiffNone#'
   end
 
   if dict.changed ~= nil and dict.changed > 0 then
     mhl = '%#StatusLineGitDiffMod#'
     changed = dict.changed
   else
-    mhl = '%#StatusLineBg2b#'
+    mhl = '%#StatusLineGitDiffNone#'
   end
 
   if dict.removed ~= nil and dict.removed > 0 then
     rhl = '%#StatusLineGitDiffDel#'
     removed = dict.removed
   else
-    rhl = '%#StatusLineBg2b#'
+    rhl = '%#StatusLineGitDiffNone#'
   end
 
-  return string.format('%s %i %s %i %s %i %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s',
+  return string.format('%s %i %s %i %s %i %%#StatusLineGitBranchSymbol# %%#StatusLineGitBranchName#%s ',
     ahl,
     added,
     mhl,
@@ -117,12 +80,12 @@ local function vcs_status()
 end
 
 local function lsp_breadcrumbs()
-  local gps = require'nvim-gps'
-  if gps == nil or not gps.is_available() then
+  local navic = require'nvim-navic'
+  if navic == nil or not navic.is_available() then
     return ''
   end
 
-  return gps.get_location()
+  return navic.get_location()
 end
 
 local function get_file_name(modified)
@@ -158,171 +121,52 @@ end
 
 local function make_active_status_line()
   local hls = {
-    n = {
-      n = 'StatusLineNormalMode',
-      i = 'StatusLineNormalModeItalic',
-      nr = 'StatusLineNormalModeWinNr',
-    },
-    no = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    nov = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    ['noV'] = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    ['no'] = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    i = {
-      n = 'StatusLineInsertMode',
-      i = 'StatusLineInsertModeItalic',
-      nr = 'StatusLineInsertModeWinNr',
-    },
-    ic = {
-      n = 'StatusLineInsertMode',
-      i = 'StatusLineInsertModeItalic',
-      nr = 'StatusLineInsertModeWinNr',
-    },
-    ix = {
-      n = 'StatusLineInsertMode',
-      i = 'StatusLineInsertModeItalic',
-      nr = 'StatusLineInsertModeWinNr',
-    },
-    ['niI'] = {
-      n = 'StatusLineInsertMode',
-      i = 'StatusLineInsertModeItalic',
-      nr = 'StatusLineInsertModeWinNr',
-    },
-    v = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    V = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    [''] = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    ['niV'] = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    s = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    S = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    [''] = {
-      n = 'StatusLineVisualMode',
-      i = 'StatusLineVisualModeItalic',
-      nr = 'StatusLineVisualModeWinNr',
-    },
-    R = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    Rc = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    Rv = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    Rx = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    ['niR'] = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
-    c = {
-      n = 'StatusLineCommandMode',
-      i = 'StatusLineCommandModeItalic',
-      nr = 'StatusLineCommandModeWinNr',
-    },
-    cv = {
-      n = 'StatusLineCommandMode',
-      i = 'StatusLineCommandModeItalic',
-      nr = 'StatusLineCommandModeWinNr',
-    },
-    ce = {
-      n = 'StatusLineCommandMode',
-      i = 'StatusLineCommandModeItalic',
-      nr = 'StatusLineCommandModeWinNr',
-    },
-    r = {
-      n = 'StatusLineHitEnterPromptMode',
-      i = 'StatusLineHitEnterPromptModeItalic',
-      nr = 'StatusLineHitEnterPromptModeWinNr',
-    },
-    rm = {
-      n = 'StatusLineHitEnterPromptMode',
-      i = 'StatusLineHitEnterPromptModeItalic',
-      nr = 'StatusLineHitEnterPromptModeWinNr',
-    },
-    ['r?'] = {
-      n = 'StatusLineHitEnterPromptMode',
-      i = 'StatusLineHitEnterPromptModeItalic',
-      nr = 'StatusLineHitEnterPromptModeWinNr',
-    },
-    ['!'] = {
-      n = 'StatusLineHitEnterPromptMode',
-      i = 'StatusLineHitEnterPromptModeItalic',
-      nr = 'StatusLineHitEnterPromptModeWinNr',
-    },
-    t = {
-      n = 'StatusLineReplaceMode',
-      i = 'StatusLineReplaceModeItalic',
-      nr = 'StatusLineReplaceModeWinNr',
-    },
+    n = 'StatusLineNormalMode',
+    no = 'StatusLineReplaceMode',
+    nov = 'StatusLineReplaceMode',
+    ['noV'] = 'StatusLineReplaceMode',
+    ['no'] = 'StatusLineReplaceMode',
+    i = 'StatusLineInsertMode',
+    ic = 'StatusLineInsertMode',
+    ix = 'StatusLineInsertMode',
+    ['niI'] = 'StatusLineInsertMode',
+    v = 'StatusLineVisualMode',
+    V = 'StatusLineVisualMode',
+    [''] = 'StatusLineVisualMode',
+    ['niV'] = 'StatusLineVisualMode',
+    s = 'StatusLineVisualMode',
+    S = 'StatusLineVisualMode',
+    [''] = 'StatusLineVisualMode',
+    R = 'StatusLineReplaceMode',
+    Rc = 'StatusLineReplaceMode',
+    Rv = 'StatusLineReplaceMode',
+    Rx = 'StatusLineReplaceMode',
+    ['niR'] = 'StatusLineReplaceMode',
+    c = 'StatusLineCommandMode',
+    cv = 'StatusLineCommandMode',
+    ce = 'StatusLineCommandMode',
+    r = 'StatusLineHitEnterPromptMode',
+    rm = 'StatusLineHitEnterPromptMode',
+    ['r?'] = 'StatusLineHitEnterPromptMode',
+    ['!'] = 'StatusLineHitEnterPromptMode',
+    t = 'StatusLineReplaceMode',
   }
 
   local hl = 'StatusLineBg'
 
   local mode = vim.fn.mode()
   if vim.fn.has_key(hls, mode) then
-    if vim.bo.mod then
-      hl = hls[mode]['i']
-    else
-      hl = hls[mode]['n']
-    end
+    hl = hls[mode]
   end
 
-  local status_line = string.format('%%#%s# %s ',
+  local status_line = string.format('%%#%s# %s %%#StatusLineBg# ',
     hl,
     get_file_name(vim.bo.mod)
   )
-  status_line = status_line .. '%#StatusLineBg2b# ' .. lsp_breadcrumbs()
+  status_line = status_line .. lsp_breadcrumbs()
   status_line = status_line .. '%='
-  status_line = status_line .. '%#StatusLineLinNbr# %v%#StatusLineBg2b#:%#StatusLineColNbr#%l%< %#StatusLineBg2b#(%p%% %LL) %Y '
+  status_line = status_line .. ' %#StatusLineDeli#L:%#StatusLineColNb#%v %#StatusLineDeli#C:%#StatusLineLineNb#%l%< %#StatusLineDeli#(%#StatusLinePercent#%p%% %#StatusLineCount#%LL%#StatusLineDeli#) '
+  status_line = status_line .. '%Y ' .. vcs_status()
 
   return status_line
 end
@@ -337,22 +181,17 @@ local function make_inactive_status_line()
   return status_line
 end
 
-function M.make_status_line(active)
-  if active then
-    vim.wo.statusline = '%!v:lua.active_status_line()'
-  else
-    vim.wo.statusline = '%!v:lua.inactive_status_line()'
-  end
+function M.make_status_line()
+  vim.wo.statusline = '%!v:lua.active_status_line()'
 end
 
 local function create_au()
-  vim.api.nvim_command("au BufEnter * lua require'statusline'.make_status_line(true)")
-  vim.api.nvim_command("au BufLeave * lua require'statusline'.make_status_line(false)")
+  vim.api.nvim_command("au BufEnter * lua require'statusline'.make_status_line()")
 end
 
 create_au()
 
-M.make_status_line(true)
+M.make_status_line()
 
 _G.active_status_line = make_active_status_line
 _G.inactive_status_line = make_inactive_status_line

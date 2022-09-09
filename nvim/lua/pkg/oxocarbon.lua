@@ -1,4 +1,0 @@
-return {
-  config = function()
-  end
-}

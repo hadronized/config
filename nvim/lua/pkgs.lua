@@ -58,5 +58,5 @@ return {
   ['vigoux/notifier.nvim']                     = 'notifier',
   ['rebelot/kanagawa.nvim']                    = 'kanagawa',
   ['catppuccin/nvim']                          = 'catppuccin',
-  ['sindrets/oxocarbon-lua.nvim']              = 'oxocarbon',
+  ['SmiteshP/nvim-navic']                      = 'navic',
 }

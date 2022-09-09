@@ -61,7 +61,7 @@ remap('n', '<leader>fci', '<cmd>edit ~/.config/nvim/init.lua<cr>')
 remap('n', '<leader>fck', '<cmd>edit ~/.config/nvim/lua/keybindings.lua<cr>')
 remap('n', '<leader>fcp', '<cmd>edit ~/.config/nvim/lua/pkgs.lua<cr>')
 remap('n', '<leader>fcP', '<cmd>edit ~/.config/nvim/lua/pkg<cr>')
-remap('n', '<leader>fcs', '<cmd>edit ~/.config/nvim/lua/statusline<cr>')
+remap('n', '<leader>fcs', '<cmd>edit ~/.config/nvim/lua/statusline.lua<cr>')
 
 -- Buffer and tabs.
 remap('n', '<leader>bd', '<cmd>bdel<cr>')
