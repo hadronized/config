@@ -80,7 +80,3 @@ setopt share_history
 # Prompt.
 PS1='%B%F{green} %~ %F{magenta}λ %f%b'
 RPS1='$vcs_info_msg_0_ '
-
-# google-cloud-sdk brew caveat
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
