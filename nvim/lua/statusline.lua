@@ -165,7 +165,7 @@ local function make_active_status_line()
   )
   status_line = status_line .. lsp_breadcrumbs()
   status_line = status_line .. '%='
-  status_line = status_line .. ' %#StatusLineDeli#L:%#StatusLineColNb#%v %#StatusLineDeli#C:%#StatusLineLineNb#%l%< %#StatusLineDeli#(%#StatusLinePercent#%p%% %#StatusLineCount#%LL%#StatusLineDeli#) '
+  status_line = status_line .. ' %#StatusLineDeli#L:%#StatusLineColNb#%l %#StatusLineDeli#C:%#StatusLineLineNb#%v%< %#StatusLineDeli#(%#StatusLinePercent#%p%% %#StatusLineCount#%LL%#StatusLineDeli#) '
   status_line = status_line .. '%Y ' .. vcs_status()
 
   return status_line
