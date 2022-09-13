@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# This script creates a new branch with the user prefix.
+
+git switch -c $USER/$1

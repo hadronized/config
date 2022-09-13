@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# This script garbage collect git branches if they are not merged on master / main / prod.
+
+git branch --merged | rg -v '^\*|main|master|prod' | xargs git branch -d
