@@ -1,7 +1,5 @@
 return {
   config = function()
-    require'nvim-lsp-installer'.setup {}
-
     -- Useful configuration for multi-platform environments.
     local user_home = os.getenv("HOME") or "/tmp"
     local foss_path = string.format("%s/foss", user_home)

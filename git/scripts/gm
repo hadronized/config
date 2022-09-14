@@ -3,7 +3,7 @@
 # This script allows to merge a branch on the current branch easily.
 
 header="Select a branch to merge"
-choice=$(git branch -a | rg -v "^\*" | tr -d ' ' | fzf \
+choice=$(git branch | rg -v "^\*" | tr -d ' ' | fzf \
   --header="$header" \
   --prompt="Merge: " \
 )
