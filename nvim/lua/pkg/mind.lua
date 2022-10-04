@@ -1,5 +1,5 @@
 return {
-  branch = 'v2',
+  -- branch = 'v2',
   requires = { 'nvim-lua/plenary.nvim' },
   config = function()
     require'mind'.setup {
@@ -10,6 +10,13 @@ return {
 
       ui = {
         width = 40,
+
+        highlight = {
+          local_marker = 'Comment',
+          data_marker = 'Comment',
+          modifier_empty = 'Comment',
+          node_root = 'Number',
+        }
       },
 
       keymaps = {

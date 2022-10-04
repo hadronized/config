@@ -60,5 +60,6 @@ return {
   ['rebelot/kanagawa.nvim']                    = 'kanagawa',
   ['catppuccin/nvim']                          = 'catppuccin',
   ['SmiteshP/nvim-navic']                      = 'navic',
-  ['stevearc/dressing.nvim']                   = 'dressing'
+  ['stevearc/dressing.nvim']                   = 'dressing',
+  ['kartikp10/noctis.nvim']                    = 'noctis',
 }
