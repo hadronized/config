@@ -1,0 +1,43 @@
+snippet new-plugin "Insert a new plugin bloc" b
+	---
+
+  <h3 id="new-${1}">
+    <a href="#new-${1}">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="fa-solid fa-book"></i>
+        </span>
+        <span>${1}</span>
+      </span>
+    </a>
+  </h3>
+
+	![${1}]()
+
+	${2:Plugin description}
+
+	- [Reddit](${3})
+	- [GitHub](${4})
+
+snippet update-plugin "Insert a new plugin bloc" b
+	---
+
+  <h3 id="update-${1}">
+    <a href="#update-${1}">
+      <span class="icon-text">
+        <span class="icon">
+          <i class="fa-solid fa-book"></i>
+        </span>
+        <span>${1}</span>
+      </span>
+    </a>
+  </h3>
+
+	> ${2:Plugin description}
+
+	![${1}]()
+
+	${3:Content of the change}
+
+	- [Reddit](${4})
+	- [GitHub](${5})
