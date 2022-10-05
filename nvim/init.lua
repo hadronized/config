@@ -142,7 +142,9 @@ require 'statusline'
 -- a small fix for vim.notify using the system notification interface
 vim.notify = function(msg, level, opts)
   local title = 'Neovim'
-  if opts and opts.title then
+  local opts = opts or {}
+
+  if opts.title then
     title = opts.title
   end
 
