@@ -59,7 +59,7 @@ return {
   ['vigoux/notifier.nvim']                     = 'notifier',
   ['rebelot/kanagawa.nvim']                    = 'kanagawa',
   ['catppuccin/nvim']                          = 'catppuccin',
-  ['SmiteshP/nvim-navic']                      = 'navic',
   ['stevearc/dressing.nvim']                   = 'dressing',
   ['kartikp10/noctis.nvim']                    = 'noctis',
+  ['nvim-treesitter/nvim-treesitter-context']  = 'nvim-treesitter-context',
 }

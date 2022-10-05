@@ -79,15 +79,6 @@ local function vcs_status()
   )
 end
 
-local function lsp_breadcrumbs()
-  local navic = require'nvim-navic'
-  if navic == nil or not navic.is_available() then
-    return ''
-  end
-
-  return navic.get_location()
-end
-
 local function get_file_name(modified)
   local max_width = vim.fn.winwidth(vim.g.statusline_winid) * 0.25
   local file_name = vim.fn.fnamemodify(vim.fn.bufname(vim.fn.winbufnr(vim.g.statusline_winid)), ':.')
@@ -163,7 +154,6 @@ local function make_active_status_line()
     hl,
     get_file_name(vim.bo.mod)
   )
-  status_line = status_line .. lsp_breadcrumbs()
   status_line = status_line .. '%='
   status_line = status_line .. ' %#StatusLineDeli#L:%#StatusLineColNb#%l %#StatusLineDeli#C:%#StatusLineLineNb#%v%< %#StatusLineDeli#(%#StatusLinePercent#%p%% %#StatusLineCount#%LL%#StatusLineDeli#) '
   status_line = status_line .. '%Y ' .. vcs_status()
