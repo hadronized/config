@@ -1,7 +1,7 @@
 return {
   as = 'catppuccin',
   init = function()
-    vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+    vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
   end,
   config = function()
     require'catppuccin'.setup {
@@ -44,6 +44,7 @@ return {
       highlight_overrides = {},
     }
 
-    -- vim.cmd('colorscheme catppuccin')
+    vim.cmd('colorscheme catppuccin')
+    require 'colorscheme'
   end
 }

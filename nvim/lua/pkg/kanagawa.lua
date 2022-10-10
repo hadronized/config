@@ -19,7 +19,7 @@ return {
       theme = "default"           -- Load "default" theme or the experimental "light" theme
     })
 
-    vim.cmd('colorscheme kanagawa')
-    require 'colorscheme'
+    -- vim.cmd('colorscheme kanagawa')
+    -- require 'colorscheme'
   end
 }

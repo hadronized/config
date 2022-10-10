@@ -2,8 +2,8 @@ return {
   config = function()
     local dap = require'dap'
 
-    vim.fn.sign_define('DapBreakpoint', {text='⬤', texthl='RedSign', linehl='', numhl=''})
-    vim.fn.sign_define('DapStopped', {text='➔', texthl='PurpleSign', linehl='', numhl=''})
+    vim.fn.sign_define('DapBreakpoint', {text='⬤', texthl='String', linehl='', numhl=''})
+    vim.fn.sign_define('DapStopped', {text='➔', texthl='ErrorMsg', linehl='', numhl=''})
 
     dap.adapters.rust = {
       type = 'executable',
@@ -11,7 +11,7 @@ return {
         pidProperty = "pid",
         pidSelect = "ask"
       },
-      command = 'lldb-vscode',
+      command = 'rust-lldb',
       env = {
         LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
       },
