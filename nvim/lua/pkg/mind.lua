@@ -127,7 +127,7 @@ return {
               return
             end
 
-            require'mind.commands'.open_data(tree, node, args.data_dir, args.opts)
+            require'mind.commands'.open_data(tree, node, args.data_dir, args.save_tree, args.opts)
             args.save_tree()
           end)
         end
