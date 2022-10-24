@@ -1,4 +1,4 @@
-snippet new-plugin "Insert a new plugin bloc" b
+snippet twin-new-plugin "Insert a new plugin bloc" b
  ---
 
  <h3 id="new-${1}">
@@ -19,7 +19,7 @@ snippet new-plugin "Insert a new plugin bloc" b
  - [Reddit](${3})
  - [GitHub](${4})
 
-snippet update-plugin "Insert a new plugin bloc" b
+snippet twin-update-plugin "Insert an update plugin bloc" b
  ---
 
  <h3 id="update-${1}">
@@ -41,3 +41,19 @@ snippet update-plugin "Insert a new plugin bloc" b
 
  - [Reddit](${4})
  - [GitHub](${5})
+
+snippet twin-guide "Insert a guide bloc" b
+ ---
+
+ <h3 id="guide-${1}">
+   <a href="#guide-${1}">
+     <span class="icon-text">
+       <span class="icon">
+         <i class="fa-solid fa-lightbulb"></i>
+       </span>
+       <span>${1}</span>
+     </span>
+   </a>
+ </h3>
+
+ $0
