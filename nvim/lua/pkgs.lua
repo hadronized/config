@@ -64,4 +64,5 @@ return {
   ['stevearc/dressing.nvim']                   = 'dressing',
   ['kartikp10/noctis.nvim']                    = 'noctis',
   ['nvim-treesitter/nvim-treesitter-context']  = 'nvim-treesitter-context',
+  -- ['folke/noice.nvim']                         = 'noice',
 }
