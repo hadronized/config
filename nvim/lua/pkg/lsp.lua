@@ -80,37 +80,37 @@ return {
     end
 
     -- Lua.
-    lsp.sumneko_lua.setup {
-      capabilities = lsp_capabilities,
-      cmd = {
-        string.format("%s/lua-language-server/bin/platform/lua-language-server", foss_path),
-        "-E",
-        string.format("%s/lua-language-server/main.lua", foss_path)
-      },
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-            path = vim.split(package.path, ';'),
-          },
-
-          diagnostics = {
-            enable = true,
-            globals = { "vim" },
-          },
-
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = {
-              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-              [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-            },
-          },
-        },
-      },
-
-      on_attach = lsp_attach { format = false },
-    }
+    -- lsp.sumneko_lua.setup {
+    --   capabilities = lsp_capabilities,
+    --   cmd = {
+    --     string.format("%s/lua-language-server/bin/platform/lua-language-server", foss_path),
+    --     "-E",
+    --     string.format("%s/lua-language-server/main.lua", foss_path)
+    --   },
+    --   settings = {
+    --     Lua = {
+    --       runtime = {
+    --         version = 'LuaJIT',
+    --         path = vim.split(package.path, ';'),
+    --       },
+    --
+    --       diagnostics = {
+    --         enable = true,
+    --         globals = { "vim" },
+    --       },
+    --
+    --       workspace = {
+    --         -- Make the server aware of Neovim runtime files
+    --         library = {
+    --           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+    --           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+    --         },
+    --       },
+    --     },
+    --   },
+    --
+    --   on_attach = lsp_attach { format = false },
+    -- }
 
     -- Rust.
     lsp.rust_analyzer.setup {
