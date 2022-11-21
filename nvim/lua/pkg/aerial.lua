@@ -1,10 +1,13 @@
 return {
   config = function()
     require'aerial'.setup {
-      default_direction = 'prefer_right',
+      layout = {
+        default_direction = 'prefer_right',
+      },
+
       highlight_on_hover = true,
       manage_folds = true,
-      placement_editor_edge = true,
+      placement = 'edge',
       show_guides = true,
     }
   end,
