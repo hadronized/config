@@ -2,8 +2,6 @@ return {
   ['wbthomason/packer.nvim']                   = 'packer',
   ['tjdevries/colorbuddy.vim']                 = 'colorbuddy',
   ['sainnhe/edge']                             = 'edge',
-  ['williamboman/mason.nvim']                  = 'mason',
-  ['williamboman/mason-lspconfig.nvim']        = 'mason-lspconfig',
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
   ['~/dev/hop.nvim']                           = 'hop',
   ['~/dev/mind.nvim']                          = 'mind',

@@ -12,9 +12,6 @@ return {
         width = 40,
 
         highlight = {
-          local_marker = 'Comment',
-          data_marker = 'Comment',
-          modifier_empty = 'Comment',
           node_root = 'Number',
         }
       },
