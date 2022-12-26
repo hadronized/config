@@ -1,5 +1,6 @@
 return {
   requires = 'nvim-lua/plenary.nvim',
+  disable = true,
   config = function()
     local actions = require("diffview.actions")
 
