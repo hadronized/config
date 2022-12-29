@@ -11,6 +11,7 @@
 	ce = commit --amend --no-edit
 [core]
 	pager = less -F -X
+	editor = hx
 [commit]
 	gpgsign = true
 [push]

@@ -17,16 +17,29 @@ select = "underline"
 [editor.indent-guides]
 render = true
 character = "▏"
+skip-levels = 0
 
 [editor.lsp]
 display-messages = true
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file-encoding"]
+center = ["selections", "primary-selection-length", "position", "position-percentage"]
+right = ["diagnostics", "workspace-diagnostics"]
+
+[editor.whitespace.render]
+newline = "none"
+
+[editor.whitespace.characters]
+newline = ""
+
+# bépo keybindings
 [keys.normal]
 c = "move_char_left"
 r = "move_char_right"
 t = "move_line_down"
 s = "move_line_up"
-g = { c = "goto_line_start", r = "goto_line_end", h = "no_op", l = "no_op" }
+g = { c = "goto_line_start", r = "goto_line_end", h = "no_op", l = "no_op", D = "goto_reference" }
 space = { w = { c = "jump_view_left", r = "jump_view_right", t = "jump_view_down", s = "jump_view_up", o = "hsplit" } }
 "é" = "move_next_word_start"
 "É" = "move_next_long_word_start"
@@ -35,6 +48,7 @@ H = "replace_with_yanked"
 l = "change_selection"
 z = "select_regex"
 "à" = "find_till_char"
+"C-h" = "signature_help"
 
 [keys.select]
 c = "extend_char_left"
@@ -49,3 +63,6 @@ H = "replace_with_yanked"
 l = "change_selection"
 z = "select_regex"
 "à" = "find_till_char"
+
+[keys.insert]
+"C-h" = "signature_help"
