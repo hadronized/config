@@ -8,6 +8,7 @@ completion-trigger-len = 1
 true-color = true
 color-modes = true
 auto-pairs = true
+rulers = [120]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -26,20 +27,20 @@ left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file
 center = ["selections", "primary-selection-length", "position", "position-percentage"]
 right = ["diagnostics", "workspace-diagnostics"]
 
-# bépo keybindings
 [keys.normal]
 c = "move_char_left"
 r = "move_char_right"
 t = "move_line_down"
 s = "move_line_up"
 g = { c = "goto_line_start", r = "goto_line_end", h = "no_op", l = "no_op", D = "goto_reference" }
-space = { w = { c = "jump_view_left", r = "jump_view_right", t = "jump_view_down", s = "jump_view_up", o = "hsplit" } }
+space = { B = { d = ":buffer-close" }, c = "toggle_comments", w = { c = "jump_view_left", r = "jump_view_right", t = "jump_view_down", s = "jump_view_up", o = "hsplit" } }
 "é" = "move_next_word_start"
 "É" = "move_next_long_word_start"
 h = "replace"
 H = "replace_with_yanked"
 l = "change_selection"
-z = "select_regex"
+z = "split_selection"
+S = "select_regex"
 "à" = "find_till_char"
 
 [keys.select]
@@ -53,5 +54,6 @@ g = { c = "goto_line_start", r = "goto_line_end", h = "no_op", l = "no_op" }
 h = "replace"
 H = "replace_with_yanked"
 l = "change_selection"
-z = "select_regex"
+z = "split_selection"
+S = "select_regex"
 "à" = "find_till_char"
