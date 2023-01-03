@@ -12,7 +12,6 @@
 [core]
 	pager = less -F -X
 	editor = hx
-	editor = nvim
 [commit]
 	gpgsign = true
 [push]

@@ -3,12 +3,21 @@ theme = "catppuccin_macchiato"
 [editor]
 scroll-lines = 1
 cursorline = true
-auto-save = true
+auto-save = false
 completion-trigger-len = 1
 true-color = true
 color-modes = true
 auto-pairs = true
 rulers = [120]
+idle-timeout = 50
+
+# [editor.gutter.characters]
+# diagnostics = ""
+# breakpoints.verified = "●"
+# breakpoints.other = "⊚"
+# diff.add = "▏"
+# diff.remove = "‾"
+# diff.change = "▏"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -39,9 +48,10 @@ space = { B = { d = ":buffer-close" }, c = "toggle_comments", w = { c = "jump_vi
 h = "replace"
 H = "replace_with_yanked"
 l = "change_selection"
-z = "split_selection"
-S = "select_regex"
+"è" = "select_regex"
 "à" = "find_till_char"
+z = "select_regex"
+Z = "split_selection"
 
 [keys.select]
 c = "extend_char_left"
@@ -54,6 +64,7 @@ g = { c = "goto_line_start", r = "goto_line_end", h = "no_op", l = "no_op" }
 h = "replace"
 H = "replace_with_yanked"
 l = "change_selection"
-z = "split_selection"
-S = "select_regex"
+"è" = "split_selection"
 "à" = "find_till_char"
+z = "select_regex"
+Z = "split_selection"
