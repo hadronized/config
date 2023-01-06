@@ -1,65 +1,23 @@
 keybinding:
   universal:
-    quit: 'q'
-    quit-alt1: '<c-c>' # alternative/alias of quit
-    return: '<esc>' # return to previous menu, will quit if there's nowhere to return
-    # When set to a printable character, this will work for returning from non-prompt panels
-    return-alt1: null
-    quitWithoutChangingDirectory: 'Q'
-    togglePanel: '<tab>' # goto the next panel
-    prevItem: '<up>' # go one line up
-    nextItem: '<down>' # go one line down
-    prevItem-alt: 's' # go one line up
-    nextItem-alt: 't' # go one line down
-    prevPage: ',' # go to next page in list
-    nextPage: '.' # go to previous page in list
-    gotoTop: '<' # go to top of list
-    gotoBottom: '>' # go to bottom of list
-    scrollLeft: 'C' # scroll left within list view
-    scrollRight: 'R' # scroll right within list view
-    prevBlock: '<left>' # goto the previous block / panel
-    nextBlock: '<right>' # goto the next block / panel
-    prevBlock-alt: 'c' # goto the previous block / panel
-    nextBlock-alt: 'r' # goto the next block / panel
-    jumpToBlock: ['1', '2', '3', '4', '5'] # goto the Nth block / panel
-    nextMatch: 'n'
-    prevMatch: 'N'
-    optionMenu: 'x' # show help menu
-    optionMenu-alt1: '?' # show help menu
-    select: '<space>'
-    goInto: '<enter>'
-    openRecentRepos: '<c-r>'
-    confirm: '<enter>'
-    confirm-alt1: 'y'
-    remove: 'd'
-    new: 'n'
-    edit: 'e'
-    openFile: 'o'
-    scrollUpMain: '<pgup>' # main panel scroll up
-    scrollDownMain: '<pgdown>' # main panel scroll down
-    scrollUpMain-alt1: 'K' # main panel scroll up
-    scrollDownMain-alt1: 'J' # main panel scroll down
-    scrollUpMain-alt2: '<c-u>' # main panel scroll up
-    scrollDownMain-alt2: '<c-d>' # main panel scroll down
-    executeCustomCommand: ':'
-    createRebaseOptionsMenu: 'm'
-    pushFiles: 'P'
-    pullFiles: 'p'
+    prevItem-alt: 's'
+    nextItem-alt: 't'
+    prevBlock-alt: 'c'
+    nextBlock-alt: 'r'
     refresh: '$'
-    createPatchOptionsMenu: '<c-p>'
-    nextTab: ']'
-    prevTab: '['
-    nextScreenMode: '+'
-    prevScreenMode: '_'
-    undo: 'z'
-    redo: '<c-z>'
-    filteringMenu: '<c-s>'
-    diffingMenu: 'W'
-    diffingMenu-alt: '<c-e>' # deprecated
-    copyToClipboard: '<c-o>'
-    submitEditorText: '<enter>'
-    appendNewline: '<a-enter>'
-    extrasMenu: '@'
-    toggleWhitespaceInDiffView: '<c-w>'
-    increaseContextInDiffView: '}'
-    decreaseContextInDiffView: '{'
+  branches:
+    checkoutBranchByName: null
+    rebaseBranch: 'R'
+    renameBranch: null
+  files:
+    commitChanges: null
+    refreshFiles: null
+    stageAllChanges: null
+  commits:
+    squashDown: null
+    renameCommit: null
+    cherryPickCopy: null
+  commitFiles:
+    checkoutCommitFile: null
+  stash:
+    renameStash: null
