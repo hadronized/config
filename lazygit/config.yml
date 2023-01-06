@@ -5,6 +5,8 @@ keybinding:
     prevBlock-alt: 'c'
     nextBlock-alt: 'r'
     refresh: '$'
+    prevTab: '('
+    nextTab: ')'
   branches:
     checkoutBranchByName: null
     rebaseBranch: 'R'
