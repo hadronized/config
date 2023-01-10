@@ -1,0 +1,10 @@
+map c updir
+map t down
+map s up
+map r open
+
+map C clear
+map T tag-toggle
+map R rename
+
+map d delete

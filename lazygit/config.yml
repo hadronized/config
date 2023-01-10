@@ -1,3 +1,5 @@
+gui:
+  showCommandLog: false
 keybinding:
   universal:
     prevItem-alt: 's'
