@@ -14,3 +14,5 @@ map Sa :set sortby atime; set info atime
 map Sc :set sortby ctime; set info ctime
 map Se :set sortby ext; set info
 map ge bottom
+
+map D delete
