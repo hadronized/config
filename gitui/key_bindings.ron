@@ -1,0 +1,13 @@
+(
+  focus_left: Some(( code: Char('c'), modifiers: ( bits: 0,),)),
+  focus_right: Some(( code: Char('r'), modifiers: ( bits: 0,),)),
+  focus_above: Some(( code: Char('s'), modifiers: ( bits: 0,),)),
+  focus_below: Some(( code: Char('t'), modifiers: ( bits: 0,),)),
+
+  move_left: Some(( code: Char('c'), modifiers: ( bits: 0,),)),
+  move_right: Some(( code: Char('r'), modifiers: ( bits: 0,),)),
+  move_up: Some(( code: Char('s'), modifiers: ( bits: 0,),)),
+  move_down: Some(( code: Char('t'), modifiers: ( bits: 0,),)),
+
+  open_help: Some(( code: Char('?'), modifiers: ( bits: 0,),)),
+)
