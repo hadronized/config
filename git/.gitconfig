@@ -26,3 +26,5 @@
 	defaultBranch = master
 [gpg]
 	format = ssh
+[remote "origin"]
+	prune = true

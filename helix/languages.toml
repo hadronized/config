@@ -1,3 +1,9 @@
 [[rust]]
 name = "rust"
 indent = { tab-width = 2, unit = "  "}
+
+# JUST WORK DOGGAMMIT
+config.rust-analyzer.cargo.features = "all"
+config.rust-analyzer.check.features = "all"
+config.cargo.features = "all"
+config.check.features = "all"

@@ -79,3 +79,6 @@ l = "change_selection"
 "à" = "find_till_char"
 S = "select_regex"
 z = "split_selection"
+
+[keys.insert]
+" " = ["collapse_selection", ":insert-output printf ' '", "move_char_right"]
