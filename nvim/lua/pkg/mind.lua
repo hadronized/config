@@ -3,11 +3,6 @@ return {
   requires = { 'nvim-lua/plenary.nvim' },
   config = function()
     require'mind'.setup {
-      persistence = {
-        state_path = '~/mind/mind.json',
-        data_dir = '~/mind/data',
-      },
-
       ui = {
         width = 40,
 
