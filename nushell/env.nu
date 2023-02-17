@@ -2,20 +2,22 @@
 
 def create_left_prompt [] {
     let path_segment = if (is-admin) {
-        $"(ansi red_bold)($env.PWD)"
+        $"(ansi red_bold)($env.PWD | str replace $"^($env.HOME)" ~)"
     } else {
-        $"(ansi green_bold)($env.PWD)"
+        $"(ansi green_bold)($env.PWD | str replace $"^($env.HOME)" ~)"
     }
 
     $path_segment
 }
 
 def create_right_prompt [] {
-    let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
-    ] | str join)
+    # let time_segment = ([
+    #     (date now | date format '%m/%d/%Y %r')
+    # ] | str join)
 
-    $time_segment
+    let git_segment = $'(do { git symbolic-ref --short HEAD } | complete | get stdout)'
+
+    $git_segment
 }
 
 # Use nushell functions to define your right and left prompt
