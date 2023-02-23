@@ -9,13 +9,13 @@ function p() {
   # The directory where we expect the projects to be in.
   proj_dir=${PROJ_DIR:-~/dev}
 
-  project=$(/bin/ls $proj_dir | fzf --prompt "Switch to project: ")
+  project=$(/bin/ls $proj_dir | sk --prompt "Switch to project: ")
   [ -n "$project" ] && cd $proj_dir/$project
 }
 
 # Easily switch between tmux session.
 function sw() {
-  session=$(tmux ls -F "#S" | fzf --prompt "Switch to tmux session: ")
+  session=$(tmux ls -F "#S" | sk --prompt "Switch to tmux session: ")
 
   [ -n "$session" ] && tmux switch-client -t $session
 }
