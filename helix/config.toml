@@ -38,7 +38,7 @@ display-messages = true
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file-encoding"]
 center = []
-right = ["selections", "primary-selection-length", "position", "position-percentage", "diagnostics", "workspace-diagnostics"]
+right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics"]
 
 [keys.normal]
 c = "move_char_left"
