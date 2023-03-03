@@ -10,4 +10,6 @@
   move_down: Some(( code: Char('t'), modifiers: ( bits: 0,),)),
 
   open_help: Some(( code: Char('?'), modifiers: ( bits: 0,),)),
+
+  diff_stage_lines: Some(( code: Char('k'), modifiers: ( bits: 0,),)),
 )

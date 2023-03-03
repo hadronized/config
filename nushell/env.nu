@@ -11,28 +11,34 @@ def create_left_prompt [] {
 }
 
 def create_right_prompt [] {
-    let git_segment = $'(do { git symbolic-ref --short HEAD } | complete | get stdout | str trim)'
-    let git_segment = if ($git_segment | str length) > 0 {
-      $'(ansi red)($git_segment)(ansi reset)'
-    }
+    let git_segment = ''
+    # if not (which 'git' | is-empty) {
+    #   let git_segment = $'(do { git symbolic-ref --short HEAD } | complete | get stdout | str trim)'
+    #   let git_segment = if ($git_segment | str length) > 0 {
+    #     $'(ansi red)($git_segment)(ansi reset)'
+    #   }
+    # }
 
-    let k8s_ctx = $'(do { kubectx -c } | complete | get stdout | str trim)'
-    let k8s_segment = if ($k8s_ctx | str length) > 0 {
-      let k8s_ns = $'(do { kubens -c } | complete | get stdout | str trim)'
-      if ($k8s_ns | str length) > 0 {
-        $'(ansi blue_bold)⎈ (ansi blue_dimmed)($k8s_ns)(ansi grey).(ansi blue)($k8s_ctx)(ansi reset)'
+    let k8s_segment = ''
+    if not (which 'kubectl' | is-empty) {
+      let k8s_ctx = $'(do { kubectx -c } | complete | get stdout | str trim)'
+      let k8s_segment = if ($k8s_ctx | str length) > 0 {
+        let k8s_ns = $'(do { kubens -c } | complete | get stdout | str trim)'
+        if ($k8s_ns | str length) > 0 {
+          $'(ansi blue_bold)⎈ (ansi blue_dimmed)($k8s_ns)(ansi grey).(ansi blue)($k8s_ctx)(ansi reset)'
 
+        } else {
+          ''
+        }
       } else {
         ''
       }
-    } else {
-      ''
     }
 
     let last_cmd = if $env.LAST_EXIT_CODE == 0 { $'(ansi green)✓(ansi reset)' } else { $'(ansi red)✕(ansi reset)'}
     let sep = $'(ansi grey) | (ansi reset)'
 
-    [$k8s_segment $git_segment] | str join $sep | str trim
+    [$last_cmd $k8s_segment $git_segment] | str trim | where not ($it | is-empty) | str join $sep 
 }
 
 # Use nushell functions to define your right and left prompt
