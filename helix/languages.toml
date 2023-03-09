@@ -2,3 +2,4 @@
 name = "rust"
 indent = { tab-width = 2, unit = "  "}
 config.cargo.features = "all"
+config.rust-analyzer.check.command = "clippy"
