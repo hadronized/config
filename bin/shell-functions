@@ -19,3 +19,19 @@ function sw() {
 
   [ -n "$session" ] && tmux switch-client -t $session
 }
+
+# Open the Mind journal for today.
+function j() {
+  p=$(date +/Journal/%Y/%b/%d)
+  mind get -fos $p
+}
+
+# Get the current backlog.
+function backlog() {
+  mind paths -s /Tasks/Backlog
+}
+
+# Get WIP tasks.
+function wip() {
+  mind paths -s /Tasks/On-going
+}
