@@ -35,3 +35,8 @@ function backlog() {
 function wip() {
   mind paths -s /Tasks/On-going
 }
+
+# Open PRs.
+function prs() {
+  mind paths -s '/Opened PRs'
+}
