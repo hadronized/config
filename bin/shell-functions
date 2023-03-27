@@ -23,7 +23,12 @@ function sw() {
 # Open the Mind journal for today.
 function j() {
   p=$(date +/Journal/%Y/%b/%d)
-  mind get -fos $p
+
+  if mind paths -s $p &> /dev/null; then
+    mind get -fos $p
+  else
+    mind ins -fos $(date +/Journal/%Y/%b) -n $(date +%d)
+  fi
 }
 
 # Get the current backlog.
