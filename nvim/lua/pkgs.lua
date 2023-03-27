@@ -4,7 +4,7 @@ return {
   ['sainnhe/edge']                             = 'edge',
   ['SmiteshP/nvim-gps']                        = 'nvim-gps',
   ['~/dev/hop.nvim']                           = 'hop',
-  ['~/dev/mind.nvim']                          = 'mind',
+  ['phaazon/mind.nvim']                        = 'mind',
   ['phaazon/notisys.nvim']                     = 'notisys',
   ['windwp/nvim-autopairs']                    = 'autopairs',
   ['numToStr/Comment.nvim']                    = 'comment',
