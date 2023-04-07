@@ -11,18 +11,6 @@ auto-pairs = true
 rulers = [120]
 idle-timeout = 50
 
-# [editor.gutters.diagnostics]
-# characters = ""
-# 
-# [editor.gutters.breakpoints.characters]
-# verified = "●"
-# other = "⊚"
-# 
-# [editor.gutters.diff.characters]
-# add = "▏"
-# remove = "‾"
-# change = "▏"
-
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
