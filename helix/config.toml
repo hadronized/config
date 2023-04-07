@@ -22,11 +22,12 @@ character = "▏"
 
 [editor.lsp]
 display-messages = true
+display-inlay-hints = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-type", "total-line-numbers", "file-encoding"]
 center = []
-right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics"]
+right = ["selections", "primary-selection-length", "position", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics", "version-control"]
 
 [keys.normal]
 c = "move_char_left"
