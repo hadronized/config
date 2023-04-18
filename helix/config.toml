@@ -31,14 +31,33 @@ right = ["selections", "primary-selection-length", "position", "position-percent
 
 [keys.normal]
 c = "move_char_left"
+C  = "extend_char_left"
 r = "move_char_right"
+R = "extend_char_right"
 t = "move_line_down"
+T = "extend_line_down"
 s = "move_line_up"
+S = "extend_line_up"
+
+h = "replace"
+H = "replace_with_yanked"
+j = "find_till_char"
+J = "extend_till_char"
+k = "select_regex"
+K = "split_selection"
+l = "change_selection"
+L = "copy_selection_on_next_line"
+
+X = "extend_line_above"
+
 g.c = "goto_line_start"
 g.r = "goto_line_end"
 g.h = "no_op"
 g.l = "no_op"
 g.D = "goto_reference"
+
+C-K = "split_selection_on_newline"
+
 space.B.d = ":buffer-close"
 space.c = "toggle_comments"
 space.w.c = "jump_view_left"
@@ -46,17 +65,6 @@ space.w.r = "jump_view_right"
 space.w.t = "jump_view_down"
 space.w.s = "jump_view_up"
 space.w.o = "hsplit"
-space.z.ret = "split_selection_on_newline"
-"é" = "move_next_word_start"
-"É" = "move_next_long_word_start"
-h = "replace"
-H = "replace_with_yanked"
-l = "change_selection"
-"è" = "select_regex"
-"à" = "find_till_char"
-S = "select_regex"
-z = "split_selection"
-X = "extend_line_above"
 
 [keys.select]
 c = "extend_char_left"
