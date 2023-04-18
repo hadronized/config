@@ -6,13 +6,13 @@
 
 ## Some pickers
 define-command -hidden open_buffer_picker %{
-  prompt open: -menu -buffer-completion %{
+  prompt buffer: -menu -buffer-completion %{
     buffer %val{text}
   }
 }
 
 define-command -hidden open_file_picker %{
-  prompt open: -menu -shell-script-candidates 'fd --hidden --type=file' %{
+  prompt file: -menu -shell-script-candidates 'fd --hidden --type=file' %{
     edit -existing %val{text}
   }
 }
@@ -53,3 +53,7 @@ map global normal M <a-a>       # select outer
 ## pickers
 map global user b ':open_buffer_picker<ret>' -docstring "Open buffer picker"
 map global user f ':open_file_picker<ret>'   -docstring "Open file picker"
+
+# LSP
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable

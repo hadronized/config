@@ -61,6 +61,11 @@ g.D = "goto_reference"
 
 C-k = "split_selection_on_newline"
 
+z.t = "scroll_down"
+z.s = "scroll_up"
+Z.t = "scroll_down"
+Z.s = "scroll_up"
+
 space.B.d = ":buffer-close"
 space.c = "toggle_comments"
 space.w.c = "jump_view_left"
