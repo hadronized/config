@@ -53,5 +53,5 @@ map global normal m <a-i>       # select inner
 map global normal M <a-a>       # select outer
 
 ## pickers
-map -docstring "Open buffer picker" global user b ':open_buffer_picker<ret>'
-map -docstring "Open file picker" global user  ':open_file_picker<ret>'
+map global user b ':open_buffer_picker<ret>' -docstring "Open buffer picker"
+map global user f ':open_file_picker<ret>'   -docstring "Open file picker"
