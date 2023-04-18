@@ -1,6 +1,6 @@
 # Options, highlighters, etc.
 
-add-highlighter global/ number-lines -hlcursor
+# add-highlighter global/ number-lines -hlcursor
 
 # Commands
 
@@ -28,14 +28,14 @@ map global normal C H # extend left
 map global normal T J # extend down
 map global normal S K # extend up
 map global normal R L # extend right
-map global normal l c # change
-map global normal j t # until
+map global normal h t # until
+map global normal j r # replace
 map global normal k s # select
-map global normal h r # replace
-map global normal L C # duplicate selection downwards
-map global normal J T # extend to next char
+map global normal l c # change
+map global normal H T # extend to next char
+map global normal J R # replace with yanked
 map global normal K S # split
-map global normal H R # replace with yanked
+map global normal L C # duplicate selection downwards
 map global insert ' ' ' '
 map -docstring "line begin" global goto c h
 map -docstring "buffer bottom" global goto t j
@@ -46,9 +46,7 @@ map -docstring "scroll up" global view t j
 map -docstring "scroll down" global view s k
 map -docstring "scroll right" global view r l
 
-# alt remapping
-map global normal <c-s-z> <a-z> # combine selections
-map global normal <c-s-k> <a-k> # split on newlines 
+## alt remapping
 map global normal m <a-i>       # select inner
 map global normal M <a-a>       # select outer
 
