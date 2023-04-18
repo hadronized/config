@@ -22,7 +22,7 @@ map global normal s k # up
 map global normal r l # right
 map global normal C H # extend left
 map global normal T J # extend down
-map global normal C K # extend up
+map global normal S K # extend up
 map global normal R L # extend rightg
 map global normal l c # change
 map global normal j t # until
