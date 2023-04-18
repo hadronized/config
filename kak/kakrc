@@ -1,0 +1,43 @@
+
+# Commands
+## Some pickers
+define-command -hidden open_buffer_picker %{
+  prompt open: -menu -buffer-completion %{
+    buffer %val{text}
+  }
+}
+
+define-command -hidden open_file_picker %{
+  prompt open: -menu -shell-script-candidates 'fd --hidden --type=file' %{
+    edit -existing %val{text}
+  }
+}
+
+# keybindings
+
+## bépo remapping
+map global normal c h # left
+map global normal t j # down
+map global normal s k # up
+map global normal r l # right
+map global normal C H # extend left
+map global normal T J # extend down
+map global normal C K # extend up
+map global normal R L # extend rightg
+map global normal l c # change
+map global normal j t # until
+map global normal k s # select
+map global normal h r # replace
+map global normal L C # duplicate selection downwards
+map global normal J T # extend to next char
+map global normal K S # split
+map global normal H R # replace with yanked
+map global insert ' ' ' '
+map global goto c h
+map global goto t j
+map global goto s k
+map global goto r l
+
+## pickers
+map global user b ':open_buffer_picker<ret>'
+map global user f ':open_file_picker<ret>'
