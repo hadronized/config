@@ -1,4 +1,5 @@
 # Options, highlighters, etc.
+colorscheme catppuccin_macchiato
 
 # add-highlighter global/ number-lines -hlcursor
 
@@ -14,6 +15,29 @@ define-command -hidden open_buffer_picker %{
 define-command -hidden open_file_picker %{
   prompt file: -menu -shell-script-candidates 'fd --hidden --type=file' %{
     edit -existing %val{text}
+  }
+}
+
+# LSP
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+  lsp-enable-window
+
+    # Enable inlay diagnostics
+    lsp-inlay-diagnostics-enable window
+
+    # Enable inlay hints
+    lsp-inlay-diagnostics-enable window
+}
+
+# Enable semantic tokens
+hook global WinSetOption filetype=<language> %{
+  hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+  hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+  hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+  hook -once -always window WinSetOption filetype=.* %{
+      remove-hooks window semantic-tokens
   }
 }
 
@@ -53,7 +77,3 @@ map global normal M <a-a>       # select outer
 ## pickers
 map global user b ':open_buffer_picker<ret>' -docstring "Open buffer picker"
 map global user f ':open_file_picker<ret>'   -docstring "Open file picker"
-
-# LSP
-eval %sh{kak-lsp --kakoune -s $kak_session}
-lsp-enable
