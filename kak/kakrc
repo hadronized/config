@@ -51,6 +51,7 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
                             
 map global normal m ':enter-user-mode match<ret>' -docstring "match mode"
+map global match m m                              -docstring "select other matching delimiter"
 map global match i '<a-i>'                        -docstring "match inside"
 map global match a '<a-a>'                        -docstring "match around"
 map global match d ':match-delete-surround<ret>'  -docstring "delete surround"

@@ -45,3 +45,8 @@ function wip() {
 function prs() {
   mind paths -s '/Opened PRs'
 }
+
+# Name of currently selected kitty tab.
+kitty_current_tab_name() {
+  kitty @ ls | jq '.[0].tabs | map(select(.is_focused==true)) | .[0].title'
+}
