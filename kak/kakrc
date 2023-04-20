@@ -6,6 +6,16 @@ add-highlighter global/ number-lines -hlcursor
 
 # Commands
 
+# window mode
+declare-user-mode window
+
+## kitty integration
+define-command kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
+  evaluate-commands %sh{
+    kitty @ launch --no-response --location $1 kak -c $kak_session
+  }
+}
+
 ## Some pickers
 define-command -hidden open_buffer_picker %{
   prompt buffer: -menu -buffer-completion %{
@@ -19,6 +29,7 @@ define-command -hidden open_file_picker %{
   }
 }
 
+## match mode (surround, etc.)
 declare-user-mode match
 
 define-command -hidden match-delete-surround -docstring 'delete surrounding key' %{
@@ -49,12 +60,6 @@ define-command -hidden add-surrounding-pair -params 2 %{
     execute-keys -draft p
   }
 }
-                            
-map global normal m ':enter-user-mode match<ret>' -docstring "match mode"
-map global match m m                              -docstring "select other matching delimiter"
-map global match i '<a-i>'                        -docstring "match inside"
-map global match a '<a-a>'                        -docstring "match around"
-map global match d ':match-delete-surround<ret>'  -docstring "delete surround"
 
 # LSP
 
@@ -109,5 +114,17 @@ map -docstring "scroll down" global view s k
 map -docstring "scroll right" global view r l
 
 ## pickers
-map global user b ':open_buffer_picker<ret>' -docstring "Open buffer picker"
-map global user f ':open_file_picker<ret>'   -docstring "Open file picker"
+map global user b ':open_buffer_picker<ret>' -docstring 'Open buffer picker'
+map global user f ':open_file_picker<ret>'   -docstring 'Open file picker'
+
+## match
+map global normal m ':enter-user-mode match<ret>' -docstring 'match mode'
+map global match m m                              -docstring 'select other matching delimiter'
+map global match i '<a-i>'                        -docstring 'match inside'
+map global match a '<a-a>'                        -docstring 'match around'
+map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
+
+## window management
+map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
+map global window v ':kitty-split vsplit<ret>'   -docstring 'vertical split'
+map global window o ':kitty-split hsplit<ret>'   -docstring 'horizontal split'
