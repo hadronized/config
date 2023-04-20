@@ -2,7 +2,12 @@
 colorscheme catppuccin_macchiato
 set global indentwidth 2
 
-add-highlighter global/ number-lines -hlcursor
+add-highlighter global/git-diff flag-lines Default git_diff_flags
+add-highlighter global/number-lines number-lines -hlcursor
+
+## automatically update git diff, if needed
+hook global BufCreate .* %{git show-diff}
+hook global BufWritePost .* %{git update-diff}
 
 # Commands
 
@@ -37,7 +42,7 @@ define-command -hidden match-delete-surround -docstring 'delete surrounding key'
 }
 
 define-command -hidden match-delete-surround-on-key %{
-  execute-keys -draft "<a-a>%val{key}i<del><esc>a<backspace><esc>"
+  execute-keys -draft '<a-a>%val{key}i<del><esc>a<backspace><esc>'
 }
 
 define-command surround-key -docstring 'surround key' %{
@@ -48,7 +53,7 @@ define-command surround-key -docstring 'surround key' %{
 
 define-command surround-tag -docstring 'surround tag' %{
   prompt surround-tag: %{
-    add_surrounding_pair "<%val{text}>" "</%val{text}>"
+    add_surrounding_pair '<%val{text}>' '</%val{text}>'
   }
 }
     
@@ -106,18 +111,18 @@ map global normal J R # replace with yanked
 map global normal K S # split
 map global normal L C # duplicate selection downwards
 map global insert ' ' ' '
-map -docstring "line begin" global goto c h
-map -docstring "buffer bottom" global goto t j
-map -docstring "buffer top" global goto s k
-map -docstring "line end" global goto r l
-map -docstring "scroll left" global view c h
-map -docstring "scroll up" global view t j
-map -docstring "scroll down" global view s k
-map -docstring "scroll right" global view r l
+map global goto c h -docstring 'line begin' 
+map global goto t j -docstring 'buffer bottom' 
+map global goto s k -docstring 'buffer top' 
+map global goto r l -docstring 'line end' 
+map global view c h -docstring 'scroll left' 
+map global view t j -docstring 'scroll up' 
+map global view s k -docstring 'scroll down' 
+map global view r l -docstring 'scroll right' 
 
 ## pickers
-map global user b ':open_buffer_picker<ret>' -docstring 'Open buffer picker'
-map global user f ':open_file_picker<ret>'   -docstring 'Open file picker'
+map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
+map global user f ':open_file_picker<ret>'   -docstring 'pick file'
 
 ## match
 map global normal m ':enter-user-mode match<ret>' -docstring 'match mode'
@@ -131,20 +136,30 @@ map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':kitty-split vsplit<ret>'   -docstring 'vertical split'
 map global window o ':kitty-split hsplit<ret>'   -docstring 'horizontal split'
 
+## git
+declare-user-mode git
+map global user g ':enter-user-mode git<ret>' -docstring 'git mode'
+map global git p ':git prev-hunk<ret>'        -docstring 'goto previous hunk'
+map global git n ':git next-hunk<ret>'        -docstring 'goto next hunk'
+
 ## LSP
-declare-user-mode lsp2
-map global user l ':enter-user-mode lsp<ret>'      -docstring 'lsp mode'
-map global user L ':enter-user-mode lsp2<ret>'     -docstring 'lsp mode'
-map global lsp2 a ':lsp-code-actions<ret>'         -docstring 'code action'
-map global lsp2 c ':lsp-code-lens<ret>'            -docstring 'execute code lens'
-map global lsp2 d ':lsp-diagnostics<ret>'          -docstring 'list diagnostics'
-map global lsp2 o ':lsp-incoming-calls<ret>'       -docstring 'incoming calls'
-map global lsp2 I ':lsp-implementation<ret>'       -docstring 'list implementations'
-map global lsp2 h ':lsp-highlight-references<ret>' -docstring 'highlight references'
-map global lsp2 k ':lsp-hover<ret>'                -docstring 'hover'
-map global lsp2 r ':lsp-rename-prompt<ret>'        -docstring 'rename'
-map global lsp2 R ':lsp-references<ret>'           -docstring 'list references'
-map global lsp2 o ':lsp-outgoing-calls<ret>'       -docstring 'outgoing calls'
-map global lsp2 s ':lsp-goto-document-symbol<ret>' -docstring 'pick document symbol'
-map global lsp2 S ':lsp-document-symbol<ret>'      -docstring 'list workspace symbols'
-map global lsp2 x ':lsp-find-error<ret>'           -docstring 'jump to the prev/next error'
+declare-user-mode user-lsp
+map global user l ':enter-user-mode lsp<ret>'           -docstring 'lsp mode'
+map global user L ':enter-user-mode lsp2<ret>'          -docstring 'lsp mode'
+map global user-lsp a ':lsp-code-actions<ret>'          -docstring 'code action'
+map global user-lsp c ':lsp-code-lens<ret>'             -docstring 'execute code lens'
+map global user-lsp d ':lsp-diagnostics<ret>'           -docstring 'list diagnostics'
+map global user-lsp i ':lsp-incoming-calls<ret>'        -docstring 'incoming calls'
+map global user-lsp I ':lsp-implementation<ret>'        -docstring 'list implementations'
+map global user-lsp h ':lsp-highlight-references<ret>'  -docstring 'highlight references'
+map global user-lsp k ':lsp-hover<ret>'                 -docstring 'hover'
+map global user-lsp p ':lsp-workspace-symbol-incr<ret>' -docstring 'pick workspace symbol'
+map global user-lsp P ':lsp-workspace-symbol<ret>'      -docstring 'list workspace symbols'
+map global user-lsp r ':lsp-rename-prompt<ret>'         -docstring 'rename'
+map global user-lsp R ':lsp-references<ret>'            -docstring 'list references'
+map global user-lsp o ':lsp-outgoing-calls<ret>'        -docstring 'outgoing calls'
+map global user-lsp s ':lsp-goto-document-symbol<ret>'  -docstring 'pick document symbol'
+map global user-lsp S ':lsp-document-symbol<ret>'       -docstring 'list workspace symbols'
+map global user-lsp x ':lsp-find-error<ret>'            -docstring 'jump to the prev/next error'
+map global user-lsp ( ':lsp-next-function<ret>'         -docstring 'jump to the next function'
+map global user-lsp ) ':lsp-previous-function<ret>'     -docstring 'jump to the previous function'
