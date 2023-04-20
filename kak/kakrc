@@ -62,20 +62,22 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
 
 # LSP
-
 eval %sh{kak-lsp --kakoune -s $kak_session}
+
+## common optinos
+lsp-auto-signature-help-enable
+set global lsp_hover_anchor true
+set global lsp_auto_show_code_actions true
+
+## main hook for languages
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
   lsp-enable-window
 
-  # Enable inlay diagnostics
   lsp-inlay-diagnostics-enable window
+  lsp-inlay-hints-enable window
+  lsp-inlay-code-lenses-enable window
 
-  # Enable inlay hints
-  lsp-inlay-diagnostics-enable window
-}
-
-# Enable semantic tokens
-hook global WinSetOption filetype=rust %{
+  hook window BufWritePre .* lsp-formatting-sync
   hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
   hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
   hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
@@ -128,3 +130,21 @@ map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':kitty-split vsplit<ret>'   -docstring 'vertical split'
 map global window o ':kitty-split hsplit<ret>'   -docstring 'horizontal split'
+
+## LSP
+declare-user-mode lsp2
+map global user l ':enter-user-mode lsp<ret>'      -docstring 'lsp mode'
+map global user L ':enter-user-mode lsp2<ret>'     -docstring 'lsp mode'
+map global lsp2 a ':lsp-code-actions<ret>'         -docstring 'code action'
+map global lsp2 c ':lsp-code-lens<ret>'            -docstring 'execute code lens'
+map global lsp2 d ':lsp-diagnostics<ret>'          -docstring 'list diagnostics'
+map global lsp2 o ':lsp-incoming-calls<ret>'       -docstring 'incoming calls'
+map global lsp2 I ':lsp-implementation<ret>'       -docstring 'list implementations'
+map global lsp2 h ':lsp-highlight-references<ret>' -docstring 'highlight references'
+map global lsp2 k ':lsp-hover<ret>'                -docstring 'hover'
+map global lsp2 r ':lsp-rename-prompt<ret>'        -docstring 'rename'
+map global lsp2 R ':lsp-references<ret>'           -docstring 'list references'
+map global lsp2 o ':lsp-outgoing-calls<ret>'       -docstring 'outgoing calls'
+map global lsp2 s ':lsp-goto-document-symbol<ret>' -docstring 'pick document symbol'
+map global lsp2 S ':lsp-document-symbol<ret>'      -docstring 'list workspace symbols'
+map global lsp2 x ':lsp-find-error<ret>'           -docstring 'jump to the prev/next error'
