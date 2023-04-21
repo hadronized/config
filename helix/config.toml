@@ -48,9 +48,20 @@ K = "split_selection"
 l = "change_selection"
 L = "copy_selection_on_next_line"
 
+F = "extend_prev_char"
 X = "extend_line_above"
 B = "extend_prev_word_start"
 W = "extend_next_word_start"
+
+# F/H are now extend versions of f/t; so remap them to alt
+A-f = "find_prev_char"
+A-h = "till_prev_char"
+A-F = "extend_prev_char"
+A-H = "extend_till_prev_char"
+space.g.f = "find_prev_char"
+space.g.h = "till_prev_char"
+space.g.F = "extend_prev_char"
+space.g.H = "extend_till_prev_char"
 
 g.c = "goto_line_start"
 g.s = "goto_file_start"
@@ -60,8 +71,13 @@ g.i = "goto_first_nonwhitespace"
 g.h = "no_op"
 g.l = "no_op"
 g.D = "goto_reference"
+G.c = "extend_to_line_start"
+G.r = "extend_to_line_end"
 
 C-k = "split_selection_on_newline"
+
+# flip anchor and cursor
+space.space = "flip_selections"
 
 z.t = "scroll_down"
 z.s = "scroll_up"
