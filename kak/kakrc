@@ -4,9 +4,10 @@ set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 add-highlighter global/number-lines number-lines -hlcursor
+add-highlighter global/fixme-todo-note regex '(?:#|//|--|;;)\s*(?:(FIXME:)|(TODO:)|(NOTE:))' 1:red+ib 2:green+ib 3:magenta+ib
 
 ## automatically update git diff, if needed
-hook global BufCreate .* %{git show-diff}
+hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
 hook global BufWritePost .* %{git update-diff}
 
 # Commands
@@ -144,8 +145,7 @@ map global git n ':git next-hunk<ret>'        -docstring 'goto next hunk'
 
 ## LSP
 declare-user-mode user-lsp
-map global user l ':enter-user-mode lsp<ret>'           -docstring 'lsp mode'
-map global user L ':enter-user-mode lsp2<ret>'          -docstring 'lsp mode'
+map global user l ':enter-user-mode user-lsp<ret>'      -docstring 'lsp mode'
 map global user-lsp a ':lsp-code-actions<ret>'          -docstring 'code action'
 map global user-lsp c ':lsp-code-lens<ret>'             -docstring 'execute code lens'
 map global user-lsp d ':lsp-diagnostics<ret>'           -docstring 'list diagnostics'
