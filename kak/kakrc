@@ -30,7 +30,7 @@ define-command -hidden open_buffer_picker %{
 }
 
 define-command -hidden open_file_picker %{
-  prompt file: -menu -shell-script-candidates 'fd --hidden --type=file' %{
+  prompt file: -menu -shell-script-candidates 'fd --type=file' %{
     edit -existing %val{text}
   }
 }
@@ -161,5 +161,5 @@ map global user-lsp o ':lsp-outgoing-calls<ret>'        -docstring 'outgoing cal
 map global user-lsp s ':lsp-goto-document-symbol<ret>'  -docstring 'pick document symbol'
 map global user-lsp S ':lsp-document-symbol<ret>'       -docstring 'list workspace symbols'
 map global user-lsp x ':lsp-find-error<ret>'            -docstring 'jump to the prev/next error'
-map global user-lsp ( ':lsp-next-function<ret>'         -docstring 'jump to the next function'
-map global user-lsp ) ':lsp-previous-function<ret>'     -docstring 'jump to the previous function'
+map global user-lsp ( ':lsp-previous-function<ret>'     -docstring 'jump to the previous function'
+map global user-lsp ) ':lsp-next-function<ret>'         -docstring 'jump to the next function'

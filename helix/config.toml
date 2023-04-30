@@ -72,6 +72,7 @@ g.h = "no_op"
 g.l = "no_op"
 g.D = "goto_reference"
 G.c = "extend_to_line_start"
+G.i = "extend_to_first_nonwhitespace"
 G.r = "extend_to_line_end"
 
 C-k = "split_selection_on_newline"
