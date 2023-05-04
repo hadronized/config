@@ -75,6 +75,9 @@ define-command -hidden add-surrounding-pair -params 2 %{
   }
 }
 
+# Tree-sitter
+eval %sh{kak-tree-sitter --kakoune -d}
+
 # LSP
 eval %sh{kak-lsp --kakoune -s $kak_session}
 
