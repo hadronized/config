@@ -37,8 +37,8 @@ define-command -hidden open_file_picker %{
 
 define-command -hidden open_rg_picker %{
   prompt search: %{
-    prompt refine: -menu -shell-script-candidates "rg %val{text}" %{
-      edit -existing %sh{cut -d : -f 1 <<< $kak_text}
+    prompt refine: -menu -shell-script-candidates "rg -n '%val{text}'" %{
+      eval "edit -existing  %sh{(cut -d ' ' -f 1 | tr ':' ' ' ) <<< $kak_text}"
     }
   }
 }
