@@ -4,7 +4,7 @@ set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 add-highlighter global/number-lines number-lines -hlcursor
-add-highlighter global/fixme-todo-note regex '(?:#|//|--|;;)\s*(?:(FIXME:)|(TODO:)|(NOTE:))' 1:red+ib 2:green+ib 3:magenta+ib
+add-highlighter global/fixme-todo-note regex '(?:#+|//+|--+|;;+)\s*(?:(FIXME:)|(TODO:)|(NOTE:))' 1:red+ib 2:green+ib 3:magenta+ib
 
 ## automatically update git diff, if needed
 hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
@@ -32,6 +32,14 @@ define-command -hidden open_buffer_picker %{
 define-command -hidden open_file_picker %{
   prompt file: -menu -shell-script-candidates 'fd --type=file' %{
     edit -existing %val{text}
+  }
+}
+
+define-command -hidden open_rg_picker %{
+  prompt search: %{
+    prompt refine: -menu -shell-script-candidates "rg %val{text}" %{
+      edit -existing %sh{cut -d : -f 1 <<< $kak_text}
+    }
   }
 }
 
@@ -124,6 +132,7 @@ map global view r l -docstring 'scroll right'
 ## pickers
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
 map global user f ':open_file_picker<ret>'   -docstring 'pick file'
+map global user / ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
 map global normal m ':enter-user-mode match<ret>' -docstring 'match mode'
@@ -153,6 +162,7 @@ map global user-lsp i ':lsp-incoming-calls<ret>'        -docstring 'incoming cal
 map global user-lsp I ':lsp-implementation<ret>'        -docstring 'list implementations'
 map global user-lsp h ':lsp-highlight-references<ret>'  -docstring 'highlight references'
 map global user-lsp k ':lsp-hover<ret>'                 -docstring 'hover'
+map global user-lsp K ':lsp-hover-buffer<ret>'          -docstring 'hover in a dedicated buffer'
 map global user-lsp p ':lsp-workspace-symbol-incr<ret>' -docstring 'pick workspace symbol'
 map global user-lsp P ':lsp-workspace-symbol<ret>'      -docstring 'list workspace symbols'
 map global user-lsp r ':lsp-rename-prompt<ret>'         -docstring 'rename'
