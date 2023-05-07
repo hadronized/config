@@ -5,7 +5,7 @@
 # Switch to a project directory.
 #
 # The PROJ_DIR environment variable can be set to change the directory where the projects are expected to be found.
-function p() {
+p() {
   # The directory where we expect the projects to be in.
   proj_dir=${PROJ_DIR:-~/dev}
 
@@ -14,14 +14,14 @@ function p() {
 }
 
 # Easily switch between tmux session.
-function sw() {
+sw() {
   session=$(tmux ls -F "#S" | sk --prompt "Switch to tmux session: ")
 
   [ -n "$session" ] && tmux switch-client -t $session
 }
 
 # Open the Mind journal for today.
-function j() {
+j() {
   p=$(date +/Journal/%Y/%b/%d)
 
   if mind paths -s $p &> /dev/null; then
@@ -32,21 +32,27 @@ function j() {
 }
 
 # Get the current backlog.
-function backlog() {
+backlog() {
   mind paths -s /Tasks/Backlog
 }
 
 # Get WIP tasks.
-function wip() {
+wip() {
   mind paths -s /Tasks/On-going
 }
 
 # Open PRs.
-function prs() {
+prs() {
   mind paths -s '/Opened PRs'
 }
 
 # Name of currently selected kitty tab.
 kitty_current_tab_name() {
   kitty @ ls | jq '.[0].tabs | map(select(.is_focused==true)) | .[0].title'
+}
+
+# Zellij session attach helper.
+za() {
+  session=$(zellij ls | sk --prompt "Attach to Zellij session: ")
+  [ -n "$session" ] && zellij attach $session
 }

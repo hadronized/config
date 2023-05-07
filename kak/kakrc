@@ -26,6 +26,13 @@ define-command kitty-split -params 1 -docstring 'split the current window accord
   }
 }
 
+## zellij integration
+define-command zellij-split -params 1 -docstring 'split (down / right)' %{
+  evaluate-commands %sh{
+    zellij action new-pane -cd $1 -- kak -c $kak_session
+   }
+}
+
 ## Some pickers
 define-command -hidden open_buffer_picker %{
   prompt buffer: -menu -buffer-completion %{
@@ -151,8 +158,8 @@ map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 
 ## window management
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
-map global window v ':kitty-split vsplit<ret>'   -docstring 'vertical split'
-map global window o ':kitty-split hsplit<ret>'   -docstring 'horizontal split'
+map global window v ':zellij-split left<ret>'   -docstring 'vertical split'
+map global window o ':zellij-split down<ret>'   -docstring 'horizontal split'
 
 ## git
 declare-user-mode git
