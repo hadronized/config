@@ -1,5 +1,9 @@
 # Options, highlighters, etc.
 colorscheme catppuccin_macchiato
+
+set global indentwidth 2
+set global ui_options terminal_assistant=none
+set global tabstop 2
 set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
@@ -76,15 +80,16 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
 
 # Tree-sitter
-eval %sh{kak-tree-sitter --kakoune -d}
+eval %sh{kak-tree-sitter --kakoune -d -s $kak_session}
 
 # LSP
 eval %sh{kak-lsp --kakoune -s $kak_session}
 
-## common optinos
+## common options
 lsp-auto-signature-help-enable
 set global lsp_hover_anchor true
 set global lsp_auto_show_code_actions true
+set-face global InlayHint black+i
 
 ## main hook for languages
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
@@ -95,12 +100,12 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   lsp-inlay-code-lenses-enable window
 
   hook window BufWritePre .* lsp-formatting-sync
-  hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
-  hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
-  hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
-  hook -once -always window WinSetOption filetype=.* %{
-      remove-hooks window semantic-tokens
-  }
+  #hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+  #hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+  #hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+  #hook -once -always window WinSetOption filetype=.* %{
+  #    remove-hooks window semantic-tokens
+  #}
 }
 
 # keybindings
