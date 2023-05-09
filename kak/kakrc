@@ -20,17 +20,23 @@ hook global BufWritePost .* %{git update-diff}
 declare-user-mode window
 
 ## kitty integration
-define-command kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
+define-command -hidden kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
   evaluate-commands %sh{
     kitty @ launch --no-response --location $1 kak -c $kak_session
   }
 }
 
 ## zellij integration
-define-command zellij-split -params 1 -docstring 'split (down / right)' %{
+define-command -hidden zellij-split -params 1 -docstring 'split (down / right)' %{
   evaluate-commands %sh{
     zellij action new-pane -cd $1 -- kak -c $kak_session
    }
+}
+
+define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
+  evaluate-commands %sh{
+    zellij action move-focus $1
+  }
 }
 
 ## Some pickers
@@ -58,7 +64,7 @@ define-command -hidden open_rg_picker %{
 declare-user-mode match
 
 define-command -hidden match-delete-surround -docstring 'delete surrounding key' %{
-  on-key 'match-delete-surround-on-key'
+  on-key match-delete-surround-on-key
 }
 
 define-command -hidden match-delete-surround-on-key %{
@@ -87,7 +93,7 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
 
 # Tree-sitter
-eval %sh{kak-tree-sitter --kakoune -d -s $kak_session}
+eval %sh{kak-tree-sitter --kakoune -d -s "$kak_session"}
 
 # LSP
 eval %sh{kak-lsp --kakoune -s $kak_session}
@@ -144,6 +150,9 @@ map global view t j -docstring 'scroll up'
 map global view s k -docstring 'scroll down' 
 map global view r l -docstring 'scroll right' 
 
+## convenience
+map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
+
 ## pickers
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
 map global user f ':open_file_picker<ret>'   -docstring 'pick file'
@@ -157,9 +166,15 @@ map global match a '<a-a>'                        -docstring 'match around'
 map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 
 ## window management
-map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
-map global window v ':zellij-split left<ret>'   -docstring 'vertical split'
-map global window o ':zellij-split down<ret>'   -docstring 'horizontal split'
+map global user w ':enter-user-mode window<ret>'   -docstring 'window mode'
+map global window v ':zellij-split left<ret>'      -docstring 'vertical split'
+map global window o ':zellij-split down<ret>'      -docstring 'horizontal split'
+map global window c ':zellij-move-pane left<ret>'  -docstring 'move left'
+map global window t ':zellij-move-pane down<ret>'  -docstring 'move down'
+map global window s ':zellij-move-pane up<ret>'    -docstring 'move up'
+map global window r ':zellij-move-pane right<ret>' -docstring 'move right'
+map global window q ':q<ret>'                      -docstring 'close window'
+map global window Q ':q!<ret>'                     -docstring 'close window (force)'
 
 ## git
 declare-user-mode git
