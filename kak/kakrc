@@ -30,7 +30,20 @@ define-command -hidden kitty-split -params 1 -docstring 'split the current windo
 define-command -hidden zellij-split -params 1 -docstring 'split (down / right)' %{
   evaluate-commands %sh{
     zellij action new-pane -cd $1 -- kak -c $kak_session
-   }
+  }
+}
+
+## tmux integration
+define-command tmux-split -params 1 -docstring 'split (down / right)' %{
+  nop %sh{
+    tmux split-window $1 kak -c $kak_session
+  }
+}
+
+define-command tmux-select-pane -params 1 -docstring 'select pane' %{
+  nop %sh{
+    tmux select-pane $1
+  }
 }
 
 define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
@@ -166,13 +179,14 @@ map global match a '<a-a>'                        -docstring 'match around'
 map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 
 ## window management
-map global user w ':enter-user-mode window<ret>'   -docstring 'window mode'
-map global window v ':zellij-split left<ret>'      -docstring 'vertical split'
-map global window o ':zellij-split down<ret>'      -docstring 'horizontal split'
-map global window c ':zellij-move-pane left<ret>'  -docstring 'move left'
-map global window t ':zellij-move-pane down<ret>'  -docstring 'move down'
-map global window s ':zellij-move-pane up<ret>'    -docstring 'move up'
-map global window r ':zellij-move-pane right<ret>' -docstring 'move right'
+======
+map global user   w ':enter-user-mode window<ret>' -docstring 'window mode'
+map global window v ':tmux-split -h<ret>'          -docstring 'vertical split'
+map global window o ':tmux-split -v<ret>'          -docstring 'horizontal split'
+map global window c ':tmux-select-pane -L<ret>'    -docstring 'move left'
+map global window t ':tmux-select-pane -D<ret>'    -docstring 'move down'
+map global window s ':tmux-select-pane -U<ret>'    -docstring 'move up'
+map global window r ':tmux-select-pane -R<ret>'    -docstring 'move right'
 map global window q ':q<ret>'                      -docstring 'close window'
 map global window Q ':q!<ret>'                     -docstring 'close window (force)'
 
