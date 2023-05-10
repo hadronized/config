@@ -9,6 +9,7 @@ set global indentwidth 2
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 add-highlighter global/number-lines number-lines -hlcursor
 add-highlighter global/fixme-todo-note regex '(?:#+|//+|--+|;;+)\s*(?:(FIXME:)|(TODO:)|(NOTE:))' 1:red+ib 2:green+ib 3:magenta+ib
+add-highlighter global/hl-col-120 column 120 black+r
 
 ## automatically update git diff, if needed
 hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
@@ -179,7 +180,6 @@ map global match a '<a-a>'                        -docstring 'match around'
 map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 
 ## window management
-======
 map global user   w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':tmux-split -h<ret>'          -docstring 'vertical split'
 map global window o ':tmux-split -v<ret>'          -docstring 'horizontal split'
