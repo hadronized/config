@@ -26,17 +26,24 @@ declare-user-mode window
 
 ## kitty integration
 define-command -hidden kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
-  evaluate-commands %sh{
+  nop %sh{
     kitty @ launch --no-response --location $1 kak -c $kak_session
   }
 }
 
 ## zellij integration
 define-command -hidden zellij-split -params 1 -docstring 'split (down / right)' %{
-  evaluate-commands %sh{
+  nop %sh{
     zellij action new-pane -cd $1 -- kak -c $kak_session
   }
 }
+
+define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
+  nop %sh{
+    zellij action move-focus $1
+  }
+}
+
 
 ## tmux integration
 define-command tmux-split -params 1 -docstring 'split (down / right)' %{
@@ -48,12 +55,6 @@ define-command tmux-split -params 1 -docstring 'split (down / right)' %{
 define-command tmux-select-pane -params 1 -docstring 'select pane' %{
   nop %sh{
     tmux select-pane $1
-  }
-}
-
-define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
-  evaluate-commands %sh{
-    zellij action move-focus $1
   }
 }
 
