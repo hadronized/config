@@ -1,0 +1,8 @@
+#!/bin/sh
+
+count_path() {
+  echo $(($(mind paths -s $1 | wc -l) - 1))
+}
+
+# backlog number, WIP number
+echo "#[fg=blue] $(count_path /Tasks/Backlog) #[fg=magenta] $(count_path /Tasks/On-going) #[fg=green]󰄬 $(count_path /Tasks/Done) #[fg=yellow] $(count_path /Tasks/Frozen) #[fg=red]󰜺 $(count_path /Tasks/Cancelled)"
