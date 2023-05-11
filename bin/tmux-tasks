@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if ! command -v mind &> /dev/null; then
+  return
+fi
+
 count_path() {
   echo $(($(mind paths -s $1 | wc -l) - 1))
 }
