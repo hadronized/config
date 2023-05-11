@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if command -v kubectx &> /dev/null && command -v kubens &> /dev/null; then
+  echo "#[fg=default]⎈ #[fg=brightblue]$(kubens -c)#[fg=black].#[fg=blue]$(kubectx -c)"
+else
+  echo no
+fi
