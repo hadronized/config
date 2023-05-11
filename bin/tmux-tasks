@@ -9,4 +9,4 @@ count_path() {
 }
 
 # backlog number, WIP number
-echo "#[fg=blue] $(count_path /Tasks/Backlog) #[fg=magenta] $(count_path /Tasks/On-going) #[fg=green]󰄬 $(count_path /Tasks/Done) #[fg=yellow] $(count_path /Tasks/Frozen) #[fg=red]󰜺 $(count_path /Tasks/Cancelled)"
+echo "#[fg=blue] $(count_path /Tasks/Backlog) #[fg=magenta] $(count_path /Tasks/On-going) #[fg=green]󰄬 $(count_path /Tasks/Done) #[fg=yellow] $(count_path /Tasks/Frozen) #[fg=red]󰜺 $(count_path /Tasks/Cancelled) #[fg=black]| "
