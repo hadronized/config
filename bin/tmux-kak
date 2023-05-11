@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$TMUX" ]; then
+  kak $*
+else
+  session_name=$(tmux display-message -p "#S")
+
+  if kak -l | rg $session_name &> /dev/null; then
+    kak -c $session_name $*
+  else
+    kak -s $session_name $*
+  fi
+fi

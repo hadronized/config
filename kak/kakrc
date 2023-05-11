@@ -15,6 +15,10 @@ add-highlighter global/hl-col-120 column 120 black+r
 hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
 hook global BufWritePost .* %{git update-diff}
 
+## Some specific filetypes I see at work / spare-time
+hook global BufCreate .*\.bzl %{ set-option filetype python }
+hook global BufCreate \.zprofile %{ set-option filetype sh }
+
 # Commands
 
 # window mode
