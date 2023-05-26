@@ -77,7 +77,7 @@ set-face	global	string				"%opt{green}"
 set-face	global	keyword				"%opt{blue}"
 set-face	global	operator			"%opt{blue}"
 set-face	global	attribute			"%opt{green}"
-set-face	global	comment				"%opt{gray1}"
+set-face	global	comment				"%opt{gray1}+i"
 set-face	global	documentation		comment
 set-face	global	meta				"%opt{pink}"
 set-face	global	builtin				"%opt{lavender}+b"

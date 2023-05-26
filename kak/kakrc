@@ -44,7 +44,6 @@ define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
   }
 }
 
-
 ## tmux integration
 define-command tmux-split -params 1 -docstring 'split (down / right)' %{
   nop %sh{
@@ -186,8 +185,8 @@ map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
 
 ## window management
 map global user   w ':enter-user-mode window<ret>' -docstring 'window mode'
-map global window v ':tmux-split -h<ret>'          -docstring 'vertical split'
-map global window o ':tmux-split -v<ret>'          -docstring 'horizontal split'
+map global window v ':kitty-split vsplit<ret>'     -docstring 'vertical split'
+map global window o ':kitty-split hsplit<ret>'     -docstring 'horizontal split'
 map global window c ':tmux-select-pane -L<ret>'    -docstring 'move left'
 map global window t ':tmux-select-pane -D<ret>'    -docstring 'move down'
 map global window s ':tmux-select-pane -U<ret>'    -docstring 'move up'

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$KITTY_PID" ]; then
+  kak $*
+else
+  session_name=$(kitty @ ls | jq -r '.[0].tabs | map(select(.is_active == true)) | .[0].title')
+
+  if kak -l | rg $session_name &> /dev/null; then
+    kak -c $session_name $*
+  else
+    kak -s $session_name $*
+  fi
+fi
