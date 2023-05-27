@@ -1,0 +1,423 @@
+snippet_support = true
+verbosity = 2
+
+[server]
+# exit session if no requests were received during given period in seconds
+# set to 0 to disable
+timeout = 1800 # seconds = 30 minutes
+
+[language.bash]
+filetypes = ["sh"]
+roots = [".git", ".hg"]
+command = "bash-language-server"
+args = ["start"]
+
+[language.c_cpp]
+filetypes = ["c", "cpp"]
+roots = ["compile_commands.json", ".clangd", ".git", ".hg"]
+command = "clangd"
+
+[language.clojure]
+filetypes = ["clojure"]
+roots = ["project.clj", ".git", ".hg"]
+command = "clojure-lsp"
+settings_section = "_"
+[language.clojure.settings._]
+# See https://clojure-lsp.io/settings/#all-settings
+# source-paths-ignore-regex = ["resources.*", "target.*"]
+
+[language.cmake]
+filetypes = ["cmake"]
+roots = ["CMakeLists.txt", ".git", ".hg"]
+command = "cmake-language-server"
+
+[language.crystal]
+filetypes = ["crystal"]
+roots = ["shard.yml"]
+command = "crystalline"
+
+[language.css]
+filetypes = ["css"]
+roots = ["package.json", ".git", ".hg"]
+command = "vscode-css-languageserver"
+args = ["--stdio"]
+
+[language.less]
+filetypes = ["less"]
+roots = ["package.json", ".git", ".hg"]
+command = "vscode-css-languageserver"
+args = ["--stdio"]
+
+[language.scss]
+filetypes = ["scss"]
+roots = ["package.json", ".git", ".hg"]
+command = "vscode-css-languageserver"
+args = ["--stdio"]
+
+[language.d]
+filetypes = ["d", "di"]
+roots = [".git", "dub.sdl", "dub.json"]
+command = "dls"
+
+[language.dart]
+# start shell to find path to dart analysis server source
+filetypes = ["dart"]
+roots = ["pubspec.yaml", ".git", ".hg"]
+command = "sh"
+args = ["-c", "dart $(dirname $(command -v dart))/snapshots/analysis_server.dart.snapshot --lsp"]
+
+[language.elixir]
+filetypes = ["elixir"]
+roots = ["mix.exs"]
+command = "elixir-ls"
+settings_section = "elixirLS"
+[language.elixir.settings.elixirLS]
+# See https://github.com/elixir-lsp/elixir-ls/blob/master/apps/language_server/lib/language_server/server.ex
+# dialyzerEnable = true
+
+[language.elm]
+filetypes = ["elm"]
+roots = ["elm.json"]
+command = "elm-language-server"
+args = ["--stdio"]
+settings_section = "elmLS"
+[language.elm.settings.elmLS]
+# See https://github.com/elm-tooling/elm-language-server#server-settings
+runtime = "node"
+elmPath = "elm"
+elmFormatPath = "elm-format"
+elmTestPath = "elm-test"
+
+[language.elvish]
+filetypes = ["elvish"]
+roots = [".git", ".hg"]
+command = "elvish"
+args = ["-lsp"]
+
+[language.erlang]
+filetypes = ["erlang"]
+# See https://github.com/erlang-ls/erlang_ls.git for more information and
+# how to configure. This default config should work in most cases though.
+roots = ["rebar.config", "erlang.mk", ".git", ".hg"]
+command = "erlang_ls"
+
+[language.go]
+filetypes = ["go"]
+roots = ["Gopkg.toml", "go.mod", ".git", ".hg"]
+command = "gopls"
+settings_section = "gopls"
+[language.go.settings.gopls]
+# See https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+# "build.buildFlags" = []
+
+[language.haskell]
+filetypes = ["haskell"]
+roots = ["hie.yaml", "cabal.project", "Setup.hs", "stack.yaml", "*.cabal"]
+command = "haskell-language-server-wrapper"
+args = ["--lsp"]
+settings_section = "_"
+[language.haskell.settings._]
+# See https://haskell-language-server.readthedocs.io/en/latest/configuration.html
+# haskell.formattingProvider = "ormolu"
+
+[language.html]
+filetypes = ["html"]
+roots = ["package.json"]
+command = "vscode-html-languageserver"
+args = ["--stdio"]
+
+# # Commented out by default because you still need to set the paths in the JDT
+# # Language Server arguments below before this can become a valid configuration.
+# [language.java]
+# filetypes = ["java"]
+# roots = [".git", "mvnw", "gradlew"]
+# command = "java"
+# args = [
+#     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+#     "-Dosgi.bundles.defaultStartLevel=4",
+#     "-Declipse.product=org.eclipse.jdt.ls.core.product",
+#     "-Dlog.level=ALL",
+#     "-Dfile.encoding=utf-8",
+#     "--add-modules=ALL-SYSTEM",
+#     "--add-opens",
+#     "java.base/java.util=ALL-UNNAMED",
+#     "--add-opens",
+#     "java.base/java.lang=ALL-UNNAMED",
+#     "-noverify",
+#     "-Xmx1G",
+#     "-jar",
+#     "/path/to/eclipse.jdt.ls/repository/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar",
+#     "-configuration",
+#     "/path/to/eclipse.jdt.ls/repository/config_linux",
+#     "-data",
+#     "/path/to/eclipse-workspace",
+# ]
+# [language.java.settings]
+# # See https://github.dev/eclipse/eclipse.jdt.ls
+# # "java.format.insertSpaces" = true
+
+[language.jsx] # works for javascript as well
+filetypes = ["javascript"]
+roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[language.json]
+filetypes = ["json"]
+roots = ["package.json"]
+command = "vscode-json-languageserver"
+args = ["--stdio"]
+
+# Requires Julia package "LanguageServer"
+# Run: `julia --project=@kak-lsp -e 'import Pkg; Pkg.add("LanguageServer")'` to install it
+# Configuration adapted from https://github.com/neovim/nvim-lspconfig/blob/bcebfac7429cd8234960197dca8de1767f3ef5d3/lua/lspconfig/julials.lua
+[language.julia]
+filetypes = ["julia"]
+roots = ["Project.toml", ".git", ".hg"]
+command = "julia"
+args = [
+    "--startup-file=no",
+    "--history-file=no",
+    "-e",
+    """
+    ls_install_path = joinpath(get(DEPOT_PATH, 1, joinpath(homedir(), ".julia")), "environments", "kak-lsp");
+    pushfirst!(LOAD_PATH, ls_install_path);
+    using LanguageServer;
+    popfirst!(LOAD_PATH);
+    depot_path = get(ENV, "JULIA_DEPOT_PATH", "");
+    buffer_file = ENV["kak_buffile"];
+    project_path = let
+      dirname(something(
+        # 1. Check if there is an explicitly set project
+        Base.load_path_expand((
+          p = get(ENV, "JULIA_PROJECT", nothing);
+          p === nothing ? nothing : isempty(p) ? nothing : p
+        )),
+        # 2. Check for Project.toml in current working directory
+        Base.current_project(pwd()),
+        # 3. Check for Project.toml from buffer's full file path excluding the file name
+        Base.current_project(dirname(buffer_file)),
+        # 4. Fallback to global environment
+        Base.active_project()
+      ))
+    end
+    server = LanguageServer.LanguageServerInstance(stdin, stdout, project_path, depot_path);
+    server.runlinter = true;
+    run(server);
+    """,
+]
+[language.julia.settings]
+# See https://github.com/julia-vscode/LanguageServer.jl/blob/master/src/requests/workspace.jl
+# Format options. See https://github.com/julia-vscode/DocumentFormat.jl/blob/master/src/DocumentFormat.jl
+# "julia.format.indent" = 4
+# Lint options. See https://github.com/julia-vscode/StaticLint.jl/blob/master/src/linting/checks.jl
+# "julia.lint.call" = true
+# Other options, see https://github.com/julia-vscode/LanguageServer.jl/blob/master/src/requests/workspace.jl
+# "julia.lint.run" = "true"
+
+[language.latex]
+filetypes = ["latex"]
+roots = [".git", ".hg"]
+command = "texlab"
+settings_section = "texlab"
+[language.latex.settings.texlab]
+# See https://github.com/latex-lsp/texlab/wiki/Configuration
+#
+# Preview configuration for zathura with SyncTeX search.
+# For other PDF viewers see https://github.com/latex-lsp/texlab/wiki/Previewing
+forwardSearch.executable = "zathura"
+forwardSearch.args = [
+    "%p",
+    "--synctex-forward", # Support texlab-forward-search
+    "%l:1:%f",
+    "--synctex-editor-command", # Inverse search: use Control+Left-Mouse-Button to jump to source.
+    """
+        sh -c '
+            echo "
+                evaluate-commands -client %opt{texlab_client} %{
+                    evaluate-commands -try-client %opt{jumpclient} %{
+                        edit -- %{input} %{line}
+                    }
+                }
+            " | kak -p $kak_session
+        '
+    """,
+]
+
+[language.lua]
+filetypes = ["lua"]
+roots = [".git", ".hg"]
+command = "lua-language-server"
+[language.lua.settings.Lua]
+# See https://github.com/sumneko/vscode-lua/blob/master/setting/schema.json
+# diagnostics.enable = true
+
+[language.nim]
+filetypes = ["nim"]
+roots = ["*.nimble", ".git", ".hg"]
+command = "nimlsp"
+
+[language.nix]
+filetypes = ["nix"]
+roots = ["flake.nix", "shell.nix", ".git", ".hg"]
+command = "rnix-lsp"
+
+[language.ocaml]
+filetypes = ["ocaml"]
+# Often useful to simply do a `touch dune-workspace` in your project root folder if you have problems with root detection
+roots = ["dune-workspace", "dune-project", "Makefile", "opam", "*.opam", "esy.json", ".git", ".hg", "dune"]
+command = "ocamllsp"
+
+[language.php]
+filetypes = ["php"]
+roots = [".htaccess", "composer.json"]
+command = "intelephense"
+args = ["--stdio"]
+settings_section = "intelephense"
+[language.php.settings]
+intelephense.storagePath = "/tmp/intelephense"
+
+[language.proto]
+filetypes = ["protobuf"]
+roots = [".git", ".hg"]
+command = "pls" # https://github.com/lasorda/protobuf-language-server
+
+[language.python]
+filetypes = ["python"]
+roots = ["requirements.txt", "setup.py", ".git", ".hg"]
+command = "pylsp"
+settings_section = "_"
+[language.python.settings._]
+# See https://github.com/python-lsp/python-lsp-server#configuration
+# pylsp.configurationSources = ["flake8"]
+
+[language.r]
+filetypes = ["r"]
+roots = ["DESCRIPTION", ".git", ".hg"]
+command = "R"
+args = ["--slave", "-e", "languageserver::run()"]
+
+[language.racket]
+filetypes = ["racket"]
+roots = ["info.rkt"]
+command = "racket"
+args = ["-l", "racket-langserver"]
+
+[language.reason]
+filetypes = ["reason"]
+roots = ["package.json", "Makefile", ".git", ".hg"]
+command = "ocamllsp"
+
+[language.ruby]
+filetypes = ["ruby"]
+roots = ["Gemfile"]
+command = "solargraph"
+args = ["stdio"]
+settings_section = "_"
+[language.ruby.settings._]
+# See https://github.com/castwide/solargraph/blob/master/lib/solargraph/language_server/host.rb
+# diagnostics = false
+
+# [language.rust]
+# filetypes = ["rust"]
+# roots = ["Cargo.toml"]
+# command = "sh"
+# args = [
+#     "-c",
+#     """
+#         if path=$(rustup which rls 2>/dev/null); then
+#             "$path"
+#         else
+#             rls
+#         fi
+#     """,
+# ]
+# [language.rust.settings.rust]
+# # See https://github.com/rust-lang/rls#configuration
+# # features = []
+
+[language.rust]
+filetypes = ["rust"]
+roots = ["Cargo.toml"]
+command = "sh"
+args = [
+    "-c",
+    """
+        if path=$(rustup which rust-analyzer 2>/dev/null); then
+            "$path"
+        else
+            rust-analyzer
+        fi
+    """,
+]
+settings_section = "rust-analyzer"
+
+[language.rust.settings.cargo]
+features = "all"
+
+[language.rust.settings.rust-analyzer]
+# See https://rust-analyzer.github.io/manual.html#configuration
+hoverActions.enable = false # kak-lsp doesn't support this at the moment
+check.command = "clippy"
+
+[language.terraform]
+filetypes = ["terraform"]
+roots = ["*.tf"]
+command = "terraform-ls"
+args = ["serve"]
+[language.terraform.settings.terraform-ls]
+# See https://github.com/hashicorp/terraform-ls/blob/main/docs/SETTINGS.md
+# rootModulePaths = []
+
+[language.tsx] # works for typescript as well
+filetypes = ["typescript"]
+roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+# [language.typescript]
+# filetypes = ["typescript"]
+# roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+# command = "deno"
+# args = ["lsp"]
+# [language.typescript.settings.deno]
+# enable = true
+# lint = true
+
+[language.yaml]
+filetypes = ["yaml"]
+roots = [".git", ".hg"]
+command = "yaml-language-server"
+args = ["--stdio"]
+[language.yaml.settings]
+# See https://github.com/redhat-developer/yaml-language-server#language-server-settings
+# Defaults are at https://github.com/redhat-developer/yaml-language-server/blob/master/src/yamlSettings.ts
+# yaml.format.enable = true
+
+[language.zig]
+filetypes = ["zig"]
+roots = ["build.zig"]
+command = "zls"
+
+# Semantic tokens support
+# See https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_semanticTokens
+# for the default list of tokens and modifiers.
+# However, many language servers implement their own values.
+# Make sure to check the output of `lsp-capabilities` and each server's documentation and source code as well.
+# Examples:
+# - TypeScript: https://github.com/microsoft/vscode-languageserver-node/blob/main/client/src/common/semanticTokens.ts
+# - Rust Analyzer: https://github.com/rust-analyzer/rust-analyzer/blob/master/crates/ide/src/syntax_highlighting.rs
+[semantic_tokens]
+faces = [
+    {face="documentation", token="comment", modifiers=["documentation"]},
+    {face="comment", token="comment"},
+    {face="function", token="function"},
+    {face="keyword", token="keyword"},
+    {face="module", token="namespace"},
+    {face="operator", token="operator"},
+    {face="string", token="string"},
+    {face="type", token="type"},
+    {face="default+d", token="variable", modifiers=["readonly"]},
+    {face="default+d", token="variable", modifiers=["constant"]},
+    {face="variable", token="variable"},
+]
