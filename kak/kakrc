@@ -151,10 +151,12 @@ map global normal T J # extend down
 map global normal S K # extend up
 map global normal R L # extend right
 map global normal h t # until
+map global normal <a-h> <a-t>
 map global normal j r # replace
 map global normal k s # select
 map global normal l c # change
 map global normal H T # extend to next char
+map global normal <a-H> <a-T>
 map global normal J R # replace with yanked
 map global normal K S # split
 map global normal L C # duplicate selection downwards
@@ -166,7 +168,10 @@ map global goto r l -docstring 'line end'
 map global view c h -docstring 'scroll left' 
 map global view t j -docstring 'scroll up' 
 map global view s k -docstring 'scroll down' 
-map global view r l -docstring 'scroll right' 
+map global view r l -docstring 'scroll right'
+
+## anchor / cursor
+map global user <space> '<a-;'>
 
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
