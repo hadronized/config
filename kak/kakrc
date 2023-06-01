@@ -122,6 +122,7 @@ lsp-auto-signature-help-enable
 set global lsp_hover_anchor true
 set global lsp_auto_show_code_actions true
 set-face global InlayHint black+i
+set-face global PrimarySelection default,black,default
 
 ## main hook for languages
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
