@@ -8,7 +8,6 @@ set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 add-highlighter global/number-lines number-lines -hlcursor
-add-highlighter global/fixme-todo-note regex '(?:#+|//+|--+|;;+)\s*(?:(FIXME:)|(TODO:)|(NOTE:))' 1:red+ib 2:green+ib 3:magenta+ib
 add-highlighter global/hl-col-120 column 120 black+r
 
 ## automatically update git diff, if needed
@@ -18,6 +17,7 @@ hook global BufWritePost .* %{git update-diff}
 ## Some specific filetypes I see at work / spare-time
 hook global WinCreate .*\.bzl %{ set-option buffer filetype python }
 hook global WinCreate .*\.zprofile %{ set-option buffer filetype sh }
+hook global WinCreate .*\.(bazel|bzl) %{ set-option buffer filetype python }
 
 # Commands
 
@@ -80,6 +80,7 @@ define-command -hidden open_rg_picker %{
 
 ## match mode (surround, etc.)
 declare-user-mode match
+declare-user-mode match-extend
 
 define-command -hidden match-delete-surround -docstring 'delete surrounding key' %{
   on-key match-delete-surround-on-key
@@ -114,7 +115,7 @@ define-command -hidden add-surrounding-pair -params 2 %{
 eval %sh{kak-tree-sitter --kakoune -d -s "$kak_session"}
 
 # LSP
-eval %sh{kak-lsp --kakoune -s $kak_session}
+eval %sh{kak-lsp -vvvv --log /tmp/kak-lsp.thefuck.txt --kakoune -s $kak_session}
 
 ## common options
 lsp-auto-signature-help-enable
@@ -171,7 +172,7 @@ map global view s k -docstring 'scroll down'
 map global view r l -docstring 'scroll right'
 
 ## anchor / cursor
-map global user <space> '<a-;'>
+map global user <space> '<a-;>'
 
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
@@ -182,22 +183,28 @@ map global user f ':open_file_picker<ret>'   -docstring 'pick file'
 map global user / ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
-map global normal m ':enter-user-mode match<ret>' -docstring 'match mode'
-map global match m m                              -docstring 'select other matching delimiter'
-map global match i '<a-i>'                        -docstring 'match inside'
-map global match a '<a-a>'                        -docstring 'match around'
-map global match d ':match-delete-surround<ret>'  -docstring 'delete surround'
+map global normal m ':enter-user-mode match<ret>'        -docstring 'match mode'
+map global match m m                                     -docstring 'select other matching delimiter'
+map global match i '<a-i>'                               -docstring 'match inside'
+map global match a '<a-a>'                               -docstring 'match around'
+map global match d ':match-delete-surround<ret>'         -docstring 'delete surround'
+map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
+map global match-extend m M                              -docstring 'extend other matching delimiter'
+map global match-extend i '<A-i>'                        -docstring 'extend inside'
+map global match-extend a '<A-a>'                        -docstring 'extend around'
 
 ## window management
-map global user   w ':enter-user-mode window<ret>' -docstring 'window mode'
-map global window v ':kitty-split vsplit<ret>'     -docstring 'vertical split'
-map global window o ':kitty-split hsplit<ret>'     -docstring 'horizontal split'
-map global window c ':tmux-select-pane -L<ret>'    -docstring 'move left'
-map global window t ':tmux-select-pane -D<ret>'    -docstring 'move down'
-map global window s ':tmux-select-pane -U<ret>'    -docstring 'move up'
-map global window r ':tmux-select-pane -R<ret>'    -docstring 'move right'
-map global window q ':q<ret>'                      -docstring 'close window'
-map global window Q ':q!<ret>'                     -docstring 'close window (force)'
+map global user w ':enter-user-mode window-tmux<ret>' -docstring 'window mode'
+
+declare-user-mode window-tmux
+map global window-tmux v ':tmux-split -h<ret>'       -docstring 'vertical split'
+map global window-tmux o ':tmux-split -v<ret>'       -docstring 'horizontal split'
+map global window-tmux c ':tmux-select-pane -L<ret>' -docstring 'move left'
+map global window-tmux t ':tmux-select-pane -D<ret>' -docstring 'move down'
+map global window-tmux s ':tmux-select-pane -U<ret>' -docstring 'move up'
+map global window-tmux r ':tmux-select-pane -R<ret>' -docstring 'move right'
+map global window-tmux q ':q<ret>'                   -docstring 'close window'
+map global window-tmux Q ':q!<ret>'                  -docstring 'close window (force)'
 
 ## git
 declare-user-mode git

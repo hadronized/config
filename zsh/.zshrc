@@ -78,5 +78,5 @@ setopt share_history
 . ~/config/bin/shell-functions
 
 # Prompt.
-PS1='%B%F{green} %~ %F{magenta}λ %f%b'
+PS1=' %B%F{green}%~ %F{magenta}λ %f%b'
 RPS1='$vcs_info_msg_0_ '
