@@ -43,7 +43,7 @@ wip() {
 
 # Open PRs.
 prs() {
-  mind paths -s '/Opened PRs'
+  mind paths -s '/Open PRs'
 }
 
 # Name of currently selected kitty tab.
