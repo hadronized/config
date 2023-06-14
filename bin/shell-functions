@@ -31,6 +31,11 @@ j() {
   fi
 }
 
+# Create a new entry in Mind at /Notes/Triage to be moved back later to something more specific.
+note() {
+  mind ins -fos /Notes/Triage -n $(date +%Y%m%d-%H%M%S)
+}
+
 # Get the current backlog.
 backlog() {
   mind paths -s /Tasks/Backlog

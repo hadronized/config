@@ -119,8 +119,8 @@ eval %sh{ kak-lsp --kakoune -s $kak_session }
 
 ## common options
 lsp-auto-signature-help-enable
-set global lsp_hover_anchor true
-set global lsp_auto_show_code_actions true
+set-option global lsp_hover_anchor true
+set-option global lsp_auto_show_code_actions true
 set-face global InlayHint black+i
 set-face global PrimarySelection default,black,default
 
