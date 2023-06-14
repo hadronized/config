@@ -112,10 +112,10 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
 
 # Tree-sitter
-eval %sh{kak-tree-sitter --kakoune -d -s "$kak_session"}
+eval %sh{ kak-tree-sitter --kakoune -d }
 
 # LSP
-eval %sh{kak-lsp -vvvv --log /tmp/kak-lsp.thefuck.txt --kakoune -s $kak_session}
+eval %sh{ kak-lsp --kakoune -s $kak_session }
 
 ## common options
 lsp-auto-signature-help-enable
