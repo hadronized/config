@@ -20,9 +20,13 @@ sw() {
   [ -n "$session" ] && tmux switch-client -t $session
 }
 
-# Open the Mind journal for today.
-j() {
-  p=$(date +/Journal/%Y/%b/%d)
+# Open the Mind journal for today (default), or any relative date (date -d).
+journal() {
+  if [ "$#" = 1 ]; then
+    p=$(date -d $1 +/Journal/%Y/%b/%d)
+  else
+    p=$(date +/Journal/%Y/%b/%d)
+  fi
 
   if mind paths -s $p &> /dev/null; then
     mind get -fos $p
