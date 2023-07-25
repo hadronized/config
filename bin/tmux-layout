@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tmux new -ds 'mind' -n 'sys' -c ~/dev/mind
+tmux new -ds 'kak-tree-sitter' -n 'sys' -c ~/dev/kak-tree-sitter
