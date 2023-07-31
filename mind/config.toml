@@ -1,0 +1,6 @@
+[interactive]
+fuzzy_term_program = "sk"
+fuzzy_term_prompt_opt = "-p"
+
+[tree]
+auto_create_nodes = true
