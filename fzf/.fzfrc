@@ -9,6 +9,3 @@ export FZF_DEFAULT_OPTS='
 
 export FZF_CTRL_T_OPTS='--border --height 40'
 export FZF_CTRL_R_OPTS='--border --height 40 --preview='
-
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
