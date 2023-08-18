@@ -1,0 +1,9 @@
+#!/bin/sh
+
+p=$(date +/Journal/%Y/%b/%d)
+
+if mind paths -s $p &> /dev/null; then
+  mind get -fos $p
+else
+  mind ins -fos $(date +/Journal/%Y/%b) -n $(date +%d)
+fi
