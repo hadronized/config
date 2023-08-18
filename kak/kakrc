@@ -115,30 +115,30 @@ define-command -hidden add-surrounding-pair -params 2 %{
 eval %sh{ kak-tree-sitter -dks --session $kak_session }
 
 # LSP
-#eval %sh{ kak-lsp --kakoune -s $kak_session }
+eval %sh{ kak-lsp --kakoune -s $kak_session }
 
 ## common options
-#lsp-auto-signature-help-enable
-#set-option global lsp_hover_anchor true
-#set-option global lsp_auto_show_code_actions true
-#set-face global InlayHint black+i
-#set-face global PrimarySelection default,black,default
+lsp-auto-signature-help-enable
+set-option global lsp_hover_anchor true
+set-option global lsp_auto_show_code_actions true
+set-face global InlayHint black+i
+set-face global PrimarySelection default,black,default
 
 ## main hook for languages
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
-  #lsp-enable-window
+  lsp-enable-window
 
-  #lsp-inlay-diagnostics-enable window
-  #lsp-inlay-hints-enable window
-  #lsp-inlay-code-lenses-enable window
+  lsp-inlay-diagnostics-enable window
+  lsp-inlay-hints-enable window
+  lsp-inlay-code-lenses-enable window
 
-  #hook window BufWritePre .* lsp-formatting-sync
-  #hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
-  #hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
-  #hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
-  #hook -once -always window WinSetOption filetype=.* %{
-  #    remove-hooks window semantic-tokens
-  #}
+  hook window BufWritePre .* lsp-formatting-sync
+  hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+  hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+  hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+  hook -once -always window WinSetOption filetype=.* %{
+      remove-hooks window semantic-tokens
+  }
 }
 
 # keybindings
