@@ -133,12 +133,12 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   lsp-inlay-code-lenses-enable window
 
   hook window BufWritePre .* lsp-formatting-sync
-  hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
-  hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
-  hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
-  hook -once -always window WinSetOption filetype=.* %{
-      remove-hooks window semantic-tokens
-  }
+  #hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
+  #hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
+  #hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
+  #hook -once -always window WinSetOption filetype=.* %{
+  #    remove-hooks window semantic-tokens
+  #}
 }
 
 # keybindings
