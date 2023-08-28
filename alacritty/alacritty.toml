@@ -1,0 +1,16 @@
+import = ["/Users/phaazon/.config/alacritty/themes/challenger-deep.toml"]
+
+[cursor.style]
+blinking = "On"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono NF"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+option_as_alt = "OnlyRight"
