@@ -1,4 +1,4 @@
-import = ["/Users/phaazon/.config/alacritty/themes/challenger-deep.toml"]
+import = ["/Users/phaazon/.config/alacritty/themes/catppuccin-macchiato.toml"]
 
 [cursor.style]
 blinking = "On"
@@ -7,7 +7,8 @@ blinking = "On"
 size = 14.0
 
 [font.normal]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font"
+style = "Thin"
 
 [selection]
 save_to_clipboard = true

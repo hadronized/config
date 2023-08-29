@@ -7,7 +7,7 @@ set global tabstop 2
 set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
-add-highlighter global/number-lines number-lines -hlcursor
+#add-highlighter global/number-lines number-lines -hlcursor
 add-highlighter global/hl-col-120 column 120 black+r
 
 ## automatically update git diff, if needed
@@ -112,7 +112,7 @@ define-command -hidden add-surrounding-pair -params 2 %{
 }
 
 # Tree-sitter
-eval %sh{ kak-tree-sitter -dks --session $kak_session }
+eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
