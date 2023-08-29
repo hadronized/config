@@ -15,3 +15,16 @@ save_to_clipboard = true
 
 [window]
 option_as_alt = "OnlyRight"
+
+[mouse]
+hide_when_typing = true
+
+[hints]
+alphabet = "etovxqpdygfblzhckisuran"
+
+[[hints.enabled]]
+regex = "[a-zA-Z0-9-_/@#]+"
+hyperlinks = true
+action = "Copy"
+binding.key = "w"
+binding.mods = "Control | Shift"
