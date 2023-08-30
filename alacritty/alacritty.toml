@@ -1,4 +1,4 @@
-import = ["/Users/phaazon/.config/alacritty/themes/catppuccin-macchiato.toml"]
+import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
 
 [cursor.style]
 blinking = "On"
@@ -14,7 +14,7 @@ style = "Thin"
 save_to_clipboard = true
 
 [window]
-option_as_alt = "OnlyRight"
+option_as_alt = "OnlyLeft"
 
 [mouse]
 hide_when_typing = true
