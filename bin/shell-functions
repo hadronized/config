@@ -20,21 +20,6 @@ sw() {
   [ -n "$session" ] && tmux switch-client -t $session
 }
 
-# Open the Mind journal for today (default), or any relative date (date -d).
-journal() {
-  if [ "$#" -gt 0 ]; then
-    p=$(date -d "$*" +/Journal/%Y/%b/%d)
-  else
-    p=$(date +/Journal/%Y/%b/%d)
-  fi
-
-  if mind paths -s $p &> /dev/null; then
-    mind get -fos $p
-  else
-    mind ins -fos $(date +/Journal/%Y/%b) -n $(date +%d)
-  fi
-}
-
 # Create a new entry in Mind at /Notes/Triage to be moved back later to something more specific.
 note() {
   mind ins -fos /Notes/Triage -n $(date +%Y%m%d-%H%M%S)
