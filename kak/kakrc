@@ -12,7 +12,7 @@ add-highlighter global/hl-col-120 column 120 black+r
 
 ## automatically update git diff, if needed
 #hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
-#hook global BufWritePost .* %{git update-diff}
+hook global BufWritePost .* %{git update-diff}
 
 ## Some specific filetypes I see at work / spare-time
 hook global WinCreate .*\.bzl %{ set-option buffer filetype python }
