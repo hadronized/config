@@ -13,6 +13,9 @@ style = "Thin"
 [selection]
 save_to_clipboard = true
 
+[window]
+option_as_alt = "OnlyLeft"
+
 [mouse]
 hide_when_typing = true
 
