@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
+import = ["~/.config/alacritty/themes/catppuccin.toml"]
 
 [cursor.style]
 blinking = "On"
@@ -14,7 +14,7 @@ style = "Thin"
 save_to_clipboard = true
 
 [window]
-option_as_alt = "OnlyLeft"
+option_as_alt = "OnlyRight"
 
 [mouse]
 hide_when_typing = true
