@@ -78,7 +78,7 @@ define-command -hidden open_rg_picker %{
   }
 }
 
-## match mode (surround, etc.)
+## match mode
 declare-user-mode match
 declare-user-mode match-extend
 
@@ -87,9 +87,10 @@ define-command -hidden match-delete-surround -docstring 'delete surrounding key'
 }
 
 define-command -hidden match-delete-surround-on-key %{
-  execute-keys -draft '<a-a>%val{key}i<del><esc>a<backspace><esc>'
+  execute-keys -draft "<a-a>%val{key}i<del><esc>a<backspace><esc>"
 }
 
+## surround mode
 define-command surround-key -docstring 'surround key' %{
   on-key %{
     add-surrounding-pair %val{key} %val{key}
@@ -102,14 +103,30 @@ define-command surround-tag -docstring 'surround tag' %{
   }
 }
     
-define-command -hidden add-surrounding-pair -params 2 %{
-  evaluate-commands -save-regs '"' %{
+define-command add-surrounding-pair -params 2 %{
+  evaluate-commands -draft -no-hooks -save-regs '"' %{
     set-register '"' %arg{1}
     execute-keys -draft P
     set-register '"' %arg{2}
     execute-keys -draft p
   }
 }
+
+# surround-add mode; support most of the useful delimiters
+declare-user-mode surround-add
+map global surround-add "'" ":add-surrounding-pair ""'"" ""'""<ret>" -docstring 'surround selections with quotes'
+map global surround-add '"' ':add-surrounding-pair "''" "''"<ret>'   -docstring 'surround selections with double quotes'
+map global surround-add '(' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
+map global surround-add ')' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
+map global surround-add '[' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
+map global surround-add ']' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
+map global surround-add '{' ':add-surrounding-pair { }<ret>'         -docstring 'surround selections with angle brackets'
+map global surround-add '}' ':add-surrounding-pair { }<ret>'         -docstring 'surround selections with angle brackets'
+map global surround-add '<' ':add-surrounding-pair < ><ret>'         -docstring 'surround selections with chevrons'
+map global surround-add '>' ':add-surrounding-pair < ><ret>'         -docstring 'surround selections with chevrons'
+map global surround-add '«' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
+map global surround-add '»' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
+map global surround-add '|' ':add-surrounding-pair | |<ret>'         -docstring 'surround selections with pipes'
 
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
@@ -189,6 +206,7 @@ map global match m m                                     -docstring 'select othe
 map global match i '<a-i>'                               -docstring 'match inside'
 map global match a '<a-a>'                               -docstring 'match around'
 map global match d ':match-delete-surround<ret>'         -docstring 'delete surround'
+map global match s ':enter-user-mode surround-add<ret>'  -docstring 'add surrounding pairs'
 map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
 map global match-extend m M                              -docstring 'extend other matching delimiter'
 map global match-extend i '<A-i>'                        -docstring 'extend inside'
