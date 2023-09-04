@@ -1,10 +1,10 @@
-import = ["~/.config/alacritty/themes/catppuccin.toml"]
+import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
 
 [cursor.style]
 blinking = "On"
 
 [font]
-size = 14.0
+size = 16.0
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -19,6 +19,10 @@ option_as_alt = "OnlyRight"
 [mouse]
 hide_when_typing = true
 
+[shell]
+program = "/usr/local/bin/nu"
+args = ["--login"]
+
 [hints]
 alphabet = "etovxqpdygfblzhckisuran"
 
@@ -30,7 +34,7 @@ binding.key = "w"
 binding.mods = "Control | Shift"
 
 [[hints.enabled]]
-regex = "(https?|file)://[^ ]+"
+regex = "(https?|file)://[^ '\"]+"
 hyperlinks = true
 command = "open"
 binding.key = "o"
