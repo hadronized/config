@@ -39,7 +39,26 @@ def create_right_prompt [] {
     ] | str join)
     } else { $"(ansi green)" }
 
-    ([$last_exit_code, (char space), $time_segment] | str join)
+		# battery
+		mut battery_segment = ''
+
+		if $nu.os-info.name == 'macos' {
+      let battery_percent = (pmset -g batt | lines | skip 1 | parse -r '\s*\w+\s*\(.*\)\s*(?P<percent>\d+)%' | get percent.0 | into int)
+
+      if $battery_percent > 80 {
+        $battery_segment = $"(ansi green)  ($battery_percent)%"
+      } else if $battery_percent > 60 {
+        $battery_segment = $"(ansi green)  ($battery_percent)%"
+      } else if $battery_percent > 40 {
+        $battery_segment = $"(ansi blue)  ($battery_percent)%"
+      } else if $battery_percent > 20 {
+        $battery_segment = $"(ansi yellow)  ($battery_percent)%"
+      } else {
+        $battery_segment = $"(ansi red)  ($battery_percent)%"
+      }
+    }
+
+    ([$last_exit_code, $battery_segment, $time_segment] | str join (char space))
 }
 
 # Use nushell functions to define your right and left prompt
