@@ -115,7 +115,7 @@ define-command add-surrounding-pair -params 2 %{
 # surround-add mode; support most of the useful delimiters
 declare-user-mode surround-add
 map global surround-add "'" ":add-surrounding-pair ""'"" ""'""<ret>" -docstring 'surround selections with quotes'
-map global surround-add '"' ':add-surrounding-pair "''" "''"<ret>'   -docstring 'surround selections with double quotes'
+map global surround-add '"' ':add-surrounding-pair """" """"<ret>'   -docstring 'surround selections with double quotes'
 map global surround-add '(' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add ')' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add '[' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
@@ -138,8 +138,6 @@ eval %sh{ kak-lsp --kakoune -s $kak_session }
 lsp-auto-signature-help-enable
 set-option global lsp_hover_anchor true
 set-option global lsp_auto_show_code_actions true
-set-face global InlayHint black+i
-set-face global PrimarySelection default,black,default
 
 ## main hook for languages
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
@@ -157,6 +155,24 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   #    remove-hooks window semantic-tokens
   #}
 }
+
+# faces / colorschemes
+## inlay hints (type annotations, etc.)
+set-face global PrimaryCursor "black,%opt{kts_blue}+i"
+set-face global PrimaryCursorEol "default,%opt{kts_red}"
+set-face global SecondaryCursor "black,white"
+set-face global SecondaryCursorEol "default,%opt{kts_yellow}"
+set-face global PrimarySelection "default,black+i"
+set-face global SecondarySelection "default,black"
+set-face global MenuForeground "black,%opt{kts_mauve}"
+set-face global MenuInfo "%opt{kts_green},black"
+set-face global Information "%opt{kts_mauve},default"
+set-face global StatusLine "%opt{kts_teal}"
+set-face global StatusLineMode black
+set-face global StatusLineInfo black
+set-face global StatusLineValue "%opt{kts_peach}"
+set-face global StatusCursor black
+set-face global InlayHint black+i
 
 # keybindings
 
