@@ -261,7 +261,7 @@ $env.config = {
         {
             name: completion_menu
             only_buffer_difference: false
-            marker: "| "
+            marker: $"(ansi black)  "
             type: {
                 layout: columnar
                 columns: 4
