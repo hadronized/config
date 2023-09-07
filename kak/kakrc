@@ -103,12 +103,12 @@ define-command surround-tag -docstring 'surround tag' %{
   }
 }
     
-define-command add-surrounding-pair -params 2 %{
-  evaluate-commands -draft -no-hooks -save-regs '"' %{
-    set-register '"' %arg{1}
-    execute-keys -draft P
+define-command -override add-surrounding-pair -params 2 %{
+  evaluate-commands -no-hooks -save-regs '"' %{
     set-register '"' %arg{2}
     execute-keys -draft p
+    set-register '"' %arg{1}
+    execute-keys "P<a-a>%arg{2}"
   }
 }
 
