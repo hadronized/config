@@ -158,7 +158,7 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
 
 # faces / colorschemes
 ## inlay hints (type annotations, etc.)
-set-face global PrimaryCursor "black,%opt{kts_blue}+i"
+set-face global PrimaryCursor "black,%opt{kts_mauve}+i"
 set-face global PrimaryCursorEol "default,%opt{kts_red}"
 set-face global SecondaryCursor "black,white"
 set-face global SecondaryCursorEol "default,%opt{kts_yellow}"
@@ -166,12 +166,12 @@ set-face global PrimarySelection "default,black+i"
 set-face global SecondarySelection "default,black"
 set-face global MenuForeground "black,%opt{kts_mauve}"
 set-face global MenuInfo "%opt{kts_green},black"
-set-face global Information "%opt{kts_mauve},default"
-set-face global StatusLine "%opt{kts_teal}"
-set-face global StatusLineMode black
-set-face global StatusLineInfo black
+set-face global Information "%opt{kts_peach},default"
+set-face global StatusLine "%opt{kts_mauve}"
+set-face global StatusLineMode "%opt{kts_green}"
+set-face global StatusLineInfo "%opt{kts_teal}"
 set-face global StatusLineValue "%opt{kts_peach}"
-set-face global StatusCursor black
+set-face global StatusCursor "black,%opt{kts_mauve}"
 set-face global InlayHint black+i
 
 # keybindings
