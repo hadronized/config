@@ -105,17 +105,17 @@ define-command surround-tag -docstring 'surround tag' %{
     
 define-command -override add-surrounding-pair -params 2 %{
   evaluate-commands -no-hooks -save-regs '"' %{
+    set-register '"' %arg{1}
+    execute-keys -draft P
     set-register '"' %arg{2}
     execute-keys -draft p
-    set-register '"' %arg{1}
-    execute-keys "P<a-a>%arg{2}"
   }
 }
 
 # surround-add mode; support most of the useful delimiters
 declare-user-mode surround-add
 map global surround-add "'" ":add-surrounding-pair ""'"" ""'""<ret>" -docstring 'surround selections with quotes'
-map global surround-add '"' ':add-surrounding-pair """" """"<ret>'   -docstring 'surround selections with double quotes'
+map global surround-add '"' ':add-surrounding-pair ''"'' ''"''<ret>' -docstring 'surround selections with double quotes'
 map global surround-add '(' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add ')' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add '[' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
@@ -127,9 +127,14 @@ map global surround-add '>' ':add-surrounding-pair < ><ret>'         -docstring 
 map global surround-add '«' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
 map global surround-add '»' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
 map global surround-add '|' ':add-surrounding-pair | |<ret>'         -docstring 'surround selections with pipes'
+map global surround-add ' ' ':add-surrounding-pair " " " "<ret>'     -docstring 'surround selections with pipes'
 
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
+
+# Modeline
+set-face global StatusLineGit "%opt{kts_red}"
+set-option global modelinefmt '{StatusLineGit}%sh{ git rev-parse --is-inside-work-tree &> /dev/null && echo " $(git rev-parse --abbrev-ref HEAD)" }{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
@@ -172,6 +177,7 @@ set-face global StatusLineMode "%opt{kts_green}"
 set-face global StatusLineInfo "%opt{kts_teal}"
 set-face global StatusLineValue "%opt{kts_peach}"
 set-face global StatusCursor "black,%opt{kts_mauve}"
+set-face global Prompt "%opt{kts_peach}"
 set-face global InlayHint black+i
 
 # keybindings
