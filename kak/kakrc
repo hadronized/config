@@ -140,7 +140,7 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
 # Modeline
 set-face global StatusLineGit "%opt{kts_red}"
-set-option global modelinefmt '{StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
+set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
@@ -185,6 +185,10 @@ set-face global StatusLineValue "%opt{kts_peach}"
 set-face global StatusCursor "black,%opt{kts_mauve}"
 set-face global Prompt "%opt{kts_peach}"
 set-face global InlayHint black+i
+set-face global DiagnosticInfo "%opt{kts_blue}"
+set-face global DiagnosticHint "%opt{kts_mauve}"
+set-face global DiagnosticWarning "%opt{kts_peach}"
+set-face global DiagnosticError "%opt{kts_red}"
 
 # keybindings
 
