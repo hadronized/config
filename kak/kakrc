@@ -122,6 +122,7 @@ define-command -override add-surrounding-pair -params 2 %{
 declare-user-mode surround-add
 map global surround-add "'" ":add-surrounding-pair ""'"" ""'""<ret>" -docstring 'surround selections with quotes'
 map global surround-add '"' ':add-surrounding-pair ''"'' ''"''<ret>' -docstring 'surround selections with double quotes'
+map global surround-add ` ':add-surrounding-pair ` `<ret>'           -docstring 'surround selections with ticks'
 map global surround-add '(' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add ')' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
 map global surround-add '[' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
@@ -135,11 +136,20 @@ map global surround-add '»' ':add-surrounding-pair « »<ret>'         -docstri
 map global surround-add '|' ':add-surrounding-pair | |<ret>'         -docstring 'surround selections with pipes'
 map global surround-add ' ' ':add-surrounding-pair " " " "<ret>'     -docstring 'surround selections with pipes'
 
+## yank mode
+define-command extra-yank-buffile -docstring 'yank the path of the current buffer' %{
+  set-register p %val{buffile}
+}
+
+declare-user-mode extra-yank
+map global user y ':enter-user-mode extra-yank<ret>' -docstring 'extra yank'
+map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer path'
+
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
 # Modeline
-set-face global StatusLineGit "%opt{kts_red}"
+set-face global StatusLineGit "%opt{kts_peach}"
 set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # LSP
@@ -154,6 +164,7 @@ set-option global lsp_auto_show_code_actions true
 hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
   lsp-enable-window
 
+  lsp-diagnostic-lines-disable window
   lsp-inlay-diagnostics-enable window
   lsp-inlay-hints-enable window
   lsp-inlay-code-lenses-enable window
@@ -186,7 +197,7 @@ set-face global StatusCursor "black,%opt{kts_mauve}"
 set-face global Prompt "%opt{kts_peach}"
 set-face global InlayHint black+i
 set-face global DiagnosticInfo "%opt{kts_blue}"
-set-face global DiagnosticHint "%opt{kts_mauve}"
+set-face global DiagnosticHint black
 set-face global DiagnosticWarning "%opt{kts_peach}"
 set-face global DiagnosticError "%opt{kts_red}"
 
