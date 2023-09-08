@@ -8,11 +8,17 @@ set global indentwidth 2
 
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 #add-highlighter global/number-lines number-lines -hlcursor
-add-highlighter global/hl-col-120 column 120 black+r
+add-highlighter global/hl-col-120 column 120 default,black+d
 
-## automatically update git diff, if needed
-#hook global BufCreate .* %{git show-diff} # FIXME: not sure it’s the best way
-hook global BufWritePost .* %{git update-diff}
+## Git support
+declare-option str git_branch_name
+hook global NormalIdle .* %{
+  # Update git diff column signs
+  try %{ git update-diff }
+
+  # Update branch name
+  set-option global git_branch_name %sh{ git rev-parse --is-inside-work-tree &> /dev/null && echo " $(git rev-parse --abbrev-ref HEAD)"}
+}
 
 ## Some specific filetypes I see at work / spare-time
 hook global WinCreate .*\.bzl %{ set-option buffer filetype python }
@@ -134,7 +140,7 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
 # Modeline
 set-face global StatusLineGit "%opt{kts_red}"
-set-option global modelinefmt '{StatusLineGit}%sh{ git rev-parse --is-inside-work-tree &> /dev/null && echo " $(git rev-parse --abbrev-ref HEAD)" }{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
+set-option global modelinefmt '{StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
