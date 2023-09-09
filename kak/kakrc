@@ -165,6 +165,7 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   lsp-enable-window
 
   lsp-diagnostic-lines-disable window
+  lsp-inline-diagnostics-disable window
   lsp-inlay-diagnostics-enable window
   lsp-inlay-hints-enable window
   lsp-inlay-code-lenses-enable window
@@ -197,7 +198,7 @@ set-face global StatusCursor "black,%opt{kts_mauve}"
 set-face global Prompt "%opt{kts_peach}"
 set-face global InlayHint black+i
 set-face global DiagnosticInfo "%opt{kts_blue}"
-set-face global DiagnosticHint black
+set-face global DiagnosticHint "%opt{kts_mauve}"
 set-face global DiagnosticWarning "%opt{kts_peach}"
 set-face global DiagnosticError "%opt{kts_red}"
 
