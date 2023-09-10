@@ -21,7 +21,7 @@ def create_left_prompt [] {
     let separator_color = ansi black
     let path_segment = $"($path_color)($dir)"
 
-    $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
+		$path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
 }
 
 def create_right_prompt [] {
@@ -37,6 +37,13 @@ def create_right_prompt [] {
         ($env.LAST_EXIT_CODE)
     ] | str join)
     } else { $"(ansi green)" }
+
+		let git_output = (do { git rev-parse --abbrev-ref HEAD } | complete)
+		mut git_segment = ""
+
+    if ($git_output.exit_code) == 0 {
+			$git_segment = ($"(ansi reset)(ansi darkorange) ($git_output.stdout)" | str trim)
+    }
 
 		# battery
 		mut battery_segment = ''
@@ -57,7 +64,7 @@ def create_right_prompt [] {
       }
     }
 
-    ([$last_exit_code, $battery_segment, $time_segment] | str join (char space))
+    ([$last_exit_code, $git_segment, $battery_segment, $time_segment] | filter { |it| not ($it | is-empty) } | str join $"(ansi black) | ")
 }
 
 # Use nushell functions to define your right and left prompt
