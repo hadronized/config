@@ -42,7 +42,7 @@ def create_right_prompt [] {
 		mut git_segment = ""
 
     if ($git_output.exit_code) == 0 {
-			$git_segment = ($"(ansi reset)(ansi darkorange) ($git_output.stdout)" | str trim)
+			$git_segment = ($"(ansi reset)(ansi red) ($git_output.stdout)" | str trim)
     }
 
 		# battery
