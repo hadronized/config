@@ -24,6 +24,7 @@ hook global NormalIdle .* %{
 hook global WinCreate .*\.bzl %{ set-option buffer filetype python }
 hook global WinCreate .*\.zprofile %{ set-option buffer filetype sh }
 hook global WinCreate .*\.(bazel|bzl) %{ set-option buffer filetype python }
+hook global WinCreate .*\.nu %{ set-option buffer filetype nu }
 
 # Commands
 
