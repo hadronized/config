@@ -146,6 +146,13 @@ declare-user-mode extra-yank
 map global user y ':enter-user-mode extra-yank<ret>' -docstring 'extra yank'
 map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer path'
 
+## notes
+declare-option str kak_notes_dir ~/notes/notes
+declare-option str kak_notes_journal_dir ~/notes/journal
+declare-option str kak_notes_capture_file ~/notes/capture
+
+map global user n ':enter-user-mode notes<ret>' -docstring 'notes'
+
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
