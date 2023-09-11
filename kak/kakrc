@@ -175,7 +175,6 @@ define-command kak-notes-open -docstring 'open note' %{
 }
 
 define-command kak-notes-new-note -docstring 'new note' -shell-script-candidates "fd -t directory . %opt{kak_notes_dir}" -params 0..1 %{
-  echo -debug "[%arg{@}]"
   prompt note: %{
     edit %sh{
       if [ -z "$1" ]; then
