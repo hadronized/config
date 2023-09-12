@@ -3,6 +3,7 @@
 declare-option str kak_notes_dir
 declare-option str kak_notes_archives_dir
 declare-option str kak_notes_journal_dir
+declare-option str kak_notes_capture_file
 
 declare-user-mode kak-notes-task
 declare-user-mode notes

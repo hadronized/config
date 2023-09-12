@@ -153,7 +153,9 @@ map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer pat
 set-option global kak_notes_dir %sh{ echo $HOME/notes/notes }
 set-option global kak_notes_archives_dir %sh{ echo $HOME/notes/archives }
 set-option global kak_notes_journal_dir %sh{ echo $HOME/notes/journal }
-declare-option str kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
+set-option global kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
+
+## bookmarks
 
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
