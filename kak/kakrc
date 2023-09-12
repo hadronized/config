@@ -79,10 +79,10 @@ define-command -hidden open_file_picker %{
 
 define-command -hidden open_rg_picker %{
   prompt search: %{
-    prompt refine: -menu -shell-script-candidates "rg -in '%val{text}'" %{
+    prompt refine: -menu -shell-script-candidates "rg -in --column '%val{text}'" %{
       evaluate-commands "edit -existing %sh{
-        IFS=':' read -r file line rest <<< ""$kak_text""
-        echo $file $line
+        IFS=':' read -r file line column rest <<< ""$kak_text""
+        echo $file $line $column
       }"
     }
   }
@@ -248,63 +248,64 @@ map global user <space> '<a-;>'
 
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
+map global user s '|sort<ret>' -docstring 'sort selections'
 
 ## pickers
+map global user / ':open_rg_picker<ret>'     -docstring 'search project'
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
 map global user f ':open_file_picker<ret>'   -docstring 'pick file'
-map global user / ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
+map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
 map global normal m ':enter-user-mode match<ret>'        -docstring 'match mode'
-map global match m m                                     -docstring 'select other matching delimiter'
-map global match i '<a-i>'                               -docstring 'match inside'
 map global match a '<a-a>'                               -docstring 'match around'
 map global match d ':match-delete-surround<ret>'         -docstring 'delete surround'
+map global match i '<a-i>'                               -docstring 'match inside'
+map global match m m                                     -docstring 'select other matching delimiter'
 map global match s ':enter-user-mode surround-add<ret>'  -docstring 'add surrounding pairs'
-map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
-map global match-extend m M                              -docstring 'extend other matching delimiter'
-map global match-extend i '<A-i>'                        -docstring 'extend inside'
 map global match-extend a '<A-a>'                        -docstring 'extend around'
+map global match-extend i '<A-i>'                        -docstring 'extend inside'
+map global match-extend m M                              -docstring 'extend other matching delimiter'
 
 ## window management
 map global user w ':enter-user-mode window-tmux<ret>' -docstring 'window mode'
 
 declare-user-mode window-tmux
-map global window-tmux v ':tmux-split -h<ret>'       -docstring 'vertical split'
-map global window-tmux o ':tmux-split -v<ret>'       -docstring 'horizontal split'
-map global window-tmux c ':tmux-select-pane -L<ret>' -docstring 'move left'
-map global window-tmux t ':tmux-select-pane -D<ret>' -docstring 'move down'
-map global window-tmux s ':tmux-select-pane -U<ret>' -docstring 'move up'
-map global window-tmux r ':tmux-select-pane -R<ret>' -docstring 'move right'
-map global window-tmux q ':q<ret>'                   -docstring 'close window'
 map global window-tmux Q ':q!<ret>'                  -docstring 'close window (force)'
+map global window-tmux c ':tmux-select-pane -L<ret>' -docstring 'move left'
+map global window-tmux o ':tmux-split -v<ret>'       -docstring 'horizontal split'
+map global window-tmux q ':q<ret>'                   -docstring 'close window'
+map global window-tmux r ':tmux-select-pane -R<ret>' -docstring 'move right'
+map global window-tmux s ':tmux-select-pane -U<ret>' -docstring 'move up'
+map global window-tmux t ':tmux-select-pane -D<ret>' -docstring 'move down'
+map global window-tmux v ':tmux-split -h<ret>'       -docstring 'vertical split'
 
 ## git
 declare-user-mode git
 map global user g ':enter-user-mode git<ret>' -docstring 'git mode'
-map global git p ':git prev-hunk<ret>'        -docstring 'goto previous hunk'
 map global git n ':git next-hunk<ret>'        -docstring 'goto next hunk'
+map global git p ':git prev-hunk<ret>'        -docstring 'goto previous hunk'
 
 ## LSP
 declare-user-mode user-lsp
 map global user l ':enter-user-mode user-lsp<ret>'       -docstring 'lsp mode'
 map global user n ':enter-user-mode notes<ret>'          -docstring 'notes'
 map global user t ':enter-user-mode kak-notes-task<ret>' -docstring 'note tasks'
+map global user-lsp ( ':lsp-previous-function<ret>'      -docstring 'jump to the previous function'
+map global user-lsp ) ':lsp-next-function<ret>'          -docstring 'jump to the next function'
+map global user-lsp I ':lsp-implementation<ret>'         -docstring 'list implementations'
+map global user-lsp K ':lsp-hover-buffer<ret>'           -docstring 'hover in a dedicated buffer'
+map global user-lsp P ':lsp-workspace-symbol<ret>'       -docstring 'list workspace symbols'
+map global user-lsp R ':lsp-rename-prompt<ret>'          -docstring 'rename'
+map global user-lsp S ':lsp-document-symbol<ret>'        -docstring 'list workspace symbols'
 map global user-lsp a ':lsp-code-actions<ret>'           -docstring 'code action'
 map global user-lsp c ':lsp-code-lens<ret>'              -docstring 'execute code lens'
 map global user-lsp d ':lsp-diagnostics<ret>'            -docstring 'list diagnostics'
-map global user-lsp i ':lsp-incoming-calls<ret>'         -docstring 'incoming calls'
-map global user-lsp I ':lsp-implementation<ret>'         -docstring 'list implementations'
 map global user-lsp h ':lsp-highlight-references<ret>'   -docstring 'highlight references'
+map global user-lsp i ':lsp-incoming-calls<ret>'         -docstring 'incoming calls'
 map global user-lsp k ':lsp-hover<ret>'                  -docstring 'hover'
-map global user-lsp K ':lsp-hover-buffer<ret>'           -docstring 'hover in a dedicated buffer'
-map global user-lsp p ':lsp-workspace-symbol-incr<ret>'  -docstring 'pick workspace symbol'
-map global user-lsp P ':lsp-workspace-symbol<ret>'       -docstring 'list workspace symbols'
-map global user-lsp r ':lsp-references<ret>'             -docstring 'list references'
-map global user-lsp R ':lsp-rename-prompt<ret>'          -docstring 'rename'
 map global user-lsp o ':lsp-outgoing-calls<ret>'         -docstring 'outgoing calls'
+map global user-lsp p ':lsp-workspace-symbol-incr<ret>'  -docstring 'pick workspace symbol'
+map global user-lsp r ':lsp-references<ret>'             -docstring 'list references'
 map global user-lsp s ':lsp-goto-document-symbol<ret>'   -docstring 'pick document symbol'
-map global user-lsp S ':lsp-document-symbol<ret>'        -docstring 'list workspace symbols'
 map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the prev/next error'
-map global user-lsp ( ':lsp-previous-function<ret>'      -docstring 'jump to the previous function'
-map global user-lsp ) ':lsp-next-function<ret>'          -docstring 'jump to the next function'
