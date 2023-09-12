@@ -80,7 +80,10 @@ define-command -hidden open_file_picker %{
 define-command -hidden open_rg_picker %{
   prompt search: %{
     prompt refine: -menu -shell-script-candidates "rg -in '%val{text}'" %{
-      eval "edit -existing  %sh{(cut -d ' ' -f 1 | tr ':' ' ' ) <<< $kak_text}"
+      evaluate-commands "edit -existing %sh{
+        IFS=':' read -r file line rest <<< ""$kak_text""
+        echo $file $line
+      }"
     }
   }
 }
