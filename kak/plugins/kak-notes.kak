@@ -11,8 +11,9 @@ declare-option str kak_notes_sym_very_done ''
 declare-option str kak_notes_sym_question 'QUESTION'
 declare-option str kak_notes_sym_wontdo ''
 
-declare-user-mode kak-notes-task
-declare-user-mode notes
+declare-user-mode kak-notes
+declare-user-mode kak-notes-tasks
+declare-user-mode kak-notes-tasks-list
 
 define-command kak-notes-journal-open-daily -docstring 'open daily journal' %{
   nop %sh{
@@ -93,6 +94,16 @@ define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
   }
 }
 
+define-command kak-notes-tasks-list-by-status -params 1 -docstring 'list tasks by status' %{
+  edit -scratch *kak-notes-tasks-list*
+  execute-keys "%%d|rg -n --column %arg{1} %opt{kak_notes_dir}<ret>gg"
+}
+
+# Command executed when pressing <ret> in a *kak-notes-tasks-list* buffer.
+define-command -hidden kak-notes-tasks-list-open %{
+  execute-keys -with-hooks -save-regs 'flc' 'giT:"fyllT:"lyllT:"cy:edit "%reg{f}" %reg{l} %reg{c}<ret>'
+}
+
 add-highlighter shared/kak-notes-tasks group
 add-highlighter shared/kak-notes-tasks/todo regex "-\s*(%opt{kak_notes_sym_todo})\s*[^\n]*"\
   1:kak_notes_todo
@@ -109,34 +120,38 @@ add-highlighter shared/kak-notes-tasks/wontdo regex "-\s*(%opt{kak_notes_sym_won
 add-highlighter shared/kak-notes-tasks/issue regex "(#[0-9]+)"\
   1:kak_notes_issue
 
-map global notes a ':kak-notes-archive-open<ret>' -docstring 'open archived note'
-map global notes A ':kak-notes-archive-note<ret>' -docstring 'archive note'
-map global notes c ':kak-notes-open-capture<ret>' -docstring 'open capture'
-map global notes C ':kak-notes-capture<ret>' -docstring 'capture'
-map global notes j ':kak-notes-journal-open<ret>' -docstring 'open past journal'
-map global notes J ':kak-notes-journal-open-daily<ret>' -docstring 'open daily'
-map global notes n ':kak-notes-open<ret>' -docstring 'open note'
-map global notes N ':kak-notes-new-note ' -docstring 'new note'
+map global kak-notes a ':kak-notes-archive-open<ret>' -docstring 'open archived note'
+map global kak-notes A ':kak-notes-archive-note<ret>' -docstring 'archive note'
+map global kak-notes c ':kak-notes-open-capture<ret>' -docstring 'open capture'
+map global kak-notes C ':kak-notes-capture<ret>' -docstring 'capture'
+map global kak-notes j ':kak-notes-journal-open<ret>' -docstring 'open past journal'
+map global kak-notes J ':kak-notes-journal-open-daily<ret>' -docstring 'open daily'
+map global kak-notes n ':kak-notes-open<ret>' -docstring 'open note'
+map global kak-notes N ':kak-notes-new-note ' -docstring 'new note'
+map global kak-notes t ':enter-user-mode kak-notes-tasks<ret>' -docstring 'tasks'
+map global kak-notes T ':enter-user-mode kak-notes-tasks-list<ret>' -docstring 'tasks list'
 
-hook -group kak-notes-task global WinCreate .*\.md %{
-  set-face global kak_notes_todo %opt{kts_green}
-  set-face global kak_notes_wip %opt{kts_mauve}
-  set-face global kak_notes_done %opt{kts_green}
-  set-face global kak_notes_done_text black+s
-  set-face global kak_notes_very_done %opt{kts_blue}
-  set-face global kak_notes_very_done_text black+s
-  set-face global kak_notes_question %opt{kts_peach}
-  set-face global kak_notes_wontdo %opt{kts_red}
-  set-face global kak_notes_wontdo_text black+s
-  set-face global kak_notes_issue black+u
+map global kak-notes-tasks-list t ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_todo}<ret>" -docstring 'list todo tasks'
+map global kak-notes-tasks-list w ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_wip}<ret>" -docstring 'list wip tasks'
+map global kak-notes-tasks-list d ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_done}<ret>" -docstring 'list done tasks'
+map global kak-notes-tasks-list c ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_very_done}<ret>" -docstring 'list completed tasks'
+map global kak-notes-tasks-list q ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_question}<ret>" -docstring 'list question tasks'
+map global kak-notes-tasks-list n ":kak-notes-tasks-list-by-status %opt{kak_notes_sym_wontdo}<ret>" -docstring 'list wontdo tasks'
 
-	add-highlighter window/ ref kak-notes-tasks
 
-  map window kak-notes-task t ":kak-notes-task-switch-status %opt{kak_notes_sym_todo}<ret>" -docstring 'switch task to todo'
-  map window kak-notes-task w ":kak-notes-task-switch-status %opt{kak_notes_sym_wip}<ret>" -docstring 'switch task to wip'
-  map window kak-notes-task d ":kak-notes-task-switch-status %opt{kak_notes_sym_done}<ret>" -docstring 'switch task to done'
-  map window kak-notes-task c ":kak-notes-task-switch-status %opt{kak_notes_sym_very_done}<ret>" -docstring 'switch task to completed'
-  map window kak-notes-task q ":kak-notes-task-switch-status %opt{kak_notes_sym_question}<ret>" -docstring 'switch task to question'
-  map window kak-notes-task n ":kak-notes-task-switch-status %opt{kak_notes_sym_wontdo}<ret>" -docstring 'switch task to wontdo'
-  map window kak-notes-task i ":kak-notes-task-gh-open-issue<ret>"     -docstring 'open GitHub issue'
+hook -group kak-notes-tasks global WinCreate \*kak-notes-tasks-list\* %{
+  map buffer normal '<ret>' ':kak-notes-tasks-list-open<ret>'
+  add-highlighter window/ ref kak-notes-tasks
+}
+
+hook -group kak-notes-tasks global WinCreate .*\.md %{
+  add-highlighter window/ ref kak-notes-tasks
+
+  map window kak-notes-tasks t ":kak-notes-task-switch-status %opt{kak_notes_sym_todo}<ret>"      -docstring 'switch task to todo'
+  map window kak-notes-tasks w ":kak-notes-task-switch-status %opt{kak_notes_sym_wip}<ret>"       -docstring 'switch task to wip'
+  map window kak-notes-tasks d ":kak-notes-task-switch-status %opt{kak_notes_sym_done}<ret>"      -docstring 'switch task to done'
+  map window kak-notes-tasks c ":kak-notes-task-switch-status %opt{kak_notes_sym_very_done}<ret>" -docstring 'switch task to completed'
+  map window kak-notes-tasks q ":kak-notes-task-switch-status %opt{kak_notes_sym_question}<ret>"  -docstring 'switch task to question'
+  map window kak-notes-tasks n ":kak-notes-task-switch-status %opt{kak_notes_sym_wontdo}<ret>"    -docstring 'switch task to wontdo'
+  map window kak-notes-tasks i ":kak-notes-task-gh-open-issue<ret>"                               -docstring 'open GitHub issue'
 }

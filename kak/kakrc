@@ -164,6 +164,18 @@ eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 set-face global StatusLineGit "%opt{kts_red}"
 set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
+# kak-notes
+set-face global kak_notes_todo %opt{kts_green}
+set-face global kak_notes_wip %opt{kts_mauve}
+set-face global kak_notes_done %opt{kts_green}
+set-face global kak_notes_done_text black+s
+set-face global kak_notes_very_done %opt{kts_blue}
+set-face global kak_notes_very_done_text black+s
+set-face global kak_notes_question %opt{kts_peach}
+set-face global kak_notes_wontdo %opt{kts_red}
+set-face global kak_notes_wontdo_text black+s
+set-face global kak_notes_issue black+u
+
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
 
@@ -291,8 +303,7 @@ map global git p ':git prev-hunk<ret>'        -docstring 'goto previous hunk'
 ## LSP
 declare-user-mode user-lsp
 map global user l ':enter-user-mode user-lsp<ret>'       -docstring 'lsp mode'
-map global user n ':enter-user-mode notes<ret>'          -docstring 'notes'
-map global user t ':enter-user-mode kak-notes-task<ret>' -docstring 'note tasks'
+map global user n ':enter-user-mode kak-notes<ret>'      -docstring 'notes'
 map global user-lsp ( ':lsp-previous-function<ret>'      -docstring 'jump to the previous function'
 map global user-lsp ) ':lsp-next-function<ret>'          -docstring 'jump to the next function'
 map global user-lsp I ':lsp-implementation<ret>'         -docstring 'list implementations'
