@@ -17,20 +17,20 @@ define-command kak-notes-journal-open-daily -docstring 'open daily journal' %{
 }
 
 define-command kak-notes-journal-open -docstring 'open journal' %{
-  prompt -menu -shell-script-candidates "fd -t file .md %opt{kak_notes_journal_dir}" 'open journal:' %{
+  prompt -menu -shell-script-candidates "fd -t file .md $kak_opt_kak_notes_journal_dir" 'open journal:' %{
     edit "%val{text}"
   }
 }
 
 define-command kak-notes-open -docstring 'open note' %{
-  prompt -menu -shell-script-candidates "fd -t file .md %opt{kak_notes_dir}" 'open note:' %{
+  prompt -menu -shell-script-candidates "fd -t file .md $kak_opt_kak_notes_dir" 'open note:' %{
     edit %sh{
       echo "${kak_text%.md}.md"
     }
   }
 }
 
-define-command kak-notes-new-note -docstring 'new note' -shell-script-candidates "fd -t directory . %opt{kak_notes_dir}" -params 0..1 %{
+define-command kak-notes-new-note -shell-script-candidates "fd -t directory . $kak_opt_kak_notes_dir" -params 0..1 -docstring 'new note' %{
   prompt note: %{
     edit %sh{
       if [ -z "$1" ]; then
@@ -43,7 +43,7 @@ define-command kak-notes-new-note -docstring 'new note' -shell-script-candidates
 }
 
 define-command kak-notes-archive-note -docstring 'archive note' %{
-  prompt -menu -shell-script-candidates "fd -t file .md %opt{kak_notes_dir}" archive: %{
+  prompt -menu -shell-script-candidates "fd -t file .md $kak_opt_kak_notes_dir" archive: %{
     nop %sh{
       mkdir -p "$kak_opt_kak_notes_archives_dir"
       mv "$kak_text" "$kak_opt_kak_notes_archives_dir/"
@@ -52,7 +52,7 @@ define-command kak-notes-archive-note -docstring 'archive note' %{
 }
 
 define-command kak-notes-archive-open -docstring 'open archive' %{
-  prompt -menu -shell-script-candidates "fd -t file .md %opt{kak_notes_archives_dir}" 'open archive:' %{
+  prompt -menu -shell-script-candidates "fd -t file .md $kak_opt_kak_notes_archives_dir" 'open archive:' %{
     edit %sh{
       echo "${kak_text%.md}.md"
     }
