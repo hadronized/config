@@ -4,6 +4,12 @@ declare-option str kak_notes_dir
 declare-option str kak_notes_archives_dir
 declare-option str kak_notes_journal_dir
 declare-option str kak_notes_capture_file
+declare-option str kak_notes_sym_todo 'TODO'
+declare-option str kak_notes_sym_wip 'WIP'
+declare-option str kak_notes_sym_done ''
+declare-option str kak_notes_sym_very_done ''
+declare-option str kak_notes_sym_question 'QUESTION'
+declare-option str kak_notes_sym_wontdo ''
 
 declare-user-mode kak-notes-task
 declare-user-mode notes
@@ -72,7 +78,7 @@ define-command kak-notes-open-capture -docstring 'open capture' %{
 }
 
 define-command kak-notes-task-switch-status -params 1 -docstring 'switch task' %{
-  execute-keys -draft "gilldi%arg{1}"
+  execute-keys -draft "gilec%arg{1}"
 }
 
 define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
@@ -88,15 +94,17 @@ define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
 }
 
 add-highlighter shared/kak-notes-tasks group
-add-highlighter shared/kak-notes-tasks/done regex "-\s*()\s*[^\n]*"\
-  1:kak_notes_done
-add-highlighter shared/kak-notes-tasks/very-done regex "-\s*()\s*[^\n]*"\
-  1:kak_notes_very_done
-add-highlighter shared/kak-notes-tasks/todo regex "-\s*()\s*[^\n]*"\
+add-highlighter shared/kak-notes-tasks/todo regex "-\s*(%opt{kak_notes_sym_todo})\s*[^\n]*"\
   1:kak_notes_todo
-add-highlighter shared/kak-notes-tasks/question regex "-\s*()\s*[^\n]*"\
+add-highlighter shared/kak-notes-tasks/wip regex "-\s*(%opt{kak_notes_sym_wip})\s*[^\n]*"\
+  1:kak_notes_wip
+add-highlighter shared/kak-notes-tasks/done regex "-\s*(%opt{kak_notes_sym_done})\s*([^\n]*)"\
+  1:kak_notes_done 2:kak_notes_done_text
+add-highlighter shared/kak-notes-tasks/very-done regex "-\s*(%opt{kak_notes_sym_very_done})\s*([^\n]*)"\
+  1:kak_notes_very_done 2:kak_notes_very_done_text
+add-highlighter shared/kak-notes-tasks/question regex "-\s*(%opt{kak_notes_sym_question})\s*[^\n]*"\
   1:kak_notes_question
-add-highlighter shared/kak-notes-tasks/wontdo regex "-\s*()\s*([^\n]*)"\
+add-highlighter shared/kak-notes-tasks/wontdo regex "-\s*(%opt{kak_notes_sym_wontdo})\s*([^\n]*)"\
   1:kak_notes_wontdo 2:kak_notes_wontdo_text
 add-highlighter shared/kak-notes-tasks/issue regex "(#[0-9]+)"\
   1:kak_notes_issue
@@ -111,9 +119,12 @@ map global notes n ':kak-notes-open<ret>' -docstring 'open note'
 map global notes N ':kak-notes-new-note ' -docstring 'new note'
 
 hook -group kak-notes-task global WinCreate .*\.md %{
+  set-face global kak_notes_todo %opt{kts_green}
+  set-face global kak_notes_wip %opt{kts_mauve}
   set-face global kak_notes_done %opt{kts_green}
+  set-face global kak_notes_done_text black+s
   set-face global kak_notes_very_done %opt{kts_blue}
-  set-face global kak_notes_todo %opt{kts_mauve}
+  set-face global kak_notes_very_done_text black+s
   set-face global kak_notes_question %opt{kts_peach}
   set-face global kak_notes_wontdo %opt{kts_red}
   set-face global kak_notes_wontdo_text black+s
@@ -121,10 +132,11 @@ hook -group kak-notes-task global WinCreate .*\.md %{
 
 	add-highlighter window/ ref kak-notes-tasks
 
-  map window kak-notes-task t ":kak-notes-task-switch-status ''<ret>" -docstring 'switch task to todo'
-  map window kak-notes-task d ":kak-notes-task-switch-status ''<ret>" -docstring 'switch task to done'
-  map window kak-notes-task c ":kak-notes-task-switch-status ''<ret>" -docstring 'switch task to completed'
-  map window kak-notes-task q ":kak-notes-task-switch-status ''<ret>" -docstring 'switch task to question'
-  map window kak-notes-task n ":kak-notes-task-switch-status ''<ret>" -docstring 'switch task to wontdo'
+  map window kak-notes-task t ":kak-notes-task-switch-status %opt{kak_notes_sym_todo}<ret>" -docstring 'switch task to todo'
+  map window kak-notes-task w ":kak-notes-task-switch-status %opt{kak_notes_sym_wip}<ret>" -docstring 'switch task to wip'
+  map window kak-notes-task d ":kak-notes-task-switch-status %opt{kak_notes_sym_done}<ret>" -docstring 'switch task to done'
+  map window kak-notes-task c ":kak-notes-task-switch-status %opt{kak_notes_sym_very_done}<ret>" -docstring 'switch task to completed'
+  map window kak-notes-task q ":kak-notes-task-switch-status %opt{kak_notes_sym_question}<ret>" -docstring 'switch task to question'
+  map window kak-notes-task n ":kak-notes-task-switch-status %opt{kak_notes_sym_wontdo}<ret>" -docstring 'switch task to wontdo'
   map window kak-notes-task i ":kak-notes-task-gh-open-issue<ret>"     -docstring 'open GitHub issue'
 }
