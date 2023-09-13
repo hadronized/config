@@ -77,7 +77,7 @@ define-command kak-notes-task-switch-status -params 1 -docstring 'switch task' %
 
 define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
   evaluate-commands -save-regs 'il' %{
-    try {
+    try %{
       execute-keys -draft '<a-i>w"iy'
       execute-keys -draft '%sgithub_project: <ret>;<a-W>_"ly'
       nop %sh{
