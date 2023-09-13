@@ -15,6 +15,18 @@ declare-user-mode kak-notes
 declare-user-mode kak-notes-tasks
 declare-user-mode kak-notes-tasks-list
 
+set-face global kak_notes_todo green
+set-face global kak_notes_wip magenta
+set-face global kak_notes_done green
+set-face global kak_notes_done_text black+s
+set-face global kak_notes_very_done blue
+set-face global kak_notes_very_done_text black+s
+set-face global kak_notes_question yellow
+set-face global kak_notes_wontdo red
+set-face global kak_notes_wontdo_text black+s
+set-face global kak_notes_issue black+u
+set-face global kak_notes_task_list_path black
+
 define-command kak-notes-journal-open-daily -docstring 'open daily journal' %{
   nop %sh{
     mkdir -p "$(date +%Y/%b)"
@@ -96,7 +108,7 @@ define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
 
 define-command kak-notes-tasks-list-by-status -params 1 -docstring 'list tasks by status' %{
   edit -scratch *kak-notes-tasks-list*
-  execute-keys "%%d|rg -n --column %arg{1} %opt{kak_notes_dir}<ret>gg"
+  execute-keys "%%d|rg -n --column %arg{1} %opt{kak_notes_dir} %opt{kak_notes_journal_dir} %opt{kak_notes_capture_file}<ret>|sort<ret>gg"
 }
 
 # Command executed when pressing <ret> in a *kak-notes-tasks-list* buffer.
@@ -120,6 +132,9 @@ add-highlighter shared/kak-notes-tasks/wontdo regex "-\s*(%opt{kak_notes_sym_won
 add-highlighter shared/kak-notes-tasks/issue regex "(#[0-9]+)"\
   1:kak_notes_issue
 
+add-highlighter shared/kak-notes-tasks-list group
+add-highlighter shared/kak-notes-tasks-list/path regex "^([^:]+:[^:]+:[^n]+:)[^\n]*" 1:kak_notes_task_list_path
+
 map global kak-notes a ':kak-notes-archive-open<ret>' -docstring 'open archived note'
 map global kak-notes A ':kak-notes-archive-note<ret>' -docstring 'archive note'
 map global kak-notes c ':kak-notes-open-capture<ret>' -docstring 'open capture'
@@ -142,6 +157,7 @@ map global kak-notes-tasks-list n ":kak-notes-tasks-list-by-status %opt{kak_note
 hook -group kak-notes-tasks global WinCreate \*kak-notes-tasks-list\* %{
   map buffer normal '<ret>' ':kak-notes-tasks-list-open<ret>'
   add-highlighter window/ ref kak-notes-tasks
+  add-highlighter window/ ref kak-notes-tasks-list
 }
 
 hook -group kak-notes-tasks global WinCreate .*\.md %{

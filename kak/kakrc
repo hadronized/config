@@ -175,6 +175,7 @@ set-face global kak_notes_question %opt{kts_peach}
 set-face global kak_notes_wontdo %opt{kts_red}
 set-face global kak_notes_wontdo_text black+s
 set-face global kak_notes_issue black+u
+set-face global kak_notes_task_list_path black
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
