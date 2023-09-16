@@ -131,6 +131,22 @@ define-command kak-notes-search -docstring 'search notes' %{
   }
 }
 
+define-command kak-notes-sync -docstring 'synchronize notes' %{
+  # First, we always check-in new modifications; then, we check whether we have anything else to send
+  info -title 'kak-notes' 'starting synchronizing…'
+
+  nop %sh{
+    cd $kak_opt_kak_notes_root_dir
+    git fetch --prune origin
+    git rebase --autostash origin/master
+    git add -A .
+    git commit -m "$(date +'Sync update %a %b %d %Y')"
+    git push origin
+  }
+
+  info -title 'kak-notes' 'done'
+}
+
 add-highlighter shared/kak-notes-tasks group
 add-highlighter shared/kak-notes-tasks/todo regex "-\s*(%opt{kak_notes_sym_todo})\s*[^\n]*"\
   1:kak_notes_todo
