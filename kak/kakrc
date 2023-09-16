@@ -82,7 +82,7 @@ define-command -hidden open_rg_picker %{
     prompt refine: -menu -shell-script-candidates "rg -in --column '%val{text}'" %{
       evaluate-commands "edit -existing %sh{
         IFS=':' read -r file line column rest <<< ""$kak_text""
-        echo $file $line $column
+        echo \""$file\"" $line $column
       }"
     }
   }
@@ -150,6 +150,7 @@ map global user y ':enter-user-mode extra-yank<ret>' -docstring 'extra yank'
 map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer path'
 
 ## notes
+set-option global kak_notes_root_dir %sh{ echo $HOME/notes }
 set-option global kak_notes_dir %sh{ echo $HOME/notes/notes }
 set-option global kak_notes_archives_dir %sh{ echo $HOME/notes/archives }
 set-option global kak_notes_journal_dir %sh{ echo $HOME/notes/journal }
@@ -167,15 +168,11 @@ set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_co
 # kak-notes
 set-face global kak_notes_todo %opt{kts_green}
 set-face global kak_notes_wip %opt{kts_mauve}
-set-face global kak_notes_done %opt{kts_green}
-set-face global kak_notes_done_text black+s
-set-face global kak_notes_very_done %opt{kts_blue}
-set-face global kak_notes_very_done_text black+s
-set-face global kak_notes_question %opt{kts_peach}
 set-face global kak_notes_wontdo %opt{kts_red}
 set-face global kak_notes_wontdo_text black+s
 set-face global kak_notes_issue black+u
 set-face global kak_notes_task_list_path black
+set-face global kak_notes_tag %opt{kts_green}
 
 # LSP
 eval %sh{ kak-lsp --kakoune -s $kak_session }
