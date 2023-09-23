@@ -34,7 +34,7 @@ binding.key = "w"
 binding.mods = "Control | Shift"
 
 [[hints.enabled]]
-regex = "(https?|file)://[^ '\"]+"
+regex = "(https?|file)://[^ '\"()]+"
 hyperlinks = true
 command = "open"
 binding.key = "o"
