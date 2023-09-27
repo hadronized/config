@@ -174,23 +174,23 @@ add-highlighter shared/kak-notes-tasks-list/path regex "^([^:]+)(:)([^:]+)(:)([^
   5:kak_notes_task_list_col  6:kak_notes_task_list_delimiter
 
 map global kak-notes / ':kak-notes-search<ret>'                     -docstring 'search in notes'
-map global kak-notes a ':kak-notes-archive-open<ret>'               -docstring 'open archived note'
 map global kak-notes A ':kak-notes-archive-note<ret>'               -docstring 'archive note'
-map global kak-notes c ':kak-notes-open-capture<ret>'               -docstring 'open capture'
 map global kak-notes C ':kak-notes-capture<ret>'                    -docstring 'capture'
-map global kak-notes j ':kak-notes-journal-open<ret>'               -docstring 'open past journal'
 map global kak-notes J ':kak-notes-journal-open-daily<ret>'         -docstring 'open daily'
-map global kak-notes n ':kak-notes-open<ret>'                       -docstring 'open note'
 map global kak-notes N ':kak-notes-new-note '                       -docstring 'new note'
+map global kak-notes a ':kak-notes-archive-open<ret>'               -docstring 'open archived note'
+map global kak-notes c ':kak-notes-open-capture<ret>'               -docstring 'open capture'
+map global kak-notes j ':kak-notes-journal-open<ret>'               -docstring 'open past journal'
+map global kak-notes l ':enter-user-mode kak-notes-tasks-list<ret>' -docstring 'tasks list'
+map global kak-notes n ':kak-notes-open<ret>'                       -docstring 'open note'
 map global kak-notes t ':enter-user-mode kak-notes-tasks<ret>'      -docstring 'tasks'
-map global kak-notes T ':enter-user-mode kak-notes-tasks-list<ret>' -docstring 'tasks list'
 
 map global kak-notes-tasks-list a ":kak-notes-tasks-list-all<ret>"                                 -docstring 'list all tasks'
+map global kak-notes-tasks-list d ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_done}<ret>"   -docstring 'list done tasks'
+map global kak-notes-tasks-list l ":kak-notes-tasks-list-by-regex '\ :[^:]+:'<ret>"                -docstring 'list tasks by labels'
+map global kak-notes-tasks-list n ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_wontdo}<ret>" -docstring 'list wontdo tasks'
 map global kak-notes-tasks-list t ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_todo}<ret>"   -docstring 'list todo tasks'
 map global kak-notes-tasks-list w ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_wip}<ret>"    -docstring 'list wip tasks'
-map global kak-notes-tasks-list d ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_done}<ret>"   -docstring 'list done tasks'
-map global kak-notes-tasks-list n ":kak-notes-tasks-list-by-regex %opt{kak_notes_sym_wontdo}<ret>" -docstring 'list wontdo tasks'
-map global kak-notes-tasks-list l ":kak-notes-tasks-list-by-regex '\ :[^:]+:'<ret>"                -docstring 'list tasks by labels'
 
 hook -group kak-notes-tasks global WinCreate \*kak-notes-tasks-list\* %{
   map buffer normal '<ret>' ':kak-notes-tasks-list-open<ret>'
@@ -201,9 +201,9 @@ hook -group kak-notes-tasks global WinCreate \*kak-notes-tasks-list\* %{
 hook -group kak-notes-tasks global WinCreate .*\.md %{
   add-highlighter window/ ref kak-notes-tasks
 
+  map window kak-notes-tasks d ":kak-notes-task-switch-status %opt{kak_notes_sym_done}<ret>"      -docstring 'switch task to done'
+  map window kak-notes-tasks i ":kak-notes-task-gh-open-issue<ret>"                               -docstring 'open GitHub issue'
+  map window kak-notes-tasks n ":kak-notes-task-switch-status %opt{kak_notes_sym_wontdo}<ret>"    -docstring 'switch task to wontdo'
   map window kak-notes-tasks t ":kak-notes-task-switch-status %opt{kak_notes_sym_todo}<ret>"      -docstring 'switch task to todo'
   map window kak-notes-tasks w ":kak-notes-task-switch-status %opt{kak_notes_sym_wip}<ret>"       -docstring 'switch task to wip'
-  map window kak-notes-tasks d ":kak-notes-task-switch-status %opt{kak_notes_sym_done}<ret>"      -docstring 'switch task to done'
-  map window kak-notes-tasks n ":kak-notes-task-switch-status %opt{kak_notes_sym_wontdo}<ret>"    -docstring 'switch task to wontdo'
-  map window kak-notes-tasks i ":kak-notes-task-gh-open-issue<ret>"                               -docstring 'open GitHub issue'
 }
