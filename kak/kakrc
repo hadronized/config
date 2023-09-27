@@ -197,8 +197,9 @@ set-option global kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
 # Modeline
+set-face global StatusLineBlack black
 set-face global StatusLineGit "%opt{kts_red}"
-set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
+set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L) {{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # kak-notes
 set-face global kak_notes_todo %opt{kts_green}
