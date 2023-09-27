@@ -147,7 +147,7 @@ define-command kak-notes-sync -docstring 'synchronize notes' %{
     git push origin
   }
 
-  info -title 'kak-notes' 'done'
+  info -title 'kak-notes' 'finished synchronizing'
 }
 
 add-highlighter shared/kak-notes-tasks group
