@@ -170,8 +170,11 @@ set-face global kak_notes_todo %opt{kts_green}
 set-face global kak_notes_wip %opt{kts_mauve}
 set-face global kak_notes_wontdo %opt{kts_red}
 set-face global kak_notes_wontdo_text black+s
-set-face global kak_notes_issue black+u
-set-face global kak_notes_task_list_path black
+set-face global kak_notes_issue "%opt{kts_teal}+u"
+set-face global kak_notes_task_list_delimiter black
+set-face global kak_notes_task_list_path %opt{kts_blue}
+set-face global kak_notes_task_list_line black
+set-face global kak_notes_task_list_col black
 set-face global kak_notes_tag %opt{kts_green}
 
 # LSP

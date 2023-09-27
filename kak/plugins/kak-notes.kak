@@ -20,8 +20,11 @@ set-face global kak_notes_done black
 set-face global kak_notes_done_text black
 set-face global kak_notes_wontdo black
 set-face global kak_notes_wontdo_text black+s
-set-face global kak_notes_issue black+u
-set-face global kak_notes_task_list_path black
+set-face global kak_notes_issue cyan+u
+set-face global kak_notes_task_list_delimiter black
+set-face global kak_notes_task_list_path blue
+set-face global kak_notes_task_list_line white
+set-face global kak_notes_task_list_col white
 set-face global kak_notes_subtask_uncheck green
 set-face global kak_notes_subtask_check black
 set-face global kak_notes_subtask_text_check black
@@ -165,7 +168,10 @@ add-highlighter shared/kak-notes-tasks/subtask-check regex "-\s* (\[x\])\s*([^\n
 add-highlighter shared/kak-notes-tasks/tag regex " (:[^:]+:)" 0:kak_notes_tag
 
 add-highlighter shared/kak-notes-tasks-list group
-add-highlighter shared/kak-notes-tasks-list/path regex "^([^:]+:[^:]+:[^n]+:)[^\n]*" 1:kak_notes_task_list_path
+add-highlighter shared/kak-notes-tasks-list/path regex "^([^:]+)(:)([^:]+)(:)([^n]+)(:)[^\n]*"\
+  1:kak_notes_task_list_path 2:kak_notes_task_list_delimiter \
+  3:kak_notes_task_list_line 4:kak_notes_task_list_delimiter \
+  5:kak_notes_task_list_col  6:kak_notes_task_list_delimiter
 
 map global kak-notes / ':kak-notes-search<ret>'                     -docstring 'search in notes'
 map global kak-notes a ':kak-notes-archive-open<ret>'               -docstring 'open archived note'
