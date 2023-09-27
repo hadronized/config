@@ -296,6 +296,9 @@ map global view r l -docstring 'scroll right'
 ## anchor / cursor
 map global user <space> '<a-;>'
 
+## insert mode C-w
+map global insert <c-w> '<esc>:execute-keys bd<ret>i'
+
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
 map global user s '|sort<ret>' -docstring 'sort selections'
