@@ -4,4 +4,4 @@ tmux new -ds 'main' -n 'sys' -c ~
 tmux new -ds 'kak-tree-sitter' -n 'sys' -c ~/src/kak-tree-sitter
 tmux new -ds 'blog' -n 'sys' -c ~/src/blog
 tmux new -ds 'splines' -n 'sys' -c ~/src/splines
-tmux new -ds 'luminance' -n 'sys' -c ~/src/luminance-rs
+tmux new -ds 'piksels' -n 'sys' -c ~/src/piksels
