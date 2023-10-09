@@ -32,7 +32,7 @@ set-face global kak_notes_tag green
 
 define-command kak-notes-journal-open-daily -docstring 'open daily journal' %{
   nop %sh{
-    mkdir -p "$(date +%Y/%b)"
+    mkdir -p "$kak_opt_kak_notes_journal_dir/$(date +%Y/%b)"
   }
 
   edit "%opt{kak_notes_journal_dir}/%sh{ date '+%Y/%b/%a %d' }.md"
