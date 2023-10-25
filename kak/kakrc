@@ -10,6 +10,9 @@ add-highlighter global/git-diff flag-lines Default git_diff_flags
 #add-highlighter global/number-lines number-lines -hlcursor
 add-highlighter global/hl-col-120 column 120 default,black+d
 
+# Better :grep!
+set-option global grepcmd 'rg --column --smart-case --sort path'
+
 ## Git support
 declare-option str git_branch_name
 hook global NormalIdle .* %{
