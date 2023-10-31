@@ -310,9 +310,10 @@ map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakou
 map global user s '|sort<ret>' -docstring 'sort selections'
 
 ## pickers
-map global user / ':open_rg_picker<ret>'     -docstring 'search project'
+map global user / ':grep '                   -docstring 'grep'
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
 map global user f ':open_file_picker<ret>'   -docstring 'pick file'
+map global user F ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
 map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
