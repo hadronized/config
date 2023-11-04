@@ -9,6 +9,7 @@ declare-option str kak_notes_sym_todo 'TODO'
 declare-option str kak_notes_sym_wip 'WIP'
 declare-option str kak_notes_sym_done 'DONE'
 declare-option str kak_notes_sym_wontdo 'WONTDO'
+declare-option str kak_notes_tasks_list_current_line
 
 declare-user-mode kak-notes
 declare-user-mode kak-notes-tasks
@@ -111,6 +112,7 @@ define-command kak-notes-task-gh-open-issue -docstring 'open GitHub issue' %{
 
 define-command kak-notes-tasks-list-by-regex -params 1 -docstring 'list tasks by status' %{
   edit -scratch *kak-notes-tasks-list*
+  unset-option buffer kak_notes_tasks_list_current_line
   execute-keys "%%d|rg -n --column %arg{1} %opt{kak_notes_dir} %opt{kak_notes_journal_dir} %opt{kak_notes_capture_file}<ret>|sort<ret>gg"
 }
 
@@ -120,6 +122,7 @@ define-command kak-notes-tasks-list-all -docstring 'list all tasks' %{
 
 # Command executed when pressing <ret> in a *kak-notes-tasks-list* buffer.
 define-command -hidden kak-notes-tasks-list-open %{
+  set-option buffer kak_notes_tasks_list_current_line %val{cursor_line}
   execute-keys -with-hooks -save-regs 'flc' 'giT:"fyllT:"lyllT:"cy:edit "%reg{f}" %reg{l} %reg{c}<ret>'
 }
 
@@ -168,10 +171,8 @@ add-highlighter shared/kak-notes-tasks/subtask-check regex "-\s* (\[x\])\s*([^\n
 add-highlighter shared/kak-notes-tasks/tag regex " (:[^:]+:)" 0:kak_notes_tag
 
 add-highlighter shared/kak-notes-tasks-list group
-add-highlighter shared/kak-notes-tasks-list/path regex "^([^:]+)(:)([^:]+)(:)([^n]+)(:)[^\n]*"\
-  1:kak_notes_task_list_path 2:kak_notes_task_list_delimiter \
-  3:kak_notes_task_list_line 4:kak_notes_task_list_delimiter \
-  5:kak_notes_task_list_col  6:kak_notes_task_list_delimiter
+add-highlighter shared/kak-notes-tasks-list/path regex "^((?:\w:)?[^:\n]+):(\d+):(\d+)?" 1:cyan 2:green 3:green
+add-highlighter shared/kak-notes-tasks-list/current-line line %{%opt{kak_notes_tasks_list_current_line}} default+b
 
 map global kak-notes / ':kak-notes-search<ret>'                     -docstring 'search in notes'
 map global kak-notes A ':kak-notes-archive-note<ret>'               -docstring 'archive note'
