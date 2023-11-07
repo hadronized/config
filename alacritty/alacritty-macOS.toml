@@ -19,10 +19,6 @@ option_as_alt = "OnlyRight"
 [mouse]
 hide_when_typing = true
 
-[shell]
-program = "/usr/local/bin/nu"
-args = ["--login"]
-
 [hints]
 alphabet = "etovxqpdygfblzhckisuran"
 
