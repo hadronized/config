@@ -195,8 +195,6 @@ set-option global kak_notes_archives_dir %sh{ echo $HOME/notes/archives }
 set-option global kak_notes_journal_dir %sh{ echo $HOME/notes/journal }
 set-option global kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
 
-## bookmarks
-
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
 
@@ -362,4 +360,4 @@ map global user-lsp s ':lsp-goto-document-symbol<ret>'   -docstring 'pick docume
 map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the prev/next error'
 
 ## bookmarks
-map global user B ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
+map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
