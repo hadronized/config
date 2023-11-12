@@ -78,11 +78,21 @@ define-command -hidden zellij-split -params 1 -docstring 'split (down / right)' 
   }
 }
 
-define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
+define-command -hidden zellij-move-focus -params 1 %{
   nop %sh{
     zellij action move-focus $1
   }
 }
+
+declare-user-mode window-zellij
+map global window-zellij Q ':q!<ret>'                  -docstring 'close window (force)'
+map global window-zellij q ':q<ret>'                   -docstring 'close window'
+map global window-zellij c ':zellij-move-focus left<ret>' -docstring 'move left'
+map global window-zellij t ':zellij-move-focus down<ret>' -docstring 'move down'
+map global window-zellij s ':zellij-move-focus up<ret>' -docstring 'move up'
+map global window-zellij r ':zellij-move-focus right<ret>' -docstring 'move right'
+map global window-zellij o ':zellij-split down<ret>'       -docstring 'horizontal split'
+map global window-zellij v ':zellij-split right<ret>'       -docstring 'vertical split'
 
 ## tmux integration
 define-command tmux-split -params 1 -docstring 'split (down / right)' %{
@@ -348,7 +358,7 @@ map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode 
 map global normal m ':enter-user-mode match<ret>'        -docstring 'match mode'
 
 ## window management
-map global user w ':enter-user-mode window-tmux<ret>' -docstring 'window mode'
+map global user w ':enter-user-mode window-zellij<ret>' -docstring 'window mode'
 
 declare-user-mode window-tmux
 map global window-tmux Q ':q!<ret>'                  -docstring 'close window (force)'

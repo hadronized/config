@@ -3,6 +3,7 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Ctrl m" { SwitchToMode "Move"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -38,7 +39,7 @@ keybinds {
         bind "R" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "Ctrl m" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "c" "Left" { MovePane "Left"; }
@@ -362,3 +363,5 @@ default_mode "locked"
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+
+session_serialization true
