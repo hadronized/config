@@ -1,7 +1,6 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds clear-defaults=true {
     resize {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "c" { Resize "Increase Left"; }
         bind "t" { Resize "Increase Down"; }
         bind "s" { Resize "Increase Up"; }
@@ -15,7 +14,6 @@ keybinds clear-defaults=true {
     }
 
     pane {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "c" "Left" { MoveFocus "Left"; }
         bind "r" "Right" { MoveFocus "Right"; }
         bind "t" "Down" { MoveFocus "Down"; }
@@ -35,7 +33,6 @@ keybinds clear-defaults=true {
     }
 
     move {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "n" "Tab" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "c" { MovePane "Left"; }
@@ -45,7 +42,6 @@ keybinds clear-defaults=true {
     }
 
     tab {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "$" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "c" { GoToPreviousTab; }
         bind "r" { GoToNextTab; }
@@ -65,7 +61,6 @@ keybinds clear-defaults=true {
     }
 
     scroll {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "e" { EditScrollback; SwitchToMode "Locked"; }
         bind "S" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Locked"; }
@@ -80,7 +75,6 @@ keybinds clear-defaults=true {
     }
 
     search {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "Ctrl s" { SwitchToMode "Locked"; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Locked"; }
         bind "t" "Down" { ScrollDown; }
@@ -97,7 +91,6 @@ keybinds clear-defaults=true {
     }
 
     tmux {
-        bind "Esc" { SwitchToMode "Locked"; }
         bind "Ctrl p" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
         bind "[" { SwitchToMode "Scroll"; }
@@ -107,8 +100,7 @@ keybinds clear-defaults=true {
         bind "F" { ToggleFloatingPanes; SwitchToMode "Pane"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Pane"; }
         bind "Space" { NewTab; SwitchToMode "Pane"; }
-        bind "$" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "," { SwitchToMode "RenamePane"; PaneNameInput 0; }
+        bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "p" { GoToPreviousTab; SwitchToMode "Tab"; }
         bind "n" { GoToNextTab; SwitchToMode "Tab"; }
         bind "c" { MoveFocus "Left"; SwitchToMode "Pane"; }
@@ -132,7 +124,7 @@ keybinds clear-defaults=true {
     }
 
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Ctrl g" "Esc" "Enter" { SwitchToMode "Locked"; }
     }
 
     shared_except "tmux" {
