@@ -1,5 +1,5 @@
 #!/bin/sh
 
 if command -v kubectx &> /dev/null && command -v kubens &> /dev/null; then
-  echo "#[fg=blue]󱃾 $(kubens -c)#[fg=black]/#[fg=blue]$(kubectx -c)#[fg=black] | "
+  echo "#[fg=blue]󱃾 $(kubens -c)#[fg=black]/#[fg=blue]$(kubectx -c)"
 fi
