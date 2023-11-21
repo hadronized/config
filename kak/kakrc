@@ -202,7 +202,8 @@ set-option global kak_notes_journal_dir %sh{ echo $HOME/notes/journal }
 set-option global kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
 
 # Tree-sitter
-eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
+#eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
+eval %sh{ kak-tree-sitter -k }
 
 # Modeline
 set-face global StatusLineBlack black
