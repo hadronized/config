@@ -43,9 +43,9 @@ keybinds clear-defaults=true {
 
     tab {
         bind "$" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "c" { GoToPreviousTab; }
-        bind "r" { GoToNextTab; }
-        bind "n" { NewTab; }
+        bind "p" { GoToPreviousTab; }
+        bind "n" { GoToNextTab; }
+        bind "Space" { NewTab; }
         bind "x" { CloseTab; }
         bind "S" { ToggleActiveSyncTab; }
         bind "1" { GoToTab 1; }
@@ -94,12 +94,12 @@ keybinds clear-defaults=true {
         bind "Ctrl p" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
         bind "[" { SwitchToMode "Scroll"; }
-        bind "o" { NewPane "Down"; SwitchToMode "Pane"; }
-        bind "v" { NewPane "Right"; SwitchToMode "Pane"; }
-        bind "f" { ToggleFocusFullscreen; SwitchToMode "Pane"; }
-        bind "F" { ToggleFloatingPanes; SwitchToMode "Pane"; }
-        bind "z" { TogglePaneFrames; SwitchToMode "Pane"; }
-        bind "Space" { NewTab; SwitchToMode "Pane"; }
+        bind "o" { NewPane "Down"; SwitchToMode "Locked"; }
+        bind "v" { NewPane "Right"; SwitchToMode "Locked";  }
+        bind "f" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
+        bind "F" { ToggleFloatingPanes; SwitchToMode "Locked"; }
+        bind "z" { TogglePaneFrames; SwitchToMode "Locked"; }
+        bind "Space" { NewTab; SwitchToMode "Locked"; }
         bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "p" { GoToPreviousTab; SwitchToMode "Tab"; }
         bind "n" { GoToNextTab; SwitchToMode "Tab"; }
@@ -109,7 +109,6 @@ keybinds clear-defaults=true {
         bind "s" { MoveFocus "Up"; SwitchToMode "Pane"; }
         bind "m" { SwitchToMode "Move"; }
         bind "R" { SwitchToMode "Resize"; }
-        bind "O" { FocusNextPane; }
         bind "d" { Detach; }
         bind "_" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Locked"; }
