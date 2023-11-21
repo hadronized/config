@@ -255,7 +255,7 @@ theme "catppuccin-macchiato"
 // Default: "default"
 //
 //default_layout "compact"
-default_layout "compact"
+default_layout "top-tab"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
