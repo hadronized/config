@@ -324,7 +324,7 @@ map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode 
 map global normal m ':enter-user-mode match<ret>'        -docstring 'match mode'
 
 ## window management
-map global user w ':enter-user-mode window-zellij<ret>' -docstring 'window mode'
+map global user w ':enter-user-mode window-tmux<ret>' -docstring 'window mode'
 
 declare-user-mode window-tmux
 map global window-tmux Q ':q!<ret>'                  -docstring 'close window (force)'
