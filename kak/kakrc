@@ -9,6 +9,8 @@ set global indentwidth 2
 add-highlighter global/git-diff flag-lines Default git_diff_flags
 #add-highlighter global/number-lines number-lines -hlcursor
 add-highlighter global/hl-col-120 column 120 default,black+d
+add-highlighter global/show-whitespaces show-whitespaces -only-trailing
+set-face global Whitespace black+f
 
 # Better :grep!
 set-option global grepcmd 'rg --column --smart-case --sort path'
