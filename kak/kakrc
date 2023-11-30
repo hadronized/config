@@ -190,9 +190,24 @@ define-command extra-yank-buffile -docstring 'yank the path of the current buffe
   set-register p %val{buffile}
 }
 
-declare-user-mode extra-yank
-map global user y ':enter-user-mode extra-yank<ret>' -docstring 'extra yank'
-map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer path'
+declare-option str extra_yank_system_clipboard_cmd %sh{
+  test "$(uname)" = "Darwin" && echo 'pbcopy' || echo 'xclip'
+}
+
+declare-option str extra_paste_system_clipboard_cmd %sh{
+  test "$(uname)" = "Darwin" && echo 'pbpaste' || echo 'xsel -ob'
+}
+
+define-command extra-yank-system -docstring 'yank into the system clipboard' %{
+  execute-keys -draft "!%opt{extra_yank_system_clipboard_cmd}<ret>"
+}
+
+define-command extra-paste-system -docstring 'paste from the system clipboard' %{
+  execute-keys -draft "!%opt{extra_paste_system_clipboard_cmd}<ret>"
+}
+
+map global user y ':extra-yank-system<ret>'   -docstring 'yank to system clipboard'
+map global user p ':extra-paste-system<ret>' -docstring 'paste selections from system clipboard'
 
 ## notes
 set-option global kak_notes_root_dir %sh{ echo $HOME/notes }
