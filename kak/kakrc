@@ -323,12 +323,14 @@ map global normal <a-H> <a-T>
 map global normal J R # replace with yanked
 map global normal K S # split
 map global normal L C # duplicate selection downwards
+map global normal <a-%> ':execute-keys gtGbx<ret>'
 map global insert ' ' ' '
 map global insert '<tab>' '  '
 map global goto c h -docstring 'line begin' 
 map global goto t j -docstring 'buffer bottom' 
 map global goto s k -docstring 'buffer top' 
 map global goto r l -docstring 'line end' 
+map global goto T t -docstring 'window top' 
 map global view c h -docstring 'scroll left' 
 map global view t j -docstring 'scroll up' 
 map global view s k -docstring 'scroll down' 
