@@ -16,10 +16,6 @@ save_to_clipboard = true
 [mouse]
 hide_when_typing = true
 
-[shell]
-program = "/usr/bin/nu"
-args = ["--login"]
-
 [hints]
 alphabet = "etovxqpdygfblzhckisuran"
 
