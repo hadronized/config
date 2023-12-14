@@ -399,3 +399,9 @@ map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
 # hop.kak
 declare-option range-specs hop_ranges
 set-face global hop_label black,green+bF
+
+declare-user-mode hop-select
+map global user h ':enter-user-mode hop-select<ret>'
+map global hop-select w ':execute-keys gtGbxs\w+<ret><ret>'
+
+map global normal è ':eval -no-hooks -- %sh{ cargo run -- --keyset etisuranvxfqdhélbj --sels "$kak_selections_desc" }<ret>'
