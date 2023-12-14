@@ -394,3 +394,8 @@ map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the
 
 ## bookmarks
 map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
+
+# temporary
+# hop.kak
+declare-option range-specs hop_ranges
+set-face global hop_label black,green+bF
