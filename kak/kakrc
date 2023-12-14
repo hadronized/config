@@ -395,13 +395,16 @@ map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the
 ## bookmarks
 map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
 
-# temporary
 # hop.kak
-declare-option range-specs hop_ranges
-set-face global hop_label black,green+bF
+declare-option str hop_kak_keyset 'etisura,cnovpdélxqygàhfbjz'
 
-declare-user-mode hop-select
-map global user h ':enter-user-mode hop-select<ret>'
-map global hop-select w ':execute-keys gtGbxs\w+<ret><ret>'
+define-command hop-kak %{
+  eval -no-hooks -- %sh{ hop-kak --keyset "$kak_opt_hop_kak_keyset" --sels "$kak_selections_desc" }
+}
 
-map global normal è ':eval -no-hooks -- %sh{ cargo run -- --keyset etisuranvxfqdhélbj --sels "$kak_selections_desc" }<ret>'
+define-command hop-kak-words %{
+  exec 'gtGbxs\w+<ret>:eval -no-hooks -- %sh{ hop-kak --keyset "$kak_opt_hop_kak_keyset" --sels "$kak_selections_desc" }<ret>'
+}
+
+map global normal È :hop-kak<ret>
+map global normal è :hop-kak-words<ret>
