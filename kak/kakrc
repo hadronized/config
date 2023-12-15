@@ -396,6 +396,8 @@ map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the
 map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
 
 # hop.kak
+evaluate-commands %sh{ hop-kak --init }
+
 declare-option str hop_kak_keyset 'etisura,cnovpdélxqygàhfbjz'
 
 define-command hop-kak %{
