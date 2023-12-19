@@ -88,6 +88,16 @@ define-command -hidden open_file_picker %{
   }
 }
 
+define-command -override file-picker %{
+  edit -scratch '*file-picker*'
+
+  map buffer normal <ret> 'x_gf'
+  add-highlighter buffer/file-picker-item regex (.*) 1:cyan
+  set-option buffer swiper_callback 'x_gf'
+
+  execute-keys -draft '|fd --type=file<ret>'
+}
+
 define-command -hidden open_rg_picker %{
   prompt search: %{
     prompt refine: -menu -shell-script-candidates "rg -in --column '%val{text}'" %{
@@ -344,7 +354,8 @@ map global insert <c-w> '<esc>:execute-keys bd<ret>i'
 
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
-map global user s '|sort<ret>' -docstring 'sort selections'
+map global user S '|sort<ret>' -docstring 'sort selections'
+map global user s ':swiper<ret>' -docstring 'swiper'
 
 ## pickers
 map global user / ':grep '                   -docstring 'grep'
