@@ -89,13 +89,15 @@ define-command -hidden open_file_picker %{
 }
 
 define-command -override file-picker %{
-  edit -scratch '*file-picker*'
+  try %{
+    edit -scratch '*file-picker*'
 
-  map buffer normal <ret> 'x_gf'
-  add-highlighter buffer/file-picker-item regex (.*) 1:cyan
-  set-option buffer swiper_callback 'x_gf'
+    map buffer normal <ret> 'x_gf'
+    add-highlighter buffer/file-picker-item regex (.*) 1:cyan
+    set-option buffer swiper_callback 'x_gf'
 
-  execute-keys -draft '|fd --type=file<ret>'
+    execute-keys '|fd --type=file<ret>gg'
+  }
 }
 
 define-command -hidden open_rg_picker %{
@@ -354,13 +356,13 @@ map global insert <c-w> '<esc>:execute-keys bd<ret>i'
 
 ## convenience
 map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
-map global user S '|sort<ret>' -docstring 'sort selections'
-map global user s ':swiper<ret>' -docstring 'swiper'
+map global user S ':swiper<ret>'                          -docstring 'swiper'
+map global user s ':swiper-reduce<ret>'                   -docstring 'swiper reduce'
 
 ## pickers
 map global user / ':grep '                   -docstring 'grep'
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
-map global user f ':open_file_picker<ret>'   -docstring 'pick file'
+map global user f ':file-picker<ret>'        -docstring 'pick file'
 map global user F ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
