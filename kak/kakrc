@@ -217,15 +217,15 @@ declare-option str extra_paste_system_clipboard_cmd %sh{
 }
 
 define-command extra-yank-system -docstring 'yank into the system clipboard' %{
-  execute-keys -draft "!%opt{extra_yank_system_clipboard_cmd}<ret>"
+  execute-keys -draft "<a-!>%opt{extra_yank_system_clipboard_cmd}<ret>"
 }
 
 define-command extra-paste-system -docstring 'paste from the system clipboard' %{
   execute-keys -draft "!%opt{extra_paste_system_clipboard_cmd}<ret>"
 }
 
-map global user y ':extra-yank-system<ret>'   -docstring 'yank to system clipboard'
 map global user p ':extra-paste-system<ret>' -docstring 'paste selections from system clipboard'
+map global user y ':extra-yank-system<ret>'  -docstring 'yank to system clipboard'
 
 ## notes
 set-option global kak_notes_root_dir %sh{ echo $HOME/notes }
@@ -242,8 +242,9 @@ set-face global StatusLineBlack black
 set-face global StatusLineGit "%opt{kts_red}"
 
 declare-option str bufname_abbrev
-hook global -group bufname-abbrev BufCreate .* %{
-  set-option buffer bufname_abbrev %sh{
+
+define-command -hidden update-bufname-abbrev %{
+  set-option window bufname_abbrev %sh{
     if (( ${#kak_bufname} > $((kak_window_width / 4)) )); then
       sed "s:\([^/]\)[^/]*/:\1/:g" <<< $kak_bufname
     else
@@ -251,6 +252,9 @@ hook global -group bufname-abbrev BufCreate .* %{
     fi
   }
 }
+
+hook global -group bufname-abbrev WinDisplay .* update-bufname-abbrev
+hook global -group bufname-abbrev WinResize .* update-bufname-abbrev
 
 declare-option str modeline_swiper ''
 
@@ -374,7 +378,7 @@ map global user s ':swiper-reduce<ret>'                   -docstring 'swiper red
 ## pickers
 map global user / ':grep '                   -docstring 'grep'
 map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
-map global user f ':open_file_picker<ret>'        -docstring 'pick file'
+map global user f ':open_file_picker<ret>'   -docstring 'pick file'
 map global user F ':open_rg_picker<ret>'     -docstring 'search project'
 
 ## match
