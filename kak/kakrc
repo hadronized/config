@@ -245,7 +245,7 @@ declare-option str bufname_abbrev
 
 define-command -hidden update-bufname-abbrev %{
   set-option window bufname_abbrev %sh{
-    if (( ${#kak_bufname} > $((kak_window_width / 4)) )); then
+    if (( ${#kak_bufname} > $((kak_window_width / 3)) )); then
       sed "s:\([^/]\)[^/]*/:\1/:g" <<< $kak_bufname
     else
       echo $kak_bufname
