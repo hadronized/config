@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tmux ls -F #S | sk | xargs tmux switch-client -t

@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # This script allows to switch branches easily.
 
@@ -15,9 +16,11 @@ while getopts "s" opt; do
   esac
 done
 
-choice=$(git branch | rg -v "^\*" | tr -d ' ' | fzf \
-  --header="$header [$flags]" \
-  --prompt="Switch branch: " \
+choice=$(git branch | rg -v "^\*" | tr -d ' ' | sk \
+  --height=20 \
+  --layout reverse \
+  --header="$header" \
+  --prompt="Switch branch: "\
 )
 r=$?
 
