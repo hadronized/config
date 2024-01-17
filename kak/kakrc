@@ -439,3 +439,6 @@ define-command hop-kak-words %{
 
 map global normal È :hop-kak<ret>
 map global normal è :hop-kak-words<ret>
+
+# comment
+map global user c ':comment-line<ret>' -docstring 'comment line'
