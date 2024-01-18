@@ -17,8 +17,6 @@ while getopts "s" opt; do
 done
 
 choice=$(git branch | rg -v "^\*" | tr -d ' ' | sk \
-  --height=20 \
-  --layout reverse \
   --header="$header" \
   --prompt="Switch branch: "\
 )
