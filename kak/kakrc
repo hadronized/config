@@ -281,6 +281,7 @@ set-face global kak_notes_task_list_col black
 set-face global kak_notes_tag %opt{kts_green}
 
 # LSP
+
 eval %sh{ kak-lsp --kakoune -s $kak_session }
 
 ## common options
@@ -305,6 +306,16 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   #hook -once -always window WinSetOption filetype=.* %{
   #    remove-hooks window semantic-tokens
   #}
+}
+
+# Progress report
+declare-option -hidden str lsp_modeline_progress ""
+define-command -hidden -params 6 -override lsp-handle-progress %{
+    set-option global lsp_modeline_progress %sh{
+        if ! "$6"; then
+            echo "$2${5:+" ($5%)"}${4:+": $4"}"
+        fi
+    }
 }
 
 # faces / colorschemes
