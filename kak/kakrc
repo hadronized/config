@@ -18,6 +18,7 @@ set-option global grepcmd 'rg --column --smart-case --sort path'
 # swiper.kak
 set-option global swiper_cmd 'rg -in'
 set-option global swiper_reduce_cmd 'rg -i'
+set-face global Swiper green+r
 
 # Git support
 map global user g ':enter-user-mode git<ret>' -docstring 'git mode'
@@ -258,15 +259,15 @@ hook global -group bufname-abbrev WinResize .* update-bufname-abbrev
 
 declare-option str modeline_swiper ''
 
-hook global WinSetOption swiper_enabled=true %{
-  set-option buffer modeline_swiper "swiper "
+hook global WinSetOption (swiper_enabled=true|swiper_terms=.+) %{
+  set-option buffer modeline_swiper "swiper (%opt{swiper_terms})"
 }
 
 hook global WinSetOption swiper_enabled=false %{
   set-option buffer modeline_swiper ''
 }
 
-set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name} {StatusLineInfo}%opt{modeline_swiper}{StatusLine}%opt{bufname_abbrev} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L){{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
+set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name} {Swiper}%opt{modeline_swiper}{StatusLine}%opt{bufname_abbrev} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L){{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # kak-notes
 set-face global kak_notes_todo %opt{kts_green}
