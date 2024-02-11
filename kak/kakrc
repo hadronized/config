@@ -273,7 +273,7 @@ set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_co
 set-face global kak_notes_todo %opt{kts_green}
 set-face global kak_notes_wip %opt{kts_mauve}
 set-face global kak_notes_question %opt{kts_blue}
-set-face global kak_notes_idea %opt{kts_pink}
+set-face global kak_notes_idea %opt{kts_green}
 set-face global kak_notes_hold %opt{kts_peach}
 set-face global kak_notes_wontdo %opt{kts_red}
 set-face global kak_notes_wontdo_text black+s
