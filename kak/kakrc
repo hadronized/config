@@ -32,9 +32,6 @@ hook global WinCreate .*\.zprofile %{ set-option buffer filetype sh }
 hook global WinCreate .*\.(bazel|bzl) %{ set-option buffer filetype python }
 hook global WinCreate .*\.nu %{ set-option buffer filetype nu }
 
-# window mode
-declare-user-mode window
-
 ## kitty integration
 define-command -hidden kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
   nop %sh{
