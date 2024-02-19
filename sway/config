@@ -1,0 +1,148 @@
+input * {
+  xkb_layout "fr"
+  xkb_variant "bepo"
+  xkb_options "caps:swapescape"
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+  repeat_rate 30
+  repeat_delay 200
+}
+
+input type:touchpad {
+  tap enabled
+  natural_scroll enabled
+}
+
+output "*" bg ~/pictures/wallpapers/126402.png fill
+
+#exec wl-paste -t text --watch clipman store --no-persist
+
+exec swayidle -w \
+  before-sleep 'playerctl pause' \
+  before-sleep 'swaylock' \
+	timeout 1800 'swaylock -f' \
+	timeout 1805 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
+
+font pango:JetBrainsMono Nerd Font 8
+
+default_orientation auto
+workspace_layout default
+
+default_border pixel
+default_floating_border normal
+hide_edge_borders smart_no_gaps
+smart_borders on
+show_marks yes
+tiling_drag off
+gaps inner 5px
+gaps outer 10px
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# Various useful variables
+set $mod Mod1
+set $term alacritty
+set $menu bmenu
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# keybindings
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# show the scratchpad
+bindsym $mod+d scratchpad show
+bindsym $mod+Shift+d move scratchpad
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+c focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
+
+# move focused window
+bindsym $mod+Shift+C move left
+bindsym $mod+Shift+T move down
+bindsym $mod+Shift+S move up
+bindsym $mod+Shift+R move right
+
+# resize windows
+bindsym $mod+Ctrl+c resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+t resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+s resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+r resize shrink width 10 px or 10 ppt
+
+# split in horizontal orientation
+bindsym $mod+v split h
+
+# split in vertical orientation
+bindsym $mod+o split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+u layout stacking
+bindsym $mod+eacute layout tabbed
+bindsym $mod+p layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+quotedbl workspace number 1
+bindsym $mod+guillemotleft workspace number 2
+bindsym $mod+guillemotright workspace number 3
+bindsym $mod+parenleft workspace number 4
+bindsym $mod+parenright workspace number 5
+bindsym $mod+at workspace number 6
+bindsym $mod+plus workspace number 7
+bindsym $mod+minus workspace number 8
+bindsym $mod+slash workspace number 9
+bindsym $mod+asterisk workspace number 0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+guillemotleft move container to workspace number 2
+bindsym $mod+Shift+guillemotright move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 0
+
+# reload the configuration file
+bindsym $mod+Shift+X reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+O restart
+
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
