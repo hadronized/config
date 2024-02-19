@@ -32,7 +32,6 @@ workspace_layout default
 
 default_border pixel
 default_floating_border normal
-hide_edge_borders smart_no_gaps
 smart_borders on
 show_marks yes
 tiling_drag off
