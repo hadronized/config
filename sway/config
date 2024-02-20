@@ -52,9 +52,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Various useful variables
-set $mod Mod1
+set $mod Mod4
 set $term alacritty
-set $menu bmenu
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -132,6 +131,12 @@ bindsym $mod+Shift+plus move container to workspace number 7
 bindsym $mod+Shift+minus move container to workspace number 8
 bindsym $mod+Shift+slash move container to workspace number 9
 bindsym $mod+Shift+asterisk move container to workspace number 0
+
+# Launcher
+bindsym $mod+Space exec bemenu-run
+
+# Marks
+bindsym $mod+m exec echo "" |  wmenu -p mark | xargs swaymsg mark
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
