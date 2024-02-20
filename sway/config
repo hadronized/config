@@ -12,20 +12,23 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 input type:touchpad {
   tap enabled
   natural_scroll enabled
+  dwt enabled
 }
 
 output "*" bg ~/pictures/wallpapers/126402.png fill
 
 #exec wl-paste -t text --watch clipman store --no-persist
 
+font pango:JetBrainsMono Nerd Font 8
+
 exec swayidle -w \
   before-sleep 'playerctl pause' \
-  before-sleep 'swaylock' \
-	timeout 1800 'swaylock -f' \
+  before-sleep 'swaylock -F -c 000000' \
+	timeout 1800 'swaylock -fF -c 000000' \
 	timeout 1805 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
 
-font pango:JetBrainsMono Nerd Font 8
+exec waybar
 
 default_orientation auto
 workspace_layout default
@@ -119,16 +122,16 @@ bindsym $mod+slash workspace number 9
 bindsym $mod+asterisk workspace number 0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+quotedbl move container to workspace number 1
 bindsym $mod+Shift+guillemotleft move container to workspace number 2
 bindsym $mod+Shift+guillemotright move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 0
+bindsym $mod+Shift+parenleft move container to workspace number 4
+bindsym $mod+Shift+parenright move container to workspace number 5
+bindsym $mod+Shift+at move container to workspace number 6
+bindsym $mod+Shift+plus move container to workspace number 7
+bindsym $mod+Shift+minus move container to workspace number 8
+bindsym $mod+Shift+slash move container to workspace number 9
+bindsym $mod+Shift+asterisk move container to workspace number 0
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
