@@ -1,7 +1,7 @@
 [user]
 	email = dimitri.sabadie@gmail.com
 	name = Dimitri Sabadie
-	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIkaL0iqky+R7Ct7sM5w4F/O0/A16seqkssLw0kY00VegOtf8ULUkYnbNxGJMdqcYKmwvXcA/gFfsVnYjSJMfO06aWj25JH2ULzkwOQj6LvnY8dA/8KxfTpXrhyYZ9xTUilc/8ZzJomaBZ2kLu+RvR/Z7NBhMHZ/k8Uk2lq8n4oZqWDtEDaaML8jNJCsepGDN+COiPVGA2TvEsMw0oJ9uxLL44nZtyjebnxVqgusD4oowOXqgp8gDPkgwiOV6IRvIyN7wzON6FjQFo9W14TdwtL+jLylXm87WPHHLG5cpGD3Dcte13kUQNywaWnfIzmGjY+KjQ7jFJmpkt6wlOc5cotetkkF4VgpPpodNCSdNqVV0N9xj/RJ3n3C7q/+u5tvpAsSwqTA1D7FlMh7Fy2z98+upkTnwNc1LK/KVSL/rhvfPXRU+TdWKZbhi9n0cybxRQONgosy7Y4Qvw5tzJ6TIMOzIGOLfwE16/JJ8b8gJDnepHVNCpLwfmLd8N1X4u72jTQxd0Jo4e6zGjnG5uJLQIe6rTemw/d2/SSnEN7Yzz0WVXVDyGG3pQdJUL3jJVhoc9Npwa27Aw0HIP0YeLBcMADv8BJEtG1UP7ZFxCh6EXkz++XIyNNxoZNZCLO6kcJTtzGWR1qvUVgY0QSFLHxUztAYBDaAPZl1VDzoz7mp0QEQ== phaazon@awake
+	signingkey = /home/phaazon/.ssh/github.pub
 
 [alias]
 	graph = log --graph --all --pretty=format:\"%C(yellow)%h%Cblue%d %Creset%s %C(green)%cr%Creset (%C(magenta)%an%Creset)\"
@@ -18,12 +18,10 @@
 [checkout]
 	defaultRemote = origin
 [github]
-	user = phaazon
+	user = hadronized
 [rebase]
 	autoSquash = true
 [init]
 	defaultBranch = master
 [gpg]
 	format = ssh
-[remote "origin"]
-	prune = true

@@ -1,0 +1,7 @@
+include colorscheme
+auto-reload yes
+browser xdg-open
+
+# bindings
+bind-key s up
+bind-key t down
