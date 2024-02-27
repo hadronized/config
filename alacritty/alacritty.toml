@@ -29,6 +29,6 @@ binding.mods = "Control | Shift"
 [[hints.enabled]]
 regex = "(https?|file)://[^ '\"]+"
 hyperlinks = true
-command = "open"
+command = "xdg-open"
 binding.key = "o"
 binding.mods = "Control | Shift"
