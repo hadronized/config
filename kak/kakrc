@@ -226,14 +226,14 @@ map global user p ':extra-paste-system<ret>' -docstring 'paste selections from s
 map global user y ':extra-yank-system<ret>'  -docstring 'yank to system clipboard'
 
 ## notes
-set-option global kak_notes_root_dir %sh{ echo $HOME/notes }
-set-option global kak_notes_dir %sh{ echo $HOME/notes/notes }
-set-option global kak_notes_archives_dir %sh{ echo $HOME/notes/archives }
-set-option global kak_notes_journal_dir %sh{ echo $HOME/notes/journal }
-set-option global kak_notes_capture_file %sh{ echo $HOME/notes/capture.md }
+set-option global notes_root_dir %sh{ echo $HOME/notes }
+set-option global notes_dir %sh{ echo $HOME/notes/notes }
+set-option global notes_archives_dir %sh{ echo $HOME/notes/archives }
+set-option global notes_journal_dir %sh{ echo $HOME/notes/journal }
+set-option global notes_capture_file %sh{ echo $HOME/notes/capture.md }
 
 # Tree-sitter
-eval %sh{ kak-tree-sitter -dks --session $kak_session -vvvvv }
+eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session -vvvvv }
 
 # Modeline
 set-face global StatusLineBlack black
@@ -266,20 +266,20 @@ hook global WinSetOption swiper_enabled=false %{
 
 set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name} {Swiper}%opt{modeline_swiper}{StatusLine} %opt{bufname_abbrev} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L){{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
-# kak-notes
-set-face global kak_notes_todo %opt{kts_green}
-set-face global kak_notes_wip %opt{kts_mauve}
-set-face global kak_notes_question %opt{kts_blue}
-set-face global kak_notes_idea %opt{kts_green}
-set-face global kak_notes_hold %opt{kts_peach}
-set-face global kak_notes_wontdo %opt{kts_red}
-set-face global kak_notes_wontdo_text black+s
-set-face global kak_notes_issue "%opt{kts_teal}+u"
-set-face global kak_notes_task_list_delimiter black
-set-face global kak_notes_task_list_path %opt{kts_blue}
-set-face global kak_notes_task_list_line black
-set-face global kak_notes_task_list_col black
-set-face global kak_notes_tag %opt{kts_green}
+# notes
+set-face global notes_todo %opt{kts_green}
+set-face global notes_wip %opt{kts_mauve}
+set-face global notes_question %opt{kts_blue}
+set-face global notes_idea %opt{kts_green}
+set-face global notes_hold %opt{kts_peach}
+set-face global notes_wontdo %opt{kts_red}
+set-face global notes_wontdo_text black+s
+set-face global notes_issue "%opt{kts_teal}+u"
+set-face global notes_task_list_delimiter black
+set-face global notes_task_list_path %opt{kts_blue}
+set-face global notes_task_list_line black
+set-face global notes_task_list_col black
+set-face global notes_tag %opt{kts_green}
 
 # LSP
 
@@ -377,7 +377,7 @@ map global view s k -docstring 'scroll down'
 map global view r l -docstring 'scroll right'
 
 ## anchor / cursor
-map global user <space> '<a-;>'
+map global user <space> '<a-;>' -docstring 'swap anchor & cursor'
 
 ## insert mode C-w
 map global insert <c-w> '<esc>:execute-keys bd<ret>i'
@@ -412,26 +412,26 @@ map global window-tmux v ':tmux-split -h<ret>'       -docstring 'vertical split'
 
 ## LSP
 declare-user-mode user-lsp
-map global user l ':enter-user-mode user-lsp<ret>'       -docstring 'lsp mode'
-map global user n ':enter-user-mode kak-notes<ret>'      -docstring 'notes'
-map global user-lsp ( ':lsp-previous-function<ret>'      -docstring 'jump to the previous function'
-map global user-lsp ) ':lsp-next-function<ret>'          -docstring 'jump to the next function'
-map global user-lsp I ':lsp-implementation<ret>'         -docstring 'list implementations'
-map global user-lsp K ':lsp-hover-buffer<ret>'           -docstring 'hover in a dedicated buffer'
-map global user-lsp P ':lsp-workspace-symbol<ret>'       -docstring 'list workspace symbols'
-map global user-lsp R ':lsp-rename-prompt<ret>'          -docstring 'rename'
-map global user-lsp S ':lsp-document-symbol<ret>'        -docstring 'list workspace symbols'
-map global user-lsp a ':lsp-code-actions<ret>'           -docstring 'code action'
-map global user-lsp c ':lsp-code-lens<ret>'              -docstring 'execute code lens'
-map global user-lsp d ':lsp-diagnostics<ret>'            -docstring 'list diagnostics'
-map global user-lsp h ':lsp-highlight-references<ret>'   -docstring 'highlight references'
-map global user-lsp i ':lsp-incoming-calls<ret>'         -docstring 'incoming calls'
-map global user-lsp k ':lsp-hover<ret>'                  -docstring 'hover'
-map global user-lsp o ':lsp-outgoing-calls<ret>'         -docstring 'outgoing calls'
-map global user-lsp p ':lsp-workspace-symbol-incr<ret>'  -docstring 'pick workspace symbol'
-map global user-lsp r ':lsp-references<ret>'             -docstring 'list references'
-map global user-lsp s ':lsp-goto-document-symbol<ret>'   -docstring 'pick document symbol'
-map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the prev/next error'
+map global user l ':enter-user-mode user-lsp<ret>'      -docstring 'lsp mode'
+map global user n ':enter-user-mode notes<ret>'         -docstring 'notes'
+map global user-lsp ( ':lsp-previous-function<ret>'     -docstring 'jump to the previous function'
+map global user-lsp ) ':lsp-next-function<ret>'         -docstring 'jump to the next function'
+map global user-lsp I ':lsp-implementation<ret>'        -docstring 'list implementations'
+map global user-lsp K ':lsp-hover-buffer<ret>'          -docstring 'hover in a dedicated buffer'
+map global user-lsp P ':lsp-workspace-symbol<ret>'      -docstring 'list workspace symbols'
+map global user-lsp R ':lsp-rename-prompt<ret>'         -docstring 'rename'
+map global user-lsp S ':lsp-document-symbol<ret>'       -docstring 'list workspace symbols'
+map global user-lsp a ':lsp-code-actions<ret>'          -docstring 'code action'
+map global user-lsp c ':lsp-code-lens<ret>'             -docstring 'execute code lens'
+map global user-lsp d ':lsp-diagnostics<ret>'           -docstring 'list diagnostics'
+map global user-lsp h ':lsp-highlight-references<ret>'  -docstring 'highlight references'
+map global user-lsp i ':lsp-incoming-calls<ret>'        -docstring 'incoming calls'
+map global user-lsp k ':lsp-hover<ret>'                 -docstring 'hover'
+map global user-lsp o ':lsp-outgoing-calls<ret>'        -docstring 'outgoing calls'
+map global user-lsp p ':lsp-workspace-symbol-incr<ret>' -docstring 'pick workspace symbol'
+map global user-lsp r ':lsp-references<ret>'            -docstring 'list references'
+map global user-lsp s ':lsp-goto-document-symbol<ret>'  -docstring 'pick document symbol'
+map global user-lsp x ':lsp-find-error<ret>'            -docstring 'jump to the prev/next error'
 
 ## bookmarks
 map global user _ ':enter-user-mode bookmarks<ret>' -docstring 'bookmarks'
@@ -456,64 +456,4 @@ map global normal è :hop-kak-words<ret>
 map global user c ':comment-line<ret>' -docstring 'comment line'
 
 # tree-sitter
-map global user t ':enter-user-mode tree-sitter<ret>'
-
-declare-user-mode tree-sitter
-declare-user-mode tree-sitter-search
-declare-user-mode tree-sitter-search-rev
-declare-user-mode tree-sitter-search-extend
-declare-user-mode tree-sitter-search-extend-rev
-declare-user-mode tree-sitter-find
-declare-user-mode tree-sitter-find-rev
-declare-user-mode tree-sitter-find-extend
-declare-user-mode tree-sitter-find-extend-rev
-
-map global tree-sitter /     ':enter-user-mode tree-sitter-search<ret>'            -docstring 'search next'
-map global tree-sitter <a-/> ':enter-user-mode tree-sitter-search-rev<ret>'        -docstring 'search prev'
-map global tree-sitter ?     ':enter-user-mode tree-sitter-search-extend<ret>'     -docstring 'search(extend) next'
-map global tree-sitter <a-?> ':enter-user-mode tree-sitter-search-extend-rev<ret>' -docstring 'search(extend) prev'
-map global tree-sitter f     ':enter-user-mode tree-sitter-find<ret>'              -docstring 'find next'
-map global tree-sitter <a-f> ':enter-user-mode tree-sitter-find-rev<ret>'          -docstring 'find prev'
-map global tree-sitter F     ':enter-user-mode tree-sitter-find-extend<ret>'       -docstring 'find(extend) next'
-map global tree-sitter <a-F> ':enter-user-mode tree-sitter-find-extend-rev<ret>'   -docstring 'find(extend) prev'
-
-map global tree-sitter-search f ':kak-tree-sitter-req-text-objects function.around search_next<ret>'  -docstring 'function'
-map global tree-sitter-search a ':kak-tree-sitter-req-text-objects parameter.around search_next<ret>' -docstring 'parameter'
-map global tree-sitter-search t ':kak-tree-sitter-req-text-objects class.around search_next<ret>' -docstring 'class'
-map global tree-sitter-search c ':kak-tree-sitter-req-text-objects comment.around search_next<ret>' -docstring 'comment'
-map global tree-sitter-search T ':kak-tree-sitter-req-text-objects test.around search_next<ret>' -docstring 'test'
-
-map global tree-sitter-search-rev f ':kak-tree-sitter-req-text-objects function.around search_prev<ret>'  -docstring 'function'
-map global tree-sitter-search-rev a ':kak-tree-sitter-req-text-objects parameter.around search_prev<ret>' -docstring 'parameter'
-map global tree-sitter-search-rev t ':kak-tree-sitter-req-text-objects class.around search_prev<ret>' -docstring 'class'
-map global tree-sitter-search-rev T ':kak-tree-sitter-req-text-objects test.around search_prev<ret>' -docstring 'test'
-
-map global tree-sitter-search-extend f ':kak-tree-sitter-req-text-objects function.around search_extend_next<ret>'  -docstring 'function'
-map global tree-sitter-search-extend a ':kak-tree-sitter-req-text-objects parameter.around search_extend_next<ret>' -docstring 'parameter'
-map global tree-sitter-search-extend t ':kak-tree-sitter-req-text-objects class.around search_extend_next<ret>' -docstring 'class'
-map global tree-sitter-search-extend T ':kak-tree-sitter-req-text-objects test.around search_extend_next<ret>' -docstring 'test'
-
-map global tree-sitter-search-extend-rev f ':kak-tree-sitter-req-text-objects function.around search_extend_prev<ret>'  -docstring 'function'
-map global tree-sitter-search-extend-rev a ':kak-tree-sitter-req-text-objects parameter.around search_extend_prev<ret>' -docstring 'parameter'
-map global tree-sitter-search-extend-rev t ':kak-tree-sitter-req-text-objects class.around search_extend_prev<ret>' -docstring 'class'
-map global tree-sitter-search-extend-rev T ':kak-tree-sitter-req-text-objects test.around search_extend_prev<ret>' -docstring 'test'
-
-map global tree-sitter-find f ':kak-tree-sitter-req-text-objects function.around find_next<ret>'  -docstring 'function'
-map global tree-sitter-find a ':kak-tree-sitter-req-text-objects parameter.around find_next<ret>' -docstring 'parameter'
-map global tree-sitter-find t ':kak-tree-sitter-req-text-objects class.around find_next<ret>' -docstring 'class'
-map global tree-sitter-find T ':kak-tree-sitter-req-text-objects test.around find_next<ret>' -docstring 'test'
-
-map global tree-sitter-find-rev f ':kak-tree-sitter-req-text-objects function.around find_prev<ret>'  -docstring 'function'
-map global tree-sitter-find-rev a ':kak-tree-sitter-req-text-objects parameter.around find_prev<ret>' -docstring 'parameter'
-map global tree-sitter-find-rev t ':kak-tree-sitter-req-text-objects class.around find_prev<ret>' -docstring 'class'
-map global tree-sitter-find-rev T ':kak-tree-sitter-req-text-objects test.around find_prev<ret>' -docstring 'test'
-
-map global tree-sitter-find-extend f ':kak-tree-sitter-req-text-objects function.around extend_next<ret>'  -docstring 'function'
-map global tree-sitter-find-extend a ':kak-tree-sitter-req-text-objects parameter.around extend_next<ret>' -docstring 'parameter'
-map global tree-sitter-find-extend t ':kak-tree-sitter-req-text-objects class.around extend_next<ret>' -docstring 'class'
-map global tree-sitter-find-extend T ':kak-tree-sitter-req-text-objects test.around extend_next<ret>' -docstring 'test'
-
-map global tree-sitter-find-extend-rev f ':kak-tree-sitter-req-text-objects function.around extend_prev<ret>'  -docstring 'function'
-map global tree-sitter-find-extend-rev a ':kak-tree-sitter-req-text-objects parameter.around extend_prev<ret>' -docstring 'parameter'
-map global tree-sitter-find-extend-rev t ':kak-tree-sitter-req-text-objects class.around extend_prev<ret>' -docstring 'class'
-map global tree-sitter-find-extend-rev T ':kak-tree-sitter-req-text-objects test.around extend_prev<ret>' -docstring 'test'
+map global user t ':enter-user-mode tree-sitter<ret>' -docstring 'tree-sitter'
