@@ -237,7 +237,7 @@ eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session -vvvvv
 
 # Modeline
 set-face global StatusLineBlack black
-set-face global StatusLineGit "%opt{kts_red}"
+set-face global StatusLineGit "%opt{red}"
 
 declare-option str bufname_abbrev
 
@@ -267,19 +267,19 @@ hook global WinSetOption swiper_enabled=false %{
 set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name} {Swiper}%opt{modeline_swiper}{StatusLine} %opt{bufname_abbrev} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L){{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
 
 # notes
-set-face global notes_todo %opt{kts_green}
-set-face global notes_wip %opt{kts_mauve}
-set-face global notes_question %opt{kts_blue}
-set-face global notes_idea %opt{kts_green}
-set-face global notes_hold %opt{kts_peach}
-set-face global notes_wontdo %opt{kts_red}
+set-face global notes_todo %opt{green}
+set-face global notes_wip %opt{mauve}
+set-face global notes_question %opt{blue}
+set-face global notes_idea %opt{green}
+set-face global notes_hold %opt{orange}
+set-face global notes_wontdo %opt{red}
 set-face global notes_wontdo_text black+s
-set-face global notes_issue "%opt{kts_teal}+u"
+set-face global notes_issue "%opt{teal}+u"
 set-face global notes_task_list_delimiter black
-set-face global notes_task_list_path %opt{kts_blue}
+set-face global notes_task_list_path %opt{blue}
 set-face global notes_task_list_line black
 set-face global notes_task_list_col black
-set-face global notes_tag %opt{kts_green}
+set-face global notes_tag %opt{green}
 
 # LSP
 
@@ -321,27 +321,27 @@ define-command -hidden -params 6 -override lsp-handle-progress %{
 
 # faces / colorschemes
 ## inlay hints (type annotations, etc.)
-set-face global PrimaryCursor "black,%opt{kts_mauve}+i"
-set-face global PrimaryCursorEol "default,%opt{kts_red}"
+set-face global PrimaryCursor "black,%opt{mauve}+i"
+set-face global PrimaryCursorEol "default,%opt{red}"
 set-face global SecondaryCursor "black,white"
-set-face global SecondaryCursorEol "default,%opt{kts_yellow}"
+set-face global SecondaryCursorEol "default,%opt{yellow}"
 set-face global PrimarySelection "default,black+i"
 set-face global SecondarySelection "default,black"
-set-face global MenuForeground "black,%opt{kts_mauve}"
-set-face global MenuInfo "%opt{kts_green},black"
-set-face global Information "%opt{kts_peach},default"
-set-face global StatusLine "%opt{kts_mauve},rgb:1e2030"
-set-face global StatusLineMode "%opt{kts_green}"
-set-face global StatusLineInfo "%opt{kts_teal}"
-set-face global StatusLineValue "%opt{kts_peach}"
-set-face global StatusCursor "black,%opt{kts_mauve}"
-set-face global Prompt "%opt{kts_peach}"
+set-face global MenuForeground "black,%opt{mauve}"
+set-face global MenuInfo "%opt{green},black"
+set-face global Information "%opt{orange},default"
+set-face global StatusLine "%opt{mauve},rgb:1e2030"
+set-face global StatusLineMode "%opt{green}"
+set-face global StatusLineInfo "%opt{teal}"
+set-face global StatusLineValue "%opt{orange}"
+set-face global StatusCursor "black,%opt{mauve}"
+set-face global Prompt "%opt{orange}"
 set-face global InlayHint black+i
 set-face global InlayCodeLens comment
-set-face global DiagnosticInfo "%opt{kts_blue}"
-set-face global DiagnosticHint "%opt{kts_mauve}"
-set-face global DiagnosticWarning "%opt{kts_peach}"
-set-face global DiagnosticError "%opt{kts_red}"
+set-face global DiagnosticInfo "%opt{blue}"
+set-face global DiagnosticHint "%opt{mauve}"
+set-face global DiagnosticWarning "%opt{orange}"
+set-face global DiagnosticError "%opt{red}"
 
 # keybindings
 
