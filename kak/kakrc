@@ -1,6 +1,3 @@
-# Options, highlighters, etc.
-colorscheme catppuccin_macchiato
-
 set global indentwidth 2
 set global ui_options terminal_assistant=none
 set global tabstop 2
@@ -234,6 +231,7 @@ set-option global notes_capture_file %sh{ echo $HOME/notes/capture.md }
 
 # Tree-sitter
 eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session -vvvvv }
+colorscheme catppuccin_macchiato
 
 # Modeline
 set-face global StatusLineBlack black
