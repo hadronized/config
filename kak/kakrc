@@ -230,7 +230,7 @@ set-option global notes_journal_dir %sh{ echo $HOME/notes/journal }
 set-option global notes_capture_file %sh{ echo $HOME/notes/capture.md }
 
 # Tree-sitter
-eval %sh{ kak-tree-sitter -dks --with-text-objects --session $kak_session -vvvvv }
+eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects --session $kak_session -vvvvv }
 colorscheme catppuccin_macchiato
 
 # Modeline
@@ -458,3 +458,12 @@ map global user c ':comment-line<ret>' -docstring 'comment line'
 
 # tree-sitter
 map global user t ':enter-user-mode tree-sitter<ret>' -docstring 'tree-sitter'
+
+# experiment around ! and buffer-based interactive shells
+define-command -override run -shell-completion -params .. -docstring 'run command' %{
+  # this is not strictly needed on every run, but it’s easier for this experiment
+  set-option buffer filetype sh
+  execute-keys -draft "gjo# %sh{date} %sh{pwd}<ret>"
+  execute-keys -draft "gji# %arg{@}<ret>"
+  execute-keys "gj!%arg{@}<ret>"
+}
