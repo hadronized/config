@@ -4,7 +4,7 @@ verbosity = 2
 [server]
 # exit session if no requests were received during given period in seconds
 # set to 0 to disable
-timeout = 1800 # seconds = 30 minutes
+timeout = 0 # seconds = 30 minutes
 
 # This section overrides language IDs.
 # By default, kak-lsp use filetypes for the IDs.
