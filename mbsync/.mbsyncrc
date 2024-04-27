@@ -1,0 +1,23 @@
+IMAPAccount hadronized
+Host ssl0.ovh.net
+User hadronized@strongly-typed-thoughts.net
+PassCmd "pass hadronized@strongly-typed-thoughts.net"
+SSLType IMAPS
+CertificateFile /Users/hadronized/Documents/ca-certificates.pem
+
+IMAPStore hadronized-remote
+Account hadronized
+
+MaildirStore hadronized-local
+SubFolders Verbatim
+Path ~/mail/hadronized/
+Inbox ~/mail/hadronized/Inbox
+
+Channel hadronized
+Far :hadronized-remote:
+Near :hadronized-local:
+Patterns *
+Create Both
+Expunge Both
+Remove Both
+SyncState *
