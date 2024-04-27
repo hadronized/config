@@ -1,5 +1,0 @@
-set realname = "Dimitri Sabadie"
-set from = "hadronized@strongly-typed-thoughts.net"
-
-source ~/.config/neomutt/colors
-source ~/.config/neomutt/accounts
