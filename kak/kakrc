@@ -9,6 +9,11 @@ add-highlighter global/hl-col-120 column 120 default,black+d
 add-highlighter global/show-whitespaces show-whitespaces -only-trailing
 set-face global Whitespace black+f
 
+# for writing emails
+hook global BufSetOption filetype=mail %{
+  add-highlighter global/mail-72 column 72 default,black+d
+}
+
 # Better :grep!
 set-option global grepcmd 'rg --column --smart-case --sort path'
 

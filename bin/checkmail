@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ls ~/mail/hadronized/Inbox/new | wc -l | tr -d ' '
