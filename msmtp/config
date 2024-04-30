@@ -1,0 +1,14 @@
+defaults
+auth no
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account hadronized
+host ssl0.ovh.net
+post 465
+tls_starttls off
+from "Dimitri Sabadie" <hadronized@strongly-typed-thoughts.net>
+user hadronized@strongly-typed-thoughts.net
+passwordeval "pass hadronized@strongly-typed-thoughts.net"
+
+account default: hadronized
